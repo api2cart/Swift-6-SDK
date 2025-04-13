@@ -165,8 +165,10 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var materials: [String]?
     /** When true, automatically renews a listing upon its expiration. */
     public var autoRenew: Bool? = false
+    /** Set whether the product on sale */
+    public var onSale: Bool? = false
 
-    public init(id: String? = nil, model: String? = nil, oldPrice: Double? = nil, price: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, retailPrice: Double? = nil, quantity: Double? = nil, availableForView: Bool? = nil, weight: Double? = nil, weightUnit: String? = nil, dimensionsUnit: String? = nil, increaseQuantity: Double? = nil, reduceQuantity: Double? = nil, warehouseId: String? = nil, reserveQuantity: Double? = nil, manageStock: Bool? = nil, backorderStatus: String? = nil, name: String? = nil, sku: String? = nil, visible: String? = nil, manufacturer: String? = nil, manufacturerId: String? = nil, categoriesIds: String? = nil, relatedProductsIds: String? = nil, upSellProductsIds: String? = nil, crossSellProductsIds: String? = nil, description: String? = nil, shortDescription: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, storeId: String? = nil, langId: String? = nil, inStock: Bool? = nil, status: String? = nil, seoUrl: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = false, reindex: Bool? = true, tags: String? = nil, clearCache: Bool? = true, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, taxable: Bool? = true, productClass: String? = nil, height: Double? = nil, length: Double? = nil, width: Double? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, searchKeywords: String? = nil, barcode: String? = nil, isVirtual: Bool? = false, isFreeShipping: Bool? = nil, reservePrice: Double? = nil, buyitnowPrice: Double? = nil, availFrom: String? = nil, taxClassId: String? = nil, type: String? = nil, avail: Bool? = true, deliveryCode: String? = nil, checkProcessStatus: Bool? = false, packageDetails: ProductAddPackageDetails? = nil, storesIds: String? = nil, manufacturerInfo: ProductAddManufacturerInfo? = nil, productionPartnerIds: String? = nil, shippingTemplateId: Int? = 0, whenMade: String? = "made_to_order", isSupply: Bool? = true, downloadable: Bool? = false, materials: [String]? = nil, autoRenew: Bool? = false) {
+    public init(id: String? = nil, model: String? = nil, oldPrice: Double? = nil, price: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, retailPrice: Double? = nil, quantity: Double? = nil, availableForView: Bool? = nil, weight: Double? = nil, weightUnit: String? = nil, dimensionsUnit: String? = nil, increaseQuantity: Double? = nil, reduceQuantity: Double? = nil, warehouseId: String? = nil, reserveQuantity: Double? = nil, manageStock: Bool? = nil, backorderStatus: String? = nil, name: String? = nil, sku: String? = nil, visible: String? = nil, manufacturer: String? = nil, manufacturerId: String? = nil, categoriesIds: String? = nil, relatedProductsIds: String? = nil, upSellProductsIds: String? = nil, crossSellProductsIds: String? = nil, description: String? = nil, shortDescription: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, storeId: String? = nil, langId: String? = nil, inStock: Bool? = nil, status: String? = nil, seoUrl: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = false, reindex: Bool? = true, tags: String? = nil, clearCache: Bool? = true, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, taxable: Bool? = true, productClass: String? = nil, height: Double? = nil, length: Double? = nil, width: Double? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, searchKeywords: String? = nil, barcode: String? = nil, isVirtual: Bool? = false, isFreeShipping: Bool? = nil, reservePrice: Double? = nil, buyitnowPrice: Double? = nil, availFrom: String? = nil, taxClassId: String? = nil, type: String? = nil, avail: Bool? = true, deliveryCode: String? = nil, checkProcessStatus: Bool? = false, packageDetails: ProductAddPackageDetails? = nil, storesIds: String? = nil, manufacturerInfo: ProductAddManufacturerInfo? = nil, productionPartnerIds: String? = nil, shippingTemplateId: Int? = 0, whenMade: String? = "made_to_order", isSupply: Bool? = true, downloadable: Bool? = false, materials: [String]? = nil, autoRenew: Bool? = false, onSale: Bool? = false) {
         self.id = id
         self.model = model
         self.oldPrice = oldPrice
@@ -246,6 +248,7 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.downloadable = downloadable
         self.materials = materials
         self.autoRenew = autoRenew
+        self.onSale = onSale
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -328,6 +331,7 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case downloadable
         case materials
         case autoRenew = "auto_renew"
+        case onSale = "on_sale"
     }
 
     // Encodable protocol methods
@@ -413,6 +417,7 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(downloadable, forKey: .downloadable)
         try container.encodeIfPresent(materials, forKey: .materials)
         try container.encodeIfPresent(autoRenew, forKey: .autoRenew)
+        try container.encodeIfPresent(onSale, forKey: .onSale)
     }
 }
 

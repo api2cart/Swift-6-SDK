@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **weightUnit** | **String** |  | [optional] 
 **sortOrder** | **Int** |  | [optional] 
 **inStock** | **Bool** |  | [optional] 
+**onSale** | **Bool** |  | [optional] 
 **backorders** | **String** |  | [optional] 
 **manageStock** | **String** |  | [optional] 
 **isStockManaged** | **Bool** |  | [optional] 
