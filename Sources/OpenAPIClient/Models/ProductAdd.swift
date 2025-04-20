@@ -141,6 +141,8 @@ public struct ProductAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var imageUrl: String?
     /** Defines image's name */
     public var imageName: String?
+    /** Image Url */
+    public var additionalImageUrls: [String]?
     /** Defines reserve price value */
     public var reservePrice: Double?
     /** Defines buy it now value */
@@ -149,6 +151,8 @@ public struct ProductAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var conditionDescription: String?
     /** This allows buyers to remain anonymous when the bid or buy an item. */
     public var auctionConfidentialityLevel: String?
+    /** Defines product's logistic channel settings */
+    public var logisticInfo: [ProductAddLogisticInfoInner]?
     /** Allows to schedule a time in the future that the item becomes available. The value should be greater than the current date and time. */
     public var availFrom: String?
     /** Product tags */
@@ -224,7 +228,7 @@ public struct ProductAdd: Sendable, Codable, JSONEncodable, Hashable {
     /** The maximum quantity an order can contain when purchasing the product. */
     public var maxOrderQuantity: Double?
 
-    public init(name: String, model: String, sku: String? = nil, description: String, price: Double, oldPrice: Double? = nil, specialPrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, spriceCreate: String? = nil, spriceModified: String? = nil, spriceExpire: String? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, groupPrices: [ProductAddGroupPricesInner]? = nil, availableForView: Bool? = true, availableForSale: Bool? = true, weight: Double? = 0, width: Double? = nil, height: Double? = nil, length: Double? = nil, weightUnit: String? = nil, dimensionsUnit: String? = nil, shortDescription: String? = nil, warehouseId: String? = nil, backorderStatus: String? = nil, quantity: Double? = 0, downloadable: Bool? = false, wholesalePrice: Double? = nil, createdAt: String? = nil, manufacturer: String? = nil, manufacturerId: String? = nil, categoriesIds: String? = nil, relatedProductsIds: String? = nil, upSellProductsIds: String? = nil, crossSellProductsIds: String? = nil, taxClassId: String? = nil, type: String? = "simple", metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, url: String? = nil, langId: String? = nil, storesIds: String? = nil, categoryId: String? = nil, viewedCount: Int? = 0, orderedCount: Int? = 0, attributeSetName: String? = "Default", attributeName: String? = nil, shippingTemplateId: Int? = 0, productionPartnerIds: String? = nil, condition: String? = nil, listingDuration: String? = nil, listingType: String? = "FixedPrice", paymentMethods: [String]? = nil, returnAccepted: Bool? = nil, shippingDetails: [ProductAddShippingDetailsInner]? = nil, paypalEmail: String? = nil, sellerProfiles: ProductAddSellerProfiles? = nil, packageDetails: ProductAddPackageDetails? = nil, bestOffer: ProductAddBestOffer? = nil, salesTax: ProductAddSalesTax? = nil, barcode: String? = nil, upc: String? = nil, ean: String? = nil, isbn: String? = nil, specifics: [ProductAddSpecificsInner]? = nil, imageUrl: String? = nil, imageName: String? = nil, reservePrice: Double? = nil, buyitnowPrice: Double? = nil, conditionDescription: String? = nil, auctionConfidentialityLevel: String? = nil, availFrom: String? = nil, tags: String? = nil, clearCache: Bool? = true, asin: String? = nil, gtin: String? = nil, mpn: String? = nil, taxable: Bool? = true, visible: String? = nil, status: String? = nil, seoUrl: String? = nil, productClass: String? = nil, productType: String? = nil, marketplaceItemProperties: String? = nil, manageStock: Bool? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, files: [ProductAddFilesInner]? = nil, searchKeywords: String? = nil, storeId: String? = nil, brandName: String? = nil, isVirtual: Bool? = false, isFreeShipping: Bool? = nil, inStock: Bool? = nil, deliveryCode: String? = nil, productReference: String? = nil, deliveryType: String? = nil, deliveryTime: Int? = nil, sizeChart: ProductAddSizeChart? = nil, certifications: [ProductAddCertificationsInner]? = nil, deliveryOptionIds: String? = nil, manufacturerInfo: ProductAddManufacturerInfo? = nil, whenMade: String? = "made_to_order", isSupply: Bool? = true, materials: [String]? = nil, autoRenew: Bool? = false, allowDisplayCondition: Bool? = nil, minOrderQuantity: Double? = nil, maxOrderQuantity: Double? = nil) {
+    public init(name: String, model: String, sku: String? = nil, description: String, price: Double, oldPrice: Double? = nil, specialPrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, spriceCreate: String? = nil, spriceModified: String? = nil, spriceExpire: String? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, groupPrices: [ProductAddGroupPricesInner]? = nil, availableForView: Bool? = true, availableForSale: Bool? = true, weight: Double? = 0, width: Double? = nil, height: Double? = nil, length: Double? = nil, weightUnit: String? = nil, dimensionsUnit: String? = nil, shortDescription: String? = nil, warehouseId: String? = nil, backorderStatus: String? = nil, quantity: Double? = 0, downloadable: Bool? = false, wholesalePrice: Double? = nil, createdAt: String? = nil, manufacturer: String? = nil, manufacturerId: String? = nil, categoriesIds: String? = nil, relatedProductsIds: String? = nil, upSellProductsIds: String? = nil, crossSellProductsIds: String? = nil, taxClassId: String? = nil, type: String? = "simple", metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, url: String? = nil, langId: String? = nil, storesIds: String? = nil, categoryId: String? = nil, viewedCount: Int? = 0, orderedCount: Int? = 0, attributeSetName: String? = "Default", attributeName: String? = nil, shippingTemplateId: Int? = 0, productionPartnerIds: String? = nil, condition: String? = nil, listingDuration: String? = nil, listingType: String? = "FixedPrice", paymentMethods: [String]? = nil, returnAccepted: Bool? = nil, shippingDetails: [ProductAddShippingDetailsInner]? = nil, paypalEmail: String? = nil, sellerProfiles: ProductAddSellerProfiles? = nil, packageDetails: ProductAddPackageDetails? = nil, bestOffer: ProductAddBestOffer? = nil, salesTax: ProductAddSalesTax? = nil, barcode: String? = nil, upc: String? = nil, ean: String? = nil, isbn: String? = nil, specifics: [ProductAddSpecificsInner]? = nil, imageUrl: String? = nil, imageName: String? = nil, additionalImageUrls: [String]? = nil, reservePrice: Double? = nil, buyitnowPrice: Double? = nil, conditionDescription: String? = nil, auctionConfidentialityLevel: String? = nil, logisticInfo: [ProductAddLogisticInfoInner]? = nil, availFrom: String? = nil, tags: String? = nil, clearCache: Bool? = true, asin: String? = nil, gtin: String? = nil, mpn: String? = nil, taxable: Bool? = true, visible: String? = nil, status: String? = nil, seoUrl: String? = nil, productClass: String? = nil, productType: String? = nil, marketplaceItemProperties: String? = nil, manageStock: Bool? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, files: [ProductAddFilesInner]? = nil, searchKeywords: String? = nil, storeId: String? = nil, brandName: String? = nil, isVirtual: Bool? = false, isFreeShipping: Bool? = nil, inStock: Bool? = nil, deliveryCode: String? = nil, productReference: String? = nil, deliveryType: String? = nil, deliveryTime: Int? = nil, sizeChart: ProductAddSizeChart? = nil, certifications: [ProductAddCertificationsInner]? = nil, deliveryOptionIds: String? = nil, manufacturerInfo: ProductAddManufacturerInfo? = nil, whenMade: String? = "made_to_order", isSupply: Bool? = true, materials: [String]? = nil, autoRenew: Bool? = false, allowDisplayCondition: Bool? = nil, minOrderQuantity: Double? = nil, maxOrderQuantity: Double? = nil) {
         self.name = name
         self.model = model
         self.sku = sku
@@ -293,10 +297,12 @@ public struct ProductAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.specifics = specifics
         self.imageUrl = imageUrl
         self.imageName = imageName
+        self.additionalImageUrls = additionalImageUrls
         self.reservePrice = reservePrice
         self.buyitnowPrice = buyitnowPrice
         self.conditionDescription = conditionDescription
         self.auctionConfidentialityLevel = auctionConfidentialityLevel
+        self.logisticInfo = logisticInfo
         self.availFrom = availFrom
         self.tags = tags
         self.clearCache = clearCache
@@ -406,10 +412,12 @@ public struct ProductAdd: Sendable, Codable, JSONEncodable, Hashable {
         case specifics
         case imageUrl = "image_url"
         case imageName = "image_name"
+        case additionalImageUrls = "additional_image_urls"
         case reservePrice = "reserve_price"
         case buyitnowPrice = "buyitnow_price"
         case conditionDescription = "condition_description"
         case auctionConfidentialityLevel = "auction_confidentiality_level"
+        case logisticInfo = "logistic_info"
         case availFrom = "avail_from"
         case tags
         case clearCache = "clear_cache"
@@ -522,10 +530,12 @@ public struct ProductAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(specifics, forKey: .specifics)
         try container.encodeIfPresent(imageUrl, forKey: .imageUrl)
         try container.encodeIfPresent(imageName, forKey: .imageName)
+        try container.encodeIfPresent(additionalImageUrls, forKey: .additionalImageUrls)
         try container.encodeIfPresent(reservePrice, forKey: .reservePrice)
         try container.encodeIfPresent(buyitnowPrice, forKey: .buyitnowPrice)
         try container.encodeIfPresent(conditionDescription, forKey: .conditionDescription)
         try container.encodeIfPresent(auctionConfidentialityLevel, forKey: .auctionConfidentialityLevel)
+        try container.encodeIfPresent(logisticInfo, forKey: .logisticInfo)
         try container.encodeIfPresent(availFrom, forKey: .availFrom)
         try container.encodeIfPresent(tags, forKey: .tags)
         try container.encodeIfPresent(clearCache, forKey: .clearCache)

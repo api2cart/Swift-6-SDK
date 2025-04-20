@@ -302,6 +302,7 @@ Sources/OpenAPIClient/Models/ProductAddCertificationsInnerFilesInner.swift
 Sources/OpenAPIClient/Models/ProductAddCertificationsInnerImagesInner.swift
 Sources/OpenAPIClient/Models/ProductAddFilesInner.swift
 Sources/OpenAPIClient/Models/ProductAddGroupPricesInner.swift
+Sources/OpenAPIClient/Models/ProductAddLogisticInfoInner.swift
 Sources/OpenAPIClient/Models/ProductAddManufacturerInfo.swift
 Sources/OpenAPIClient/Models/ProductAddPackageDetails.swift
 Sources/OpenAPIClient/Models/ProductAddSalesTax.swift
@@ -749,6 +750,7 @@ docs/ProductAddCertificationsInnerFilesInner.md
 docs/ProductAddCertificationsInnerImagesInner.md
 docs/ProductAddFilesInner.md
 docs/ProductAddGroupPricesInner.md
+docs/ProductAddLogisticInfoInner.md
 docs/ProductAddManufacturerInfo.md
 docs/ProductAddPackageDetails.md
 docs/ProductAddSalesTax.md
