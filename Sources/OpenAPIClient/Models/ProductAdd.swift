@@ -13,36 +13,80 @@ public struct ProductAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var name: String
     /** Defines product's model that has to be added */
     public var model: String
-    /** Defines product's sku that has to be added */
-    public var sku: String?
     /** Defines product's description that has to be added */
     public var description: String
     /** Defines product's price that has to be added */
     public var price: Double
-    /** Defines product's old price */
-    public var oldPrice: Double?
-    /** Defines product's model that has to be added */
-    public var specialPrice: Double?
-    /** Defines new product's cost price */
-    public var costPrice: Double?
-    /** Specifies product's fixed cost shipping price */
-    public var fixedCostShippingPrice: Double?
-    /** Defines the date of special price creation */
-    public var spriceCreate: String?
-    /** Defines the date of special price modification */
-    public var spriceModified: String?
-    /** Defines the term of special price offer duration */
-    public var spriceExpire: String?
-    /** Defines product's tier prices */
-    public var tierPrices: [ProductAddTierPricesInner]?
-    /** Defines product's group prices */
-    public var groupPrices: [ProductAddGroupPricesInner]?
+    /** Defines product's sku that has to be added */
+    public var sku: String?
+    /** Defines short description */
+    public var shortDescription: String?
+    /** Defines product's type */
+    public var type: String? = "simple"
+    /** Defines product's status */
+    public var status: String?
+    /** Set visibility status */
+    public var visible: String?
+    /** Defines product add that is specified by category id */
+    public var categoryId: String?
+    /** Defines product add that is specified by comma-separated categories id */
+    public var categoriesIds: String?
+    /** A categorization for the product */
+    public var productClass: String?
+    /** A categorization for the product */
+    public var productType: String?
+    /** Defines whether the product is virtual */
+    public var isVirtual: Bool? = false
+    /** Defines whether the product is downloadable */
+    public var downloadable: Bool? = false
+    /** If true, it indicates the product as a supply, otherwise it indicates that it is a finished product. */
+    public var isSupply: Bool? = true
     /** Specifies the set of visible/invisible products for users */
     public var availableForView: Bool? = true
     /** Specifies the set of visible/invisible products for sale */
     public var availableForSale: Bool? = true
+    /** Store Id */
+    public var storeId: String?
+    /** Assign product to the stores that is specified by comma-separated stores' id */
+    public var storesIds: String?
+    /** Language id */
+    public var langId: String?
+    /** Defines product's old price */
+    public var oldPrice: Double?
+    /** Defines product's model that has to be added */
+    public var specialPrice: Double?
+    /** Defines product's sale price */
+    public var wholesalePrice: Double?
+    /** Defines new product's cost price */
+    public var costPrice: Double?
+    /** Specifies product's fixed cost shipping price */
+    public var fixedCostShippingPrice: Double?
+    /** Defines product's tier prices */
+    public var tierPrices: [ProductAddTierPricesInner]?
+    /** Defines product's group prices */
+    public var groupPrices: [ProductAddGroupPricesInner]?
+    /** Defines buy it now value */
+    public var buyitnowPrice: Double?
+    /** Defines reserve price value */
+    public var reservePrice: Double?
+    /** Defines product's quantity that has to be added */
+    public var quantity: Double? = 0
+    /** Set stock status */
+    public var inStock: Bool?
+    /** Defines inventory tracking for product */
+    public var manageStock: Bool?
+    /** This parameter is used for selecting a warehouse where you need to set/modify a product quantity. */
+    public var warehouseId: String?
+    /** Set backorder status */
+    public var backorderStatus: String?
+    /** The minimum quantity an order must contain, to be eligible to purchase this product. */
+    public var minOrderQuantity: Double?
+    /** The maximum quantity an order can contain when purchasing the product. */
+    public var maxOrderQuantity: Double?
     /** Weight */
     public var weight: Double? = 0
+    /** Weight Unit */
+    public var weightUnit: String?
     /** Defines product's width */
     public var width: Double?
     /** Defines product's height */
@@ -50,83 +94,7 @@ public struct ProductAdd: Sendable, Codable, JSONEncodable, Hashable {
     /** Defines product's length */
     public var length: Double?
     /** Weight Unit */
-    public var weightUnit: String?
-    /** Weight Unit */
     public var dimensionsUnit: String?
-    /** Defines short description */
-    public var shortDescription: String?
-    /** This parameter is used for selecting a warehouse where you need to set/modify a product quantity. */
-    public var warehouseId: String?
-    /** Set backorder status */
-    public var backorderStatus: String?
-    /** Defines product's quantity that has to be added */
-    public var quantity: Double? = 0
-    /** Defines whether the product is downloadable */
-    public var downloadable: Bool? = false
-    /** Defines product's sale price */
-    public var wholesalePrice: Double?
-    /** Defines the date of entity creation */
-    public var createdAt: String?
-    /** Defines product's manufacturer */
-    public var manufacturer: String?
-    /** Defines product's manufacturer by manufacturer_id */
-    public var manufacturerId: String?
-    /** Defines product add that is specified by comma-separated categories id */
-    public var categoriesIds: String?
-    /** Defines product's related products ids that has to be added */
-    public var relatedProductsIds: String?
-    /** Defines product's up-sell products ids that has to be added */
-    public var upSellProductsIds: String?
-    /** Defines product's cross-sell products ids that has to be added */
-    public var crossSellProductsIds: String?
-    /** Defines tax classes where entity has to be added */
-    public var taxClassId: String?
-    /** Defines product's type */
-    public var type: String? = "simple"
-    /** Defines unique meta title for each entity */
-    public var metaTitle: String?
-    /** Defines unique meta keywords for each entity */
-    public var metaKeywords: String?
-    /** Defines unique meta description of a entity */
-    public var metaDescription: String?
-    /** Defines unique product's URL */
-    public var url: String?
-    /** Language id */
-    public var langId: String?
-    /** Assign product to the stores that is specified by comma-separated stores' id */
-    public var storesIds: String?
-    /** Defines product add that is specified by category id */
-    public var categoryId: String?
-    /** Specifies the number of product's reviews */
-    public var viewedCount: Int? = 0
-    /** Defines how many times the product was ordered */
-    public var orderedCount: Int? = 0
-    /** Defines product’s attribute set name in Magento */
-    public var attributeSetName: String? = "Default"
-    /** Defines product’s attribute name separated with a comma in Magento */
-    public var attributeName: String?
-    /** The numeric ID of the shipping template associated with the products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field shipping_zones[]->id. */
-    public var shippingTemplateId: Int? = 0
-    /** Defines product's production partner ids that has to be added */
-    public var productionPartnerIds: String?
-    /** The human-readable label for the condition (e.g., \"New\"). */
-    public var condition: String?
-    /** Describes the number of days the seller wants the listing to be active. Look at cart.info method response for allowed values. */
-    public var listingDuration: String?
-    /** Indicates the selling format of the marketplace listing. */
-    public var listingType: String? = "FixedPrice"
-    /** Identifies the payment method (such as PayPal) that the seller will accept when the buyer pays for the item. Look at cart.info method response for allowed values.<hr><div style=\"font-style:normal\">Param structure:<div style=\"margin-left: 2%;\"><code style=\"padding:0; background-color:#ffffff;font-size:85%;font-family:monospace;\">payment_methods[0] = string</br>payment_methods[1] = string</br></code></div></div> */
-    public var paymentMethods: [String]?
-    /** Indicates whether the seller allows the buyer to return the item. */
-    public var returnAccepted: Bool?
-    /** The shipping details, including flat and calculated shipping costs and shipping insurance costs. Look at cart.info method response for allowed values.<hr><div style=\"font-style:normal\">Param structure:<div style=\"margin-left: 2%;\"><code style=\"padding:0; background-color:#ffffff;font-size:85%;font-family:monospace;\">shipping_details[0][<b>shipping_type</b>] = string </br>shipping_details[0][<b>shipping_service</b>] = string</br>shipping_details[0][<b>shipping_cost</b>] = decimal</br>shipping_details[1][<b>shipping_type</b>] = string </br>shipping_details[1][<b>shipping_service</b>] = string</br>shipping_details[1][<b>shipping_cost</b>] = decimal</br></code></div></div> */
-    public var shippingDetails: [ProductAddShippingDetailsInner]?
-    /** Valid PayPal email address for the PayPal account that the seller will use if they offer PayPal as a payment method for the listing. */
-    public var paypalEmail: String?
-    public var sellerProfiles: ProductAddSellerProfiles?
-    public var packageDetails: ProductAddPackageDetails?
-    public var bestOffer: ProductAddBestOffer?
-    public var salesTax: ProductAddSalesTax?
     /** A barcode is a unique code composed of numbers used as a product identifier. */
     public var barcode: String?
     /** Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products. */
@@ -135,327 +103,359 @@ public struct ProductAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var ean: String?
     /** International Standard Book Number. An ISBN is a unique identifier for books. */
     public var isbn: String?
-    /** An array of Item Specific Name/Value pairs used by the seller to provide descriptive details of an item in a structured manner.         The list of possible specifications can be obtained using the category.info method (additional_fields->product_specifics).         <b>The structure of the parameter is different for specific platforms.</b> */
-    public var specifics: [ProductAddSpecificsInner]?
+    /** Global Trade Item Number. An GTIN is an identifier for trade items. */
+    public var gtin: String?
+    /** Manufacturer Part Number. A MPN is an identifier of a particular part design or material used. */
+    public var mpn: String?
+    /** Amazon Standard Identification Number. */
+    public var asin: String?
+    /** Groups all variations, that you want to combine into one product. */
+    public var productReference: String?
+    /** Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes */
+    public var harmonizedSystemCode: String?
+    /** The country where the inventory item was made */
+    public var countryOfOrigin: String?
+    /** Defines product's manufacturer */
+    public var manufacturer: String?
+    /** Defines product's manufacturer by manufacturer_id */
+    public var manufacturerId: String?
+    public var manufacturerInfo: ProductAddManufacturerInfo?
+    /** Defines product brand name */
+    public var brandName: String?
     /** Image Url */
     public var imageUrl: String?
     /** Defines image's name */
     public var imageName: String?
     /** Image Url */
     public var additionalImageUrls: [String]?
-    /** Defines reserve price value */
-    public var reservePrice: Double?
-    /** Defines buy it now value */
-    public var buyitnowPrice: Double?
-    /** Detailed description of the product condition. */
-    public var conditionDescription: String?
-    /** This allows buyers to remain anonymous when the bid or buy an item. */
-    public var auctionConfidentialityLevel: String?
-    /** Defines product's logistic channel settings */
-    public var logisticInfo: [ProductAddLogisticInfoInner]?
-    /** Allows to schedule a time in the future that the item becomes available. The value should be greater than the current date and time. */
-    public var availFrom: String?
-    /** Product tags */
-    public var tags: String?
-    /** Is cache clear required */
-    public var clearCache: Bool? = true
-    /** Amazon Standard Identification Number. */
-    public var asin: String?
-    /** Global Trade Item Number. An GTIN is an identifier for trade items. */
-    public var gtin: String?
-    /** Manufacturer Part Number. A MPN is an identifier of a particular part design or material used. */
-    public var mpn: String?
-    /** Specifies whether a tax is charged */
-    public var taxable: Bool? = true
-    /** Set visibility status */
-    public var visible: String?
-    /** Defines product's status */
-    public var status: String?
-    /** Defines unique URL for SEO */
-    public var seoUrl: String?
-    /** A categorization for the product */
-    public var productClass: String?
-    /** A categorization for the product */
-    public var productType: String?
-    /** String containing the JSON representation of the supplied data */
-    public var marketplaceItemProperties: String?
-    /** Defines inventory tracking for product */
-    public var manageStock: Bool?
-    /** Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes */
-    public var harmonizedSystemCode: String?
-    /** The country where the inventory item was made */
-    public var countryOfOrigin: String?
     /** File Url */
     public var files: [ProductAddFilesInner]?
+    public var sizeChart: ProductAddSizeChart?
+    /** Defines product's related products ids that has to be added */
+    public var relatedProductsIds: String?
+    /** Defines product's up-sell products ids that has to be added */
+    public var upSellProductsIds: String?
+    /** Defines product's cross-sell products ids that has to be added */
+    public var crossSellProductsIds: String?
+    /** Defines product’s attribute set name in Magento */
+    public var attributeSetName: String? = "Default"
+    /** Defines product’s attribute name separated with a comma in Magento */
+    public var attributeName: String?
     /** Defines unique search keywords */
     public var searchKeywords: String?
-    /** Store Id */
-    public var storeId: String?
-    /** Defines product brand name */
-    public var brandName: String?
-    /** Defines whether the product is virtual */
-    public var isVirtual: Bool? = false
+    /** Product tags */
+    public var tags: String?
+    /** A list of material strings for materials used in the product. */
+    public var materials: [String]?
+    /** An array of product certifications. The list of possible certifications can be obtained using the \"<i>category.info</i>\" method (<i>additional_fields->rules->product_certifications</i>). */
+    public var certifications: [ProductAddCertificationsInner]?
+    /** An array of Item Specific Name/Value pairs used by the seller to provide descriptive details of an item in a structured manner.         The list of possible specifications can be obtained using the category.info method (additional_fields->product_specifics).         <b>The structure of the parameter is different for specific platforms.</b> */
+    public var specifics: [ProductAddSpecificsInner]?
+    /** Allows to schedule a time in the future that the item becomes available. The value should be greater than the current date and time. */
+    public var availFrom: String?
+    /** Defines the date of special price creation */
+    public var spriceCreate: String?
+    /** Defines the date of special price modification */
+    public var spriceModified: String?
+    /** Defines the term of special price offer duration */
+    public var spriceExpire: String?
+    /** Defines the date of entity creation */
+    public var createdAt: String?
+    /** When true, automatically renews a listing upon its expiration. */
+    public var autoRenew: Bool? = false
+    /** An enumerated string for the era in which the maker made the product. */
+    public var whenMade: String? = "made_to_order"
+    /** Defines unique meta title for each entity */
+    public var metaTitle: String?
+    /** Defines unique meta keywords for each entity */
+    public var metaKeywords: String?
+    /** Defines unique meta description of a entity */
+    public var metaDescription: String?
+    /** Defines unique product's URL */
+    public var url: String?
+    /** Defines unique URL for SEO */
+    public var seoUrl: String?
+    /** Defines tax classes where entity has to be added */
+    public var taxClassId: String?
+    /** Specifies whether a tax is charged */
+    public var taxable: Bool? = true
+    public var salesTax: ProductAddSalesTax?
+    /** The human-readable label for the condition (e.g., \"New\"). */
+    public var condition: String?
+    /** Detailed description of the product condition. */
+    public var conditionDescription: String?
+    /** Flag used to determine whether the product condition is shown to the customer on the product page. */
+    public var allowDisplayCondition: Bool?
+    /** Identifies the payment method (such as PayPal) that the seller will accept when the buyer pays for the item. Look at cart.info method response for allowed values.<hr><div style=\"font-style:normal\">Param structure:<div style=\"margin-left: 2%;\"><code style=\"padding:0; background-color:#ffffff;font-size:85%;font-family:monospace;\">payment_methods[0] = string</br>payment_methods[1] = string</br></code></div></div> */
+    public var paymentMethods: [String]?
+    /** Valid PayPal email address for the PayPal account that the seller will use if they offer PayPal as a payment method for the listing. */
+    public var paypalEmail: String?
+    /** The numeric ID of the shipping template associated with the products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field shipping_zones[]->id. */
+    public var shippingTemplateId: Int? = 0
+    /** The shipping details, including flat and calculated shipping costs and shipping insurance costs. Look at cart.info method response for allowed values.<hr><div style=\"font-style:normal\">Param structure:<div style=\"margin-left: 2%;\"><code style=\"padding:0; background-color:#ffffff;font-size:85%;font-family:monospace;\">shipping_details[0][<b>shipping_type</b>] = string </br>shipping_details[0][<b>shipping_service</b>] = string</br>shipping_details[0][<b>shipping_cost</b>] = decimal</br>shipping_details[1][<b>shipping_type</b>] = string </br>shipping_details[1][<b>shipping_service</b>] = string</br>shipping_details[1][<b>shipping_cost</b>] = decimal</br></code></div></div> */
+    public var shippingDetails: [ProductAddShippingDetailsInner]?
     /** Specifies product's free shipping flag that has to be added */
     public var isFreeShipping: Bool?
-    /** Set stock status */
-    public var inStock: Bool?
     /** The delivery promise that applies to offer */
     public var deliveryCode: String?
-    /** Groups all variations, that you want to combine into one product. */
-    public var productReference: String?
     /** Defines the type of the delivery. */
     public var deliveryType: String?
     /** Defines delivery time in days. */
     public var deliveryTime: Int?
-    public var sizeChart: ProductAddSizeChart?
-    /** An array of product certifications. The list of possible certifications can be obtained using the \"<i>category.info</i>\" method (<i>additional_fields->rules->product_certifications</i>). */
-    public var certifications: [ProductAddCertificationsInner]?
     /** Defines delivery options for product by ids. */
     public var deliveryOptionIds: String?
-    public var manufacturerInfo: ProductAddManufacturerInfo?
-    /** An enumerated string for the era in which the maker made the product. */
-    public var whenMade: String? = "made_to_order"
-    /** If true, it indicates the product as a supply, otherwise it indicates that it is a finished product. */
-    public var isSupply: Bool? = true
-    /** A list of material strings for materials used in the product. */
-    public var materials: [String]?
-    /** When true, automatically renews a listing upon its expiration. */
-    public var autoRenew: Bool? = false
-    /** Flag used to determine whether the product condition is shown to the customer on the product page. */
-    public var allowDisplayCondition: Bool?
-    /** The minimum quantity an order must contain, to be eligible to purchase this product. */
-    public var minOrderQuantity: Double?
-    /** The maximum quantity an order can contain when purchasing the product. */
-    public var maxOrderQuantity: Double?
+    public var packageDetails: ProductAddPackageDetails?
+    /** Defines product's logistic channel settings */
+    public var logisticInfo: [ProductAddLogisticInfoInner]?
+    /** Describes the number of days the seller wants the listing to be active. Look at cart.info method response for allowed values. */
+    public var listingDuration: String?
+    /** Indicates the selling format of the marketplace listing. */
+    public var listingType: String? = "FixedPrice"
+    /** Indicates whether the seller allows the buyer to return the item. */
+    public var returnAccepted: Bool?
+    public var sellerProfiles: ProductAddSellerProfiles?
+    /** This allows buyers to remain anonymous when the bid or buy an item. */
+    public var auctionConfidentialityLevel: String?
+    public var bestOffer: ProductAddBestOffer?
+    /** Defines product's production partner ids that has to be added */
+    public var productionPartnerIds: String?
+    /** String containing the JSON representation of the supplied data */
+    public var marketplaceItemProperties: String?
+    /** Is cache clear required */
+    public var clearCache: Bool? = true
+    /** Specifies the number of product's reviews */
+    public var viewedCount: Int? = 0
+    /** Defines how many times the product was ordered */
+    public var orderedCount: Int? = 0
 
-    public init(name: String, model: String, sku: String? = nil, description: String, price: Double, oldPrice: Double? = nil, specialPrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, spriceCreate: String? = nil, spriceModified: String? = nil, spriceExpire: String? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, groupPrices: [ProductAddGroupPricesInner]? = nil, availableForView: Bool? = true, availableForSale: Bool? = true, weight: Double? = 0, width: Double? = nil, height: Double? = nil, length: Double? = nil, weightUnit: String? = nil, dimensionsUnit: String? = nil, shortDescription: String? = nil, warehouseId: String? = nil, backorderStatus: String? = nil, quantity: Double? = 0, downloadable: Bool? = false, wholesalePrice: Double? = nil, createdAt: String? = nil, manufacturer: String? = nil, manufacturerId: String? = nil, categoriesIds: String? = nil, relatedProductsIds: String? = nil, upSellProductsIds: String? = nil, crossSellProductsIds: String? = nil, taxClassId: String? = nil, type: String? = "simple", metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, url: String? = nil, langId: String? = nil, storesIds: String? = nil, categoryId: String? = nil, viewedCount: Int? = 0, orderedCount: Int? = 0, attributeSetName: String? = "Default", attributeName: String? = nil, shippingTemplateId: Int? = 0, productionPartnerIds: String? = nil, condition: String? = nil, listingDuration: String? = nil, listingType: String? = "FixedPrice", paymentMethods: [String]? = nil, returnAccepted: Bool? = nil, shippingDetails: [ProductAddShippingDetailsInner]? = nil, paypalEmail: String? = nil, sellerProfiles: ProductAddSellerProfiles? = nil, packageDetails: ProductAddPackageDetails? = nil, bestOffer: ProductAddBestOffer? = nil, salesTax: ProductAddSalesTax? = nil, barcode: String? = nil, upc: String? = nil, ean: String? = nil, isbn: String? = nil, specifics: [ProductAddSpecificsInner]? = nil, imageUrl: String? = nil, imageName: String? = nil, additionalImageUrls: [String]? = nil, reservePrice: Double? = nil, buyitnowPrice: Double? = nil, conditionDescription: String? = nil, auctionConfidentialityLevel: String? = nil, logisticInfo: [ProductAddLogisticInfoInner]? = nil, availFrom: String? = nil, tags: String? = nil, clearCache: Bool? = true, asin: String? = nil, gtin: String? = nil, mpn: String? = nil, taxable: Bool? = true, visible: String? = nil, status: String? = nil, seoUrl: String? = nil, productClass: String? = nil, productType: String? = nil, marketplaceItemProperties: String? = nil, manageStock: Bool? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, files: [ProductAddFilesInner]? = nil, searchKeywords: String? = nil, storeId: String? = nil, brandName: String? = nil, isVirtual: Bool? = false, isFreeShipping: Bool? = nil, inStock: Bool? = nil, deliveryCode: String? = nil, productReference: String? = nil, deliveryType: String? = nil, deliveryTime: Int? = nil, sizeChart: ProductAddSizeChart? = nil, certifications: [ProductAddCertificationsInner]? = nil, deliveryOptionIds: String? = nil, manufacturerInfo: ProductAddManufacturerInfo? = nil, whenMade: String? = "made_to_order", isSupply: Bool? = true, materials: [String]? = nil, autoRenew: Bool? = false, allowDisplayCondition: Bool? = nil, minOrderQuantity: Double? = nil, maxOrderQuantity: Double? = nil) {
+    public init(name: String, model: String, description: String, price: Double, sku: String? = nil, shortDescription: String? = nil, type: String? = "simple", status: String? = nil, visible: String? = nil, categoryId: String? = nil, categoriesIds: String? = nil, productClass: String? = nil, productType: String? = nil, isVirtual: Bool? = false, downloadable: Bool? = false, isSupply: Bool? = true, availableForView: Bool? = true, availableForSale: Bool? = true, storeId: String? = nil, storesIds: String? = nil, langId: String? = nil, oldPrice: Double? = nil, specialPrice: Double? = nil, wholesalePrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, groupPrices: [ProductAddGroupPricesInner]? = nil, buyitnowPrice: Double? = nil, reservePrice: Double? = nil, quantity: Double? = 0, inStock: Bool? = nil, manageStock: Bool? = nil, warehouseId: String? = nil, backorderStatus: String? = nil, minOrderQuantity: Double? = nil, maxOrderQuantity: Double? = nil, weight: Double? = 0, weightUnit: String? = nil, width: Double? = nil, height: Double? = nil, length: Double? = nil, dimensionsUnit: String? = nil, barcode: String? = nil, upc: String? = nil, ean: String? = nil, isbn: String? = nil, gtin: String? = nil, mpn: String? = nil, asin: String? = nil, productReference: String? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, manufacturer: String? = nil, manufacturerId: String? = nil, manufacturerInfo: ProductAddManufacturerInfo? = nil, brandName: String? = nil, imageUrl: String? = nil, imageName: String? = nil, additionalImageUrls: [String]? = nil, files: [ProductAddFilesInner]? = nil, sizeChart: ProductAddSizeChart? = nil, relatedProductsIds: String? = nil, upSellProductsIds: String? = nil, crossSellProductsIds: String? = nil, attributeSetName: String? = "Default", attributeName: String? = nil, searchKeywords: String? = nil, tags: String? = nil, materials: [String]? = nil, certifications: [ProductAddCertificationsInner]? = nil, specifics: [ProductAddSpecificsInner]? = nil, availFrom: String? = nil, spriceCreate: String? = nil, spriceModified: String? = nil, spriceExpire: String? = nil, createdAt: String? = nil, autoRenew: Bool? = false, whenMade: String? = "made_to_order", metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, url: String? = nil, seoUrl: String? = nil, taxClassId: String? = nil, taxable: Bool? = true, salesTax: ProductAddSalesTax? = nil, condition: String? = nil, conditionDescription: String? = nil, allowDisplayCondition: Bool? = nil, paymentMethods: [String]? = nil, paypalEmail: String? = nil, shippingTemplateId: Int? = 0, shippingDetails: [ProductAddShippingDetailsInner]? = nil, isFreeShipping: Bool? = nil, deliveryCode: String? = nil, deliveryType: String? = nil, deliveryTime: Int? = nil, deliveryOptionIds: String? = nil, packageDetails: ProductAddPackageDetails? = nil, logisticInfo: [ProductAddLogisticInfoInner]? = nil, listingDuration: String? = nil, listingType: String? = "FixedPrice", returnAccepted: Bool? = nil, sellerProfiles: ProductAddSellerProfiles? = nil, auctionConfidentialityLevel: String? = nil, bestOffer: ProductAddBestOffer? = nil, productionPartnerIds: String? = nil, marketplaceItemProperties: String? = nil, clearCache: Bool? = true, viewedCount: Int? = 0, orderedCount: Int? = 0) {
         self.name = name
         self.model = model
-        self.sku = sku
         self.description = description
         self.price = price
-        self.oldPrice = oldPrice
-        self.specialPrice = specialPrice
-        self.costPrice = costPrice
-        self.fixedCostShippingPrice = fixedCostShippingPrice
-        self.spriceCreate = spriceCreate
-        self.spriceModified = spriceModified
-        self.spriceExpire = spriceExpire
-        self.tierPrices = tierPrices
-        self.groupPrices = groupPrices
+        self.sku = sku
+        self.shortDescription = shortDescription
+        self.type = type
+        self.status = status
+        self.visible = visible
+        self.categoryId = categoryId
+        self.categoriesIds = categoriesIds
+        self.productClass = productClass
+        self.productType = productType
+        self.isVirtual = isVirtual
+        self.downloadable = downloadable
+        self.isSupply = isSupply
         self.availableForView = availableForView
         self.availableForSale = availableForSale
+        self.storeId = storeId
+        self.storesIds = storesIds
+        self.langId = langId
+        self.oldPrice = oldPrice
+        self.specialPrice = specialPrice
+        self.wholesalePrice = wholesalePrice
+        self.costPrice = costPrice
+        self.fixedCostShippingPrice = fixedCostShippingPrice
+        self.tierPrices = tierPrices
+        self.groupPrices = groupPrices
+        self.buyitnowPrice = buyitnowPrice
+        self.reservePrice = reservePrice
+        self.quantity = quantity
+        self.inStock = inStock
+        self.manageStock = manageStock
+        self.warehouseId = warehouseId
+        self.backorderStatus = backorderStatus
+        self.minOrderQuantity = minOrderQuantity
+        self.maxOrderQuantity = maxOrderQuantity
         self.weight = weight
+        self.weightUnit = weightUnit
         self.width = width
         self.height = height
         self.length = length
-        self.weightUnit = weightUnit
         self.dimensionsUnit = dimensionsUnit
-        self.shortDescription = shortDescription
-        self.warehouseId = warehouseId
-        self.backorderStatus = backorderStatus
-        self.quantity = quantity
-        self.downloadable = downloadable
-        self.wholesalePrice = wholesalePrice
-        self.createdAt = createdAt
-        self.manufacturer = manufacturer
-        self.manufacturerId = manufacturerId
-        self.categoriesIds = categoriesIds
-        self.relatedProductsIds = relatedProductsIds
-        self.upSellProductsIds = upSellProductsIds
-        self.crossSellProductsIds = crossSellProductsIds
-        self.taxClassId = taxClassId
-        self.type = type
-        self.metaTitle = metaTitle
-        self.metaKeywords = metaKeywords
-        self.metaDescription = metaDescription
-        self.url = url
-        self.langId = langId
-        self.storesIds = storesIds
-        self.categoryId = categoryId
-        self.viewedCount = viewedCount
-        self.orderedCount = orderedCount
-        self.attributeSetName = attributeSetName
-        self.attributeName = attributeName
-        self.shippingTemplateId = shippingTemplateId
-        self.productionPartnerIds = productionPartnerIds
-        self.condition = condition
-        self.listingDuration = listingDuration
-        self.listingType = listingType
-        self.paymentMethods = paymentMethods
-        self.returnAccepted = returnAccepted
-        self.shippingDetails = shippingDetails
-        self.paypalEmail = paypalEmail
-        self.sellerProfiles = sellerProfiles
-        self.packageDetails = packageDetails
-        self.bestOffer = bestOffer
-        self.salesTax = salesTax
         self.barcode = barcode
         self.upc = upc
         self.ean = ean
         self.isbn = isbn
-        self.specifics = specifics
+        self.gtin = gtin
+        self.mpn = mpn
+        self.asin = asin
+        self.productReference = productReference
+        self.harmonizedSystemCode = harmonizedSystemCode
+        self.countryOfOrigin = countryOfOrigin
+        self.manufacturer = manufacturer
+        self.manufacturerId = manufacturerId
+        self.manufacturerInfo = manufacturerInfo
+        self.brandName = brandName
         self.imageUrl = imageUrl
         self.imageName = imageName
         self.additionalImageUrls = additionalImageUrls
-        self.reservePrice = reservePrice
-        self.buyitnowPrice = buyitnowPrice
-        self.conditionDescription = conditionDescription
-        self.auctionConfidentialityLevel = auctionConfidentialityLevel
-        self.logisticInfo = logisticInfo
-        self.availFrom = availFrom
-        self.tags = tags
-        self.clearCache = clearCache
-        self.asin = asin
-        self.gtin = gtin
-        self.mpn = mpn
-        self.taxable = taxable
-        self.visible = visible
-        self.status = status
-        self.seoUrl = seoUrl
-        self.productClass = productClass
-        self.productType = productType
-        self.marketplaceItemProperties = marketplaceItemProperties
-        self.manageStock = manageStock
-        self.harmonizedSystemCode = harmonizedSystemCode
-        self.countryOfOrigin = countryOfOrigin
         self.files = files
+        self.sizeChart = sizeChart
+        self.relatedProductsIds = relatedProductsIds
+        self.upSellProductsIds = upSellProductsIds
+        self.crossSellProductsIds = crossSellProductsIds
+        self.attributeSetName = attributeSetName
+        self.attributeName = attributeName
         self.searchKeywords = searchKeywords
-        self.storeId = storeId
-        self.brandName = brandName
-        self.isVirtual = isVirtual
+        self.tags = tags
+        self.materials = materials
+        self.certifications = certifications
+        self.specifics = specifics
+        self.availFrom = availFrom
+        self.spriceCreate = spriceCreate
+        self.spriceModified = spriceModified
+        self.spriceExpire = spriceExpire
+        self.createdAt = createdAt
+        self.autoRenew = autoRenew
+        self.whenMade = whenMade
+        self.metaTitle = metaTitle
+        self.metaKeywords = metaKeywords
+        self.metaDescription = metaDescription
+        self.url = url
+        self.seoUrl = seoUrl
+        self.taxClassId = taxClassId
+        self.taxable = taxable
+        self.salesTax = salesTax
+        self.condition = condition
+        self.conditionDescription = conditionDescription
+        self.allowDisplayCondition = allowDisplayCondition
+        self.paymentMethods = paymentMethods
+        self.paypalEmail = paypalEmail
+        self.shippingTemplateId = shippingTemplateId
+        self.shippingDetails = shippingDetails
         self.isFreeShipping = isFreeShipping
-        self.inStock = inStock
         self.deliveryCode = deliveryCode
-        self.productReference = productReference
         self.deliveryType = deliveryType
         self.deliveryTime = deliveryTime
-        self.sizeChart = sizeChart
-        self.certifications = certifications
         self.deliveryOptionIds = deliveryOptionIds
-        self.manufacturerInfo = manufacturerInfo
-        self.whenMade = whenMade
-        self.isSupply = isSupply
-        self.materials = materials
-        self.autoRenew = autoRenew
-        self.allowDisplayCondition = allowDisplayCondition
-        self.minOrderQuantity = minOrderQuantity
-        self.maxOrderQuantity = maxOrderQuantity
+        self.packageDetails = packageDetails
+        self.logisticInfo = logisticInfo
+        self.listingDuration = listingDuration
+        self.listingType = listingType
+        self.returnAccepted = returnAccepted
+        self.sellerProfiles = sellerProfiles
+        self.auctionConfidentialityLevel = auctionConfidentialityLevel
+        self.bestOffer = bestOffer
+        self.productionPartnerIds = productionPartnerIds
+        self.marketplaceItemProperties = marketplaceItemProperties
+        self.clearCache = clearCache
+        self.viewedCount = viewedCount
+        self.orderedCount = orderedCount
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
         case model
-        case sku
         case description
         case price
-        case oldPrice = "old_price"
-        case specialPrice = "special_price"
-        case costPrice = "cost_price"
-        case fixedCostShippingPrice = "fixed_cost_shipping_price"
-        case spriceCreate = "sprice_create"
-        case spriceModified = "sprice_modified"
-        case spriceExpire = "sprice_expire"
-        case tierPrices = "tier_prices"
-        case groupPrices = "group_prices"
+        case sku
+        case shortDescription = "short_description"
+        case type
+        case status
+        case visible
+        case categoryId = "category_id"
+        case categoriesIds = "categories_ids"
+        case productClass = "product_class"
+        case productType = "product_type"
+        case isVirtual = "is_virtual"
+        case downloadable
+        case isSupply = "is_supply"
         case availableForView = "available_for_view"
         case availableForSale = "available_for_sale"
+        case storeId = "store_id"
+        case storesIds = "stores_ids"
+        case langId = "lang_id"
+        case oldPrice = "old_price"
+        case specialPrice = "special_price"
+        case wholesalePrice = "wholesale_price"
+        case costPrice = "cost_price"
+        case fixedCostShippingPrice = "fixed_cost_shipping_price"
+        case tierPrices = "tier_prices"
+        case groupPrices = "group_prices"
+        case buyitnowPrice = "buyitnow_price"
+        case reservePrice = "reserve_price"
+        case quantity
+        case inStock = "in_stock"
+        case manageStock = "manage_stock"
+        case warehouseId = "warehouse_id"
+        case backorderStatus = "backorder_status"
+        case minOrderQuantity = "min_order_quantity"
+        case maxOrderQuantity = "max_order_quantity"
         case weight
+        case weightUnit = "weight_unit"
         case width
         case height
         case length
-        case weightUnit = "weight_unit"
         case dimensionsUnit = "dimensions_unit"
-        case shortDescription = "short_description"
-        case warehouseId = "warehouse_id"
-        case backorderStatus = "backorder_status"
-        case quantity
-        case downloadable
-        case wholesalePrice = "wholesale_price"
-        case createdAt = "created_at"
-        case manufacturer
-        case manufacturerId = "manufacturer_id"
-        case categoriesIds = "categories_ids"
-        case relatedProductsIds = "related_products_ids"
-        case upSellProductsIds = "up_sell_products_ids"
-        case crossSellProductsIds = "cross_sell_products_ids"
-        case taxClassId = "tax_class_id"
-        case type
-        case metaTitle = "meta_title"
-        case metaKeywords = "meta_keywords"
-        case metaDescription = "meta_description"
-        case url
-        case langId = "lang_id"
-        case storesIds = "stores_ids"
-        case categoryId = "category_id"
-        case viewedCount = "viewed_count"
-        case orderedCount = "ordered_count"
-        case attributeSetName = "attribute_set_name"
-        case attributeName = "attribute_name"
-        case shippingTemplateId = "shipping_template_id"
-        case productionPartnerIds = "production_partner_ids"
-        case condition
-        case listingDuration = "listing_duration"
-        case listingType = "listing_type"
-        case paymentMethods = "payment_methods"
-        case returnAccepted = "return_accepted"
-        case shippingDetails = "shipping_details"
-        case paypalEmail = "paypal_email"
-        case sellerProfiles = "seller_profiles"
-        case packageDetails = "package_details"
-        case bestOffer = "best_offer"
-        case salesTax = "sales_tax"
         case barcode
         case upc
         case ean
         case isbn
-        case specifics
+        case gtin
+        case mpn
+        case asin
+        case productReference = "product_reference"
+        case harmonizedSystemCode = "harmonized_system_code"
+        case countryOfOrigin = "country_of_origin"
+        case manufacturer
+        case manufacturerId = "manufacturer_id"
+        case manufacturerInfo = "manufacturer_info"
+        case brandName = "brand_name"
         case imageUrl = "image_url"
         case imageName = "image_name"
         case additionalImageUrls = "additional_image_urls"
-        case reservePrice = "reserve_price"
-        case buyitnowPrice = "buyitnow_price"
-        case conditionDescription = "condition_description"
-        case auctionConfidentialityLevel = "auction_confidentiality_level"
-        case logisticInfo = "logistic_info"
-        case availFrom = "avail_from"
-        case tags
-        case clearCache = "clear_cache"
-        case asin
-        case gtin
-        case mpn
-        case taxable
-        case visible
-        case status
-        case seoUrl = "seo_url"
-        case productClass = "product_class"
-        case productType = "product_type"
-        case marketplaceItemProperties = "marketplace_item_properties"
-        case manageStock = "manage_stock"
-        case harmonizedSystemCode = "harmonized_system_code"
-        case countryOfOrigin = "country_of_origin"
         case files
+        case sizeChart = "size_chart"
+        case relatedProductsIds = "related_products_ids"
+        case upSellProductsIds = "up_sell_products_ids"
+        case crossSellProductsIds = "cross_sell_products_ids"
+        case attributeSetName = "attribute_set_name"
+        case attributeName = "attribute_name"
         case searchKeywords = "search_keywords"
-        case storeId = "store_id"
-        case brandName = "brand_name"
-        case isVirtual = "is_virtual"
+        case tags
+        case materials
+        case certifications
+        case specifics
+        case availFrom = "avail_from"
+        case spriceCreate = "sprice_create"
+        case spriceModified = "sprice_modified"
+        case spriceExpire = "sprice_expire"
+        case createdAt = "created_at"
+        case autoRenew = "auto_renew"
+        case whenMade = "when_made"
+        case metaTitle = "meta_title"
+        case metaKeywords = "meta_keywords"
+        case metaDescription = "meta_description"
+        case url
+        case seoUrl = "seo_url"
+        case taxClassId = "tax_class_id"
+        case taxable
+        case salesTax = "sales_tax"
+        case condition
+        case conditionDescription = "condition_description"
+        case allowDisplayCondition = "allow_display_condition"
+        case paymentMethods = "payment_methods"
+        case paypalEmail = "paypal_email"
+        case shippingTemplateId = "shipping_template_id"
+        case shippingDetails = "shipping_details"
         case isFreeShipping = "is_free_shipping"
-        case inStock = "in_stock"
         case deliveryCode = "delivery_code"
-        case productReference = "product_reference"
         case deliveryType = "delivery_type"
         case deliveryTime = "delivery_time"
-        case sizeChart = "size_chart"
-        case certifications
         case deliveryOptionIds = "delivery_option_ids"
-        case manufacturerInfo = "manufacturer_info"
-        case whenMade = "when_made"
-        case isSupply = "is_supply"
-        case materials
-        case autoRenew = "auto_renew"
-        case allowDisplayCondition = "allow_display_condition"
-        case minOrderQuantity = "min_order_quantity"
-        case maxOrderQuantity = "max_order_quantity"
+        case packageDetails = "package_details"
+        case logisticInfo = "logistic_info"
+        case listingDuration = "listing_duration"
+        case listingType = "listing_type"
+        case returnAccepted = "return_accepted"
+        case sellerProfiles = "seller_profiles"
+        case auctionConfidentialityLevel = "auction_confidentiality_level"
+        case bestOffer = "best_offer"
+        case productionPartnerIds = "production_partner_ids"
+        case marketplaceItemProperties = "marketplace_item_properties"
+        case clearCache = "clear_cache"
+        case viewedCount = "viewed_count"
+        case orderedCount = "ordered_count"
     }
 
     // Encodable protocol methods
@@ -464,116 +464,116 @@ public struct ProductAdd: Sendable, Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
         try container.encode(model, forKey: .model)
-        try container.encodeIfPresent(sku, forKey: .sku)
         try container.encode(description, forKey: .description)
         try container.encode(price, forKey: .price)
-        try container.encodeIfPresent(oldPrice, forKey: .oldPrice)
-        try container.encodeIfPresent(specialPrice, forKey: .specialPrice)
-        try container.encodeIfPresent(costPrice, forKey: .costPrice)
-        try container.encodeIfPresent(fixedCostShippingPrice, forKey: .fixedCostShippingPrice)
-        try container.encodeIfPresent(spriceCreate, forKey: .spriceCreate)
-        try container.encodeIfPresent(spriceModified, forKey: .spriceModified)
-        try container.encodeIfPresent(spriceExpire, forKey: .spriceExpire)
-        try container.encodeIfPresent(tierPrices, forKey: .tierPrices)
-        try container.encodeIfPresent(groupPrices, forKey: .groupPrices)
+        try container.encodeIfPresent(sku, forKey: .sku)
+        try container.encodeIfPresent(shortDescription, forKey: .shortDescription)
+        try container.encodeIfPresent(type, forKey: .type)
+        try container.encodeIfPresent(status, forKey: .status)
+        try container.encodeIfPresent(visible, forKey: .visible)
+        try container.encodeIfPresent(categoryId, forKey: .categoryId)
+        try container.encodeIfPresent(categoriesIds, forKey: .categoriesIds)
+        try container.encodeIfPresent(productClass, forKey: .productClass)
+        try container.encodeIfPresent(productType, forKey: .productType)
+        try container.encodeIfPresent(isVirtual, forKey: .isVirtual)
+        try container.encodeIfPresent(downloadable, forKey: .downloadable)
+        try container.encodeIfPresent(isSupply, forKey: .isSupply)
         try container.encodeIfPresent(availableForView, forKey: .availableForView)
         try container.encodeIfPresent(availableForSale, forKey: .availableForSale)
+        try container.encodeIfPresent(storeId, forKey: .storeId)
+        try container.encodeIfPresent(storesIds, forKey: .storesIds)
+        try container.encodeIfPresent(langId, forKey: .langId)
+        try container.encodeIfPresent(oldPrice, forKey: .oldPrice)
+        try container.encodeIfPresent(specialPrice, forKey: .specialPrice)
+        try container.encodeIfPresent(wholesalePrice, forKey: .wholesalePrice)
+        try container.encodeIfPresent(costPrice, forKey: .costPrice)
+        try container.encodeIfPresent(fixedCostShippingPrice, forKey: .fixedCostShippingPrice)
+        try container.encodeIfPresent(tierPrices, forKey: .tierPrices)
+        try container.encodeIfPresent(groupPrices, forKey: .groupPrices)
+        try container.encodeIfPresent(buyitnowPrice, forKey: .buyitnowPrice)
+        try container.encodeIfPresent(reservePrice, forKey: .reservePrice)
+        try container.encodeIfPresent(quantity, forKey: .quantity)
+        try container.encodeIfPresent(inStock, forKey: .inStock)
+        try container.encodeIfPresent(manageStock, forKey: .manageStock)
+        try container.encodeIfPresent(warehouseId, forKey: .warehouseId)
+        try container.encodeIfPresent(backorderStatus, forKey: .backorderStatus)
+        try container.encodeIfPresent(minOrderQuantity, forKey: .minOrderQuantity)
+        try container.encodeIfPresent(maxOrderQuantity, forKey: .maxOrderQuantity)
         try container.encodeIfPresent(weight, forKey: .weight)
+        try container.encodeIfPresent(weightUnit, forKey: .weightUnit)
         try container.encodeIfPresent(width, forKey: .width)
         try container.encodeIfPresent(height, forKey: .height)
         try container.encodeIfPresent(length, forKey: .length)
-        try container.encodeIfPresent(weightUnit, forKey: .weightUnit)
         try container.encodeIfPresent(dimensionsUnit, forKey: .dimensionsUnit)
-        try container.encodeIfPresent(shortDescription, forKey: .shortDescription)
-        try container.encodeIfPresent(warehouseId, forKey: .warehouseId)
-        try container.encodeIfPresent(backorderStatus, forKey: .backorderStatus)
-        try container.encodeIfPresent(quantity, forKey: .quantity)
-        try container.encodeIfPresent(downloadable, forKey: .downloadable)
-        try container.encodeIfPresent(wholesalePrice, forKey: .wholesalePrice)
-        try container.encodeIfPresent(createdAt, forKey: .createdAt)
-        try container.encodeIfPresent(manufacturer, forKey: .manufacturer)
-        try container.encodeIfPresent(manufacturerId, forKey: .manufacturerId)
-        try container.encodeIfPresent(categoriesIds, forKey: .categoriesIds)
-        try container.encodeIfPresent(relatedProductsIds, forKey: .relatedProductsIds)
-        try container.encodeIfPresent(upSellProductsIds, forKey: .upSellProductsIds)
-        try container.encodeIfPresent(crossSellProductsIds, forKey: .crossSellProductsIds)
-        try container.encodeIfPresent(taxClassId, forKey: .taxClassId)
-        try container.encodeIfPresent(type, forKey: .type)
-        try container.encodeIfPresent(metaTitle, forKey: .metaTitle)
-        try container.encodeIfPresent(metaKeywords, forKey: .metaKeywords)
-        try container.encodeIfPresent(metaDescription, forKey: .metaDescription)
-        try container.encodeIfPresent(url, forKey: .url)
-        try container.encodeIfPresent(langId, forKey: .langId)
-        try container.encodeIfPresent(storesIds, forKey: .storesIds)
-        try container.encodeIfPresent(categoryId, forKey: .categoryId)
-        try container.encodeIfPresent(viewedCount, forKey: .viewedCount)
-        try container.encodeIfPresent(orderedCount, forKey: .orderedCount)
-        try container.encodeIfPresent(attributeSetName, forKey: .attributeSetName)
-        try container.encodeIfPresent(attributeName, forKey: .attributeName)
-        try container.encodeIfPresent(shippingTemplateId, forKey: .shippingTemplateId)
-        try container.encodeIfPresent(productionPartnerIds, forKey: .productionPartnerIds)
-        try container.encodeIfPresent(condition, forKey: .condition)
-        try container.encodeIfPresent(listingDuration, forKey: .listingDuration)
-        try container.encodeIfPresent(listingType, forKey: .listingType)
-        try container.encodeIfPresent(paymentMethods, forKey: .paymentMethods)
-        try container.encodeIfPresent(returnAccepted, forKey: .returnAccepted)
-        try container.encodeIfPresent(shippingDetails, forKey: .shippingDetails)
-        try container.encodeIfPresent(paypalEmail, forKey: .paypalEmail)
-        try container.encodeIfPresent(sellerProfiles, forKey: .sellerProfiles)
-        try container.encodeIfPresent(packageDetails, forKey: .packageDetails)
-        try container.encodeIfPresent(bestOffer, forKey: .bestOffer)
-        try container.encodeIfPresent(salesTax, forKey: .salesTax)
         try container.encodeIfPresent(barcode, forKey: .barcode)
         try container.encodeIfPresent(upc, forKey: .upc)
         try container.encodeIfPresent(ean, forKey: .ean)
         try container.encodeIfPresent(isbn, forKey: .isbn)
-        try container.encodeIfPresent(specifics, forKey: .specifics)
+        try container.encodeIfPresent(gtin, forKey: .gtin)
+        try container.encodeIfPresent(mpn, forKey: .mpn)
+        try container.encodeIfPresent(asin, forKey: .asin)
+        try container.encodeIfPresent(productReference, forKey: .productReference)
+        try container.encodeIfPresent(harmonizedSystemCode, forKey: .harmonizedSystemCode)
+        try container.encodeIfPresent(countryOfOrigin, forKey: .countryOfOrigin)
+        try container.encodeIfPresent(manufacturer, forKey: .manufacturer)
+        try container.encodeIfPresent(manufacturerId, forKey: .manufacturerId)
+        try container.encodeIfPresent(manufacturerInfo, forKey: .manufacturerInfo)
+        try container.encodeIfPresent(brandName, forKey: .brandName)
         try container.encodeIfPresent(imageUrl, forKey: .imageUrl)
         try container.encodeIfPresent(imageName, forKey: .imageName)
         try container.encodeIfPresent(additionalImageUrls, forKey: .additionalImageUrls)
-        try container.encodeIfPresent(reservePrice, forKey: .reservePrice)
-        try container.encodeIfPresent(buyitnowPrice, forKey: .buyitnowPrice)
-        try container.encodeIfPresent(conditionDescription, forKey: .conditionDescription)
-        try container.encodeIfPresent(auctionConfidentialityLevel, forKey: .auctionConfidentialityLevel)
-        try container.encodeIfPresent(logisticInfo, forKey: .logisticInfo)
-        try container.encodeIfPresent(availFrom, forKey: .availFrom)
-        try container.encodeIfPresent(tags, forKey: .tags)
-        try container.encodeIfPresent(clearCache, forKey: .clearCache)
-        try container.encodeIfPresent(asin, forKey: .asin)
-        try container.encodeIfPresent(gtin, forKey: .gtin)
-        try container.encodeIfPresent(mpn, forKey: .mpn)
-        try container.encodeIfPresent(taxable, forKey: .taxable)
-        try container.encodeIfPresent(visible, forKey: .visible)
-        try container.encodeIfPresent(status, forKey: .status)
-        try container.encodeIfPresent(seoUrl, forKey: .seoUrl)
-        try container.encodeIfPresent(productClass, forKey: .productClass)
-        try container.encodeIfPresent(productType, forKey: .productType)
-        try container.encodeIfPresent(marketplaceItemProperties, forKey: .marketplaceItemProperties)
-        try container.encodeIfPresent(manageStock, forKey: .manageStock)
-        try container.encodeIfPresent(harmonizedSystemCode, forKey: .harmonizedSystemCode)
-        try container.encodeIfPresent(countryOfOrigin, forKey: .countryOfOrigin)
         try container.encodeIfPresent(files, forKey: .files)
+        try container.encodeIfPresent(sizeChart, forKey: .sizeChart)
+        try container.encodeIfPresent(relatedProductsIds, forKey: .relatedProductsIds)
+        try container.encodeIfPresent(upSellProductsIds, forKey: .upSellProductsIds)
+        try container.encodeIfPresent(crossSellProductsIds, forKey: .crossSellProductsIds)
+        try container.encodeIfPresent(attributeSetName, forKey: .attributeSetName)
+        try container.encodeIfPresent(attributeName, forKey: .attributeName)
         try container.encodeIfPresent(searchKeywords, forKey: .searchKeywords)
-        try container.encodeIfPresent(storeId, forKey: .storeId)
-        try container.encodeIfPresent(brandName, forKey: .brandName)
-        try container.encodeIfPresent(isVirtual, forKey: .isVirtual)
+        try container.encodeIfPresent(tags, forKey: .tags)
+        try container.encodeIfPresent(materials, forKey: .materials)
+        try container.encodeIfPresent(certifications, forKey: .certifications)
+        try container.encodeIfPresent(specifics, forKey: .specifics)
+        try container.encodeIfPresent(availFrom, forKey: .availFrom)
+        try container.encodeIfPresent(spriceCreate, forKey: .spriceCreate)
+        try container.encodeIfPresent(spriceModified, forKey: .spriceModified)
+        try container.encodeIfPresent(spriceExpire, forKey: .spriceExpire)
+        try container.encodeIfPresent(createdAt, forKey: .createdAt)
+        try container.encodeIfPresent(autoRenew, forKey: .autoRenew)
+        try container.encodeIfPresent(whenMade, forKey: .whenMade)
+        try container.encodeIfPresent(metaTitle, forKey: .metaTitle)
+        try container.encodeIfPresent(metaKeywords, forKey: .metaKeywords)
+        try container.encodeIfPresent(metaDescription, forKey: .metaDescription)
+        try container.encodeIfPresent(url, forKey: .url)
+        try container.encodeIfPresent(seoUrl, forKey: .seoUrl)
+        try container.encodeIfPresent(taxClassId, forKey: .taxClassId)
+        try container.encodeIfPresent(taxable, forKey: .taxable)
+        try container.encodeIfPresent(salesTax, forKey: .salesTax)
+        try container.encodeIfPresent(condition, forKey: .condition)
+        try container.encodeIfPresent(conditionDescription, forKey: .conditionDescription)
+        try container.encodeIfPresent(allowDisplayCondition, forKey: .allowDisplayCondition)
+        try container.encodeIfPresent(paymentMethods, forKey: .paymentMethods)
+        try container.encodeIfPresent(paypalEmail, forKey: .paypalEmail)
+        try container.encodeIfPresent(shippingTemplateId, forKey: .shippingTemplateId)
+        try container.encodeIfPresent(shippingDetails, forKey: .shippingDetails)
         try container.encodeIfPresent(isFreeShipping, forKey: .isFreeShipping)
-        try container.encodeIfPresent(inStock, forKey: .inStock)
         try container.encodeIfPresent(deliveryCode, forKey: .deliveryCode)
-        try container.encodeIfPresent(productReference, forKey: .productReference)
         try container.encodeIfPresent(deliveryType, forKey: .deliveryType)
         try container.encodeIfPresent(deliveryTime, forKey: .deliveryTime)
-        try container.encodeIfPresent(sizeChart, forKey: .sizeChart)
-        try container.encodeIfPresent(certifications, forKey: .certifications)
         try container.encodeIfPresent(deliveryOptionIds, forKey: .deliveryOptionIds)
-        try container.encodeIfPresent(manufacturerInfo, forKey: .manufacturerInfo)
-        try container.encodeIfPresent(whenMade, forKey: .whenMade)
-        try container.encodeIfPresent(isSupply, forKey: .isSupply)
-        try container.encodeIfPresent(materials, forKey: .materials)
-        try container.encodeIfPresent(autoRenew, forKey: .autoRenew)
-        try container.encodeIfPresent(allowDisplayCondition, forKey: .allowDisplayCondition)
-        try container.encodeIfPresent(minOrderQuantity, forKey: .minOrderQuantity)
-        try container.encodeIfPresent(maxOrderQuantity, forKey: .maxOrderQuantity)
+        try container.encodeIfPresent(packageDetails, forKey: .packageDetails)
+        try container.encodeIfPresent(logisticInfo, forKey: .logisticInfo)
+        try container.encodeIfPresent(listingDuration, forKey: .listingDuration)
+        try container.encodeIfPresent(listingType, forKey: .listingType)
+        try container.encodeIfPresent(returnAccepted, forKey: .returnAccepted)
+        try container.encodeIfPresent(sellerProfiles, forKey: .sellerProfiles)
+        try container.encodeIfPresent(auctionConfidentialityLevel, forKey: .auctionConfidentialityLevel)
+        try container.encodeIfPresent(bestOffer, forKey: .bestOffer)
+        try container.encodeIfPresent(productionPartnerIds, forKey: .productionPartnerIds)
+        try container.encodeIfPresent(marketplaceItemProperties, forKey: .marketplaceItemProperties)
+        try container.encodeIfPresent(clearCache, forKey: .clearCache)
+        try container.encodeIfPresent(viewedCount, forKey: .viewedCount)
+        try container.encodeIfPresent(orderedCount, forKey: .orderedCount)
     }
 }
 

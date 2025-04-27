@@ -95,19 +95,19 @@ open class CartAPI {
     /**
      cart.catalog_price_rules.list
      
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter ids: (query) Retrieves  catalog_price_rules by ids (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,name,description")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,name,description")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseCartCatalogPriceRulesList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartCatalogPriceRulesList(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, ids: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartCatalogPriceRulesList {
-        return try await cartCatalogPriceRulesListWithRequestBuilder(pageCursor: pageCursor, start: start, count: count, ids: ids, params: params, responseFields: responseFields, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
+    open class func cartCatalogPriceRulesList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartCatalogPriceRulesList {
+        return try await cartCatalogPriceRulesListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, ids: ids, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -120,29 +120,29 @@ open class CartAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter ids: (query) Retrieves  catalog_price_rules by ids (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,name,description")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,name,description")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseCartCatalogPriceRulesList> 
      */
-    open class func cartCatalogPriceRulesListWithRequestBuilder(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, ids: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartCatalogPriceRulesList> {
+    open class func cartCatalogPriceRulesListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartCatalogPriceRulesList> {
         let localVariablePath = "/cart.catalog_price_rules.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "ids": (wrappedValue: ids?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
@@ -386,16 +386,16 @@ open class CartAPI {
      - parameter key: (query) Defines condition entity attribute key 
      - parameter _operator: (query) Defines condition operator 
      - parameter value: (query) Defines condition value, can be comma separated according to the operator. 
-     - parameter storeId: (query) Store Id (optional)
      - parameter target: (query) Defines condition operator (optional, default to "coupon_prerequisite")
      - parameter includeTax: (query) Indicates whether to apply a discount for taxes. (optional, default to false)
      - parameter includeShipping: (query) Indicates whether to apply a discount for shipping. (optional, default to false)
+     - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: BasketLiveShippingServiceDelete200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartCouponConditionAdd(couponId: String, entity: Entity_cartCouponConditionAdd, key: Key_cartCouponConditionAdd, _operator: String, value: String, storeId: String? = nil, target: String? = nil, includeTax: Bool? = nil, includeShipping: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BasketLiveShippingServiceDelete200Response {
-        return try await cartCouponConditionAddWithRequestBuilder(couponId: couponId, entity: entity, key: key, _operator: _operator, value: value, storeId: storeId, target: target, includeTax: includeTax, includeShipping: includeShipping, apiConfiguration: apiConfiguration).execute().body
+    open class func cartCouponConditionAdd(couponId: String, entity: Entity_cartCouponConditionAdd, key: Key_cartCouponConditionAdd, _operator: String, value: String, target: String? = nil, includeTax: Bool? = nil, includeShipping: Bool? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BasketLiveShippingServiceDelete200Response {
+        return try await cartCouponConditionAddWithRequestBuilder(couponId: couponId, entity: entity, key: key, _operator: _operator, value: value, target: target, includeTax: includeTax, includeShipping: includeShipping, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -413,29 +413,29 @@ open class CartAPI {
      - parameter key: (query) Defines condition entity attribute key 
      - parameter _operator: (query) Defines condition operator 
      - parameter value: (query) Defines condition value, can be comma separated according to the operator. 
-     - parameter storeId: (query) Store Id (optional)
      - parameter target: (query) Defines condition operator (optional, default to "coupon_prerequisite")
      - parameter includeTax: (query) Indicates whether to apply a discount for taxes. (optional, default to false)
      - parameter includeShipping: (query) Indicates whether to apply a discount for shipping. (optional, default to false)
+     - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<BasketLiveShippingServiceDelete200Response> 
      */
-    open class func cartCouponConditionAddWithRequestBuilder(couponId: String, entity: Entity_cartCouponConditionAdd, key: Key_cartCouponConditionAdd, _operator: String, value: String, storeId: String? = nil, target: String? = nil, includeTax: Bool? = nil, includeShipping: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BasketLiveShippingServiceDelete200Response> {
+    open class func cartCouponConditionAddWithRequestBuilder(couponId: String, entity: Entity_cartCouponConditionAdd, key: Key_cartCouponConditionAdd, _operator: String, value: String, target: String? = nil, includeTax: Bool? = nil, includeShipping: Bool? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BasketLiveShippingServiceDelete200Response> {
         let localVariablePath = "/cart.coupon.condition.add.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "coupon_id": (wrappedValue: couponId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "target": (wrappedValue: target?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "entity": (wrappedValue: entity.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "key": (wrappedValue: key.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "operator": (wrappedValue: _operator.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "value": (wrappedValue: value.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "target": (wrappedValue: target?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "include_tax": (wrappedValue: includeTax?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "include_shipping": (wrappedValue: includeShipping?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -453,17 +453,17 @@ open class CartAPI {
      cart.coupon.count
      
      - parameter storeId: (query) Store Id (optional)
+     - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
      - parameter dateStartFrom: (query) Filter entity by date_start (greater or equal) (optional)
      - parameter dateStartTo: (query) Filter entity by date_start (less or equal) (optional)
      - parameter dateEndFrom: (query) Filter entity by date_end (greater or equal) (optional)
      - parameter dateEndTo: (query) Filter entity by date_end (less or equal) (optional)
-     - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CartCouponCount200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartCouponCount(storeId: String? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, avail: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartCouponCount200Response {
-        return try await cartCouponCountWithRequestBuilder(storeId: storeId, dateStartFrom: dateStartFrom, dateStartTo: dateStartTo, dateEndFrom: dateEndFrom, dateEndTo: dateEndTo, avail: avail, apiConfiguration: apiConfiguration).execute().body
+    open class func cartCouponCount(storeId: String? = nil, avail: Bool? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartCouponCount200Response {
+        return try await cartCouponCountWithRequestBuilder(storeId: storeId, avail: avail, dateStartFrom: dateStartFrom, dateStartTo: dateStartTo, dateEndFrom: dateEndFrom, dateEndTo: dateEndTo, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -477,15 +477,15 @@ open class CartAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter storeId: (query) Store Id (optional)
+     - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
      - parameter dateStartFrom: (query) Filter entity by date_start (greater or equal) (optional)
      - parameter dateStartTo: (query) Filter entity by date_start (less or equal) (optional)
      - parameter dateEndFrom: (query) Filter entity by date_end (greater or equal) (optional)
      - parameter dateEndTo: (query) Filter entity by date_end (less or equal) (optional)
-     - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CartCouponCount200Response> 
      */
-    open class func cartCouponCountWithRequestBuilder(storeId: String? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, avail: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartCouponCount200Response> {
+    open class func cartCouponCountWithRequestBuilder(storeId: String? = nil, avail: Bool? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartCouponCount200Response> {
         let localVariablePath = "/cart.coupon.count.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -493,11 +493,11 @@ open class CartAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "avail": (wrappedValue: avail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "date_start_from": (wrappedValue: dateStartFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "date_start_to": (wrappedValue: dateStartTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "date_end_from": (wrappedValue: dateEndFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "date_end_to": (wrappedValue: dateEndTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "avail": (wrappedValue: avail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -564,26 +564,26 @@ open class CartAPI {
     /**
      cart.coupon.list
      
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter couponsIds: (query) Filter coupons by ids (optional)
      - parameter storeId: (query) Filter coupons by store id (optional)
+     - parameter langId: (query) Language id (optional)
+     - parameter avail: (query) Filter coupons by avail status (optional)
      - parameter dateStartFrom: (query) Filter entity by date_start (greater or equal) (optional)
      - parameter dateStartTo: (query) Filter entity by date_start (less or equal) (optional)
      - parameter dateEndFrom: (query) Filter entity by date_end (greater or equal) (optional)
      - parameter dateEndTo: (query) Filter entity by date_end (less or equal) (optional)
-     - parameter avail: (query) Filter coupons by avail status (optional)
-     - parameter langId: (query) Language id (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,code,name,description")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,code,name,description")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseCartCouponList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartCouponList(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, couponsIds: String? = nil, storeId: String? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, avail: Bool? = nil, langId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartCouponList {
-        return try await cartCouponListWithRequestBuilder(pageCursor: pageCursor, start: start, count: count, couponsIds: couponsIds, storeId: storeId, dateStartFrom: dateStartFrom, dateStartTo: dateStartTo, dateEndFrom: dateEndFrom, dateEndTo: dateEndTo, avail: avail, langId: langId, params: params, responseFields: responseFields, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
+    open class func cartCouponList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, couponsIds: String? = nil, storeId: String? = nil, langId: String? = nil, avail: Bool? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartCouponList {
+        return try await cartCouponListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, couponsIds: couponsIds, storeId: storeId, langId: langId, avail: avail, dateStartFrom: dateStartFrom, dateStartTo: dateStartTo, dateEndFrom: dateEndFrom, dateEndTo: dateEndTo, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -596,43 +596,43 @@ open class CartAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter couponsIds: (query) Filter coupons by ids (optional)
      - parameter storeId: (query) Filter coupons by store id (optional)
+     - parameter langId: (query) Language id (optional)
+     - parameter avail: (query) Filter coupons by avail status (optional)
      - parameter dateStartFrom: (query) Filter entity by date_start (greater or equal) (optional)
      - parameter dateStartTo: (query) Filter entity by date_start (less or equal) (optional)
      - parameter dateEndFrom: (query) Filter entity by date_end (greater or equal) (optional)
      - parameter dateEndTo: (query) Filter entity by date_end (less or equal) (optional)
-     - parameter avail: (query) Filter coupons by avail status (optional)
-     - parameter langId: (query) Language id (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,code,name,description")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,code,name,description")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseCartCouponList> 
      */
-    open class func cartCouponListWithRequestBuilder(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, couponsIds: String? = nil, storeId: String? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, avail: Bool? = nil, langId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartCouponList> {
+    open class func cartCouponListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, couponsIds: String? = nil, storeId: String? = nil, langId: String? = nil, avail: Bool? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartCouponList> {
         let localVariablePath = "/cart.coupon.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "coupons_ids": (wrappedValue: couponsIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "lang_id": (wrappedValue: langId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "avail": (wrappedValue: avail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "date_start_from": (wrappedValue: dateStartFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "date_start_to": (wrappedValue: dateStartTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "date_end_from": (wrappedValue: dateEndFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "date_end_to": (wrappedValue: dateEndTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "avail": (wrappedValue: avail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "lang_id": (wrappedValue: langId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
@@ -945,19 +945,19 @@ open class CartAPI {
     /**
      cart.giftcard.list
      
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter storeId: (query) Store Id (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,code,name")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,code,name")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseCartGiftCardList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartGiftcardList(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartGiftCardList {
-        return try await cartGiftcardListWithRequestBuilder(pageCursor: pageCursor, start: start, count: count, storeId: storeId, params: params, responseFields: responseFields, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
+    open class func cartGiftcardList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartGiftCardList {
+        return try await cartGiftcardListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -970,29 +970,29 @@ open class CartAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter storeId: (query) Store Id (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,code,name")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,code,name")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseCartGiftCardList> 
      */
-    open class func cartGiftcardListWithRequestBuilder(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartGiftCardList> {
+    open class func cartGiftcardListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartGiftCardList> {
         let localVariablePath = "/cart.giftcard.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
@@ -1010,16 +1010,16 @@ open class CartAPI {
     /**
      cart.info
      
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "store_name,store_url,db_prefix")
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter storeId: (query) Store Id (optional)
+     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "store_name,store_url,db_prefix")
+     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CartInfo200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartInfo(params: String? = nil, responseFields: String? = nil, exclude: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartInfo200Response {
-        return try await cartInfoWithRequestBuilder(params: params, responseFields: responseFields, exclude: exclude, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
+    open class func cartInfo(storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartInfo200Response {
+        return try await cartInfoWithRequestBuilder(storeId: storeId, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1032,24 +1032,24 @@ open class CartAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "store_name,store_url,db_prefix")
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter storeId: (query) Store Id (optional)
+     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "store_name,store_url,db_prefix")
+     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CartInfo200Response> 
      */
-    open class func cartInfoWithRequestBuilder(params: String? = nil, responseFields: String? = nil, exclude: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartInfo200Response> {
+    open class func cartInfoWithRequestBuilder(storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartInfo200Response> {
         let localVariablePath = "/cart.info.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -1108,21 +1108,21 @@ open class CartAPI {
      cart.meta_data.list
      
      - parameter entityId: (query) Entity Id 
+     - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter entity: (query) Entity (optional, default to "product")
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
      - parameter key: (query) Key (optional)
-     - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "key,value")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "key,value")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseCartMetaDataList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartMetaDataList(entityId: String, entity: String? = nil, storeId: String? = nil, langId: String? = nil, key: String? = nil, count: Int? = nil, pageCursor: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartMetaDataList {
-        return try await cartMetaDataListWithRequestBuilder(entityId: entityId, entity: entity, storeId: storeId, langId: langId, key: key, count: count, pageCursor: pageCursor, params: params, responseFields: responseFields, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
+    open class func cartMetaDataList(entityId: String, count: Int? = nil, pageCursor: String? = nil, entity: String? = nil, storeId: String? = nil, langId: String? = nil, key: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartMetaDataList {
+        return try await cartMetaDataListWithRequestBuilder(entityId: entityId, count: count, pageCursor: pageCursor, entity: entity, storeId: storeId, langId: langId, key: key, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1136,34 +1136,34 @@ open class CartAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter entityId: (query) Entity Id 
+     - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter entity: (query) Entity (optional, default to "product")
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
      - parameter key: (query) Key (optional)
-     - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "key,value")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "key,value")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseCartMetaDataList> 
      */
-    open class func cartMetaDataListWithRequestBuilder(entityId: String, entity: String? = nil, storeId: String? = nil, langId: String? = nil, key: String? = nil, count: Int? = nil, pageCursor: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartMetaDataList> {
+    open class func cartMetaDataListWithRequestBuilder(entityId: String, count: Int? = nil, pageCursor: String? = nil, entity: String? = nil, storeId: String? = nil, langId: String? = nil, key: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartMetaDataList> {
         let localVariablePath = "/cart.meta_data.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "entity_id": (wrappedValue: entityId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "entity": (wrappedValue: entity?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "lang_id": (wrappedValue: langId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "key": (wrappedValue: key?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
@@ -1224,12 +1224,12 @@ open class CartAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "entity_id": (wrappedValue: entityId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "entity": (wrappedValue: entity?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "lang_id": (wrappedValue: langId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "key": (wrappedValue: key.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "value": (wrappedValue: value.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "namespace": (wrappedValue: namespace.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "entity": (wrappedValue: entity?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "lang_id": (wrappedValue: langId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -1285,10 +1285,10 @@ open class CartAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "entity_id": (wrappedValue: entityId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "entity": (wrappedValue: entity?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "key": (wrappedValue: key.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "id": (wrappedValue: id.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "entity": (wrappedValue: entity?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -1347,15 +1347,15 @@ open class CartAPI {
     /**
      cart.plugin.list
      
-     - parameter storeId: (query) Store Id (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CartPluginList200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartPluginList(storeId: String? = nil, start: Int? = nil, count: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartPluginList200Response {
-        return try await cartPluginListWithRequestBuilder(storeId: storeId, start: start, count: count, apiConfiguration: apiConfiguration).execute().body
+    open class func cartPluginList(start: Int? = nil, count: Int? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartPluginList200Response {
+        return try await cartPluginListWithRequestBuilder(start: start, count: count, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1368,22 +1368,22 @@ open class CartAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
-     - parameter storeId: (query) Store Id (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CartPluginList200Response> 
      */
-    open class func cartPluginListWithRequestBuilder(storeId: String? = nil, start: Int? = nil, count: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartPluginList200Response> {
+    open class func cartPluginListWithRequestBuilder(start: Int? = nil, count: Int? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartPluginList200Response> {
         let localVariablePath = "/cart.plugin.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -1518,24 +1518,24 @@ open class CartAPI {
     /**
      cart.script.list
      
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+     - parameter scriptIds: (query) Retrieves only scripts with specific ids (optional)
+     - parameter storeId: (query) Store Id (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
      - parameter createdTo: (query) Retrieve entities to their creation date (optional)
      - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
      - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
-     - parameter scriptIds: (query) Retrieves only scripts with specific ids (optional)
-     - parameter storeId: (query) Store Id (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,name,description")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,name,description")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseCartScriptList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartScriptList(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, scriptIds: String? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartScriptList {
-        return try await cartScriptListWithRequestBuilder(pageCursor: pageCursor, start: start, count: count, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, scriptIds: scriptIds, storeId: storeId, params: params, responseFields: responseFields, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
+    open class func cartScriptList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, scriptIds: String? = nil, storeId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartScriptList {
+        return try await cartScriptListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, scriptIds: scriptIds, storeId: storeId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1548,39 +1548,39 @@ open class CartAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+     - parameter scriptIds: (query) Retrieves only scripts with specific ids (optional)
+     - parameter storeId: (query) Store Id (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
      - parameter createdTo: (query) Retrieve entities to their creation date (optional)
      - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
      - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
-     - parameter scriptIds: (query) Retrieves only scripts with specific ids (optional)
-     - parameter storeId: (query) Store Id (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,name,description")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,name,description")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseCartScriptList> 
      */
-    open class func cartScriptListWithRequestBuilder(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, scriptIds: String? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartScriptList> {
+    open class func cartScriptListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, scriptIds: String? = nil, storeId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartScriptList> {
         let localVariablePath = "/cart.script.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "script_ids": (wrappedValue: scriptIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "created_from": (wrappedValue: createdFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "created_to": (wrappedValue: createdTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "modified_from": (wrappedValue: modifiedFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "modified_to": (wrappedValue: modifiedTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "script_ids": (wrappedValue: scriptIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
@@ -1598,18 +1598,18 @@ open class CartAPI {
     /**
      cart.shipping_zones.list
      
-     - parameter storeId: (query) Store Id (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,name,enabled")
+     - parameter storeId: (query) Store Id (optional)
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,name,enabled")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseCartShippingZonesList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartShippingZonesList(storeId: String? = nil, start: Int? = nil, count: Int? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartShippingZonesList {
-        return try await cartShippingZonesListWithRequestBuilder(storeId: storeId, start: start, count: count, params: params, responseFields: responseFields, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
+    open class func cartShippingZonesList(start: Int? = nil, count: Int? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartShippingZonesList {
+        return try await cartShippingZonesListWithRequestBuilder(start: start, count: count, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1622,27 +1622,27 @@ open class CartAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
-     - parameter storeId: (query) Store Id (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,name,enabled")
+     - parameter storeId: (query) Store Id (optional)
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,name,enabled")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseCartShippingZonesList> 
      */
-    open class func cartShippingZonesListWithRequestBuilder(storeId: String? = nil, start: Int? = nil, count: Int? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartShippingZonesList> {
+    open class func cartShippingZonesListWithRequestBuilder(start: Int? = nil, count: Int? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartShippingZonesList> {
         let localVariablePath = "/cart.shipping_zones.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 

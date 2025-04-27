@@ -72,7 +72,7 @@ Add new product to store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productAdd = ProductAdd(name: "name_example", model: "model_example", sku: "sku_example", description: "description_example", price: 123, oldPrice: 123, specialPrice: 123, costPrice: 123, fixedCostShippingPrice: 123, spriceCreate: "spriceCreate_example", spriceModified: "spriceModified_example", spriceExpire: "spriceExpire_example", tierPrices: [ProductAdd_tier_prices_inner(quantity: 123, price: 123)], groupPrices: [ProductAdd_group_prices_inner(groupId: "groupId_example", price: 123)], availableForView: false, availableForSale: false, weight: 123, width: 123, height: 123, length: 123, weightUnit: "weightUnit_example", dimensionsUnit: "dimensionsUnit_example", shortDescription: "shortDescription_example", warehouseId: "warehouseId_example", backorderStatus: "backorderStatus_example", quantity: 123, downloadable: true, wholesalePrice: 123, createdAt: "createdAt_example", manufacturer: "manufacturer_example", manufacturerId: "manufacturerId_example", categoriesIds: "categoriesIds_example", relatedProductsIds: "relatedProductsIds_example", upSellProductsIds: "upSellProductsIds_example", crossSellProductsIds: "crossSellProductsIds_example", taxClassId: "taxClassId_example", type: "type_example", metaTitle: "metaTitle_example", metaKeywords: "metaKeywords_example", metaDescription: "metaDescription_example", url: "url_example", langId: "langId_example", storesIds: "storesIds_example", categoryId: "categoryId_example", viewedCount: 123, orderedCount: 123, attributeSetName: "attributeSetName_example", attributeName: "attributeName_example", shippingTemplateId: 123, productionPartnerIds: "productionPartnerIds_example", condition: "condition_example", listingDuration: "listingDuration_example", listingType: "listingType_example", paymentMethods: ["paymentMethods_example"], returnAccepted: true, shippingDetails: [ProductAdd_shipping_details_inner(shippingType: "shippingType_example", shippingService: "shippingService_example", shippingCost: 123)], paypalEmail: "paypalEmail_example", sellerProfiles: ProductAdd_seller_profiles(shippingProfileId: "shippingProfileId_example", paymentProfileId: "paymentProfileId_example", returnProfileId: "returnProfileId_example"), packageDetails: ProductAdd_package_details(measureUnit: "measureUnit_example", weighUnit: "weighUnit_example", packageDepth: 123, packageLength: 123, packageWidth: 123, weightMajor: 123, weightMinor: 123, shippingPackage: "shippingPackage_example"), bestOffer: ProductAdd_best_offer(minimumOfferPrice: 123, autoAcceptPrice: 123), salesTax: ProductAdd_sales_tax(taxPercent: 123, taxState: "taxState_example", shippingIncInTax: false), barcode: "barcode_example", upc: "upc_example", ean: "ean_example", isbn: "isbn_example", specifics: [ProductAdd_specifics_inner(name: "name_example", value: "value_example", values: ["values_example"], usedForVariations: false, scaleId: 123, foodDetails: ProductAdd_specifics_inner_food_details(calories: 123), groupProductsDetails: [ProductAdd_specifics_inner_group_products_details_inner(id: "id_example", quantity: 123)], bookingDetails: ProductAdd_specifics_inner_booking_details(location: "location_example", type: "type_example", sessionDuration: 123, sessionGap: 123, sessionsCount: 123, timeStrictValue: 123, timeStrictType: "timeStrictType_example", availabilities: [ProductAdd_specifics_inner_booking_details_availabilities_inner(day: "day_example", isAvailable: false, times: [ProductAdd_specifics_inner_booking_details_availabilities_inner_times_inner(from: "from_example", to: "to_example")])], overrides: [ProductAdd_specifics_inner_booking_details_overrides_inner(day: "day_example", date: "date_example")]))], imageUrl: "imageUrl_example", imageName: "imageName_example", additionalImageUrls: ["additionalImageUrls_example"], reservePrice: 123, buyitnowPrice: 123, conditionDescription: "conditionDescription_example", auctionConfidentialityLevel: "auctionConfidentialityLevel_example", logisticInfo: [ProductAdd_logistic_info_inner(logisticId: 123, isFree: false, shippingFee: 123, sizeId: 123)], availFrom: "availFrom_example", tags: "tags_example", clearCache: false, asin: "asin_example", gtin: "gtin_example", mpn: "mpn_example", taxable: false, visible: "visible_example", status: "status_example", seoUrl: "seoUrl_example", productClass: "productClass_example", productType: "productType_example", marketplaceItemProperties: "marketplaceItemProperties_example", manageStock: false, harmonizedSystemCode: "harmonizedSystemCode_example", countryOfOrigin: "countryOfOrigin_example", files: [ProductAdd_files_inner(name: "name_example", url: "url_example")], searchKeywords: "searchKeywords_example", storeId: "storeId_example", brandName: "brandName_example", isVirtual: false, isFreeShipping: true, inStock: true, deliveryCode: "deliveryCode_example", productReference: "productReference_example", deliveryType: "deliveryType_example", deliveryTime: 123, sizeChart: ProductAdd_size_chart(id: "id_example", url: "url_example"), certifications: [ProductAdd_certifications_inner(id: "id_example", images: [ProductAdd_certifications_inner_images_inner(url: "url_example")], files: [ProductAdd_certifications_inner_files_inner(url: "url_example")])], deliveryOptionIds: "deliveryOptionIds_example", manufacturerInfo: ProductAdd_manufacturer_info(name: "name_example", address: "address_example", phone: "phone_example", email: "email_example"), whenMade: "whenMade_example", isSupply: false, materials: ["materials_example"], autoRenew: false, allowDisplayCondition: false, minOrderQuantity: 123, maxOrderQuantity: 123) // ProductAdd | 
+let productAdd = ProductAdd(name: "name_example", model: "model_example", description: "description_example", price: 123, sku: "sku_example", shortDescription: "shortDescription_example", type: "type_example", status: "status_example", visible: "visible_example", categoryId: "categoryId_example", categoriesIds: "categoriesIds_example", productClass: "productClass_example", productType: "productType_example", isVirtual: false, downloadable: true, isSupply: false, availableForView: false, availableForSale: false, storeId: "storeId_example", storesIds: "storesIds_example", langId: "langId_example", oldPrice: 123, specialPrice: 123, wholesalePrice: 123, costPrice: 123, fixedCostShippingPrice: 123, tierPrices: [ProductAdd_tier_prices_inner(quantity: 123, price: 123)], groupPrices: [ProductAdd_group_prices_inner(groupId: "groupId_example", price: 123)], buyitnowPrice: 123, reservePrice: 123, quantity: 123, inStock: true, manageStock: false, warehouseId: "warehouseId_example", backorderStatus: "backorderStatus_example", minOrderQuantity: 123, maxOrderQuantity: 123, weight: 123, weightUnit: "weightUnit_example", width: 123, height: 123, length: 123, dimensionsUnit: "dimensionsUnit_example", barcode: "barcode_example", upc: "upc_example", ean: "ean_example", isbn: "isbn_example", gtin: "gtin_example", mpn: "mpn_example", asin: "asin_example", productReference: "productReference_example", harmonizedSystemCode: "harmonizedSystemCode_example", countryOfOrigin: "countryOfOrigin_example", manufacturer: "manufacturer_example", manufacturerId: "manufacturerId_example", manufacturerInfo: ProductAdd_manufacturer_info(name: "name_example", address: "address_example", phone: "phone_example", email: "email_example"), brandName: "brandName_example", imageUrl: "imageUrl_example", imageName: "imageName_example", additionalImageUrls: ["additionalImageUrls_example"], files: [ProductAdd_files_inner(name: "name_example", url: "url_example")], sizeChart: ProductAdd_size_chart(id: "id_example", url: "url_example"), relatedProductsIds: "relatedProductsIds_example", upSellProductsIds: "upSellProductsIds_example", crossSellProductsIds: "crossSellProductsIds_example", attributeSetName: "attributeSetName_example", attributeName: "attributeName_example", searchKeywords: "searchKeywords_example", tags: "tags_example", materials: ["materials_example"], certifications: [ProductAdd_certifications_inner(id: "id_example", images: [ProductAdd_certifications_inner_images_inner(url: "url_example")], files: [ProductAdd_certifications_inner_files_inner(url: "url_example")])], specifics: [ProductAdd_specifics_inner(name: "name_example", value: "value_example", values: ["values_example"], usedForVariations: false, scaleId: 123, foodDetails: ProductAdd_specifics_inner_food_details(calories: 123), groupProductsDetails: [ProductAdd_specifics_inner_group_products_details_inner(id: "id_example", quantity: 123)], bookingDetails: ProductAdd_specifics_inner_booking_details(location: "location_example", type: "type_example", sessionDuration: 123, sessionGap: 123, sessionsCount: 123, timeStrictValue: 123, timeStrictType: "timeStrictType_example", availabilities: [ProductAdd_specifics_inner_booking_details_availabilities_inner(day: "day_example", isAvailable: false, times: [ProductAdd_specifics_inner_booking_details_availabilities_inner_times_inner(from: "from_example", to: "to_example")])], overrides: [ProductAdd_specifics_inner_booking_details_overrides_inner(day: "day_example", date: "date_example")]))], availFrom: "availFrom_example", spriceCreate: "spriceCreate_example", spriceModified: "spriceModified_example", spriceExpire: "spriceExpire_example", createdAt: "createdAt_example", autoRenew: false, whenMade: "whenMade_example", metaTitle: "metaTitle_example", metaKeywords: "metaKeywords_example", metaDescription: "metaDescription_example", url: "url_example", seoUrl: "seoUrl_example", taxClassId: "taxClassId_example", taxable: false, salesTax: ProductAdd_sales_tax(taxPercent: 123, taxState: "taxState_example", shippingIncInTax: false), condition: "condition_example", conditionDescription: "conditionDescription_example", allowDisplayCondition: false, paymentMethods: ["paymentMethods_example"], paypalEmail: "paypalEmail_example", shippingTemplateId: 123, shippingDetails: [ProductAdd_shipping_details_inner(shippingType: "shippingType_example", shippingService: "shippingService_example", shippingCost: 123)], isFreeShipping: true, deliveryCode: "deliveryCode_example", deliveryType: "deliveryType_example", deliveryTime: 123, deliveryOptionIds: "deliveryOptionIds_example", packageDetails: ProductAdd_package_details(measureUnit: "measureUnit_example", weighUnit: "weighUnit_example", packageDepth: 123, packageLength: 123, packageWidth: 123, weightMajor: 123, weightMinor: 123, shippingPackage: "shippingPackage_example"), logisticInfo: [ProductAdd_logistic_info_inner(logisticId: 123, isFree: false, shippingFee: 123, sizeId: 123)], listingDuration: "listingDuration_example", listingType: "listingType_example", returnAccepted: true, sellerProfiles: ProductAdd_seller_profiles(shippingProfileId: "shippingProfileId_example", paymentProfileId: "paymentProfileId_example", returnProfileId: "returnProfileId_example"), auctionConfidentialityLevel: "auctionConfidentialityLevel_example", bestOffer: ProductAdd_best_offer(minimumOfferPrice: 123, autoAcceptPrice: 123), productionPartnerIds: "productionPartnerIds_example", marketplaceItemProperties: "marketplaceItemProperties_example", clearCache: false, viewedCount: 123, orderedCount: 123) // ProductAdd | 
 
 // product.add
 ProductAPI.productAdd(productAdd: productAdd) { (response, error) in
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 # **productAttributeList**
 ```swift
-    open class func productAttributeList(productId: String, attributeId: String? = nil, variantId: String? = nil, pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, attributeGroupId: String? = nil, setName: String? = nil, langId: String? = nil, storeId: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseProductAttributeList?, _ error: Error?) -> Void)
+    open class func productAttributeList(productId: String, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, attributeId: String? = nil, variantId: String? = nil, attributeGroupId: String? = nil, langId: String? = nil, storeId: String? = nil, setName: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseProductAttributeList?, _ error: Error?) -> Void)
 ```
 
 product.attribute.list
@@ -173,23 +173,23 @@ Get list of attributes and values.
 import OpenAPIClient
 
 let productId = "productId_example" // String | Retrieves attributes specified by product id
-let attributeId = "attributeId_example" // String | Retrieves info for specified attribute_id (optional)
-let variantId = "variantId_example" // String | Defines product's variants specified by variant id (optional)
-let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
+let attributeId = "attributeId_example" // String | Retrieves info for specified attribute_id (optional)
+let variantId = "variantId_example" // String | Defines product's variants specified by variant id (optional)
 let attributeGroupId = "attributeGroupId_example" // String | Filter by attribute_group_id (optional)
-let setName = "setName_example" // String | Retrieves attributes specified by set_name in Magento (optional)
 let langId = "langId_example" // String | Retrieves attributes specified by language id (optional)
 let storeId = "storeId_example" // String | Retrieves attributes specified by store id (optional)
+let setName = "setName_example" // String | Retrieves attributes specified by set_name in Magento (optional)
 let sortBy = "sortBy_example" // String | Set field to sort by (optional) (default to "attribute_id")
 let sortDirection = "sortDirection_example" // String | Set sorting direction (optional) (default to "asc")
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "attribute_id,name")
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "attribute_id,name")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // product.attribute.list
-ProductAPI.productAttributeList(productId: productId, attributeId: attributeId, variantId: variantId, pageCursor: pageCursor, start: start, count: count, attributeGroupId: attributeGroupId, setName: setName, langId: langId, storeId: storeId, sortBy: sortBy, sortDirection: sortDirection, params: params, responseFields: responseFields, exclude: exclude) { (response, error) in
+ProductAPI.productAttributeList(productId: productId, start: start, count: count, pageCursor: pageCursor, attributeId: attributeId, variantId: variantId, attributeGroupId: attributeGroupId, langId: langId, storeId: storeId, setName: setName, sortBy: sortBy, sortDirection: sortDirection, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -206,19 +206,19 @@ ProductAPI.productAttributeList(productId: productId, attributeId: attributeId, 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **String** | Retrieves attributes specified by product id | 
- **attributeId** | **String** | Retrieves info for specified attribute_id | [optional] 
- **variantId** | **String** | Defines product&#39;s variants specified by variant id | [optional] 
- **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
+ **attributeId** | **String** | Retrieves info for specified attribute_id | [optional] 
+ **variantId** | **String** | Defines product&#39;s variants specified by variant id | [optional] 
  **attributeGroupId** | **String** | Filter by attribute_group_id | [optional] 
- **setName** | **String** | Retrieves attributes specified by set_name in Magento | [optional] 
  **langId** | **String** | Retrieves attributes specified by language id | [optional] 
  **storeId** | **String** | Retrieves attributes specified by store id | [optional] 
+ **setName** | **String** | Retrieves attributes specified by set_name in Magento | [optional] 
  **sortBy** | **String** | Set field to sort by | [optional] [default to &quot;attribute_id&quot;]
  **sortDirection** | **String** | Set sorting direction | [optional] [default to &quot;asc&quot;]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;attribute_id,name&quot;]
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;attribute_id,name&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
 
 # **productBrandList**
 ```swift
-    open class func productBrandList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, params: String? = nil, brandIds: String? = nil, exclude: String? = nil, categoryId: String? = nil, storeId: String? = nil, langId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, parentId: String? = nil, responseFields: String? = nil, findWhere: String? = nil, findValue: String? = nil, completion: @escaping (_ data: ModelResponseProductBrandList?, _ error: Error?) -> Void)
+    open class func productBrandList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, brandIds: String? = nil, categoryId: String? = nil, parentId: String? = nil, storeId: String? = nil, langId: String? = nil, findWhere: String? = nil, findValue: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseProductBrandList?, _ error: Error?) -> Void)
 ```
 
 product.brand.list
@@ -377,23 +377,23 @@ import OpenAPIClient
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
 let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,short_description,active,url")
 let brandIds = "brandIds_example" // String | Retrieves brands specified by brand ids (optional)
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let categoryId = "categoryId_example" // String | Retrieves product brands specified by category id (optional)
+let parentId = "parentId_example" // String | Retrieves brands specified by parent id (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
 let langId = "langId_example" // String | Language id (optional)
+let findWhere = "findWhere_example" // String | Entity search that is specified by the comma-separated unique fields (optional)
+let findValue = "findValue_example" // String | Entity search that is specified by some value (optional)
 let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
 let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
-let parentId = "parentId_example" // String | Retrieves brands specified by parent id (optional)
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let findWhere = "findWhere_example" // String | Entity search that is specified by the comma-separated unique fields (optional)
-let findValue = "findValue_example" // String | Entity search that is specified by some value (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,short_description,active,url")
+let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // product.brand.list
-ProductAPI.productBrandList(start: start, count: count, pageCursor: pageCursor, params: params, brandIds: brandIds, exclude: exclude, categoryId: categoryId, storeId: storeId, langId: langId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, parentId: parentId, responseFields: responseFields, findWhere: findWhere, findValue: findValue) { (response, error) in
+ProductAPI.productBrandList(start: start, count: count, pageCursor: pageCursor, brandIds: brandIds, categoryId: categoryId, parentId: parentId, storeId: storeId, langId: langId, findWhere: findWhere, findValue: findValue, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -412,20 +412,20 @@ Name | Type | Description  | Notes
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,short_description,active,url&quot;]
  **brandIds** | **String** | Retrieves brands specified by brand ids | [optional] 
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **categoryId** | **String** | Retrieves product brands specified by category id | [optional] 
+ **parentId** | **String** | Retrieves brands specified by parent id | [optional] 
  **storeId** | **String** | Store Id | [optional] 
  **langId** | **String** | Language id | [optional] 
+ **findWhere** | **String** | Entity search that is specified by the comma-separated unique fields | [optional] 
+ **findValue** | **String** | Entity search that is specified by some value | [optional] 
  **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
  **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
- **parentId** | **String** | Retrieves brands specified by parent id | [optional] 
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **findWhere** | **String** | Entity search that is specified by the comma-separated unique fields | [optional] 
- **findValue** | **String** | Entity search that is specified by some value | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,short_description,active,url&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -500,7 +500,7 @@ Name | Type | Description  | Notes
 
 # **productChildItemInfo**
 ```swift
-    open class func productChildItemInfo(productId: String, id: String, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, storeId: String? = nil, langId: String? = nil, currencyId: String? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: ProductChildItemInfo200Response?, _ error: Error?) -> Void)
+    open class func productChildItemInfo(productId: String, id: String, storeId: String? = nil, langId: String? = nil, currencyId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: ProductChildItemInfo200Response?, _ error: Error?) -> Void)
 ```
 
 product.child_item.info
@@ -514,16 +514,16 @@ import OpenAPIClient
 
 let productId = "productId_example" // String | Filter by parent product id
 let id = "id_example" // String | Entity id
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "force_all")
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
 let langId = "langId_example" // String | Language id (optional)
 let currencyId = "currencyId_example" // String | Currency Id (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "force_all")
+let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
 
 // product.child_item.info
-ProductAPI.productChildItemInfo(productId: productId, id: id, params: params, responseFields: responseFields, exclude: exclude, storeId: storeId, langId: langId, currencyId: currencyId, useLatestApiVersion: useLatestApiVersion) { (response, error) in
+ProductAPI.productChildItemInfo(productId: productId, id: id, storeId: storeId, langId: langId, currencyId: currencyId, responseFields: responseFields, params: params, exclude: exclude, useLatestApiVersion: useLatestApiVersion) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -541,12 +541,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **String** | Filter by parent product id | 
  **id** | **String** | Entity id | 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;force_all&quot;]
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **storeId** | **String** | Store Id | [optional] 
  **langId** | **String** | Language id | [optional] 
  **currencyId** | **String** | Currency Id | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;force_all&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
 
 ### Return type
@@ -566,7 +566,7 @@ Name | Type | Description  | Notes
 
 # **productChildItemList**
 ```swift
-    open class func productChildItemList(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, productId: String? = nil, productIds: String? = nil, sku: String? = nil, storeId: String? = nil, langId: String? = nil, currencyId: String? = nil, availSale: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, returnGlobal: Bool? = nil, completion: @escaping (_ data: ModelResponseProductChildItemList?, _ error: Error?) -> Void)
+    open class func productChildItemList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, productId: String? = nil, productIds: String? = nil, sku: String? = nil, storeId: String? = nil, langId: String? = nil, currencyId: String? = nil, availSale: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, returnGlobal: Bool? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: ModelResponseProductChildItemList?, _ error: Error?) -> Void)
 ```
 
 product.child_item.list
@@ -578,16 +578,9 @@ Get a list of a product's child items, such as variants or bundle components. Th
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pageCursor = "" // String | Used to retrieve products child items via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "force_all")
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
-let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
-let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
-let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
+let pageCursor = "" // String | Used to retrieve products child items via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let productId = "productId_example" // String | Filter by parent product id (optional)
 let productIds = "productIds_example" // String | Filter by parent product ids (optional)
 let sku = "sku_example" // String | Filter by products variant's sku (optional)
@@ -597,13 +590,20 @@ let currencyId = "currencyId_example" // String | Currency Id (optional)
 let availSale = false // Bool | Specifies the set of available/not available products for sale (optional)
 let findValue = "findValue_example" // String | Entity search that is specified by some value (optional)
 let findWhere = "findWhere_example" // String | Child products search that is specified by field (optional)
+let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
+let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
+let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
+let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
+let returnGlobal = false // Bool | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned. (optional) (default to false)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "force_all")
+let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let reportRequestId = "reportRequestId_example" // String | Report request id (optional)
 let disableReportCache = false // Bool | Disable report cache for current request (optional) (default to false)
 let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
-let returnGlobal = false // Bool | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned. (optional) (default to false)
 
 // product.child_item.list
-ProductAPI.productChildItemList(pageCursor: pageCursor, start: start, count: count, params: params, responseFields: responseFields, exclude: exclude, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, productId: productId, productIds: productIds, sku: sku, storeId: storeId, langId: langId, currencyId: currencyId, availSale: availSale, findValue: findValue, findWhere: findWhere, reportRequestId: reportRequestId, disableReportCache: disableReportCache, useLatestApiVersion: useLatestApiVersion, returnGlobal: returnGlobal) { (response, error) in
+ProductAPI.productChildItemList(start: start, count: count, pageCursor: pageCursor, productId: productId, productIds: productIds, sku: sku, storeId: storeId, langId: langId, currencyId: currencyId, availSale: availSale, findValue: findValue, findWhere: findWhere, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, returnGlobal: returnGlobal, responseFields: responseFields, params: params, exclude: exclude, reportRequestId: reportRequestId, disableReportCache: disableReportCache, useLatestApiVersion: useLatestApiVersion) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -619,16 +619,9 @@ ProductAPI.productChildItemList(pageCursor: pageCursor, start: start, count: cou
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String** | Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;force_all&quot;]
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
- **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
- **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
- **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
+ **pageCursor** | **String** | Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **productId** | **String** | Filter by parent product id | [optional] 
  **productIds** | **String** | Filter by parent product ids | [optional] 
  **sku** | **String** | Filter by products variant&#39;s sku | [optional] 
@@ -638,10 +631,17 @@ Name | Type | Description  | Notes
  **availSale** | **Bool** | Specifies the set of available/not available products for sale | [optional] 
  **findValue** | **String** | Entity search that is specified by some value | [optional] 
  **findWhere** | **String** | Child products search that is specified by field | [optional] 
+ **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
+ **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
+ **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
+ **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
+ **returnGlobal** | **Bool** | Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional] [default to false]
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;force_all&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **reportRequestId** | **String** | Report request id | [optional] 
  **disableReportCache** | **Bool** | Disable report cache for current request | [optional] [default to false]
  **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
- **returnGlobal** | **Bool** | Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional] [default to false]
 
 ### Return type
 
@@ -660,7 +660,7 @@ Name | Type | Description  | Notes
 
 # **productCount**
 ```swift
-    open class func productCount(categoryId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, availView: Bool? = nil, availSale: Bool? = nil, storeId: String? = nil, langId: String? = nil, productIds: String? = nil, sinceId: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, brandName: String? = nil, productAttributes: [String]? = nil, status: String? = nil, type: String? = nil, findValue: String? = nil, findWhere: String? = nil, useLatestApiVersion: Bool? = nil, returnGlobal: Bool? = nil, categoriesIds: String? = nil, completion: @escaping (_ data: ProductCount200Response?, _ error: Error?) -> Void)
+    open class func productCount(productIds: String? = nil, sinceId: String? = nil, categoriesIds: String? = nil, categoryId: String? = nil, storeId: String? = nil, langId: String? = nil, availView: Bool? = nil, availSale: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, brandName: String? = nil, productAttributes: [String]? = nil, status: String? = nil, type: String? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, returnGlobal: Bool? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: ProductCount200Response?, _ error: Error?) -> Void)
 ```
 
 product.count
@@ -672,31 +672,31 @@ Count products in store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
+let productIds = "productIds_example" // String | Counts products specified by product ids (optional)
+let sinceId = "sinceId_example" // String | Retrieve entities starting from the specified id. (optional)
+let categoriesIds = "categoriesIds_example" // String | Defines product add that is specified by comma-separated categories id (optional)
 let categoryId = "categoryId_example" // String | Counts products specified by category id (optional)
+let storeId = "storeId_example" // String | Counts products specified by store id (optional)
+let langId = "langId_example" // String | Counts products specified by language id (optional)
+let availView = true // Bool | Specifies the set of visible/invisible products (optional)
+let availSale = false // Bool | Specifies the set of available/not available products for sale (optional)
 let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
 let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
-let availView = true // Bool | Specifies the set of visible/invisible products (optional)
-let availSale = false // Bool | Specifies the set of available/not available products for sale (optional)
-let storeId = "storeId_example" // String | Counts products specified by store id (optional)
-let langId = "langId_example" // String | Counts products specified by language id (optional)
-let productIds = "productIds_example" // String | Counts products specified by product ids (optional)
-let sinceId = "sinceId_example" // String | Retrieve entities starting from the specified id. (optional)
-let reportRequestId = "reportRequestId_example" // String | Report request id (optional)
-let disableReportCache = false // Bool | Disable report cache for current request (optional) (default to false)
 let brandName = "brandName_example" // String | Retrieves brands specified by brand name (optional)
 let productAttributes = ["inner_example"] // [String] | Defines product attributes (optional)
 let status = "status_example" // String | Defines product's status (optional)
 let type = "type_example" // String | Defines products's type (optional)
 let findValue = "findValue_example" // String | Entity search that is specified by some value (optional)
 let findWhere = "findWhere_example" // String | Counts products that are searched specified by field (optional)
-let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
+let reportRequestId = "reportRequestId_example" // String | Report request id (optional)
 let returnGlobal = false // Bool | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned. (optional) (default to false)
-let categoriesIds = "categoriesIds_example" // String | Defines product add that is specified by comma-separated categories id (optional)
+let disableReportCache = false // Bool | Disable report cache for current request (optional) (default to false)
+let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
 
 // product.count
-ProductAPI.productCount(categoryId: categoryId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, availView: availView, availSale: availSale, storeId: storeId, langId: langId, productIds: productIds, sinceId: sinceId, reportRequestId: reportRequestId, disableReportCache: disableReportCache, brandName: brandName, productAttributes: productAttributes, status: status, type: type, findValue: findValue, findWhere: findWhere, useLatestApiVersion: useLatestApiVersion, returnGlobal: returnGlobal, categoriesIds: categoriesIds) { (response, error) in
+ProductAPI.productCount(productIds: productIds, sinceId: sinceId, categoriesIds: categoriesIds, categoryId: categoryId, storeId: storeId, langId: langId, availView: availView, availSale: availSale, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, brandName: brandName, productAttributes: productAttributes, status: status, type: type, findValue: findValue, findWhere: findWhere, reportRequestId: reportRequestId, returnGlobal: returnGlobal, disableReportCache: disableReportCache, useLatestApiVersion: useLatestApiVersion) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -712,28 +712,28 @@ ProductAPI.productCount(categoryId: categoryId, createdFrom: createdFrom, create
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **productIds** | **String** | Counts products specified by product ids | [optional] 
+ **sinceId** | **String** | Retrieve entities starting from the specified id. | [optional] 
+ **categoriesIds** | **String** | Defines product add that is specified by comma-separated categories id | [optional] 
  **categoryId** | **String** | Counts products specified by category id | [optional] 
+ **storeId** | **String** | Counts products specified by store id | [optional] 
+ **langId** | **String** | Counts products specified by language id | [optional] 
+ **availView** | **Bool** | Specifies the set of visible/invisible products | [optional] 
+ **availSale** | **Bool** | Specifies the set of available/not available products for sale | [optional] 
  **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
  **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
- **availView** | **Bool** | Specifies the set of visible/invisible products | [optional] 
- **availSale** | **Bool** | Specifies the set of available/not available products for sale | [optional] 
- **storeId** | **String** | Counts products specified by store id | [optional] 
- **langId** | **String** | Counts products specified by language id | [optional] 
- **productIds** | **String** | Counts products specified by product ids | [optional] 
- **sinceId** | **String** | Retrieve entities starting from the specified id. | [optional] 
- **reportRequestId** | **String** | Report request id | [optional] 
- **disableReportCache** | **Bool** | Disable report cache for current request | [optional] [default to false]
  **brandName** | **String** | Retrieves brands specified by brand name | [optional] 
  **productAttributes** | [**[String]**](String.md) | Defines product attributes | [optional] 
  **status** | **String** | Defines product&#39;s status | [optional] 
  **type** | **String** | Defines products&#39;s type | [optional] 
  **findValue** | **String** | Entity search that is specified by some value | [optional] 
  **findWhere** | **String** | Counts products that are searched specified by field | [optional] 
- **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
+ **reportRequestId** | **String** | Report request id | [optional] 
  **returnGlobal** | **Bool** | Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional] [default to false]
- **categoriesIds** | **String** | Defines product add that is specified by comma-separated categories id | [optional] 
+ **disableReportCache** | **Bool** | Disable report cache for current request | [optional] [default to false]
+ **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
 
 ### Return type
 
@@ -814,7 +814,7 @@ Name | Type | Description  | Notes
 
 # **productCurrencyList**
 ```swift
-    open class func productCurrencyList(start: Int? = nil, count: Int? = nil, params: String? = nil, pageCursor: String? = nil, exclude: String? = nil, responseFields: String? = nil, _default: Bool? = nil, avail: Bool? = nil, completion: @escaping (_ data: ModelResponseProductCurrencyList?, _ error: Error?) -> Void)
+    open class func productCurrencyList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, _default: Bool? = nil, avail: Bool? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseProductCurrencyList?, _ error: Error?) -> Void)
 ```
 
 product.currency.list
@@ -828,15 +828,15 @@ import OpenAPIClient
 
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "name,iso3,default,avail")
 let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let _default = true // Bool | Specifies the set of default/not default currencies (optional)
 let avail = false // Bool | Specifies the set of available/not available currencies (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "name,iso3,default,avail")
+let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // product.currency.list
-ProductAPI.productCurrencyList(start: start, count: count, params: params, pageCursor: pageCursor, exclude: exclude, responseFields: responseFields, _default: _default, avail: avail) { (response, error) in
+ProductAPI.productCurrencyList(start: start, count: count, pageCursor: pageCursor, _default: _default, avail: avail, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -854,12 +854,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;name,iso3,default,avail&quot;]
  **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **_default** | **Bool** | Specifies the set of default/not default currencies | [optional] 
  **avail** | **Bool** | Specifies the set of available/not available currencies | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;name,iso3,default,avail&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -1098,7 +1098,7 @@ Add image to product
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productImageAdd = ProductImageAdd(productId: "productId_example", imageName: "imageName_example", type: "type_example", url: "url_example", label: "label_example", mime: "mime_example", position: 123, content: "content_example", productVariantId: "productVariantId_example", variantIds: "variantIds_example", optionValueIds: "optionValueIds_example", storeId: "storeId_example", langId: "langId_example", useLatestApiVersion: true) // ProductImageAdd | 
+let productImageAdd = ProductImageAdd(type: "type_example", imageName: "imageName_example", productId: "productId_example", productVariantId: "productVariantId_example", variantIds: "variantIds_example", optionValueIds: "optionValueIds_example", storeId: "storeId_example", langId: "langId_example", url: "url_example", content: "content_example", label: "label_example", mime: "mime_example", position: 123, useLatestApiVersion: true) // ProductImageAdd | 
 
 // product.image.add
 ProductAPI.productImageAdd(productImageAdd: productImageAdd) { (response, error) in
@@ -1190,7 +1190,7 @@ Name | Type | Description  | Notes
 
 # **productImageUpdate**
 ```swift
-    open class func productImageUpdate(productId: String, id: String, variantIds: String? = nil, imageName: String? = nil, type: String? = nil, label: String? = nil, position: Int? = nil, storeId: String? = nil, langId: String? = nil, hidden: Bool? = nil, completion: @escaping (_ data: ProductImageUpdate200Response?, _ error: Error?) -> Void)
+    open class func productImageUpdate(productId: String, id: String, variantIds: String? = nil, storeId: String? = nil, langId: String? = nil, imageName: String? = nil, type: String? = nil, label: String? = nil, position: Int? = nil, hidden: Bool? = nil, completion: @escaping (_ data: ProductImageUpdate200Response?, _ error: Error?) -> Void)
 ```
 
 product.image.update
@@ -1205,16 +1205,16 @@ import OpenAPIClient
 let productId = "productId_example" // String | Defines product id where the image should be updated
 let id = "id_example" // String | Defines image update specified by image id
 let variantIds = "variantIds_example" // String | Defines product's variants ids (optional)
+let storeId = "storeId_example" // String | Store Id (optional)
+let langId = "langId_example" // String | Language id (optional)
 let imageName = "imageName_example" // String | Defines image's name (optional)
 let type = "type_example" // String | Defines image's types that are specified by comma-separated list (optional) (default to "additional")
 let label = "label_example" // String | Defines alternative text that has to be attached to the picture (optional)
 let position = 987 // Int | Defines image’s position in the list (optional)
-let storeId = "storeId_example" // String | Store Id (optional)
-let langId = "langId_example" // String | Language id (optional)
 let hidden = true // Bool | Define is hide image (optional)
 
 // product.image.update
-ProductAPI.productImageUpdate(productId: productId, id: id, variantIds: variantIds, imageName: imageName, type: type, label: label, position: position, storeId: storeId, langId: langId, hidden: hidden) { (response, error) in
+ProductAPI.productImageUpdate(productId: productId, id: id, variantIds: variantIds, storeId: storeId, langId: langId, imageName: imageName, type: type, label: label, position: position, hidden: hidden) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1233,12 +1233,12 @@ Name | Type | Description  | Notes
  **productId** | **String** | Defines product id where the image should be updated | 
  **id** | **String** | Defines image update specified by image id | 
  **variantIds** | **String** | Defines product&#39;s variants ids | [optional] 
+ **storeId** | **String** | Store Id | [optional] 
+ **langId** | **String** | Language id | [optional] 
  **imageName** | **String** | Defines image&#39;s name | [optional] 
  **type** | **String** | Defines image&#39;s types that are specified by comma-separated list | [optional] [default to &quot;additional&quot;]
  **label** | **String** | Defines alternative text that has to be attached to the picture | [optional] 
  **position** | **Int** | Defines image’s position in the list | [optional] 
- **storeId** | **String** | Store Id | [optional] 
- **langId** | **String** | Language id | [optional] 
  **hidden** | **Bool** | Define is hide image | [optional] 
 
 ### Return type
@@ -1258,7 +1258,7 @@ Name | Type | Description  | Notes
 
 # **productInfo**
 ```swift
-    open class func productInfo(id: String, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, storeId: String? = nil, langId: String? = nil, currencyId: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: ProductInfo200Response?, _ error: Error?) -> Void)
+    open class func productInfo(id: String, storeId: String? = nil, langId: String? = nil, currencyId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: ProductInfo200Response?, _ error: Error?) -> Void)
 ```
 
 product.info
@@ -1271,18 +1271,18 @@ Get information about a specific product by its ID. In the case of a multistore 
 import OpenAPIClient
 
 let id = "id_example" // String | Retrieves product's info specified by product id
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,description,price,categories_ids")
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let storeId = "storeId_example" // String | Retrieves product info specified by store id (optional)
 let langId = "langId_example" // String | Retrieves product info specified by language id (optional)
 let currencyId = "currencyId_example" // String | Currency Id (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,description,price,categories_ids")
+let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let reportRequestId = "reportRequestId_example" // String | Report request id (optional)
 let disableReportCache = false // Bool | Disable report cache for current request (optional) (default to false)
 let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
 
 // product.info
-ProductAPI.productInfo(id: id, params: params, responseFields: responseFields, exclude: exclude, storeId: storeId, langId: langId, currencyId: currencyId, reportRequestId: reportRequestId, disableReportCache: disableReportCache, useLatestApiVersion: useLatestApiVersion) { (response, error) in
+ProductAPI.productInfo(id: id, storeId: storeId, langId: langId, currencyId: currencyId, responseFields: responseFields, params: params, exclude: exclude, reportRequestId: reportRequestId, disableReportCache: disableReportCache, useLatestApiVersion: useLatestApiVersion) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1299,12 +1299,12 @@ ProductAPI.productInfo(id: id, params: params, responseFields: responseFields, e
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String** | Retrieves product&#39;s info specified by product id | 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,description,price,categories_ids&quot;]
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **storeId** | **String** | Retrieves product info specified by store id | [optional] 
  **langId** | **String** | Retrieves product info specified by language id | [optional] 
  **currencyId** | **String** | Currency Id | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,description,price,categories_ids&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **reportRequestId** | **String** | Report request id | [optional] 
  **disableReportCache** | **Bool** | Disable report cache for current request | [optional] [default to false]
  **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
@@ -1326,7 +1326,7 @@ Name | Type | Description  | Notes
 
 # **productList**
 ```swift
-    open class func productList(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, categoryId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, availView: Bool? = nil, availSale: Bool? = nil, storeId: String? = nil, langId: String? = nil, currencyId: String? = nil, productIds: String? = nil, sinceId: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, sortBy: String? = nil, sortDirection: String? = nil, sku: String? = nil, disableCache: Bool? = nil, brandName: String? = nil, productAttributes: [String]? = nil, status: String? = nil, type: String? = nil, findValue: String? = nil, findWhere: String? = nil, useLatestApiVersion: Bool? = nil, returnGlobal: Bool? = nil, categoriesIds: String? = nil, completion: @escaping (_ data: ModelResponseProductList?, _ error: Error?) -> Void)
+    open class func productList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, productIds: String? = nil, sinceId: String? = nil, categoriesIds: String? = nil, categoryId: String? = nil, storeId: String? = nil, langId: String? = nil, currencyId: String? = nil, availView: Bool? = nil, availSale: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, sku: String? = nil, brandName: String? = nil, productAttributes: [String]? = nil, status: String? = nil, type: String? = nil, findValue: String? = nil, findWhere: String? = nil, returnGlobal: Bool? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, reportRequestId: String? = nil, disableCache: Bool? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: ModelResponseProductList?, _ error: Error?) -> Void)
 ```
 
 product.list
@@ -1338,42 +1338,42 @@ Get list of products from your store. Returns 10 products by default.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pageCursor = "" // String | Used to retrieve products via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,description,price,categories_ids")
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let pageCursor = "" // String | Used to retrieve products via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
+let productIds = "productIds_example" // String | Retrieves products specified by product ids (optional)
+let sinceId = "sinceId_example" // String | Retrieve entities starting from the specified id. (optional)
+let categoriesIds = "categoriesIds_example" // String | Retrieves products specified by categories ids (optional)
 let categoryId = "categoryId_example" // String | Retrieves products specified by category id (optional)
+let storeId = "storeId_example" // String | Retrieves products specified by store id (optional)
+let langId = "langId_example" // String | Retrieves products specified by language id (optional)
+let currencyId = "currencyId_example" // String | Currency Id (optional)
+let availView = true // Bool | Specifies the set of visible/invisible products (optional)
+let availSale = false // Bool | Specifies the set of available/not available products for sale (optional)
 let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
 let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
-let availView = true // Bool | Specifies the set of visible/invisible products (optional)
-let availSale = false // Bool | Specifies the set of available/not available products for sale (optional)
-let storeId = "storeId_example" // String | Retrieves products specified by store id (optional)
-let langId = "langId_example" // String | Retrieves products specified by language id (optional)
-let currencyId = "currencyId_example" // String | Currency Id (optional)
-let productIds = "productIds_example" // String | Retrieves products specified by product ids (optional)
-let sinceId = "sinceId_example" // String | Retrieve entities starting from the specified id. (optional)
-let reportRequestId = "reportRequestId_example" // String | Report request id (optional)
-let disableReportCache = false // Bool | Disable report cache for current request (optional) (default to false)
-let sortBy = "sortBy_example" // String | Set field to sort by (optional) (default to "id")
-let sortDirection = "sortDirection_example" // String | Set sorting direction (optional) (default to "asc")
 let sku = "sku_example" // String | Filter by product's sku (optional)
-let disableCache = false // Bool | Disable cache for current request (optional) (default to false)
 let brandName = "brandName_example" // String | Retrieves brands specified by brand name (optional)
 let productAttributes = ["inner_example"] // [String] | Defines product attributes (optional)
 let status = "status_example" // String | Defines product's status (optional)
 let type = "type_example" // String | Defines products's type (optional)
 let findValue = "findValue_example" // String | Entity search that is specified by some value (optional)
 let findWhere = "findWhere_example" // String | Product search that is specified by field (optional)
-let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
 let returnGlobal = false // Bool | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned. (optional) (default to false)
-let categoriesIds = "categoriesIds_example" // String | Retrieves products specified by categories ids (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,description,price,categories_ids")
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let sortBy = "sortBy_example" // String | Set field to sort by (optional) (default to "id")
+let sortDirection = "sortDirection_example" // String | Set sorting direction (optional) (default to "asc")
+let reportRequestId = "reportRequestId_example" // String | Report request id (optional)
+let disableCache = false // Bool | Disable cache for current request (optional) (default to false)
+let disableReportCache = false // Bool | Disable report cache for current request (optional) (default to false)
+let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
 
 // product.list
-ProductAPI.productList(pageCursor: pageCursor, start: start, count: count, params: params, responseFields: responseFields, exclude: exclude, categoryId: categoryId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, availView: availView, availSale: availSale, storeId: storeId, langId: langId, currencyId: currencyId, productIds: productIds, sinceId: sinceId, reportRequestId: reportRequestId, disableReportCache: disableReportCache, sortBy: sortBy, sortDirection: sortDirection, sku: sku, disableCache: disableCache, brandName: brandName, productAttributes: productAttributes, status: status, type: type, findValue: findValue, findWhere: findWhere, useLatestApiVersion: useLatestApiVersion, returnGlobal: returnGlobal, categoriesIds: categoriesIds) { (response, error) in
+ProductAPI.productList(start: start, count: count, pageCursor: pageCursor, productIds: productIds, sinceId: sinceId, categoriesIds: categoriesIds, categoryId: categoryId, storeId: storeId, langId: langId, currencyId: currencyId, availView: availView, availSale: availSale, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, sku: sku, brandName: brandName, productAttributes: productAttributes, status: status, type: type, findValue: findValue, findWhere: findWhere, returnGlobal: returnGlobal, params: params, responseFields: responseFields, exclude: exclude, sortBy: sortBy, sortDirection: sortDirection, reportRequestId: reportRequestId, disableCache: disableCache, disableReportCache: disableReportCache, useLatestApiVersion: useLatestApiVersion) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1389,39 +1389,39 @@ ProductAPI.productList(pageCursor: pageCursor, start: start, count: count, param
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String** | Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,description,price,categories_ids&quot;]
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **pageCursor** | **String** | Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
+ **productIds** | **String** | Retrieves products specified by product ids | [optional] 
+ **sinceId** | **String** | Retrieve entities starting from the specified id. | [optional] 
+ **categoriesIds** | **String** | Retrieves products specified by categories ids | [optional] 
  **categoryId** | **String** | Retrieves products specified by category id | [optional] 
+ **storeId** | **String** | Retrieves products specified by store id | [optional] 
+ **langId** | **String** | Retrieves products specified by language id | [optional] 
+ **currencyId** | **String** | Currency Id | [optional] 
+ **availView** | **Bool** | Specifies the set of visible/invisible products | [optional] 
+ **availSale** | **Bool** | Specifies the set of available/not available products for sale | [optional] 
  **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
  **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
- **availView** | **Bool** | Specifies the set of visible/invisible products | [optional] 
- **availSale** | **Bool** | Specifies the set of available/not available products for sale | [optional] 
- **storeId** | **String** | Retrieves products specified by store id | [optional] 
- **langId** | **String** | Retrieves products specified by language id | [optional] 
- **currencyId** | **String** | Currency Id | [optional] 
- **productIds** | **String** | Retrieves products specified by product ids | [optional] 
- **sinceId** | **String** | Retrieve entities starting from the specified id. | [optional] 
- **reportRequestId** | **String** | Report request id | [optional] 
- **disableReportCache** | **Bool** | Disable report cache for current request | [optional] [default to false]
- **sortBy** | **String** | Set field to sort by | [optional] [default to &quot;id&quot;]
- **sortDirection** | **String** | Set sorting direction | [optional] [default to &quot;asc&quot;]
  **sku** | **String** | Filter by product&#39;s sku | [optional] 
- **disableCache** | **Bool** | Disable cache for current request | [optional] [default to false]
  **brandName** | **String** | Retrieves brands specified by brand name | [optional] 
  **productAttributes** | [**[String]**](String.md) | Defines product attributes | [optional] 
  **status** | **String** | Defines product&#39;s status | [optional] 
  **type** | **String** | Defines products&#39;s type | [optional] 
  **findValue** | **String** | Entity search that is specified by some value | [optional] 
  **findWhere** | **String** | Product search that is specified by field | [optional] 
- **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
  **returnGlobal** | **Bool** | Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional] [default to false]
- **categoriesIds** | **String** | Retrieves products specified by categories ids | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,description,price,categories_ids&quot;]
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **sortBy** | **String** | Set field to sort by | [optional] [default to &quot;id&quot;]
+ **sortDirection** | **String** | Set sorting direction | [optional] [default to &quot;asc&quot;]
+ **reportRequestId** | **String** | Report request id | [optional] 
+ **disableCache** | **Bool** | Disable cache for current request | [optional] [default to false]
+ **disableReportCache** | **Bool** | Disable report cache for current request | [optional] [default to false]
+ **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
 
 ### Return type
 
@@ -1658,7 +1658,7 @@ Name | Type | Description  | Notes
 
 # **productOptionList**
 ```swift
-    open class func productOptionList(start: Int? = nil, count: Int? = nil, params: String? = nil, exclude: String? = nil, responseFields: String? = nil, productId: String? = nil, langId: String? = nil, storeId: String? = nil, completion: @escaping (_ data: ModelResponseProductOptionList?, _ error: Error?) -> Void)
+    open class func productOptionList(start: Int? = nil, count: Int? = nil, productId: String? = nil, langId: String? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseProductOptionList?, _ error: Error?) -> Void)
 ```
 
 product.option.list
@@ -1672,15 +1672,15 @@ import OpenAPIClient
 
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,description")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let productId = "productId_example" // String | Retrieves products' options specified by product id (optional)
 let langId = "langId_example" // String | Language id (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,description")
+let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // product.option.list
-ProductAPI.productOptionList(start: start, count: count, params: params, exclude: exclude, responseFields: responseFields, productId: productId, langId: langId, storeId: storeId) { (response, error) in
+ProductAPI.productOptionList(start: start, count: count, productId: productId, langId: langId, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1698,12 +1698,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,description&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **productId** | **String** | Retrieves products&#39; options specified by product id | [optional] 
  **langId** | **String** | Language id | [optional] 
  **storeId** | **String** | Store Id | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,description&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -2112,7 +2112,7 @@ Name | Type | Description  | Notes
 
 # **productReviewList**
 ```swift
-    open class func productReviewList(productId: String, start: Int? = nil, pageCursor: String? = nil, count: Int? = nil, ids: String? = nil, storeId: String? = nil, status: String? = nil, params: String? = nil, exclude: String? = nil, responseFields: String? = nil, completion: @escaping (_ data: ModelResponseProductReviewList?, _ error: Error?) -> Void)
+    open class func productReviewList(productId: String, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, storeId: String? = nil, status: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseProductReviewList?, _ error: Error?) -> Void)
 ```
 
 product.review.list
@@ -2126,17 +2126,17 @@ import OpenAPIClient
 
 let productId = "productId_example" // String | Product id
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
-let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let ids = "ids_example" // String | Retrieves reviews specified by ids (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
 let status = "status_example" // String | Defines status (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,customer_id,email,message,status,product_id,nick_name,summary,rating,ratings,status,created_time")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 
 // product.review.list
-ProductAPI.productReviewList(productId: productId, start: start, pageCursor: pageCursor, count: count, ids: ids, storeId: storeId, status: status, params: params, exclude: exclude, responseFields: responseFields) { (response, error) in
+ProductAPI.productReviewList(productId: productId, start: start, count: count, pageCursor: pageCursor, ids: ids, storeId: storeId, status: status, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2154,14 +2154,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **String** | Product id | 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
- **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **ids** | **String** | Retrieves reviews specified by ids | [optional] 
  **storeId** | **String** | Store Id | [optional] 
  **status** | **String** | Defines status | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,customer_id,email,message,status,product_id,nick_name,summary,rating,ratings,status,created_time&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
 
 ### Return type
 
@@ -2294,7 +2294,7 @@ This method can be used to update certain product data. The list of supported pa
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productUpdate = ProductUpdate(id: "id_example", model: "model_example", oldPrice: 123, price: 123, specialPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", costPrice: 123, fixedCostShippingPrice: 123, retailPrice: 123, quantity: 123, availableForView: false, weight: 123, weightUnit: "weightUnit_example", dimensionsUnit: "dimensionsUnit_example", increaseQuantity: 123, reduceQuantity: 123, warehouseId: "warehouseId_example", reserveQuantity: 123, manageStock: false, backorderStatus: "backorderStatus_example", name: "name_example", sku: "sku_example", visible: "visible_example", manufacturer: "manufacturer_example", manufacturerId: "manufacturerId_example", categoriesIds: "categoriesIds_example", relatedProductsIds: "relatedProductsIds_example", upSellProductsIds: "upSellProductsIds_example", crossSellProductsIds: "crossSellProductsIds_example", description: "description_example", shortDescription: "shortDescription_example", metaTitle: "metaTitle_example", metaKeywords: "metaKeywords_example", metaDescription: "metaDescription_example", storeId: "storeId_example", langId: "langId_example", inStock: true, status: "status_example", seoUrl: "seoUrl_example", reportRequestId: "reportRequestId_example", disableReportCache: false, reindex: false, tags: "tags_example", clearCache: false, gtin: "gtin_example", upc: "upc_example", mpn: "mpn_example", ean: "ean_example", isbn: "isbn_example", taxable: false, productClass: "productClass_example", height: 123, length: 123, width: 123, harmonizedSystemCode: "harmonizedSystemCode_example", countryOfOrigin: "countryOfOrigin_example", searchKeywords: "searchKeywords_example", barcode: "barcode_example", isVirtual: false, isFreeShipping: true, reservePrice: 123, buyitnowPrice: 123, availFrom: "availFrom_example", taxClassId: "taxClassId_example", type: "type_example", avail: false, deliveryCode: "deliveryCode_example", checkProcessStatus: false, packageDetails: ProductAdd_package_details(measureUnit: "measureUnit_example", weighUnit: "weighUnit_example", packageDepth: 123, packageLength: 123, packageWidth: 123, weightMajor: 123, weightMinor: 123, shippingPackage: "shippingPackage_example"), storesIds: "storesIds_example", manufacturerInfo: ProductAdd_manufacturer_info(name: "name_example", address: "address_example", phone: "phone_example", email: "email_example"), productionPartnerIds: "productionPartnerIds_example", shippingTemplateId: 123, whenMade: "whenMade_example", isSupply: false, downloadable: true, materials: ["materials_example"], autoRenew: false, onSale: false) // ProductUpdate | 
+let productUpdate = ProductUpdate(id: "id_example", model: "model_example", sku: "sku_example", name: "name_example", description: "description_example", shortDescription: "shortDescription_example", price: 123, oldPrice: 123, specialPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", costPrice: 123, fixedCostShippingPrice: 123, retailPrice: 123, tierPrices: [ProductAdd_tier_prices_inner(quantity: 123, price: 123)], reservePrice: 123, buyitnowPrice: 123, taxable: false, taxClassId: "taxClassId_example", type: "type_example", status: "status_example", condition: "condition_example", visible: "visible_example", inStock: true, avail: false, availFrom: "availFrom_example", productClass: "productClass_example", availableForView: false, storesIds: "storesIds_example", storeId: "storeId_example", langId: "langId_example", quantity: 123, reserveQuantity: 123, manageStock: false, backorderStatus: "backorderStatus_example", increaseQuantity: 123, reduceQuantity: 123, warehouseId: "warehouseId_example", weight: 123, weightUnit: "weightUnit_example", height: 123, length: 123, width: 123, dimensionsUnit: "dimensionsUnit_example", isVirtual: false, isFreeShipping: true, gtin: "gtin_example", upc: "upc_example", mpn: "mpn_example", ean: "ean_example", isbn: "isbn_example", barcode: "barcode_example", manufacturer: "manufacturer_example", manufacturerId: "manufacturerId_example", categoriesIds: "categoriesIds_example", relatedProductsIds: "relatedProductsIds_example", upSellProductsIds: "upSellProductsIds_example", crossSellProductsIds: "crossSellProductsIds_example", metaTitle: "metaTitle_example", metaKeywords: "metaKeywords_example", metaDescription: "metaDescription_example", seoUrl: "seoUrl_example", searchKeywords: "searchKeywords_example", tags: "tags_example", deliveryCode: "deliveryCode_example", packageDetails: ProductAdd_package_details(measureUnit: "measureUnit_example", weighUnit: "weighUnit_example", packageDepth: 123, packageLength: 123, packageWidth: 123, weightMajor: 123, weightMinor: 123, shippingPackage: "shippingPackage_example"), countryOfOrigin: "countryOfOrigin_example", harmonizedSystemCode: "harmonizedSystemCode_example", shippingTemplateId: 123, whenMade: "whenMade_example", isSupply: false, downloadable: true, materials: ["materials_example"], autoRenew: false, onSale: false, productionPartnerIds: "productionPartnerIds_example", manufacturerInfo: ProductAdd_manufacturer_info(name: "name_example", address: "address_example", phone: "phone_example", email: "email_example"), reportRequestId: "reportRequestId_example", disableReportCache: false, reindex: false, clearCache: false, checkProcessStatus: false) // ProductUpdate | 
 
 // product.update
 ProductAPI.productUpdate(productUpdate: productUpdate) { (response, error) in
@@ -2394,7 +2394,7 @@ Add variant to product.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productVariantAdd = ProductVariantAdd(productId: "productId_example", name: "name_example", model: "model_example", sku: "sku_example", barcode: "barcode_example", gtin: "gtin_example", price: 123, oldPrice: 123, costPrice: 123, fixedCostShippingPrice: 123, attributes: [ProductVariantAdd_attributes_inner(attributeName: "attributeName_example", attributeValue: "attributeValue_example", attributePrice: 123)], description: "description_example", specialPrice: 123, spriceCreate: "spriceCreate_example", spriceModified: "spriceModified_example", spriceExpire: "spriceExpire_example", availableForView: false, availableForSale: false, weight: 123, width: 123, height: 123, length: 123, weightUnit: "weightUnit_example", shortDescription: "shortDescription_example", warehouseId: "warehouseId_example", quantity: 123, createdAt: "createdAt_example", manufacturer: "manufacturer_example", taxClassId: "taxClassId_example", metaTitle: "metaTitle_example", metaKeywords: "metaKeywords_example", metaDescription: "metaDescription_example", url: "url_example", storeId: "storeId_example", langId: "langId_example", clearCache: false, taxable: false, harmonizedSystemCode: "harmonizedSystemCode_example", countryOfOrigin: "countryOfOrigin_example", manageStock: false, upc: "upc_example", mpn: "mpn_example", ean: "ean_example", isbn: "isbn_example", storesIds: "storesIds_example", isDefault: true, isFreeShipping: true, marketplaceItemProperties: "marketplaceItemProperties_example", inStock: true, backorderStatus: "backorderStatus_example", tierPrices: [ProductAdd_tier_prices_inner(quantity: 123, price: 123)], isVirtual: false) // ProductVariantAdd | 
+let productVariantAdd = ProductVariantAdd(productId: "productId_example", attributes: [ProductVariantAdd_attributes_inner(attributeName: "attributeName_example", attributeValue: "attributeValue_example", attributePrice: 123)], name: "name_example", model: "model_example", description: "description_example", shortDescription: "shortDescription_example", availableForView: false, availableForSale: false, isVirtual: false, isDefault: true, storeId: "storeId_example", storesIds: "storesIds_example", langId: "langId_example", price: 123, oldPrice: 123, costPrice: 123, specialPrice: 123, spriceCreate: "spriceCreate_example", spriceModified: "spriceModified_example", spriceExpire: "spriceExpire_example", tierPrices: [ProductAdd_tier_prices_inner(quantity: 123, price: 123)], quantity: 123, warehouseId: "warehouseId_example", inStock: true, backorderStatus: "backorderStatus_example", manageStock: false, weight: 123, width: 123, height: 123, length: 123, weightUnit: "weightUnit_example", sku: "sku_example", barcode: "barcode_example", gtin: "gtin_example", upc: "upc_example", ean: "ean_example", mpn: "mpn_example", isbn: "isbn_example", manufacturer: "manufacturer_example", createdAt: "createdAt_example", metaTitle: "metaTitle_example", metaKeywords: "metaKeywords_example", metaDescription: "metaDescription_example", url: "url_example", taxClassId: "taxClassId_example", taxable: false, fixedCostShippingPrice: 123, isFreeShipping: true, countryOfOrigin: "countryOfOrigin_example", harmonizedSystemCode: "harmonizedSystemCode_example", marketplaceItemProperties: "marketplaceItemProperties_example", clearCache: false) // ProductVariantAdd | 
 
 // product.variant.add
 ProductAPI.productVariantAdd(productVariantAdd: productVariantAdd) { (response, error) in
@@ -2482,7 +2482,7 @@ Name | Type | Description  | Notes
 
 # **productVariantCount**
 ```swift
-    open class func productVariantCount(productId: String, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, categoryId: String? = nil, storeId: String? = nil, completion: @escaping (_ data: ProductVariantCount200Response?, _ error: Error?) -> Void)
+    open class func productVariantCount(productId: String, categoryId: String? = nil, storeId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, completion: @escaping (_ data: ProductVariantCount200Response?, _ error: Error?) -> Void)
 ```
 
 product.variant.count
@@ -2495,15 +2495,15 @@ Get count variants.
 import OpenAPIClient
 
 let productId = "productId_example" // String | Retrieves products' variants specified by product id
+let categoryId = "categoryId_example" // String | Counts products’ variants specified by category id (optional)
+let storeId = "storeId_example" // String | Retrieves variants specified by store id (optional)
 let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
 let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
-let categoryId = "categoryId_example" // String | Counts products’ variants specified by category id (optional)
-let storeId = "storeId_example" // String | Retrieves variants specified by store id (optional)
 
 // product.variant.count
-ProductAPI.productVariantCount(productId: productId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, categoryId: categoryId, storeId: storeId) { (response, error) in
+ProductAPI.productVariantCount(productId: productId, categoryId: categoryId, storeId: storeId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2520,12 +2520,12 @@ ProductAPI.productVariantCount(productId: productId, createdFrom: createdFrom, c
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **String** | Retrieves products&#39; variants specified by product id | 
+ **categoryId** | **String** | Counts products’ variants specified by category id | [optional] 
+ **storeId** | **String** | Retrieves variants specified by store id | [optional] 
  **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
  **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
- **categoryId** | **String** | Counts products’ variants specified by category id | [optional] 
- **storeId** | **String** | Retrieves variants specified by store id | [optional] 
 
 ### Return type
 
@@ -2660,7 +2660,7 @@ Add image to product
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productVariantImageAdd = ProductVariantImageAdd(productId: "productId_example", productVariantId: "productVariantId_example", imageName: "imageName_example", type: "type_example", url: "url_example", content: "content_example", label: "label_example", mime: "mime_example", position: 123, storeId: "storeId_example", optionId: "optionId_example") // ProductVariantImageAdd | 
+let productVariantImageAdd = ProductVariantImageAdd(productId: "productId_example", productVariantId: "productVariantId_example", storeId: "storeId_example", imageName: "imageName_example", type: "type_example", url: "url_example", content: "content_example", label: "label_example", mime: "mime_example", position: 123, optionId: "optionId_example") // ProductVariantImageAdd | 
 
 // product.variant.image.add
 ProductAPI.productVariantImageAdd(productVariantImageAdd: productVariantImageAdd) { (response, error) in
@@ -2754,7 +2754,7 @@ Name | Type | Description  | Notes
 
 # **productVariantInfo**
 ```swift
-    open class func productVariantInfo(id: String, params: String? = nil, exclude: String? = nil, storeId: String? = nil, completion: @escaping (_ data: ProductInfo200Response?, _ error: Error?) -> Void)
+    open class func productVariantInfo(id: String, storeId: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ProductInfo200Response?, _ error: Error?) -> Void)
 ```
 
 product.variant.info
@@ -2767,12 +2767,12 @@ Get variant info. This method is deprecated, and its development is stopped. Ple
 import OpenAPIClient
 
 let id = "id_example" // String | Retrieves variant's info specified by variant id
+let storeId = "storeId_example" // String | Retrieves variant info specified by store id (optional)
 let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,description,price")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-let storeId = "storeId_example" // String | Retrieves variant info specified by store id (optional)
 
 // product.variant.info
-ProductAPI.productVariantInfo(id: id, params: params, exclude: exclude, storeId: storeId) { (response, error) in
+ProductAPI.productVariantInfo(id: id, storeId: storeId, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2789,9 +2789,9 @@ ProductAPI.productVariantInfo(id: id, params: params, exclude: exclude, storeId:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String** | Retrieves variant&#39;s info specified by variant id | 
+ **storeId** | **String** | Retrieves variant info specified by store id | [optional] 
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,description,price&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **storeId** | **String** | Retrieves variant info specified by store id | [optional] 
 
 ### Return type
 
@@ -2810,7 +2810,7 @@ Name | Type | Description  | Notes
 
 # **productVariantList**
 ```swift
-    open class func productVariantList(start: Int? = nil, count: Int? = nil, params: String? = nil, exclude: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, categoryId: String? = nil, productId: String? = nil, storeId: String? = nil, completion: @escaping (_ data: ProductVariantList200Response?, _ error: Error?) -> Void)
+    open class func productVariantList(start: Int? = nil, count: Int? = nil, productId: String? = nil, categoryId: String? = nil, storeId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ProductVariantList200Response?, _ error: Error?) -> Void)
 ```
 
 product.variant.list
@@ -2824,18 +2824,18 @@ import OpenAPIClient
 
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,description,price")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let productId = "productId_example" // String | Retrieves products' variants specified by product id (optional)
+let categoryId = "categoryId_example" // String | Retrieves products’ variants specified by category id (optional)
+let storeId = "storeId_example" // String | Retrieves variants specified by store id (optional)
 let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
 let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
-let categoryId = "categoryId_example" // String | Retrieves products’ variants specified by category id (optional)
-let productId = "productId_example" // String | Retrieves products' variants specified by product id (optional)
-let storeId = "storeId_example" // String | Retrieves variants specified by store id (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,description,price")
+let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // product.variant.list
-ProductAPI.productVariantList(start: start, count: count, params: params, exclude: exclude, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, categoryId: categoryId, productId: productId, storeId: storeId) { (response, error) in
+ProductAPI.productVariantList(start: start, count: count, productId: productId, categoryId: categoryId, storeId: storeId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2853,15 +2853,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,description,price&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **productId** | **String** | Retrieves products&#39; variants specified by product id | [optional] 
+ **categoryId** | **String** | Retrieves products’ variants specified by category id | [optional] 
+ **storeId** | **String** | Retrieves variants specified by store id | [optional] 
  **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
  **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
- **categoryId** | **String** | Retrieves products’ variants specified by category id | [optional] 
- **productId** | **String** | Retrieves products&#39; variants specified by product id | [optional] 
- **storeId** | **String** | Retrieves variants specified by store id | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,description,price&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -3048,7 +3048,7 @@ Update variant.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productVariantUpdate = ProductVariantUpdate(storeId: "storeId_example", id: "id_example", productId: "productId_example", warehouseId: "warehouseId_example", reserveQuantity: 123, quantity: 123, increaseQuantity: 123, reduceQuantity: 123, price: 123, specialPrice: 123, retailPrice: 123, oldPrice: 123, costPrice: 123, fixedCostShippingPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", manageStock: false, inStock: true, name: "name_example", description: "description_example", sku: "sku_example", metaTitle: "metaTitle_example", metaDescription: "metaDescription_example", metaKeywords: "metaKeywords_example", shortDescription: "shortDescription_example", visible: "visible_example", status: "status_example", backorderStatus: "backorderStatus_example", weight: 123, barcode: "barcode_example", reindex: false, taxable: false, options: [ProductVariantUpdate_options_inner(optionName: "optionName_example", optionValue: "optionValue_example")], harmonizedSystemCode: "harmonizedSystemCode_example", countryOfOrigin: "countryOfOrigin_example", width: 123, weightUnit: "weightUnit_example", height: 123, length: 123, gtin: "gtin_example", clearCache: false, langId: "langId_example", model: "model_example", availableForSale: false, upc: "upc_example", mpn: "mpn_example", ean: "ean_example", isbn: "isbn_example", avail: false, isDefault: true, isFreeShipping: true, taxClassId: "taxClassId_example", isVirtual: false) // ProductVariantUpdate | 
+let productVariantUpdate = ProductVariantUpdate(id: "id_example", productId: "productId_example", storeId: "storeId_example", langId: "langId_example", options: [ProductVariantUpdate_options_inner(optionName: "optionName_example", optionValue: "optionValue_example")], name: "name_example", description: "description_example", shortDescription: "shortDescription_example", model: "model_example", sku: "sku_example", visible: "visible_example", status: "status_example", backorderStatus: "backorderStatus_example", availableForSale: false, avail: false, isDefault: true, isFreeShipping: true, taxable: false, taxClassId: "taxClassId_example", isVirtual: false, manageStock: false, inStock: true, warehouseId: "warehouseId_example", reserveQuantity: 123, quantity: 123, increaseQuantity: 123, reduceQuantity: 123, price: 123, specialPrice: 123, retailPrice: 123, oldPrice: 123, costPrice: 123, fixedCostShippingPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", weight: 123, barcode: "barcode_example", width: 123, weightUnit: "weightUnit_example", height: 123, length: 123, gtin: "gtin_example", upc: "upc_example", mpn: "mpn_example", ean: "ean_example", isbn: "isbn_example", harmonizedSystemCode: "harmonizedSystemCode_example", countryOfOrigin: "countryOfOrigin_example", metaTitle: "metaTitle_example", metaDescription: "metaDescription_example", metaKeywords: "metaKeywords_example", reindex: false, clearCache: false) // ProductVariantUpdate | 
 
 // product.variant.update
 ProductAPI.productVariantUpdate(productVariantUpdate: productVariantUpdate) { (response, error) in

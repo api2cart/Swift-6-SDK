@@ -9,14 +9,14 @@ import Foundation
 
 public struct OrderShipmentTrackingAdd: Sendable, Codable, JSONEncodable, Hashable {
 
-    /** Store Id */
-    public var storeId: String?
     /** Defines the order id */
     public var orderId: String?
     /** Shipment id indicates the number of delivery */
     public var shipmentId: String
     /** Defines tracking carrier id */
     public var carrierId: String?
+    /** Store Id */
+    public var storeId: String?
     /** Defines name of the company which provides shipment tracking */
     public var trackingProvider: String?
     /** Defines tracking number */
@@ -26,11 +26,11 @@ public struct OrderShipmentTrackingAdd: Sendable, Codable, JSONEncodable, Hashab
     /** Send notifications to customer after tracking was created */
     public var sendNotifications: Bool? = false
 
-    public init(storeId: String? = nil, orderId: String? = nil, shipmentId: String, carrierId: String? = nil, trackingProvider: String? = nil, trackingNumber: String, trackingLink: String? = nil, sendNotifications: Bool? = false) {
-        self.storeId = storeId
+    public init(orderId: String? = nil, shipmentId: String, carrierId: String? = nil, storeId: String? = nil, trackingProvider: String? = nil, trackingNumber: String, trackingLink: String? = nil, sendNotifications: Bool? = false) {
         self.orderId = orderId
         self.shipmentId = shipmentId
         self.carrierId = carrierId
+        self.storeId = storeId
         self.trackingProvider = trackingProvider
         self.trackingNumber = trackingNumber
         self.trackingLink = trackingLink
@@ -38,10 +38,10 @@ public struct OrderShipmentTrackingAdd: Sendable, Codable, JSONEncodable, Hashab
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case storeId = "store_id"
         case orderId = "order_id"
         case shipmentId = "shipment_id"
         case carrierId = "carrier_id"
+        case storeId = "store_id"
         case trackingProvider = "tracking_provider"
         case trackingNumber = "tracking_number"
         case trackingLink = "tracking_link"
@@ -52,10 +52,10 @@ public struct OrderShipmentTrackingAdd: Sendable, Codable, JSONEncodable, Hashab
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(orderId, forKey: .orderId)
         try container.encode(shipmentId, forKey: .shipmentId)
         try container.encodeIfPresent(carrierId, forKey: .carrierId)
+        try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(trackingProvider, forKey: .trackingProvider)
         try container.encode(trackingNumber, forKey: .trackingNumber)
         try container.encodeIfPresent(trackingLink, forKey: .trackingLink)

@@ -25,6 +25,8 @@ public struct OrderAddOrderItemInner: Sendable, Codable, JSONEncodable, Hashable
     public var orderItemVariantId: String?
     /** Percentage of tax for product order */
     public var orderItemTax: Double? = 0
+    /** Defines if item price includes tax */
+    public var orderItemPriceIncludesTax: Bool? = false
     /** Index of the parent grouped/bundle product */
     public var orderItemParent: Int?
     /** Option name of the parent grouped/bundle product */
@@ -33,12 +35,10 @@ public struct OrderAddOrderItemInner: Sendable, Codable, JSONEncodable, Hashable
     public var orderItemAllowRefundItemsSeparately: Bool?
     /** Indicates whether subitems of the grouped/bundle product can be shipped separately */
     public var orderItemAllowShipItemsSeparately: Bool?
-    /** Defines if item price includes tax */
-    public var orderItemPriceIncludesTax: Bool? = false
     public var orderItemOption: [OrderAddOrderItemInnerOrderItemOptionInner]?
     public var orderItemProperty: [OrderAddOrderItemInnerOrderItemPropertyInner]?
 
-    public init(orderItemId: String, orderItemName: String, orderItemModel: String? = nil, orderItemPrice: Double, orderItemQuantity: Int, orderItemWeight: Double? = nil, orderItemVariantId: String? = nil, orderItemTax: Double? = 0, orderItemParent: Int? = nil, orderItemParentOptionName: String? = nil, orderItemAllowRefundItemsSeparately: Bool? = nil, orderItemAllowShipItemsSeparately: Bool? = nil, orderItemPriceIncludesTax: Bool? = false, orderItemOption: [OrderAddOrderItemInnerOrderItemOptionInner]? = nil, orderItemProperty: [OrderAddOrderItemInnerOrderItemPropertyInner]? = nil) {
+    public init(orderItemId: String, orderItemName: String, orderItemModel: String? = nil, orderItemPrice: Double, orderItemQuantity: Int, orderItemWeight: Double? = nil, orderItemVariantId: String? = nil, orderItemTax: Double? = 0, orderItemPriceIncludesTax: Bool? = false, orderItemParent: Int? = nil, orderItemParentOptionName: String? = nil, orderItemAllowRefundItemsSeparately: Bool? = nil, orderItemAllowShipItemsSeparately: Bool? = nil, orderItemOption: [OrderAddOrderItemInnerOrderItemOptionInner]? = nil, orderItemProperty: [OrderAddOrderItemInnerOrderItemPropertyInner]? = nil) {
         self.orderItemId = orderItemId
         self.orderItemName = orderItemName
         self.orderItemModel = orderItemModel
@@ -47,11 +47,11 @@ public struct OrderAddOrderItemInner: Sendable, Codable, JSONEncodable, Hashable
         self.orderItemWeight = orderItemWeight
         self.orderItemVariantId = orderItemVariantId
         self.orderItemTax = orderItemTax
+        self.orderItemPriceIncludesTax = orderItemPriceIncludesTax
         self.orderItemParent = orderItemParent
         self.orderItemParentOptionName = orderItemParentOptionName
         self.orderItemAllowRefundItemsSeparately = orderItemAllowRefundItemsSeparately
         self.orderItemAllowShipItemsSeparately = orderItemAllowShipItemsSeparately
-        self.orderItemPriceIncludesTax = orderItemPriceIncludesTax
         self.orderItemOption = orderItemOption
         self.orderItemProperty = orderItemProperty
     }
@@ -65,11 +65,11 @@ public struct OrderAddOrderItemInner: Sendable, Codable, JSONEncodable, Hashable
         case orderItemWeight = "order_item_weight"
         case orderItemVariantId = "order_item_variant_id"
         case orderItemTax = "order_item_tax"
+        case orderItemPriceIncludesTax = "order_item_price_includes_tax"
         case orderItemParent = "order_item_parent"
         case orderItemParentOptionName = "order_item_parent_option_name"
         case orderItemAllowRefundItemsSeparately = "order_item_allow_refund_items_separately"
         case orderItemAllowShipItemsSeparately = "order_item_allow_ship_items_separately"
-        case orderItemPriceIncludesTax = "order_item_price_includes_tax"
         case orderItemOption = "order_item_option"
         case orderItemProperty = "order_item_property"
     }
@@ -86,11 +86,11 @@ public struct OrderAddOrderItemInner: Sendable, Codable, JSONEncodable, Hashable
         try container.encodeIfPresent(orderItemWeight, forKey: .orderItemWeight)
         try container.encodeIfPresent(orderItemVariantId, forKey: .orderItemVariantId)
         try container.encodeIfPresent(orderItemTax, forKey: .orderItemTax)
+        try container.encodeIfPresent(orderItemPriceIncludesTax, forKey: .orderItemPriceIncludesTax)
         try container.encodeIfPresent(orderItemParent, forKey: .orderItemParent)
         try container.encodeIfPresent(orderItemParentOptionName, forKey: .orderItemParentOptionName)
         try container.encodeIfPresent(orderItemAllowRefundItemsSeparately, forKey: .orderItemAllowRefundItemsSeparately)
         try container.encodeIfPresent(orderItemAllowShipItemsSeparately, forKey: .orderItemAllowShipItemsSeparately)
-        try container.encodeIfPresent(orderItemPriceIncludesTax, forKey: .orderItemPriceIncludesTax)
         try container.encodeIfPresent(orderItemOption, forKey: .orderItemOption)
         try container.encodeIfPresent(orderItemProperty, forKey: .orderItemProperty)
     }

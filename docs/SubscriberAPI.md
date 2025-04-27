@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **subscriberList**
 ```swift
-    open class func subscriberList(start: Int? = nil, count: Int? = nil, subscribed: Bool? = nil, storeId: String? = nil, email: String? = nil, params: String? = nil, exclude: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, pageCursor: String? = nil, responseFields: String? = nil, completion: @escaping (_ data: ModelResponseSubscriberList?, _ error: Error?) -> Void)
+    open class func subscriberList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, subscribed: Bool? = nil, storeId: String? = nil, email: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseSubscriberList?, _ error: Error?) -> Void)
 ```
 
 subscriber.list
@@ -23,20 +23,20 @@ import OpenAPIClient
 
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let subscribed = false // Bool | Filter by subscription status (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
 let email = "email_example" // String | Filter subscribers by email (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "force_all")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
 let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
-let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "force_all")
+let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // subscriber.list
-SubscriberAPI.subscriberList(start: start, count: count, subscribed: subscribed, storeId: storeId, email: email, params: params, exclude: exclude, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, pageCursor: pageCursor, responseFields: responseFields) { (response, error) in
+SubscriberAPI.subscriberList(start: start, count: count, pageCursor: pageCursor, subscribed: subscribed, storeId: storeId, email: email, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -54,17 +54,17 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **subscribed** | **Bool** | Filter by subscription status | [optional] 
  **storeId** | **String** | Store Id | [optional] 
  **email** | **String** | Filter subscribers by email | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;force_all&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
  **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
- **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;force_all&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 

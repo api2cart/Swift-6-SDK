@@ -13,15 +13,17 @@ public struct CustomerAdd: Sendable, Codable, JSONEncodable, Hashable {
     /** Defines customer's email */
     public var email: String
     /** Defines customer's first name */
-    public var firstName: String
+    public var firstName: String?
     /** Defines customer's last name */
-    public var lastName: String
+    public var lastName: String?
     /** Defines customer's unique password */
     public var password: String?
     /** Defines the group where the customer */
     public var group: String?
     /** Groups that will be assigned to a customer */
     public var groupIds: String?
+    /** Defines customer's status */
+    public var status: String? = "enabled"
     /** Entity's date creation */
     public var createdTime: String?
     /** Entity's date modification */
@@ -32,18 +34,14 @@ public struct CustomerAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var lastLogin: String?
     /** Defines customer's birthday */
     public var birthDay: String?
-    /** Defines customer's status */
-    public var status: String? = "enabled"
     /** Defines whether the newsletter subscription is available for the user */
-    public var newsLetterSubscription: Bool? = false
+    public var newsLetterSubscription: Bool?
     /** Defines consents to notifications */
     public var consents: [CustomerAddConsentsInner]?
     /** Defines customer's gender */
     public var gender: String?
     /** Link to customer website */
     public var website: String?
-    /** Store Id */
-    public var storeId: String?
     /** Defines customer's fax */
     public var fax: String?
     /** Defines customer's company */
@@ -54,31 +52,33 @@ public struct CustomerAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var note: String?
     /** Specifies ISO code or name of country */
     public var country: String?
+    /** Store Id */
+    public var storeId: String?
     public var address: [CustomerAddAddressInner]?
 
-    public init(email: String, firstName: String, lastName: String, password: String? = nil, group: String? = nil, groupIds: String? = nil, createdTime: String? = nil, modifiedTime: String? = nil, login: String? = nil, lastLogin: String? = nil, birthDay: String? = nil, status: String? = "enabled", newsLetterSubscription: Bool? = false, consents: [CustomerAddConsentsInner]? = nil, gender: String? = nil, website: String? = nil, storeId: String? = nil, fax: String? = nil, company: String? = nil, phone: String? = nil, note: String? = nil, country: String? = nil, address: [CustomerAddAddressInner]? = nil) {
+    public init(email: String, firstName: String? = nil, lastName: String? = nil, password: String? = nil, group: String? = nil, groupIds: String? = nil, status: String? = "enabled", createdTime: String? = nil, modifiedTime: String? = nil, login: String? = nil, lastLogin: String? = nil, birthDay: String? = nil, newsLetterSubscription: Bool? = nil, consents: [CustomerAddConsentsInner]? = nil, gender: String? = nil, website: String? = nil, fax: String? = nil, company: String? = nil, phone: String? = nil, note: String? = nil, country: String? = nil, storeId: String? = nil, address: [CustomerAddAddressInner]? = nil) {
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
         self.password = password
         self.group = group
         self.groupIds = groupIds
+        self.status = status
         self.createdTime = createdTime
         self.modifiedTime = modifiedTime
         self.login = login
         self.lastLogin = lastLogin
         self.birthDay = birthDay
-        self.status = status
         self.newsLetterSubscription = newsLetterSubscription
         self.consents = consents
         self.gender = gender
         self.website = website
-        self.storeId = storeId
         self.fax = fax
         self.company = company
         self.phone = phone
         self.note = note
         self.country = country
+        self.storeId = storeId
         self.address = address
     }
 
@@ -89,22 +89,22 @@ public struct CustomerAdd: Sendable, Codable, JSONEncodable, Hashable {
         case password
         case group
         case groupIds = "group_ids"
+        case status
         case createdTime = "created_time"
         case modifiedTime = "modified_time"
         case login
         case lastLogin = "last_login"
         case birthDay = "birth_day"
-        case status
         case newsLetterSubscription = "news_letter_subscription"
         case consents
         case gender
         case website
-        case storeId = "store_id"
         case fax
         case company
         case phone
         case note
         case country
+        case storeId = "store_id"
         case address
     }
 
@@ -113,27 +113,27 @@ public struct CustomerAdd: Sendable, Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(email, forKey: .email)
-        try container.encode(firstName, forKey: .firstName)
-        try container.encode(lastName, forKey: .lastName)
+        try container.encodeIfPresent(firstName, forKey: .firstName)
+        try container.encodeIfPresent(lastName, forKey: .lastName)
         try container.encodeIfPresent(password, forKey: .password)
         try container.encodeIfPresent(group, forKey: .group)
         try container.encodeIfPresent(groupIds, forKey: .groupIds)
+        try container.encodeIfPresent(status, forKey: .status)
         try container.encodeIfPresent(createdTime, forKey: .createdTime)
         try container.encodeIfPresent(modifiedTime, forKey: .modifiedTime)
         try container.encodeIfPresent(login, forKey: .login)
         try container.encodeIfPresent(lastLogin, forKey: .lastLogin)
         try container.encodeIfPresent(birthDay, forKey: .birthDay)
-        try container.encodeIfPresent(status, forKey: .status)
         try container.encodeIfPresent(newsLetterSubscription, forKey: .newsLetterSubscription)
         try container.encodeIfPresent(consents, forKey: .consents)
         try container.encodeIfPresent(gender, forKey: .gender)
         try container.encodeIfPresent(website, forKey: .website)
-        try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(fax, forKey: .fax)
         try container.encodeIfPresent(company, forKey: .company)
         try container.encodeIfPresent(phone, forKey: .phone)
         try container.encodeIfPresent(note, forKey: .note)
         try container.encodeIfPresent(country, forKey: .country)
+        try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(address, forKey: .address)
     }
 }

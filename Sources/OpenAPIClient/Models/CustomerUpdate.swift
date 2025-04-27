@@ -36,15 +36,15 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var tags: String?
     /** Defines customer's gender */
     public var gender: String?
-    /** Store Id */
-    public var storeId: String?
     /** The customer note. */
     public var note: String?
     /** Defines customer's status */
     public var status: String?
+    /** Store Id */
+    public var storeId: String?
     public var address: [CustomerUpdateAddressInner]?
 
-    public init(id: String? = nil, groupId: String? = nil, groupIds: String? = nil, group: String? = nil, email: String? = nil, phone: String? = nil, firstName: String? = nil, lastName: String? = nil, birthDay: String? = nil, newsLetterSubscription: Bool? = nil, consents: [CustomerAddConsentsInner]? = nil, tags: String? = nil, gender: String? = nil, storeId: String? = nil, note: String? = nil, status: String? = nil, address: [CustomerUpdateAddressInner]? = nil) {
+    public init(id: String? = nil, groupId: String? = nil, groupIds: String? = nil, group: String? = nil, email: String? = nil, phone: String? = nil, firstName: String? = nil, lastName: String? = nil, birthDay: String? = nil, newsLetterSubscription: Bool? = nil, consents: [CustomerAddConsentsInner]? = nil, tags: String? = nil, gender: String? = nil, note: String? = nil, status: String? = nil, storeId: String? = nil, address: [CustomerUpdateAddressInner]? = nil) {
         self.id = id
         self.groupId = groupId
         self.groupIds = groupIds
@@ -58,9 +58,9 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.consents = consents
         self.tags = tags
         self.gender = gender
-        self.storeId = storeId
         self.note = note
         self.status = status
+        self.storeId = storeId
         self.address = address
     }
 
@@ -78,9 +78,9 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case consents
         case tags
         case gender
-        case storeId = "store_id"
         case note
         case status
+        case storeId = "store_id"
         case address
     }
 
@@ -101,9 +101,9 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(consents, forKey: .consents)
         try container.encodeIfPresent(tags, forKey: .tags)
         try container.encodeIfPresent(gender, forKey: .gender)
-        try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(note, forKey: .note)
         try container.encodeIfPresent(status, forKey: .status)
+        try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(address, forKey: .address)
     }
 }

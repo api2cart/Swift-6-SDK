@@ -22,14 +22,8 @@ public struct CartCouponAdd: Sendable, Codable, JSONEncodable, Hashable {
         case order = "order"
         case matchingItems = "matching_items"
     }
-    /** Store Id */
-    public var storeId: String?
     /** Coupon code */
     public var code: String
-    /** Coupon name */
-    public var name: String?
-    /** Entity codes */
-    public var codes: [String]?
     /** Coupon discount type */
     public var actionType: ActionType
     /** Defines where discount should be applied */
@@ -38,6 +32,10 @@ public struct CartCouponAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var actionScope: ActionScope
     /** Defines the discount amount value. */
     public var actionAmount: Double
+    /** Entity codes */
+    public var codes: [String]?
+    /** Coupon name */
+    public var name: String?
     /** Date start */
     public var dateStart: String? = "now"
     /** Defines when discount code will be expired. */
@@ -56,16 +54,17 @@ public struct CartCouponAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var actionConditionValue: String?
     /** Indicates whether to apply a discount for taxes. */
     public var includeTax: Bool? = false
+    /** Store Id */
+    public var storeId: String?
 
-    public init(storeId: String? = nil, code: String, name: String? = nil, codes: [String]? = nil, actionType: ActionType, actionApplyTo: ActionApplyTo, actionScope: ActionScope, actionAmount: Double, dateStart: String? = "now", dateEnd: String? = nil, usageLimit: Int? = nil, usageLimitPerCustomer: Int? = nil, actionConditionEntity: String? = nil, actionConditionKey: String? = nil, actionConditionOperator: String? = nil, actionConditionValue: String? = nil, includeTax: Bool? = false) {
-        self.storeId = storeId
+    public init(code: String, actionType: ActionType, actionApplyTo: ActionApplyTo, actionScope: ActionScope, actionAmount: Double, codes: [String]? = nil, name: String? = nil, dateStart: String? = "now", dateEnd: String? = nil, usageLimit: Int? = nil, usageLimitPerCustomer: Int? = nil, actionConditionEntity: String? = nil, actionConditionKey: String? = nil, actionConditionOperator: String? = nil, actionConditionValue: String? = nil, includeTax: Bool? = false, storeId: String? = nil) {
         self.code = code
-        self.name = name
-        self.codes = codes
         self.actionType = actionType
         self.actionApplyTo = actionApplyTo
         self.actionScope = actionScope
         self.actionAmount = actionAmount
+        self.codes = codes
+        self.name = name
         self.dateStart = dateStart
         self.dateEnd = dateEnd
         self.usageLimit = usageLimit
@@ -75,17 +74,17 @@ public struct CartCouponAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.actionConditionOperator = actionConditionOperator
         self.actionConditionValue = actionConditionValue
         self.includeTax = includeTax
+        self.storeId = storeId
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case storeId = "store_id"
         case code
-        case name
-        case codes
         case actionType = "action_type"
         case actionApplyTo = "action_apply_to"
         case actionScope = "action_scope"
         case actionAmount = "action_amount"
+        case codes
+        case name
         case dateStart = "date_start"
         case dateEnd = "date_end"
         case usageLimit = "usage_limit"
@@ -95,20 +94,20 @@ public struct CartCouponAdd: Sendable, Codable, JSONEncodable, Hashable {
         case actionConditionOperator = "action_condition_operator"
         case actionConditionValue = "action_condition_value"
         case includeTax = "include_tax"
+        case storeId = "store_id"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encode(code, forKey: .code)
-        try container.encodeIfPresent(name, forKey: .name)
-        try container.encodeIfPresent(codes, forKey: .codes)
         try container.encode(actionType, forKey: .actionType)
         try container.encode(actionApplyTo, forKey: .actionApplyTo)
         try container.encode(actionScope, forKey: .actionScope)
         try container.encode(actionAmount, forKey: .actionAmount)
+        try container.encodeIfPresent(codes, forKey: .codes)
+        try container.encodeIfPresent(name, forKey: .name)
         try container.encodeIfPresent(dateStart, forKey: .dateStart)
         try container.encodeIfPresent(dateEnd, forKey: .dateEnd)
         try container.encodeIfPresent(usageLimit, forKey: .usageLimit)
@@ -118,6 +117,7 @@ public struct CartCouponAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(actionConditionOperator, forKey: .actionConditionOperator)
         try container.encodeIfPresent(actionConditionValue, forKey: .actionConditionValue)
         try container.encodeIfPresent(includeTax, forKey: .includeTax)
+        try container.encodeIfPresent(storeId, forKey: .storeId)
     }
 }
 

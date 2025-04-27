@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 # **returnInfo**
 ```swift
-    open class func returnInfo(id: String, orderId: String? = nil, storeId: String? = nil, params: String? = nil, exclude: String? = nil, responseFields: String? = nil, completion: @escaping (_ data: ReturnInfo200Response?, _ error: Error?) -> Void)
+    open class func returnInfo(id: String, orderId: String? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ReturnInfo200Response?, _ error: Error?) -> Void)
 ```
 
 return.info
@@ -145,12 +145,12 @@ import OpenAPIClient
 let id = "id_example" // String | Entity id
 let orderId = "orderId_example" // String | Defines the order id (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,order_products")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 
 // return.info
-ReturnAPI.returnInfo(id: id, orderId: orderId, storeId: storeId, params: params, exclude: exclude, responseFields: responseFields) { (response, error) in
+ReturnAPI.returnInfo(id: id, orderId: orderId, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -169,9 +169,9 @@ Name | Type | Description  | Notes
  **id** | **String** | Entity id | 
  **orderId** | **String** | Defines the order id | [optional] 
  **storeId** | **String** | Store Id | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,order_products&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
 
 ### Return type
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 # **returnList**
 ```swift
-    open class func returnList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, params: String? = nil, exclude: String? = nil, responseFields: String? = nil, orderId: String? = nil, orderIds: String? = nil, customerId: String? = nil, storeId: String? = nil, status: String? = nil, returnType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, completion: @escaping (_ data: ModelResponseReturnList?, _ error: Error?) -> Void)
+    open class func returnList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, orderId: String? = nil, orderIds: String? = nil, customerId: String? = nil, storeId: String? = nil, status: String? = nil, returnType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, completion: @escaping (_ data: ModelResponseReturnList?, _ error: Error?) -> Void)
 ```
 
 return.list
@@ -205,9 +205,6 @@ import OpenAPIClient
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
 let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,order_products")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let orderId = "orderId_example" // String | Defines the order id (optional)
 let orderIds = "orderIds_example" // String | Retrieves return requests specified by order ids (optional)
 let customerId = "customerId_example" // String | Retrieves return requests specified by customer id (optional)
@@ -218,11 +215,14 @@ let createdFrom = "createdFrom_example" // String | Retrieve entities from their
 let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,order_products")
+let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let reportRequestId = "reportRequestId_example" // String | Report request id (optional)
 let disableReportCache = false // Bool | Disable report cache for current request (optional) (default to false)
 
 // return.list
-ReturnAPI.returnList(start: start, count: count, pageCursor: pageCursor, params: params, exclude: exclude, responseFields: responseFields, orderId: orderId, orderIds: orderIds, customerId: customerId, storeId: storeId, status: status, returnType: returnType, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, reportRequestId: reportRequestId, disableReportCache: disableReportCache) { (response, error) in
+ReturnAPI.returnList(start: start, count: count, pageCursor: pageCursor, orderId: orderId, orderIds: orderIds, customerId: customerId, storeId: storeId, status: status, returnType: returnType, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, responseFields: responseFields, params: params, exclude: exclude, reportRequestId: reportRequestId, disableReportCache: disableReportCache) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -241,9 +241,6 @@ Name | Type | Description  | Notes
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,order_products&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **orderId** | **String** | Defines the order id | [optional] 
  **orderIds** | **String** | Retrieves return requests specified by order ids | [optional] 
  **customerId** | **String** | Retrieves return requests specified by customer id | [optional] 
@@ -254,6 +251,9 @@ Name | Type | Description  | Notes
  **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,order_products&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **reportRequestId** | **String** | Report request id | [optional] 
  **disableReportCache** | **Bool** | Disable report cache for current request | [optional] [default to false]
 

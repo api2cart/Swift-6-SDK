@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **basketInfo**
 ```swift
-    open class func basketInfo(id: String, storeId: String? = nil, params: String? = nil, exclude: String? = nil, responseFields: String? = nil, completion: @escaping (_ data: BasketInfo200Response?, _ error: Error?) -> Void)
+    open class func basketInfo(id: String, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: BasketInfo200Response?, _ error: Error?) -> Void)
 ```
 
 basket.info
@@ -27,12 +27,12 @@ import OpenAPIClient
 
 let id = "id_example" // String | Entity id
 let storeId = "storeId_example" // String | Store Id (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "force_all")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 
 // basket.info
-BasketAPI.basketInfo(id: id, storeId: storeId, params: params, exclude: exclude, responseFields: responseFields) { (response, error) in
+BasketAPI.basketInfo(id: id, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -50,9 +50,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String** | Entity id | 
  **storeId** | **String** | Store Id | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;force_all&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
 
 ### Return type
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 # **basketLiveShippingServiceList**
 ```swift
-    open class func basketLiveShippingServiceList(storeId: String? = nil, start: Int? = nil, count: Int? = nil, completion: @escaping (_ data: BasketLiveShippingServiceList200Response?, _ error: Error?) -> Void)
+    open class func basketLiveShippingServiceList(start: Int? = nil, count: Int? = nil, storeId: String? = nil, completion: @escaping (_ data: BasketLiveShippingServiceList200Response?, _ error: Error?) -> Void)
 ```
 
 basket.live_shipping_service.list
@@ -245,12 +245,12 @@ Retrieve a list of live shipping rate services.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let storeId = "storeId_example" // String | Store Id (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let storeId = "storeId_example" // String | Store Id (optional)
 
 // basket.live_shipping_service.list
-BasketAPI.basketLiveShippingServiceList(storeId: storeId, start: start, count: count) { (response, error) in
+BasketAPI.basketLiveShippingServiceList(start: start, count: count, storeId: storeId) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -266,9 +266,9 @@ BasketAPI.basketLiveShippingServiceList(storeId: storeId, start: start, count: c
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storeId** | **String** | Store Id | [optional] 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **storeId** | **String** | Store Id | [optional] 
 
 ### Return type
 

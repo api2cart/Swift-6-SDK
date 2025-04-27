@@ -9,14 +9,14 @@ import Foundation
 
 public struct OrderPreestimateShippingList: Sendable, Codable, JSONEncodable, Hashable {
 
-    /** Store Id */
-    public var storeId: String?
     /** This parameter is used for selecting a warehouse where you need to set/modify a product quantity. */
     public var warehouseId: String?
-    /** Retrieves orders specified by customer email */
-    public var customerEmail: String?
     /** Retrieves orders specified by customer id */
     public var customerId: String?
+    /** Retrieves orders specified by customer email */
+    public var customerEmail: String?
+    /** Store Id */
+    public var storeId: String?
     /** Specifies first shipping address */
     public var shippAddress1: String?
     /** Specifies shipping city */
@@ -33,11 +33,11 @@ public struct OrderPreestimateShippingList: Sendable, Codable, JSONEncodable, Ha
     public var exclude: String?
     public var orderItem: [OrderPreestimateShippingListOrderItemInner]
 
-    public init(storeId: String? = nil, warehouseId: String? = nil, customerEmail: String? = nil, customerId: String? = nil, shippAddress1: String? = nil, shippCity: String? = nil, shippPostcode: String? = nil, shippState: String? = nil, shippCountry: String, params: String? = "force_all", exclude: String? = nil, orderItem: [OrderPreestimateShippingListOrderItemInner]) {
-        self.storeId = storeId
+    public init(warehouseId: String? = nil, customerId: String? = nil, customerEmail: String? = nil, storeId: String? = nil, shippAddress1: String? = nil, shippCity: String? = nil, shippPostcode: String? = nil, shippState: String? = nil, shippCountry: String, params: String? = "force_all", exclude: String? = nil, orderItem: [OrderPreestimateShippingListOrderItemInner]) {
         self.warehouseId = warehouseId
-        self.customerEmail = customerEmail
         self.customerId = customerId
+        self.customerEmail = customerEmail
+        self.storeId = storeId
         self.shippAddress1 = shippAddress1
         self.shippCity = shippCity
         self.shippPostcode = shippPostcode
@@ -49,10 +49,10 @@ public struct OrderPreestimateShippingList: Sendable, Codable, JSONEncodable, Ha
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case storeId = "store_id"
         case warehouseId = "warehouse_id"
-        case customerEmail = "customer_email"
         case customerId = "customer_id"
+        case customerEmail = "customer_email"
+        case storeId = "store_id"
         case shippAddress1 = "shipp_address_1"
         case shippCity = "shipp_city"
         case shippPostcode = "shipp_postcode"
@@ -67,10 +67,10 @@ public struct OrderPreestimateShippingList: Sendable, Codable, JSONEncodable, Ha
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(warehouseId, forKey: .warehouseId)
-        try container.encodeIfPresent(customerEmail, forKey: .customerEmail)
         try container.encodeIfPresent(customerId, forKey: .customerId)
+        try container.encodeIfPresent(customerEmail, forKey: .customerEmail)
+        try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(shippAddress1, forKey: .shippAddress1)
         try container.encodeIfPresent(shippCity, forKey: .shippCity)
         try container.encodeIfPresent(shippPostcode, forKey: .shippPostcode)

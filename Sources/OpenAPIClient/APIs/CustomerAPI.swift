@@ -105,15 +105,15 @@ open class CustomerAPI {
      - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
+     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
      - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "force_all")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseCustomerAttributeList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func customerAttributeList(customerId: String, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, params: String? = nil, exclude: String? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCustomerAttributeList {
-        return try await customerAttributeListWithRequestBuilder(customerId: customerId, count: count, pageCursor: pageCursor, storeId: storeId, langId: langId, params: params, exclude: exclude, responseFields: responseFields, apiConfiguration: apiConfiguration).execute().body
+    open class func customerAttributeList(customerId: String, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCustomerAttributeList {
+        return try await customerAttributeListWithRequestBuilder(customerId: customerId, count: count, pageCursor: pageCursor, storeId: storeId, langId: langId, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -131,13 +131,13 @@ open class CustomerAPI {
      - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
+     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
      - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "force_all")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseCustomerAttributeList> 
      */
-    open class func customerAttributeListWithRequestBuilder(customerId: String, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, params: String? = nil, exclude: String? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCustomerAttributeList> {
+    open class func customerAttributeListWithRequestBuilder(customerId: String, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCustomerAttributeList> {
         let localVariablePath = "/customer.attribute.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -149,9 +149,9 @@ open class CustomerAPI {
             "customer_id": (wrappedValue: customerId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "lang_id": (wrappedValue: langId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -168,24 +168,24 @@ open class CustomerAPI {
     /**
      customer.count
      
+     - parameter ids: (query) Counts customers specified by ids (optional)
+     - parameter sinceId: (query) Retrieve entities starting from the specified id. (optional)
+     - parameter customerListId: (query) The numeric ID of the customer list in Demandware. (optional)
      - parameter groupId: (query) Customer group_id (optional)
+     - parameter storeId: (query) Counts customer specified by store id (optional)
+     - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
+     - parameter findValue: (query) Entity search that is specified by some value (optional)
+     - parameter findWhere: (query) Counts customers that are searched specified by field (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
      - parameter createdTo: (query) Retrieve entities to their creation date (optional)
      - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
      - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
-     - parameter storeId: (query) Counts customer specified by store id (optional)
-     - parameter customerListId: (query) The numeric ID of the customer list in Demandware. (optional)
-     - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
-     - parameter findValue: (query) Entity search that is specified by some value (optional)
-     - parameter findWhere: (query) Counts customers that are searched specified by field (optional)
-     - parameter ids: (query) Counts customers specified by ids (optional)
-     - parameter sinceId: (query) Retrieve entities starting from the specified id. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CustomerCount200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func customerCount(groupId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, storeId: String? = nil, customerListId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, ids: String? = nil, sinceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerCount200Response {
-        return try await customerCountWithRequestBuilder(groupId: groupId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, storeId: storeId, customerListId: customerListId, avail: avail, findValue: findValue, findWhere: findWhere, ids: ids, sinceId: sinceId, apiConfiguration: apiConfiguration).execute().body
+    open class func customerCount(ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerCount200Response {
+        return try await customerCountWithRequestBuilder(ids: ids, sinceId: sinceId, customerListId: customerListId, groupId: groupId, storeId: storeId, avail: avail, findValue: findValue, findWhere: findWhere, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -198,40 +198,40 @@ open class CustomerAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
+     - parameter ids: (query) Counts customers specified by ids (optional)
+     - parameter sinceId: (query) Retrieve entities starting from the specified id. (optional)
+     - parameter customerListId: (query) The numeric ID of the customer list in Demandware. (optional)
      - parameter groupId: (query) Customer group_id (optional)
+     - parameter storeId: (query) Counts customer specified by store id (optional)
+     - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
+     - parameter findValue: (query) Entity search that is specified by some value (optional)
+     - parameter findWhere: (query) Counts customers that are searched specified by field (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
      - parameter createdTo: (query) Retrieve entities to their creation date (optional)
      - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
      - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
-     - parameter storeId: (query) Counts customer specified by store id (optional)
-     - parameter customerListId: (query) The numeric ID of the customer list in Demandware. (optional)
-     - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
-     - parameter findValue: (query) Entity search that is specified by some value (optional)
-     - parameter findWhere: (query) Counts customers that are searched specified by field (optional)
-     - parameter ids: (query) Counts customers specified by ids (optional)
-     - parameter sinceId: (query) Retrieve entities starting from the specified id. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CustomerCount200Response> 
      */
-    open class func customerCountWithRequestBuilder(groupId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, storeId: String? = nil, customerListId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, ids: String? = nil, sinceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CustomerCount200Response> {
+    open class func customerCountWithRequestBuilder(ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CustomerCount200Response> {
         let localVariablePath = "/customer.count.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "ids": (wrappedValue: ids?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "since_id": (wrappedValue: sinceId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "customer_list_id": (wrappedValue: customerListId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "group_id": (wrappedValue: groupId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "avail": (wrappedValue: avail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "find_value": (wrappedValue: findValue?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "find_where": (wrappedValue: findWhere?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "created_from": (wrappedValue: createdFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "created_to": (wrappedValue: createdTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "modified_from": (wrappedValue: modifiedFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "modified_to": (wrappedValue: modifiedTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "customer_list_id": (wrappedValue: customerListId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "avail": (wrappedValue: avail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "find_value": (wrappedValue: findValue?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "find_where": (wrappedValue: findWhere?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "ids": (wrappedValue: ids?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "since_id": (wrappedValue: sinceId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -404,22 +404,22 @@ open class CustomerAPI {
     /**
      customer.group.list
      
-     - parameter disableCache: (query) Disable cache for current request (optional, default to false)
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+     - parameter groupIds: (query) Groups that will be assigned to a customer (optional)
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
-     - parameter groupIds: (query) Groups that will be assigned to a customer (optional)
+     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
      - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,name,additional_fields")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter disableCache: (query) Disable cache for current request (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseCustomerGroupList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func customerGroupList(disableCache: Bool? = nil, pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, storeId: String? = nil, langId: String? = nil, groupIds: String? = nil, params: String? = nil, exclude: String? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCustomerGroupList {
-        return try await customerGroupListWithRequestBuilder(disableCache: disableCache, pageCursor: pageCursor, start: start, count: count, storeId: storeId, langId: langId, groupIds: groupIds, params: params, exclude: exclude, responseFields: responseFields, apiConfiguration: apiConfiguration).execute().body
+    open class func customerGroupList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, groupIds: String? = nil, storeId: String? = nil, langId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, disableCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCustomerGroupList {
+        return try await customerGroupListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, groupIds: groupIds, storeId: storeId, langId: langId, responseFields: responseFields, params: params, exclude: exclude, disableCache: disableCache, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -432,36 +432,36 @@ open class CustomerAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
-     - parameter disableCache: (query) Disable cache for current request (optional, default to false)
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+     - parameter groupIds: (query) Groups that will be assigned to a customer (optional)
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
-     - parameter groupIds: (query) Groups that will be assigned to a customer (optional)
+     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
      - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,name,additional_fields")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter disableCache: (query) Disable cache for current request (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseCustomerGroupList> 
      */
-    open class func customerGroupListWithRequestBuilder(disableCache: Bool? = nil, pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, storeId: String? = nil, langId: String? = nil, groupIds: String? = nil, params: String? = nil, exclude: String? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCustomerGroupList> {
+    open class func customerGroupListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, groupIds: String? = nil, storeId: String? = nil, langId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, disableCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCustomerGroupList> {
         let localVariablePath = "/customer.group.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "disable_cache": (wrappedValue: disableCache?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "group_ids": (wrappedValue: groupIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "lang_id": (wrappedValue: langId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "group_ids": (wrappedValue: groupIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "disable_cache": (wrappedValue: disableCache?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -479,16 +479,16 @@ open class CustomerAPI {
      customer.info
      
      - parameter id: (query) Retrieves customer&#39;s info specified by customer id 
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,email,first_name,last_name")
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter storeId: (query) Retrieves customer info specified by store id (optional)
+     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,email,first_name,last_name")
+     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CustomerInfo200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func customerInfo(id: String, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerInfo200Response {
-        return try await customerInfoWithRequestBuilder(id: id, params: params, responseFields: responseFields, exclude: exclude, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
+    open class func customerInfo(id: String, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerInfo200Response {
+        return try await customerInfoWithRequestBuilder(id: id, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -502,14 +502,14 @@ open class CustomerAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter id: (query) Retrieves customer&#39;s info specified by customer id 
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,email,first_name,last_name")
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter storeId: (query) Retrieves customer info specified by store id (optional)
+     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,email,first_name,last_name")
+     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CustomerInfo200Response> 
      */
-    open class func customerInfoWithRequestBuilder(id: String, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CustomerInfo200Response> {
+    open class func customerInfoWithRequestBuilder(id: String, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CustomerInfo200Response> {
         let localVariablePath = "/customer.info.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -517,10 +517,10 @@ open class CustomerAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "id": (wrappedValue: id.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -537,32 +537,32 @@ open class CustomerAPI {
     /**
      customer.list
      
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+     - parameter ids: (query) Retrieves customers specified by ids (optional)
+     - parameter sinceId: (query) Retrieve entities starting from the specified id. (optional)
+     - parameter customerListId: (query) The numeric ID of the customer list in Demandware. (optional)
+     - parameter groupId: (query) Customer group_id (optional)
+     - parameter storeId: (query) Retrieves customers specified by store id (optional)
+     - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
+     - parameter findValue: (query) Entity search that is specified by some value (optional)
+     - parameter findWhere: (query) Customer search that is specified by field (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
      - parameter createdTo: (query) Retrieve entities to their creation date (optional)
      - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
      - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,email,first_name,last_name")
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-     - parameter groupId: (query) Customer group_id (optional)
-     - parameter storeId: (query) Retrieves customers specified by store id (optional)
-     - parameter customerListId: (query) The numeric ID of the customer list in Demandware. (optional)
-     - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
-     - parameter findValue: (query) Entity search that is specified by some value (optional)
-     - parameter findWhere: (query) Customer search that is specified by field (optional)
      - parameter sortBy: (query) Set field to sort by (optional, default to "created_time")
      - parameter sortDirection: (query) Set sorting direction (optional, default to "asc")
-     - parameter ids: (query) Retrieves customers specified by ids (optional)
-     - parameter sinceId: (query) Retrieve entities starting from the specified id. (optional)
+     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,email,first_name,last_name")
+     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseCustomerList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func customerList(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, groupId: String? = nil, storeId: String? = nil, customerListId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, ids: String? = nil, sinceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCustomerList {
-        return try await customerListWithRequestBuilder(pageCursor: pageCursor, start: start, count: count, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, params: params, responseFields: responseFields, exclude: exclude, groupId: groupId, storeId: storeId, customerListId: customerListId, avail: avail, findValue: findValue, findWhere: findWhere, sortBy: sortBy, sortDirection: sortDirection, ids: ids, sinceId: sinceId, apiConfiguration: apiConfiguration).execute().body
+    open class func customerList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCustomerList {
+        return try await customerListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, ids: ids, sinceId: sinceId, customerListId: customerListId, groupId: groupId, storeId: storeId, avail: avail, findValue: findValue, findWhere: findWhere, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, sortBy: sortBy, sortDirection: sortDirection, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -575,56 +575,56 @@ open class CustomerAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+     - parameter ids: (query) Retrieves customers specified by ids (optional)
+     - parameter sinceId: (query) Retrieve entities starting from the specified id. (optional)
+     - parameter customerListId: (query) The numeric ID of the customer list in Demandware. (optional)
+     - parameter groupId: (query) Customer group_id (optional)
+     - parameter storeId: (query) Retrieves customers specified by store id (optional)
+     - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
+     - parameter findValue: (query) Entity search that is specified by some value (optional)
+     - parameter findWhere: (query) Customer search that is specified by field (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
      - parameter createdTo: (query) Retrieve entities to their creation date (optional)
      - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
      - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,email,first_name,last_name")
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-     - parameter groupId: (query) Customer group_id (optional)
-     - parameter storeId: (query) Retrieves customers specified by store id (optional)
-     - parameter customerListId: (query) The numeric ID of the customer list in Demandware. (optional)
-     - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
-     - parameter findValue: (query) Entity search that is specified by some value (optional)
-     - parameter findWhere: (query) Customer search that is specified by field (optional)
      - parameter sortBy: (query) Set field to sort by (optional, default to "created_time")
      - parameter sortDirection: (query) Set sorting direction (optional, default to "asc")
-     - parameter ids: (query) Retrieves customers specified by ids (optional)
-     - parameter sinceId: (query) Retrieve entities starting from the specified id. (optional)
+     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,email,first_name,last_name")
+     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseCustomerList> 
      */
-    open class func customerListWithRequestBuilder(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, groupId: String? = nil, storeId: String? = nil, customerListId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, ids: String? = nil, sinceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCustomerList> {
+    open class func customerListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCustomerList> {
         let localVariablePath = "/customer.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "ids": (wrappedValue: ids?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "since_id": (wrappedValue: sinceId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "customer_list_id": (wrappedValue: customerListId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "group_id": (wrappedValue: groupId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "avail": (wrappedValue: avail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "find_value": (wrappedValue: findValue?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "find_where": (wrappedValue: findWhere?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "created_from": (wrappedValue: createdFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "created_to": (wrappedValue: createdTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "modified_from": (wrappedValue: modifiedFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "modified_to": (wrappedValue: modifiedTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "group_id": (wrappedValue: groupId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "customer_list_id": (wrappedValue: customerListId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "avail": (wrappedValue: avail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "find_value": (wrappedValue: findValue?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "find_where": (wrappedValue: findWhere?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "sort_by": (wrappedValue: sortBy?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "sort_direction": (wrappedValue: sortDirection?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "ids": (wrappedValue: ids?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "since_id": (wrappedValue: sinceId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -686,18 +686,18 @@ open class CustomerAPI {
      customer.wishlist.list
      
      - parameter customerId: (query) Retrieves orders specified by customer id 
-     - parameter id: (query) Entity id (optional)
-     - parameter storeId: (query) Store Id (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
      - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+     - parameter id: (query) Entity id (optional)
+     - parameter storeId: (query) Store Id (optional)
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "{return_code,return_message,pagination,result}")
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseCustomerWishlistList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func customerWishlistList(customerId: String, id: String? = nil, storeId: String? = nil, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCustomerWishlistList {
-        return try await customerWishlistListWithRequestBuilder(customerId: customerId, id: id, storeId: storeId, start: start, count: count, pageCursor: pageCursor, responseFields: responseFields, apiConfiguration: apiConfiguration).execute().body
+    open class func customerWishlistList(customerId: String, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, id: String? = nil, storeId: String? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCustomerWishlistList {
+        return try await customerWishlistListWithRequestBuilder(customerId: customerId, start: start, count: count, pageCursor: pageCursor, id: id, storeId: storeId, responseFields: responseFields, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -711,28 +711,28 @@ open class CustomerAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter customerId: (query) Retrieves orders specified by customer id 
-     - parameter id: (query) Entity id (optional)
-     - parameter storeId: (query) Store Id (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
      - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+     - parameter id: (query) Entity id (optional)
+     - parameter storeId: (query) Store Id (optional)
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "{return_code,return_message,pagination,result}")
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseCustomerWishlistList> 
      */
-    open class func customerWishlistListWithRequestBuilder(customerId: String, id: String? = nil, storeId: String? = nil, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCustomerWishlistList> {
+    open class func customerWishlistListWithRequestBuilder(customerId: String, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, id: String? = nil, storeId: String? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCustomerWishlistList> {
         let localVariablePath = "/customer.wishlist.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "customer_id": (wrappedValue: customerId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "id": (wrappedValue: id?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "customer_id": (wrappedValue: customerId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "id": (wrappedValue: id?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 

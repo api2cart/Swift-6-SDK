@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 # **attributeAttributesetList**
 ```swift
-    open class func attributeAttributesetList(start: Int? = nil, count: Int? = nil, params: String? = nil, exclude: String? = nil, responseFields: String? = nil, completion: @escaping (_ data: ModelResponseAttributeAttributesetList?, _ error: Error?) -> Void)
+    open class func attributeAttributesetList(start: Int? = nil, count: Int? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseAttributeAttributesetList?, _ error: Error?) -> Void)
 ```
 
 attribute.attributeset.list
@@ -236,12 +236,12 @@ import OpenAPIClient
 
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 
 // attribute.attributeset.list
-AttributeAPI.attributeAttributesetList(start: start, count: count, params: params, exclude: exclude, responseFields: responseFields) { (response, error) in
+AttributeAPI.attributeAttributesetList(start: start, count: count, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -259,9 +259,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
 
 ### Return type
 
@@ -394,7 +394,7 @@ Name | Type | Description  | Notes
 
 # **attributeGroupList**
 ```swift
-    open class func attributeGroupList(start: Int? = nil, count: Int? = nil, langId: String? = nil, params: String? = nil, exclude: String? = nil, responseFields: String? = nil, attributeSetId: String? = nil, completion: @escaping (_ data: ModelResponseAttributeGroupList?, _ error: Error?) -> Void)
+    open class func attributeGroupList(start: Int? = nil, count: Int? = nil, attributeSetId: String? = nil, langId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseAttributeGroupList?, _ error: Error?) -> Void)
 ```
 
 attribute.group.list
@@ -408,14 +408,14 @@ import OpenAPIClient
 
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let attributeSetId = "attributeSetId_example" // String | Attribute set id (optional)
 let langId = "langId_example" // String | Language id (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let attributeSetId = "attributeSetId_example" // String | Attribute set id (optional)
 
 // attribute.group.list
-AttributeAPI.attributeGroupList(start: start, count: count, langId: langId, params: params, exclude: exclude, responseFields: responseFields, attributeSetId: attributeSetId) { (response, error) in
+AttributeAPI.attributeGroupList(start: start, count: count, attributeSetId: attributeSetId, langId: langId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -433,11 +433,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **attributeSetId** | **String** | Attribute set id | [optional] 
  **langId** | **String** | Language id | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **attributeSetId** | **String** | Attribute set id | [optional] 
 
 ### Return type
 
@@ -456,7 +456,7 @@ Name | Type | Description  | Notes
 
 # **attributeInfo**
 ```swift
-    open class func attributeInfo(id: String, attributeSetId: String? = nil, storeId: String? = nil, langId: String? = nil, params: String? = nil, exclude: String? = nil, responseFields: String? = nil, completion: @escaping (_ data: AttributeInfo200Response?, _ error: Error?) -> Void)
+    open class func attributeInfo(id: String, attributeSetId: String? = nil, storeId: String? = nil, langId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: AttributeInfo200Response?, _ error: Error?) -> Void)
 ```
 
 attribute.info
@@ -472,12 +472,12 @@ let id = "id_example" // String | Entity id
 let attributeSetId = "attributeSetId_example" // String | Attribute set id (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
 let langId = "langId_example" // String | Language id (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "force_all")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 
 // attribute.info
-AttributeAPI.attributeInfo(id: id, attributeSetId: attributeSetId, storeId: storeId, langId: langId, params: params, exclude: exclude, responseFields: responseFields) { (response, error) in
+AttributeAPI.attributeInfo(id: id, attributeSetId: attributeSetId, storeId: storeId, langId: langId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -497,9 +497,9 @@ Name | Type | Description  | Notes
  **attributeSetId** | **String** | Attribute set id | [optional] 
  **storeId** | **String** | Store Id | [optional] 
  **langId** | **String** | Language id | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;force_all&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
 
 ### Return type
 
@@ -518,7 +518,7 @@ Name | Type | Description  | Notes
 
 # **attributeList**
 ```swift
-    open class func attributeList(start: Int? = nil, count: Int? = nil, type: String? = nil, attributeIds: String? = nil, attributeSetId: String? = nil, storeId: String? = nil, langId: String? = nil, params: String? = nil, exclude: String? = nil, responseFields: String? = nil, visible: Bool? = nil, _required: Bool? = nil, system: Bool? = nil, completion: @escaping (_ data: ModelResponseAttributeList?, _ error: Error?) -> Void)
+    open class func attributeList(start: Int? = nil, count: Int? = nil, attributeIds: String? = nil, attributeSetId: String? = nil, storeId: String? = nil, langId: String? = nil, type: String? = nil, visible: Bool? = nil, _required: Bool? = nil, system: Bool? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseAttributeList?, _ error: Error?) -> Void)
 ```
 
 attribute.list
@@ -532,20 +532,20 @@ import OpenAPIClient
 
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
-let type = "type_example" // String | Defines attribute's type (optional)
 let attributeIds = "attributeIds_example" // String | Filter attributes by ids (optional)
 let attributeSetId = "attributeSetId_example" // String | Filter items by attribute set id (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
 let langId = "langId_example" // String | Retrieves attributes on specified language id (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,code,type")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let type = "type_example" // String | Defines attribute's type (optional)
 let visible = true // Bool | Filter items by visibility status (optional)
 let _required = true // Bool | Defines if the option is required (optional)
 let system = false // Bool | True if attribute is system (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,code,type")
+let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // attribute.list
-AttributeAPI.attributeList(start: start, count: count, type: type, attributeIds: attributeIds, attributeSetId: attributeSetId, storeId: storeId, langId: langId, params: params, exclude: exclude, responseFields: responseFields, visible: visible, _required: _required, system: system) { (response, error) in
+AttributeAPI.attributeList(start: start, count: count, attributeIds: attributeIds, attributeSetId: attributeSetId, storeId: storeId, langId: langId, type: type, visible: visible, _required: _required, system: system, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -563,17 +563,17 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **type** | **String** | Defines attribute&#39;s type | [optional] 
  **attributeIds** | **String** | Filter attributes by ids | [optional] 
  **attributeSetId** | **String** | Filter items by attribute set id | [optional] 
  **storeId** | **String** | Store Id | [optional] 
  **langId** | **String** | Retrieves attributes on specified language id | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,code,type&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **type** | **String** | Defines attribute&#39;s type | [optional] 
  **visible** | **Bool** | Filter items by visibility status | [optional] 
  **_required** | **Bool** | Defines if the option is required | [optional] 
  **system** | **Bool** | True if attribute is system | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,code,type&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 

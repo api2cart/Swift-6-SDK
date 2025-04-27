@@ -32,7 +32,7 @@ Add customer into store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let customerAdd = CustomerAdd(email: "email_example", firstName: "firstName_example", lastName: "lastName_example", password: "password_example", group: "group_example", groupIds: "groupIds_example", createdTime: "createdTime_example", modifiedTime: "modifiedTime_example", login: "login_example", lastLogin: "lastLogin_example", birthDay: "birthDay_example", status: "status_example", newsLetterSubscription: true, consents: [CustomerAdd_consents_inner(type: "type_example", status: "status_example", optInLevel: "optInLevel_example")], gender: "gender_example", website: "website_example", storeId: "storeId_example", fax: "fax_example", company: "company_example", phone: "phone_example", note: "note_example", country: "country_example", address: [CustomerAdd_address_inner(addressBookType: "addressBookType_example", addressBookFirstName: "addressBookFirstName_example", addressBookLastName: "addressBookLastName_example", addressBookCompany: "addressBookCompany_example", addressBookFax: "addressBookFax_example", addressBookPhone: "addressBookPhone_example", addressBookPhoneMobile: "addressBookPhoneMobile_example", addressBookWebsite: "addressBookWebsite_example", addressBookAddress1: "addressBookAddress1_example", addressBookAddress2: "addressBookAddress2_example", addressBookCity: "addressBookCity_example", addressBookCountry: "addressBookCountry_example", addressBookState: "addressBookState_example", addressBookPostcode: "addressBookPostcode_example", addressBookGender: "addressBookGender_example", addressBookRegion: "addressBookRegion_example", addressBookDefault: true, addressBookTaxId: "addressBookTaxId_example", addressBookIdentificationNumber: "addressBookIdentificationNumber_example", addressBookAlias: "addressBookAlias_example")]) // CustomerAdd | 
+let customerAdd = CustomerAdd(email: "email_example", firstName: "firstName_example", lastName: "lastName_example", password: "password_example", group: "group_example", groupIds: "groupIds_example", status: "status_example", createdTime: "createdTime_example", modifiedTime: "modifiedTime_example", login: "login_example", lastLogin: "lastLogin_example", birthDay: "birthDay_example", newsLetterSubscription: true, consents: [CustomerAdd_consents_inner(type: "type_example", status: "status_example", optInLevel: "optInLevel_example")], gender: "gender_example", website: "website_example", fax: "fax_example", company: "company_example", phone: "phone_example", note: "note_example", country: "country_example", storeId: "storeId_example", address: [CustomerAdd_address_inner(addressBookType: "addressBookType_example", addressBookFirstName: "addressBookFirstName_example", addressBookLastName: "addressBookLastName_example", addressBookCompany: "addressBookCompany_example", addressBookFax: "addressBookFax_example", addressBookPhone: "addressBookPhone_example", addressBookPhoneMobile: "addressBookPhoneMobile_example", addressBookWebsite: "addressBookWebsite_example", addressBookAddress1: "addressBookAddress1_example", addressBookAddress2: "addressBookAddress2_example", addressBookCity: "addressBookCity_example", addressBookCountry: "addressBookCountry_example", addressBookState: "addressBookState_example", addressBookPostcode: "addressBookPostcode_example", addressBookGender: "addressBookGender_example", addressBookRegion: "addressBookRegion_example", addressBookDefault: true, addressBookTaxId: "addressBookTaxId_example", addressBookIdentificationNumber: "addressBookIdentificationNumber_example", addressBookAlias: "addressBookAlias_example")]) // CustomerAdd | 
 
 // customer.add
 CustomerAPI.customerAdd(customerAdd: customerAdd) { (response, error) in
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 
 # **customerAttributeList**
 ```swift
-    open class func customerAttributeList(customerId: String, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, params: String? = nil, exclude: String? = nil, responseFields: String? = nil, completion: @escaping (_ data: ModelResponseCustomerAttributeList?, _ error: Error?) -> Void)
+    open class func customerAttributeList(customerId: String, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCustomerAttributeList?, _ error: Error?) -> Void)
 ```
 
 customer.attribute.list
@@ -137,12 +137,12 @@ let count = 987 // Int | This parameter sets the entity amount that has to be re
 let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
 let langId = "langId_example" // String | Language id (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "force_all")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 
 // customer.attribute.list
-CustomerAPI.customerAttributeList(customerId: customerId, count: count, pageCursor: pageCursor, storeId: storeId, langId: langId, params: params, exclude: exclude, responseFields: responseFields) { (response, error) in
+CustomerAPI.customerAttributeList(customerId: customerId, count: count, pageCursor: pageCursor, storeId: storeId, langId: langId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -163,9 +163,9 @@ Name | Type | Description  | Notes
  **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **storeId** | **String** | Store Id | [optional] 
  **langId** | **String** | Language id | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;force_all&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
 
 ### Return type
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 # **customerCount**
 ```swift
-    open class func customerCount(groupId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, storeId: String? = nil, customerListId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, ids: String? = nil, sinceId: String? = nil, completion: @escaping (_ data: CustomerCount200Response?, _ error: Error?) -> Void)
+    open class func customerCount(ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, completion: @escaping (_ data: CustomerCount200Response?, _ error: Error?) -> Void)
 ```
 
 customer.count
@@ -196,21 +196,21 @@ Get number of customers from store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
+let ids = "ids_example" // String | Counts customers specified by ids (optional)
+let sinceId = "sinceId_example" // String | Retrieve entities starting from the specified id. (optional)
+let customerListId = "customerListId_example" // String | The numeric ID of the customer list in Demandware. (optional)
 let groupId = "groupId_example" // String | Customer group_id (optional)
+let storeId = "storeId_example" // String | Counts customer specified by store id (optional)
+let avail = false // Bool | Defines category's visibility status (optional) (default to true)
+let findValue = "findValue_example" // String | Entity search that is specified by some value (optional)
+let findWhere = "findWhere_example" // String | Counts customers that are searched specified by field (optional)
 let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
 let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
-let storeId = "storeId_example" // String | Counts customer specified by store id (optional)
-let customerListId = "customerListId_example" // String | The numeric ID of the customer list in Demandware. (optional)
-let avail = false // Bool | Defines category's visibility status (optional) (default to true)
-let findValue = "findValue_example" // String | Entity search that is specified by some value (optional)
-let findWhere = "findWhere_example" // String | Counts customers that are searched specified by field (optional)
-let ids = "ids_example" // String | Counts customers specified by ids (optional)
-let sinceId = "sinceId_example" // String | Retrieve entities starting from the specified id. (optional)
 
 // customer.count
-CustomerAPI.customerCount(groupId: groupId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, storeId: storeId, customerListId: customerListId, avail: avail, findValue: findValue, findWhere: findWhere, ids: ids, sinceId: sinceId) { (response, error) in
+CustomerAPI.customerCount(ids: ids, sinceId: sinceId, customerListId: customerListId, groupId: groupId, storeId: storeId, avail: avail, findValue: findValue, findWhere: findWhere, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -226,18 +226,18 @@ CustomerAPI.customerCount(groupId: groupId, createdFrom: createdFrom, createdTo:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ids** | **String** | Counts customers specified by ids | [optional] 
+ **sinceId** | **String** | Retrieve entities starting from the specified id. | [optional] 
+ **customerListId** | **String** | The numeric ID of the customer list in Demandware. | [optional] 
  **groupId** | **String** | Customer group_id | [optional] 
+ **storeId** | **String** | Counts customer specified by store id | [optional] 
+ **avail** | **Bool** | Defines category&#39;s visibility status | [optional] [default to true]
+ **findValue** | **String** | Entity search that is specified by some value | [optional] 
+ **findWhere** | **String** | Counts customers that are searched specified by field | [optional] 
  **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
  **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
- **storeId** | **String** | Counts customer specified by store id | [optional] 
- **customerListId** | **String** | The numeric ID of the customer list in Demandware. | [optional] 
- **avail** | **Bool** | Defines category&#39;s visibility status | [optional] [default to true]
- **findValue** | **String** | Entity search that is specified by some value | [optional] 
- **findWhere** | **String** | Counts customers that are searched specified by field | [optional] 
- **ids** | **String** | Counts customers specified by ids | [optional] 
- **sinceId** | **String** | Retrieve entities starting from the specified id. | [optional] 
 
 ### Return type
 
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 
 # **customerGroupList**
 ```swift
-    open class func customerGroupList(disableCache: Bool? = nil, pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, storeId: String? = nil, langId: String? = nil, groupIds: String? = nil, params: String? = nil, exclude: String? = nil, responseFields: String? = nil, completion: @escaping (_ data: ModelResponseCustomerGroupList?, _ error: Error?) -> Void)
+    open class func customerGroupList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, groupIds: String? = nil, storeId: String? = nil, langId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, disableCache: Bool? = nil, completion: @escaping (_ data: ModelResponseCustomerGroupList?, _ error: Error?) -> Void)
 ```
 
 customer.group.list
@@ -428,19 +428,19 @@ Get list of customers groups.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let disableCache = false // Bool | Disable cache for current request (optional) (default to false)
-let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
+let groupIds = "groupIds_example" // String | Groups that will be assigned to a customer (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
 let langId = "langId_example" // String | Language id (optional)
-let groupIds = "groupIds_example" // String | Groups that will be assigned to a customer (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,additional_fields")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let disableCache = false // Bool | Disable cache for current request (optional) (default to false)
 
 // customer.group.list
-CustomerAPI.customerGroupList(disableCache: disableCache, pageCursor: pageCursor, start: start, count: count, storeId: storeId, langId: langId, groupIds: groupIds, params: params, exclude: exclude, responseFields: responseFields) { (response, error) in
+CustomerAPI.customerGroupList(start: start, count: count, pageCursor: pageCursor, groupIds: groupIds, storeId: storeId, langId: langId, responseFields: responseFields, params: params, exclude: exclude, disableCache: disableCache) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -456,16 +456,16 @@ CustomerAPI.customerGroupList(disableCache: disableCache, pageCursor: pageCursor
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **disableCache** | **Bool** | Disable cache for current request | [optional] [default to false]
- **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
+ **groupIds** | **String** | Groups that will be assigned to a customer | [optional] 
  **storeId** | **String** | Store Id | [optional] 
  **langId** | **String** | Language id | [optional] 
- **groupIds** | **String** | Groups that will be assigned to a customer | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,additional_fields&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **disableCache** | **Bool** | Disable cache for current request | [optional] [default to false]
 
 ### Return type
 
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 
 # **customerInfo**
 ```swift
-    open class func customerInfo(id: String, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, storeId: String? = nil, completion: @escaping (_ data: CustomerInfo200Response?, _ error: Error?) -> Void)
+    open class func customerInfo(id: String, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: CustomerInfo200Response?, _ error: Error?) -> Void)
 ```
 
 customer.info
@@ -497,13 +497,13 @@ Get customers' details from store.
 import OpenAPIClient
 
 let id = "id_example" // String | Retrieves customer's info specified by customer id
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,email,first_name,last_name")
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let storeId = "storeId_example" // String | Retrieves customer info specified by store id (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,email,first_name,last_name")
+let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // customer.info
-CustomerAPI.customerInfo(id: id, params: params, responseFields: responseFields, exclude: exclude, storeId: storeId) { (response, error) in
+CustomerAPI.customerInfo(id: id, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -520,10 +520,10 @@ CustomerAPI.customerInfo(id: id, params: params, responseFields: responseFields,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String** | Retrieves customer&#39;s info specified by customer id | 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,email,first_name,last_name&quot;]
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **storeId** | **String** | Retrieves customer info specified by store id | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,email,first_name,last_name&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -542,7 +542,7 @@ Name | Type | Description  | Notes
 
 # **customerList**
 ```swift
-    open class func customerList(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, groupId: String? = nil, storeId: String? = nil, customerListId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, ids: String? = nil, sinceId: String? = nil, completion: @escaping (_ data: ModelResponseCustomerList?, _ error: Error?) -> Void)
+    open class func customerList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCustomerList?, _ error: Error?) -> Void)
 ```
 
 customer.list
@@ -554,29 +554,29 @@ Get list of customers from store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
+let ids = "ids_example" // String | Retrieves customers specified by ids (optional)
+let sinceId = "sinceId_example" // String | Retrieve entities starting from the specified id. (optional)
+let customerListId = "customerListId_example" // String | The numeric ID of the customer list in Demandware. (optional)
+let groupId = "groupId_example" // String | Customer group_id (optional)
+let storeId = "storeId_example" // String | Retrieves customers specified by store id (optional)
+let avail = false // Bool | Defines category's visibility status (optional) (default to true)
+let findValue = "findValue_example" // String | Entity search that is specified by some value (optional)
+let findWhere = "findWhere_example" // String | Customer search that is specified by field (optional)
 let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
 let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,email,first_name,last_name")
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-let groupId = "groupId_example" // String | Customer group_id (optional)
-let storeId = "storeId_example" // String | Retrieves customers specified by store id (optional)
-let customerListId = "customerListId_example" // String | The numeric ID of the customer list in Demandware. (optional)
-let avail = false // Bool | Defines category's visibility status (optional) (default to true)
-let findValue = "findValue_example" // String | Entity search that is specified by some value (optional)
-let findWhere = "findWhere_example" // String | Customer search that is specified by field (optional)
 let sortBy = "sortBy_example" // String | Set field to sort by (optional) (default to "created_time")
 let sortDirection = "sortDirection_example" // String | Set sorting direction (optional) (default to "asc")
-let ids = "ids_example" // String | Retrieves customers specified by ids (optional)
-let sinceId = "sinceId_example" // String | Retrieve entities starting from the specified id. (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,email,first_name,last_name")
+let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // customer.list
-CustomerAPI.customerList(pageCursor: pageCursor, start: start, count: count, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, params: params, responseFields: responseFields, exclude: exclude, groupId: groupId, storeId: storeId, customerListId: customerListId, avail: avail, findValue: findValue, findWhere: findWhere, sortBy: sortBy, sortDirection: sortDirection, ids: ids, sinceId: sinceId) { (response, error) in
+CustomerAPI.customerList(start: start, count: count, pageCursor: pageCursor, ids: ids, sinceId: sinceId, customerListId: customerListId, groupId: groupId, storeId: storeId, avail: avail, findValue: findValue, findWhere: findWhere, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, sortBy: sortBy, sortDirection: sortDirection, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -592,26 +592,26 @@ CustomerAPI.customerList(pageCursor: pageCursor, start: start, count: count, cre
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
+ **ids** | **String** | Retrieves customers specified by ids | [optional] 
+ **sinceId** | **String** | Retrieve entities starting from the specified id. | [optional] 
+ **customerListId** | **String** | The numeric ID of the customer list in Demandware. | [optional] 
+ **groupId** | **String** | Customer group_id | [optional] 
+ **storeId** | **String** | Retrieves customers specified by store id | [optional] 
+ **avail** | **Bool** | Defines category&#39;s visibility status | [optional] [default to true]
+ **findValue** | **String** | Entity search that is specified by some value | [optional] 
+ **findWhere** | **String** | Customer search that is specified by field | [optional] 
  **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
  **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,email,first_name,last_name&quot;]
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **groupId** | **String** | Customer group_id | [optional] 
- **storeId** | **String** | Retrieves customers specified by store id | [optional] 
- **customerListId** | **String** | The numeric ID of the customer list in Demandware. | [optional] 
- **avail** | **Bool** | Defines category&#39;s visibility status | [optional] [default to true]
- **findValue** | **String** | Entity search that is specified by some value | [optional] 
- **findWhere** | **String** | Customer search that is specified by field | [optional] 
  **sortBy** | **String** | Set field to sort by | [optional] [default to &quot;created_time&quot;]
  **sortDirection** | **String** | Set sorting direction | [optional] [default to &quot;asc&quot;]
- **ids** | **String** | Retrieves customers specified by ids | [optional] 
- **sinceId** | **String** | Retrieve entities starting from the specified id. | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,email,first_name,last_name&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -642,7 +642,7 @@ Update information of customer in store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let customerUpdate = CustomerUpdate(id: "id_example", groupId: "groupId_example", groupIds: "groupIds_example", group: "group_example", email: "email_example", phone: "phone_example", firstName: "firstName_example", lastName: "lastName_example", birthDay: "birthDay_example", newsLetterSubscription: true, consents: [CustomerAdd_consents_inner(type: "type_example", status: "status_example", optInLevel: "optInLevel_example")], tags: "tags_example", gender: "gender_example", storeId: "storeId_example", note: "note_example", status: "status_example", address: [CustomerUpdate_address_inner(addressBookId: "addressBookId_example", addressBookFirstName: "addressBookFirstName_example", addressBookLastName: "addressBookLastName_example", addressBookCompany: "addressBookCompany_example", addressBookFax: "addressBookFax_example", addressBookPhone: "addressBookPhone_example", addressBookPhoneMobile: "addressBookPhoneMobile_example", addressBookAddress1: "addressBookAddress1_example", addressBookAddress2: "addressBookAddress2_example", addressBookCity: "addressBookCity_example", addressBookCountry: "addressBookCountry_example", addressBookState: "addressBookState_example", addressBookPostcode: "addressBookPostcode_example", addressBookTaxId: "addressBookTaxId_example", addressBookIdentificationNumber: "addressBookIdentificationNumber_example", addressBookGender: "addressBookGender_example", addressBookAlias: "addressBookAlias_example", addressBookType: "addressBookType_example", addressBookDefault: true)]) // CustomerUpdate | 
+let customerUpdate = CustomerUpdate(id: "id_example", groupId: "groupId_example", groupIds: "groupIds_example", group: "group_example", email: "email_example", phone: "phone_example", firstName: "firstName_example", lastName: "lastName_example", birthDay: "birthDay_example", newsLetterSubscription: true, consents: [CustomerAdd_consents_inner(type: "type_example", status: "status_example", optInLevel: "optInLevel_example")], tags: "tags_example", gender: "gender_example", note: "note_example", status: "status_example", storeId: "storeId_example", address: [CustomerUpdate_address_inner(addressBookId: "addressBookId_example", addressBookFirstName: "addressBookFirstName_example", addressBookLastName: "addressBookLastName_example", addressBookCompany: "addressBookCompany_example", addressBookFax: "addressBookFax_example", addressBookPhone: "addressBookPhone_example", addressBookPhoneMobile: "addressBookPhoneMobile_example", addressBookAddress1: "addressBookAddress1_example", addressBookAddress2: "addressBookAddress2_example", addressBookCity: "addressBookCity_example", addressBookCountry: "addressBookCountry_example", addressBookState: "addressBookState_example", addressBookPostcode: "addressBookPostcode_example", addressBookTaxId: "addressBookTaxId_example", addressBookIdentificationNumber: "addressBookIdentificationNumber_example", addressBookGender: "addressBookGender_example", addressBookAlias: "addressBookAlias_example", addressBookType: "addressBookType_example", addressBookDefault: true)]) // CustomerUpdate | 
 
 // customer.update
 CustomerAPI.customerUpdate(customerUpdate: customerUpdate) { (response, error) in
@@ -680,7 +680,7 @@ Name | Type | Description  | Notes
 
 # **customerWishlistList**
 ```swift
-    open class func customerWishlistList(customerId: String, id: String? = nil, storeId: String? = nil, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, responseFields: String? = nil, completion: @escaping (_ data: ModelResponseCustomerWishlistList?, _ error: Error?) -> Void)
+    open class func customerWishlistList(customerId: String, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, id: String? = nil, storeId: String? = nil, responseFields: String? = nil, completion: @escaping (_ data: ModelResponseCustomerWishlistList?, _ error: Error?) -> Void)
 ```
 
 customer.wishlist.list
@@ -693,15 +693,15 @@ Get a Wish List of customer from the store.
 import OpenAPIClient
 
 let customerId = "customerId_example" // String | Retrieves orders specified by customer id
-let id = "id_example" // String | Entity id (optional)
-let storeId = "storeId_example" // String | Store Id (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
 let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
+let id = "id_example" // String | Entity id (optional)
+let storeId = "storeId_example" // String | Store Id (optional)
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "{return_code,return_message,pagination,result}")
 
 // customer.wishlist.list
-CustomerAPI.customerWishlistList(customerId: customerId, id: id, storeId: storeId, start: start, count: count, pageCursor: pageCursor, responseFields: responseFields) { (response, error) in
+CustomerAPI.customerWishlistList(customerId: customerId, start: start, count: count, pageCursor: pageCursor, id: id, storeId: storeId, responseFields: responseFields) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -718,11 +718,11 @@ CustomerAPI.customerWishlistList(customerId: customerId, id: id, storeId: storeI
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customerId** | **String** | Retrieves orders specified by customer id | 
- **id** | **String** | Entity id | [optional] 
- **storeId** | **String** | Store Id | [optional] 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
+ **id** | **String** | Entity id | [optional] 
+ **storeId** | **String** | Store Id | [optional] 
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;{return_code,return_message,pagination,result}&quot;]
 
 ### Return type

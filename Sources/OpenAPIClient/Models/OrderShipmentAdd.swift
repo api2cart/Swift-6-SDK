@@ -11,63 +11,63 @@ public struct OrderShipmentAdd: Sendable, Codable, JSONEncodable, Hashable {
 
     /** Defines the order for which the shipment will be created */
     public var orderId: String?
-    /** Store Id */
-    public var storeId: String?
     /** This parameter is used for selecting a warehouse where you need to set/modify a product quantity. */
     public var warehouseId: String?
+    /** Store Id */
+    public var storeId: String?
     /** Defines company name that provide tracking of shipment */
     public var shipmentProvider: String?
     /** Define shipping method */
     public var shippingMethod: String?
     /** Defines items in the order that will be shipped */
     public var items: [OrderShipmentAddItemsInner]?
-    /** Send notifications to customer after shipment was created */
-    public var sendNotifications: Bool? = false
     /** Defines shipment's tracking numbers that have to be added</br> How set tracking numbers to appropriate carrier:<ul><li>tracking_numbers[]=a2c.demo1,a2c.demo2 - set default carrier</li><li>tracking_numbers[<b>carrier_id</b>]=a2c.demo - set appropriate carrier</li></ul>To get the list of carriers IDs that are available in your store, use the <a href = \"https://api2cart.com/docs/#/cart/CartInfo\">cart.info</a > method */
     public var trackingNumbers: [OrderShipmentAddTrackingNumbersInner]?
-    /** This parameter is used for adjust stock. */
-    public var adjustStock: Bool? = false
-    /** If the value is 'true' and order exist in our cache, we will use order.info from cache to prepare shipment items. */
-    public var enableCache: Bool? = false
     /** Defines custom tracking link */
     public var trackingLink: String?
     /** Defines shipment's status */
     public var isShipped: Bool? = true
+    /** Send notifications to customer after shipment was created */
+    public var sendNotifications: Bool? = false
+    /** This parameter is used for adjust stock. */
+    public var adjustStock: Bool? = false
+    /** If the value is 'true' and order exist in our cache, we will use order.info from cache to prepare shipment items. */
+    public var enableCache: Bool? = false
     /** Disable or enable check process status. Please note that the response will be slower due to additional requests to the store. */
     public var checkProcessStatus: Bool? = false
     /** Use the latest platform API version */
     public var useLatestApiVersion: Bool? = false
 
-    public init(orderId: String? = nil, storeId: String? = nil, warehouseId: String? = nil, shipmentProvider: String? = nil, shippingMethod: String? = nil, items: [OrderShipmentAddItemsInner]? = nil, sendNotifications: Bool? = false, trackingNumbers: [OrderShipmentAddTrackingNumbersInner]? = nil, adjustStock: Bool? = false, enableCache: Bool? = false, trackingLink: String? = nil, isShipped: Bool? = true, checkProcessStatus: Bool? = false, useLatestApiVersion: Bool? = false) {
+    public init(orderId: String? = nil, warehouseId: String? = nil, storeId: String? = nil, shipmentProvider: String? = nil, shippingMethod: String? = nil, items: [OrderShipmentAddItemsInner]? = nil, trackingNumbers: [OrderShipmentAddTrackingNumbersInner]? = nil, trackingLink: String? = nil, isShipped: Bool? = true, sendNotifications: Bool? = false, adjustStock: Bool? = false, enableCache: Bool? = false, checkProcessStatus: Bool? = false, useLatestApiVersion: Bool? = false) {
         self.orderId = orderId
-        self.storeId = storeId
         self.warehouseId = warehouseId
+        self.storeId = storeId
         self.shipmentProvider = shipmentProvider
         self.shippingMethod = shippingMethod
         self.items = items
-        self.sendNotifications = sendNotifications
         self.trackingNumbers = trackingNumbers
-        self.adjustStock = adjustStock
-        self.enableCache = enableCache
         self.trackingLink = trackingLink
         self.isShipped = isShipped
+        self.sendNotifications = sendNotifications
+        self.adjustStock = adjustStock
+        self.enableCache = enableCache
         self.checkProcessStatus = checkProcessStatus
         self.useLatestApiVersion = useLatestApiVersion
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case orderId = "order_id"
-        case storeId = "store_id"
         case warehouseId = "warehouse_id"
+        case storeId = "store_id"
         case shipmentProvider = "shipment_provider"
         case shippingMethod = "shipping_method"
         case items
-        case sendNotifications = "send_notifications"
         case trackingNumbers = "tracking_numbers"
-        case adjustStock = "adjust_stock"
-        case enableCache = "enable_cache"
         case trackingLink = "tracking_link"
         case isShipped = "is_shipped"
+        case sendNotifications = "send_notifications"
+        case adjustStock = "adjust_stock"
+        case enableCache = "enable_cache"
         case checkProcessStatus = "check_process_status"
         case useLatestApiVersion = "use_latest_api_version"
     }
@@ -77,17 +77,17 @@ public struct OrderShipmentAdd: Sendable, Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(orderId, forKey: .orderId)
-        try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(warehouseId, forKey: .warehouseId)
+        try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(shipmentProvider, forKey: .shipmentProvider)
         try container.encodeIfPresent(shippingMethod, forKey: .shippingMethod)
         try container.encodeIfPresent(items, forKey: .items)
-        try container.encodeIfPresent(sendNotifications, forKey: .sendNotifications)
         try container.encodeIfPresent(trackingNumbers, forKey: .trackingNumbers)
-        try container.encodeIfPresent(adjustStock, forKey: .adjustStock)
-        try container.encodeIfPresent(enableCache, forKey: .enableCache)
         try container.encodeIfPresent(trackingLink, forKey: .trackingLink)
         try container.encodeIfPresent(isShipped, forKey: .isShipped)
+        try container.encodeIfPresent(sendNotifications, forKey: .sendNotifications)
+        try container.encodeIfPresent(adjustStock, forKey: .adjustStock)
+        try container.encodeIfPresent(enableCache, forKey: .enableCache)
         try container.encodeIfPresent(checkProcessStatus, forKey: .checkProcessStatus)
         try container.encodeIfPresent(useLatestApiVersion, forKey: .useLatestApiVersion)
     }

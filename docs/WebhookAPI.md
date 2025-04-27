@@ -226,7 +226,7 @@ This endpoint does not need any parameter.
 
 # **webhookList**
 ```swift
-    open class func webhookList(params: String? = nil, start: Int? = nil, count: Int? = nil, entity: String? = nil, action: String? = nil, active: Bool? = nil, ids: String? = nil, completion: @escaping (_ data: WebhookList200Response?, _ error: Error?) -> Void)
+    open class func webhookList(start: Int? = nil, count: Int? = nil, entity: String? = nil, action: String? = nil, active: Bool? = nil, ids: String? = nil, params: String? = nil, completion: @escaping (_ data: WebhookList200Response?, _ error: Error?) -> Void)
 ```
 
 webhook.list
@@ -238,16 +238,16 @@ List registered webhook on the store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,entity,action,callback")
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
 let entity = "entity_example" // String | The entity you want to filter webhooks by (e.g. order or product) (optional)
 let action = "action_example" // String | The action you want to filter webhooks by (e.g. add, update, or delete) (optional)
 let active = true // Bool | The webhook status you want to filter webhooks by (optional)
 let ids = "ids_example" // String | List of сomma-separated webhook ids (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,entity,action,callback")
 
 // webhook.list
-WebhookAPI.webhookList(params: params, start: start, count: count, entity: entity, action: action, active: active, ids: ids) { (response, error) in
+WebhookAPI.webhookList(start: start, count: count, entity: entity, action: action, active: active, ids: ids, params: params) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -263,13 +263,13 @@ WebhookAPI.webhookList(params: params, start: start, count: count, entity: entit
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,entity,action,callback&quot;]
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **entity** | **String** | The entity you want to filter webhooks by (e.g. order or product) | [optional] 
  **action** | **String** | The action you want to filter webhooks by (e.g. add, update, or delete) | [optional] 
  **active** | **Bool** | The webhook status you want to filter webhooks by | [optional] 
  **ids** | **String** | List of сomma-separated webhook ids | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,entity,action,callback&quot;]
 
 ### Return type
 

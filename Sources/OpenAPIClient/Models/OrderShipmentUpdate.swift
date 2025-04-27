@@ -9,62 +9,62 @@ import Foundation
 
 public struct OrderShipmentUpdate: Sendable, Codable, JSONEncodable, Hashable {
 
-    /** Store Id */
-    public var storeId: String?
     /** Shipment id indicates the number of delivery */
     public var shipmentId: String
     /** Defines the order that will be updated */
     public var orderId: String?
-    /** Defines shipment's tracking numbers that have to be added</br> How set tracking numbers to appropriate carrier:<ul><li>tracking_numbers[]=a2c.demo1,a2c.demo2 - set default carrier</li><li>tracking_numbers[<b>carrier_id</b>]=a2c.demo - set appropriate carrier</li></ul>To get the list of carriers IDs that are available in your store, use the <a href = \"https://api2cart.com/docs/#/cart/CartInfo\">cart.info</a > method */
-    public var trackingNumbers: [OrderShipmentAddTrackingNumbersInner]?
-    /** Allows rewrite tracking numbers */
-    public var replace: Bool? = true
-    /** Defines shipment's status */
-    public var isShipped: Bool? = true
-    /** Defines custom tracking link */
-    public var trackingLink: String?
-    /** Defines the date of delivery */
-    public var deliveredAt: String?
+    /** Store Id */
+    public var storeId: String?
     /** Defines company name that provide tracking of shipment */
     public var shipmentProvider: String?
+    /** Defines shipment's tracking numbers that have to be added</br> How set tracking numbers to appropriate carrier:<ul><li>tracking_numbers[]=a2c.demo1,a2c.demo2 - set default carrier</li><li>tracking_numbers[<b>carrier_id</b>]=a2c.demo - set appropriate carrier</li></ul>To get the list of carriers IDs that are available in your store, use the <a href = \"https://api2cart.com/docs/#/cart/CartInfo\">cart.info</a > method */
+    public var trackingNumbers: [OrderShipmentAddTrackingNumbersInner]?
+    /** Defines custom tracking link */
+    public var trackingLink: String?
+    /** Defines shipment's status */
+    public var isShipped: Bool? = true
+    /** Defines the date of delivery */
+    public var deliveredAt: String?
+    /** Allows rewrite tracking numbers */
+    public var replace: Bool? = true
 
-    public init(storeId: String? = nil, shipmentId: String, orderId: String? = nil, trackingNumbers: [OrderShipmentAddTrackingNumbersInner]? = nil, replace: Bool? = true, isShipped: Bool? = true, trackingLink: String? = nil, deliveredAt: String? = nil, shipmentProvider: String? = nil) {
-        self.storeId = storeId
+    public init(shipmentId: String, orderId: String? = nil, storeId: String? = nil, shipmentProvider: String? = nil, trackingNumbers: [OrderShipmentAddTrackingNumbersInner]? = nil, trackingLink: String? = nil, isShipped: Bool? = true, deliveredAt: String? = nil, replace: Bool? = true) {
         self.shipmentId = shipmentId
         self.orderId = orderId
-        self.trackingNumbers = trackingNumbers
-        self.replace = replace
-        self.isShipped = isShipped
-        self.trackingLink = trackingLink
-        self.deliveredAt = deliveredAt
+        self.storeId = storeId
         self.shipmentProvider = shipmentProvider
+        self.trackingNumbers = trackingNumbers
+        self.trackingLink = trackingLink
+        self.isShipped = isShipped
+        self.deliveredAt = deliveredAt
+        self.replace = replace
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case storeId = "store_id"
         case shipmentId = "shipment_id"
         case orderId = "order_id"
-        case trackingNumbers = "tracking_numbers"
-        case replace
-        case isShipped = "is_shipped"
-        case trackingLink = "tracking_link"
-        case deliveredAt = "delivered_at"
+        case storeId = "store_id"
         case shipmentProvider = "shipment_provider"
+        case trackingNumbers = "tracking_numbers"
+        case trackingLink = "tracking_link"
+        case isShipped = "is_shipped"
+        case deliveredAt = "delivered_at"
+        case replace
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encode(shipmentId, forKey: .shipmentId)
         try container.encodeIfPresent(orderId, forKey: .orderId)
-        try container.encodeIfPresent(trackingNumbers, forKey: .trackingNumbers)
-        try container.encodeIfPresent(replace, forKey: .replace)
-        try container.encodeIfPresent(isShipped, forKey: .isShipped)
-        try container.encodeIfPresent(trackingLink, forKey: .trackingLink)
-        try container.encodeIfPresent(deliveredAt, forKey: .deliveredAt)
+        try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(shipmentProvider, forKey: .shipmentProvider)
+        try container.encodeIfPresent(trackingNumbers, forKey: .trackingNumbers)
+        try container.encodeIfPresent(trackingLink, forKey: .trackingLink)
+        try container.encodeIfPresent(isShipped, forKey: .isShipped)
+        try container.encodeIfPresent(deliveredAt, forKey: .deliveredAt)
+        try container.encodeIfPresent(replace, forKey: .replace)
     }
 }
 

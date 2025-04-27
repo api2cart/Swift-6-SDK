@@ -20,66 +20,12 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var channelId: String?
     /** Defines order status. */
     public var orderStatus: String
-    /** Send notifications to customer after order was created */
-    public var sendNotifications: Bool? = false
-    /** Notify admin when new order was created. */
-    public var sendAdminNotifications: Bool? = false
+    /** Create order with fulfillment status */
+    public var fulfillmentStatus: String?
+    /** Create order with financial status */
+    public var financialStatus: String?
     /** Defines the customer specified by email for whom order has to be created */
     public var customerEmail: String
-    /** Specifies billing first name */
-    public var billFirstName: String
-    /** Specifies billing last name */
-    public var billLastName: String
-    /** Specifies first billing address */
-    public var billAddress1: String
-    /** Specifies billing city */
-    public var billCity: String
-    /** Specifies billing postcode */
-    public var billPostcode: String
-    /** Specifies billing state code */
-    public var billState: String
-    /** Specifies billing country code */
-    public var billCountry: String
-    /** Specifies shipping first name */
-    public var shippFirstName: String?
-    /** Specifies shipping last name */
-    public var shippLastName: String?
-    /** Specifies first shipping address */
-    public var shippAddress1: String?
-    /** Specifies shipping city */
-    public var shippCity: String?
-    /** Specifies shipping postcode */
-    public var shippPostcode: String?
-    /** Specifies shipping state code */
-    public var shippState: String?
-    /** Specifies shipping country code */
-    public var shippCountry: String?
-    /** Defines order's total price */
-    public var totalPrice: Double?
-    /** Specifies an order creation date in format Y-m-d H:i:s */
-    public var date: String?
-    /** Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to 'paid' */
-    public var orderPaymentMethod: String?
-    /** Payment transaction id */
-    public var transactionId: String?
-    /** Defines order shipping method */
-    public var orderShippingMethod: String?
-    /** Currency code of order */
-    public var currency: String?
-    /** Specifies second billing address */
-    public var billAddress2: String?
-    /** Specifies billing company */
-    public var billCompany: String?
-    /** Specifies billing phone */
-    public var billPhone: String?
-    /** Specifies billing fax */
-    public var billFax: String?
-    /** Specifies order comment */
-    public var comment: String?
-    /** Specifies admin's order comment */
-    public var adminComment: String?
-    /** Specifies private admin's order comment */
-    public var adminPrivateComment: String?
     /** Specifies customer's first name */
     public var customerFirstName: String?
     /** Specifies customer’s last name */
@@ -92,132 +38,186 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var customerBirthday: String?
     /** Specifies customer’s fax */
     public var customerFax: String?
+    /** Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to 'paid' */
+    public var orderPaymentMethod: String?
+    /** Payment transaction id */
+    public var transactionId: String?
+    /** Currency code of order */
+    public var currency: String?
+    /** Specifies an order creation date in format Y-m-d H:i:s */
+    public var date: String?
+    /** Specifies order's  modification date */
+    public var dateModified: String?
+    /** Specifies order's  finished date */
+    public var dateFinished: String?
+    /** Specifies billing first name */
+    public var billFirstName: String
+    /** Specifies billing last name */
+    public var billLastName: String
+    /** Specifies first billing address */
+    public var billAddress1: String
+    /** Specifies second billing address */
+    public var billAddress2: String?
+    /** Specifies billing city */
+    public var billCity: String
+    /** Specifies billing postcode */
+    public var billPostcode: String
+    /** Specifies billing state code */
+    public var billState: String
+    /** Specifies billing country code */
+    public var billCountry: String
+    /** Specifies billing company */
+    public var billCompany: String?
+    /** Specifies billing phone */
+    public var billPhone: String?
+    /** Specifies billing fax */
+    public var billFax: String?
+    /** Specifies shipping first name */
+    public var shippFirstName: String?
+    /** Specifies shipping last name */
+    public var shippLastName: String?
+    /** Specifies first shipping address */
+    public var shippAddress1: String?
     /** Specifies second address line of a shipping street address */
     public var shippAddress2: String?
+    /** Specifies shipping city */
+    public var shippCity: String?
+    /** Specifies shipping postcode */
+    public var shippPostcode: String?
+    /** Specifies shipping state code */
+    public var shippState: String?
+    /** Specifies shipping country code */
+    public var shippCountry: String?
     /** Specifies shipping company */
     public var shippCompany: String?
     /** Specifies shipping phone */
     public var shippPhone: String?
     /** Specifies shipping fax */
     public var shippFax: String?
-    /** Specifies order's  modification date */
-    public var dateModified: String?
-    /** Specifies order's  finished date */
-    public var dateFinished: String?
     /** Total price of all ordered products multiplied by their number, excluding tax, shipping price and discounts */
     public var subtotalPrice: Double?
     /** The value of tax cost for order */
     public var taxPrice: Double? = 0
+    /** Defines order's total price */
+    public var totalPrice: Double?
+    /** Defines total paid amount for the order */
+    public var totalPaid: Double?
+    /** Defines the sum of all line item weights in grams for the order */
+    public var totalWeight: Int?
     /** Indicates whether prices and subtotal includes tax. */
     public var pricesIncTax: Bool? = false
     /** Specifies order's shipping price */
     public var shippingPrice: Double? = 0
     /** Specifies order's shipping price tax */
     public var shippingTax: Double?
-    /** Defines tracking carrier id */
-    public var carrierId: String?
-    /** This parameter is used for selecting a warehouse where you need to set/modify a product quantity. */
-    public var warehouseId: String?
     /** Specifies order's discount */
     public var discount: Double?
     /** Specifies order's coupon discount */
     public var couponDiscount: Double?
-    /** Coupons that will be applied to order */
-    public var coupons: [String]?
     /** Discounts for order with gift certificates */
     public var giftCertificateDiscount: Double?
-    /** Create order with fulfillment status */
-    public var fulfillmentStatus: String?
-    /** Create order with financial status */
-    public var financialStatus: String?
-    /** Defines total paid amount for the order */
-    public var totalPaid: Double?
-    /** Identifying the system used to generate the order */
-    public var externalSource: String?
+    /** Defines order shipping method */
+    public var orderShippingMethod: String?
+    /** Defines tracking carrier id */
+    public var carrierId: String?
+    /** This parameter is used for selecting a warehouse where you need to set/modify a product quantity. */
+    public var warehouseId: String?
+    /** Coupons that will be applied to order */
+    public var coupons: [String]?
     /** Order tags */
     public var tags: String?
+    /** Specifies order comment */
+    public var comment: String?
+    /** Specifies admin's order comment */
+    public var adminComment: String?
+    /** Specifies private admin's order comment */
+    public var adminPrivateComment: String?
+    /** Send notifications to customer after order was created */
+    public var sendNotifications: Bool? = false
+    /** Notify admin when new order was created. */
+    public var sendAdminNotifications: Bool? = false
+    /** Identifying the system used to generate the order */
+    public var externalSource: String?
     /** The behaviour to use when updating inventory.<hr><div style=\"font-style:normal\">Values description:<div style=\"margin-left: 2%; padding-top: 2%\"><div style=\"font-size:85%\"><b>bypass</b> = Do not claim inventory </br></br><b>decrement_ignoring_policy</b> = Ignore the product's </br> inventory policy and claim amounts</br></br><b>decrement_obeying_policy</b> =  Obey the product's </br> inventory policy.</br></br></div></div></div> */
     public var inventoryBehaviour: String? = "bypass"
     /** Defines whether the invoice is created automatically along with the order */
     public var createInvoice: Bool? = false
     /** Defines note attributes */
     public var noteAttributes: [OrderAddNoteAttributesInner]?
-    /** Defines the sum of all line item weights in grams for the order */
-    public var totalWeight: Int?
     /** Is cache clear required */
     public var clearCache: Bool? = true
     /** The source of the order */
     public var origin: String?
     public var orderItem: [OrderAddOrderItemInner]
 
-    public init(id: String? = nil, orderId: String? = nil, storeId: String? = nil, channelId: String? = nil, orderStatus: String, sendNotifications: Bool? = false, sendAdminNotifications: Bool? = false, customerEmail: String, billFirstName: String, billLastName: String, billAddress1: String, billCity: String, billPostcode: String, billState: String, billCountry: String, shippFirstName: String? = nil, shippLastName: String? = nil, shippAddress1: String? = nil, shippCity: String? = nil, shippPostcode: String? = nil, shippState: String? = nil, shippCountry: String? = nil, totalPrice: Double? = nil, date: String? = nil, orderPaymentMethod: String? = nil, transactionId: String? = nil, orderShippingMethod: String? = nil, currency: String? = nil, billAddress2: String? = nil, billCompany: String? = nil, billPhone: String? = nil, billFax: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, customerFirstName: String? = nil, customerLastName: String? = nil, customerPhone: String? = nil, customerCountry: String? = nil, customerBirthday: String? = nil, customerFax: String? = nil, shippAddress2: String? = nil, shippCompany: String? = nil, shippPhone: String? = nil, shippFax: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, subtotalPrice: Double? = nil, taxPrice: Double? = 0, pricesIncTax: Bool? = false, shippingPrice: Double? = 0, shippingTax: Double? = nil, carrierId: String? = nil, warehouseId: String? = nil, discount: Double? = nil, couponDiscount: Double? = nil, coupons: [String]? = nil, giftCertificateDiscount: Double? = nil, fulfillmentStatus: String? = nil, financialStatus: String? = nil, totalPaid: Double? = nil, externalSource: String? = nil, tags: String? = nil, inventoryBehaviour: String? = "bypass", createInvoice: Bool? = false, noteAttributes: [OrderAddNoteAttributesInner]? = nil, totalWeight: Int? = nil, clearCache: Bool? = true, origin: String? = nil, orderItem: [OrderAddOrderItemInner]) {
+    public init(id: String? = nil, orderId: String? = nil, storeId: String? = nil, channelId: String? = nil, orderStatus: String, fulfillmentStatus: String? = nil, financialStatus: String? = nil, customerEmail: String, customerFirstName: String? = nil, customerLastName: String? = nil, customerPhone: String? = nil, customerCountry: String? = nil, customerBirthday: String? = nil, customerFax: String? = nil, orderPaymentMethod: String? = nil, transactionId: String? = nil, currency: String? = nil, date: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, billFirstName: String, billLastName: String, billAddress1: String, billAddress2: String? = nil, billCity: String, billPostcode: String, billState: String, billCountry: String, billCompany: String? = nil, billPhone: String? = nil, billFax: String? = nil, shippFirstName: String? = nil, shippLastName: String? = nil, shippAddress1: String? = nil, shippAddress2: String? = nil, shippCity: String? = nil, shippPostcode: String? = nil, shippState: String? = nil, shippCountry: String? = nil, shippCompany: String? = nil, shippPhone: String? = nil, shippFax: String? = nil, subtotalPrice: Double? = nil, taxPrice: Double? = 0, totalPrice: Double? = nil, totalPaid: Double? = nil, totalWeight: Int? = nil, pricesIncTax: Bool? = false, shippingPrice: Double? = 0, shippingTax: Double? = nil, discount: Double? = nil, couponDiscount: Double? = nil, giftCertificateDiscount: Double? = nil, orderShippingMethod: String? = nil, carrierId: String? = nil, warehouseId: String? = nil, coupons: [String]? = nil, tags: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, sendNotifications: Bool? = false, sendAdminNotifications: Bool? = false, externalSource: String? = nil, inventoryBehaviour: String? = "bypass", createInvoice: Bool? = false, noteAttributes: [OrderAddNoteAttributesInner]? = nil, clearCache: Bool? = true, origin: String? = nil, orderItem: [OrderAddOrderItemInner]) {
         self.id = id
         self.orderId = orderId
         self.storeId = storeId
         self.channelId = channelId
         self.orderStatus = orderStatus
-        self.sendNotifications = sendNotifications
-        self.sendAdminNotifications = sendAdminNotifications
+        self.fulfillmentStatus = fulfillmentStatus
+        self.financialStatus = financialStatus
         self.customerEmail = customerEmail
-        self.billFirstName = billFirstName
-        self.billLastName = billLastName
-        self.billAddress1 = billAddress1
-        self.billCity = billCity
-        self.billPostcode = billPostcode
-        self.billState = billState
-        self.billCountry = billCountry
-        self.shippFirstName = shippFirstName
-        self.shippLastName = shippLastName
-        self.shippAddress1 = shippAddress1
-        self.shippCity = shippCity
-        self.shippPostcode = shippPostcode
-        self.shippState = shippState
-        self.shippCountry = shippCountry
-        self.totalPrice = totalPrice
-        self.date = date
-        self.orderPaymentMethod = orderPaymentMethod
-        self.transactionId = transactionId
-        self.orderShippingMethod = orderShippingMethod
-        self.currency = currency
-        self.billAddress2 = billAddress2
-        self.billCompany = billCompany
-        self.billPhone = billPhone
-        self.billFax = billFax
-        self.comment = comment
-        self.adminComment = adminComment
-        self.adminPrivateComment = adminPrivateComment
         self.customerFirstName = customerFirstName
         self.customerLastName = customerLastName
         self.customerPhone = customerPhone
         self.customerCountry = customerCountry
         self.customerBirthday = customerBirthday
         self.customerFax = customerFax
+        self.orderPaymentMethod = orderPaymentMethod
+        self.transactionId = transactionId
+        self.currency = currency
+        self.date = date
+        self.dateModified = dateModified
+        self.dateFinished = dateFinished
+        self.billFirstName = billFirstName
+        self.billLastName = billLastName
+        self.billAddress1 = billAddress1
+        self.billAddress2 = billAddress2
+        self.billCity = billCity
+        self.billPostcode = billPostcode
+        self.billState = billState
+        self.billCountry = billCountry
+        self.billCompany = billCompany
+        self.billPhone = billPhone
+        self.billFax = billFax
+        self.shippFirstName = shippFirstName
+        self.shippLastName = shippLastName
+        self.shippAddress1 = shippAddress1
         self.shippAddress2 = shippAddress2
+        self.shippCity = shippCity
+        self.shippPostcode = shippPostcode
+        self.shippState = shippState
+        self.shippCountry = shippCountry
         self.shippCompany = shippCompany
         self.shippPhone = shippPhone
         self.shippFax = shippFax
-        self.dateModified = dateModified
-        self.dateFinished = dateFinished
         self.subtotalPrice = subtotalPrice
         self.taxPrice = taxPrice
+        self.totalPrice = totalPrice
+        self.totalPaid = totalPaid
+        self.totalWeight = totalWeight
         self.pricesIncTax = pricesIncTax
         self.shippingPrice = shippingPrice
         self.shippingTax = shippingTax
-        self.carrierId = carrierId
-        self.warehouseId = warehouseId
         self.discount = discount
         self.couponDiscount = couponDiscount
-        self.coupons = coupons
         self.giftCertificateDiscount = giftCertificateDiscount
-        self.fulfillmentStatus = fulfillmentStatus
-        self.financialStatus = financialStatus
-        self.totalPaid = totalPaid
-        self.externalSource = externalSource
+        self.orderShippingMethod = orderShippingMethod
+        self.carrierId = carrierId
+        self.warehouseId = warehouseId
+        self.coupons = coupons
         self.tags = tags
+        self.comment = comment
+        self.adminComment = adminComment
+        self.adminPrivateComment = adminPrivateComment
+        self.sendNotifications = sendNotifications
+        self.sendAdminNotifications = sendAdminNotifications
+        self.externalSource = externalSource
         self.inventoryBehaviour = inventoryBehaviour
         self.createInvoice = createInvoice
         self.noteAttributes = noteAttributes
-        self.totalWeight = totalWeight
         self.clearCache = clearCache
         self.origin = origin
         self.orderItem = orderItem
@@ -229,68 +229,68 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
         case storeId = "store_id"
         case channelId = "channel_id"
         case orderStatus = "order_status"
-        case sendNotifications = "send_notifications"
-        case sendAdminNotifications = "send_admin_notifications"
+        case fulfillmentStatus = "fulfillment_status"
+        case financialStatus = "financial_status"
         case customerEmail = "customer_email"
-        case billFirstName = "bill_first_name"
-        case billLastName = "bill_last_name"
-        case billAddress1 = "bill_address_1"
-        case billCity = "bill_city"
-        case billPostcode = "bill_postcode"
-        case billState = "bill_state"
-        case billCountry = "bill_country"
-        case shippFirstName = "shipp_first_name"
-        case shippLastName = "shipp_last_name"
-        case shippAddress1 = "shipp_address_1"
-        case shippCity = "shipp_city"
-        case shippPostcode = "shipp_postcode"
-        case shippState = "shipp_state"
-        case shippCountry = "shipp_country"
-        case totalPrice = "total_price"
-        case date
-        case orderPaymentMethod = "order_payment_method"
-        case transactionId = "transaction_id"
-        case orderShippingMethod = "order_shipping_method"
-        case currency
-        case billAddress2 = "bill_address_2"
-        case billCompany = "bill_company"
-        case billPhone = "bill_phone"
-        case billFax = "bill_fax"
-        case comment
-        case adminComment = "admin_comment"
-        case adminPrivateComment = "admin_private_comment"
         case customerFirstName = "customer_first_name"
         case customerLastName = "customer_last_name"
         case customerPhone = "customer_phone"
         case customerCountry = "customer_country"
         case customerBirthday = "customer_birthday"
         case customerFax = "customer_fax"
+        case orderPaymentMethod = "order_payment_method"
+        case transactionId = "transaction_id"
+        case currency
+        case date
+        case dateModified = "date_modified"
+        case dateFinished = "date_finished"
+        case billFirstName = "bill_first_name"
+        case billLastName = "bill_last_name"
+        case billAddress1 = "bill_address_1"
+        case billAddress2 = "bill_address_2"
+        case billCity = "bill_city"
+        case billPostcode = "bill_postcode"
+        case billState = "bill_state"
+        case billCountry = "bill_country"
+        case billCompany = "bill_company"
+        case billPhone = "bill_phone"
+        case billFax = "bill_fax"
+        case shippFirstName = "shipp_first_name"
+        case shippLastName = "shipp_last_name"
+        case shippAddress1 = "shipp_address_1"
         case shippAddress2 = "shipp_address_2"
+        case shippCity = "shipp_city"
+        case shippPostcode = "shipp_postcode"
+        case shippState = "shipp_state"
+        case shippCountry = "shipp_country"
         case shippCompany = "shipp_company"
         case shippPhone = "shipp_phone"
         case shippFax = "shipp_fax"
-        case dateModified = "date_modified"
-        case dateFinished = "date_finished"
         case subtotalPrice = "subtotal_price"
         case taxPrice = "tax_price"
+        case totalPrice = "total_price"
+        case totalPaid = "total_paid"
+        case totalWeight = "total_weight"
         case pricesIncTax = "prices_inc_tax"
         case shippingPrice = "shipping_price"
         case shippingTax = "shipping_tax"
-        case carrierId = "carrier_id"
-        case warehouseId = "warehouse_id"
         case discount
         case couponDiscount = "coupon_discount"
-        case coupons
         case giftCertificateDiscount = "gift_certificate_discount"
-        case fulfillmentStatus = "fulfillment_status"
-        case financialStatus = "financial_status"
-        case totalPaid = "total_paid"
-        case externalSource = "external_source"
+        case orderShippingMethod = "order_shipping_method"
+        case carrierId = "carrier_id"
+        case warehouseId = "warehouse_id"
+        case coupons
         case tags
+        case comment
+        case adminComment = "admin_comment"
+        case adminPrivateComment = "admin_private_comment"
+        case sendNotifications = "send_notifications"
+        case sendAdminNotifications = "send_admin_notifications"
+        case externalSource = "external_source"
         case inventoryBehaviour = "inventory_behaviour"
         case createInvoice = "create_invoice"
         case noteAttributes = "note_attributes"
-        case totalWeight = "total_weight"
         case clearCache = "clear_cache"
         case origin
         case orderItem = "order_item"
@@ -305,68 +305,68 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(channelId, forKey: .channelId)
         try container.encode(orderStatus, forKey: .orderStatus)
-        try container.encodeIfPresent(sendNotifications, forKey: .sendNotifications)
-        try container.encodeIfPresent(sendAdminNotifications, forKey: .sendAdminNotifications)
+        try container.encodeIfPresent(fulfillmentStatus, forKey: .fulfillmentStatus)
+        try container.encodeIfPresent(financialStatus, forKey: .financialStatus)
         try container.encode(customerEmail, forKey: .customerEmail)
-        try container.encode(billFirstName, forKey: .billFirstName)
-        try container.encode(billLastName, forKey: .billLastName)
-        try container.encode(billAddress1, forKey: .billAddress1)
-        try container.encode(billCity, forKey: .billCity)
-        try container.encode(billPostcode, forKey: .billPostcode)
-        try container.encode(billState, forKey: .billState)
-        try container.encode(billCountry, forKey: .billCountry)
-        try container.encodeIfPresent(shippFirstName, forKey: .shippFirstName)
-        try container.encodeIfPresent(shippLastName, forKey: .shippLastName)
-        try container.encodeIfPresent(shippAddress1, forKey: .shippAddress1)
-        try container.encodeIfPresent(shippCity, forKey: .shippCity)
-        try container.encodeIfPresent(shippPostcode, forKey: .shippPostcode)
-        try container.encodeIfPresent(shippState, forKey: .shippState)
-        try container.encodeIfPresent(shippCountry, forKey: .shippCountry)
-        try container.encodeIfPresent(totalPrice, forKey: .totalPrice)
-        try container.encodeIfPresent(date, forKey: .date)
-        try container.encodeIfPresent(orderPaymentMethod, forKey: .orderPaymentMethod)
-        try container.encodeIfPresent(transactionId, forKey: .transactionId)
-        try container.encodeIfPresent(orderShippingMethod, forKey: .orderShippingMethod)
-        try container.encodeIfPresent(currency, forKey: .currency)
-        try container.encodeIfPresent(billAddress2, forKey: .billAddress2)
-        try container.encodeIfPresent(billCompany, forKey: .billCompany)
-        try container.encodeIfPresent(billPhone, forKey: .billPhone)
-        try container.encodeIfPresent(billFax, forKey: .billFax)
-        try container.encodeIfPresent(comment, forKey: .comment)
-        try container.encodeIfPresent(adminComment, forKey: .adminComment)
-        try container.encodeIfPresent(adminPrivateComment, forKey: .adminPrivateComment)
         try container.encodeIfPresent(customerFirstName, forKey: .customerFirstName)
         try container.encodeIfPresent(customerLastName, forKey: .customerLastName)
         try container.encodeIfPresent(customerPhone, forKey: .customerPhone)
         try container.encodeIfPresent(customerCountry, forKey: .customerCountry)
         try container.encodeIfPresent(customerBirthday, forKey: .customerBirthday)
         try container.encodeIfPresent(customerFax, forKey: .customerFax)
+        try container.encodeIfPresent(orderPaymentMethod, forKey: .orderPaymentMethod)
+        try container.encodeIfPresent(transactionId, forKey: .transactionId)
+        try container.encodeIfPresent(currency, forKey: .currency)
+        try container.encodeIfPresent(date, forKey: .date)
+        try container.encodeIfPresent(dateModified, forKey: .dateModified)
+        try container.encodeIfPresent(dateFinished, forKey: .dateFinished)
+        try container.encode(billFirstName, forKey: .billFirstName)
+        try container.encode(billLastName, forKey: .billLastName)
+        try container.encode(billAddress1, forKey: .billAddress1)
+        try container.encodeIfPresent(billAddress2, forKey: .billAddress2)
+        try container.encode(billCity, forKey: .billCity)
+        try container.encode(billPostcode, forKey: .billPostcode)
+        try container.encode(billState, forKey: .billState)
+        try container.encode(billCountry, forKey: .billCountry)
+        try container.encodeIfPresent(billCompany, forKey: .billCompany)
+        try container.encodeIfPresent(billPhone, forKey: .billPhone)
+        try container.encodeIfPresent(billFax, forKey: .billFax)
+        try container.encodeIfPresent(shippFirstName, forKey: .shippFirstName)
+        try container.encodeIfPresent(shippLastName, forKey: .shippLastName)
+        try container.encodeIfPresent(shippAddress1, forKey: .shippAddress1)
         try container.encodeIfPresent(shippAddress2, forKey: .shippAddress2)
+        try container.encodeIfPresent(shippCity, forKey: .shippCity)
+        try container.encodeIfPresent(shippPostcode, forKey: .shippPostcode)
+        try container.encodeIfPresent(shippState, forKey: .shippState)
+        try container.encodeIfPresent(shippCountry, forKey: .shippCountry)
         try container.encodeIfPresent(shippCompany, forKey: .shippCompany)
         try container.encodeIfPresent(shippPhone, forKey: .shippPhone)
         try container.encodeIfPresent(shippFax, forKey: .shippFax)
-        try container.encodeIfPresent(dateModified, forKey: .dateModified)
-        try container.encodeIfPresent(dateFinished, forKey: .dateFinished)
         try container.encodeIfPresent(subtotalPrice, forKey: .subtotalPrice)
         try container.encodeIfPresent(taxPrice, forKey: .taxPrice)
+        try container.encodeIfPresent(totalPrice, forKey: .totalPrice)
+        try container.encodeIfPresent(totalPaid, forKey: .totalPaid)
+        try container.encodeIfPresent(totalWeight, forKey: .totalWeight)
         try container.encodeIfPresent(pricesIncTax, forKey: .pricesIncTax)
         try container.encodeIfPresent(shippingPrice, forKey: .shippingPrice)
         try container.encodeIfPresent(shippingTax, forKey: .shippingTax)
-        try container.encodeIfPresent(carrierId, forKey: .carrierId)
-        try container.encodeIfPresent(warehouseId, forKey: .warehouseId)
         try container.encodeIfPresent(discount, forKey: .discount)
         try container.encodeIfPresent(couponDiscount, forKey: .couponDiscount)
-        try container.encodeIfPresent(coupons, forKey: .coupons)
         try container.encodeIfPresent(giftCertificateDiscount, forKey: .giftCertificateDiscount)
-        try container.encodeIfPresent(fulfillmentStatus, forKey: .fulfillmentStatus)
-        try container.encodeIfPresent(financialStatus, forKey: .financialStatus)
-        try container.encodeIfPresent(totalPaid, forKey: .totalPaid)
-        try container.encodeIfPresent(externalSource, forKey: .externalSource)
+        try container.encodeIfPresent(orderShippingMethod, forKey: .orderShippingMethod)
+        try container.encodeIfPresent(carrierId, forKey: .carrierId)
+        try container.encodeIfPresent(warehouseId, forKey: .warehouseId)
+        try container.encodeIfPresent(coupons, forKey: .coupons)
         try container.encodeIfPresent(tags, forKey: .tags)
+        try container.encodeIfPresent(comment, forKey: .comment)
+        try container.encodeIfPresent(adminComment, forKey: .adminComment)
+        try container.encodeIfPresent(adminPrivateComment, forKey: .adminPrivateComment)
+        try container.encodeIfPresent(sendNotifications, forKey: .sendNotifications)
+        try container.encodeIfPresent(sendAdminNotifications, forKey: .sendAdminNotifications)
+        try container.encodeIfPresent(externalSource, forKey: .externalSource)
         try container.encodeIfPresent(inventoryBehaviour, forKey: .inventoryBehaviour)
         try container.encodeIfPresent(createInvoice, forKey: .createInvoice)
         try container.encodeIfPresent(noteAttributes, forKey: .noteAttributes)
-        try container.encodeIfPresent(totalWeight, forKey: .totalWeight)
         try container.encodeIfPresent(clearCache, forKey: .clearCache)
         try container.encodeIfPresent(origin, forKey: .origin)
         try container.encode(orderItem, forKey: .orderItem)

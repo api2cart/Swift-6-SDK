@@ -9,12 +9,50 @@ import Foundation
 
 public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
 
-    /** Defines store id where the variant should be found */
-    public var storeId: String?
     /** Defines variant update specified by variant id */
     public var id: String?
     /** Defines product's id where the variant has to be updated */
     public var productId: String?
+    /** Defines store id where the variant should be found */
+    public var storeId: String?
+    /** Language id */
+    public var langId: String?
+    /** Defines variant's options list */
+    public var options: [ProductVariantUpdateOptionsInner]?
+    /** Defines variant's name that has to be updated */
+    public var name: String?
+    /** Specifies variant's description */
+    public var description: String?
+    /** Defines short description */
+    public var shortDescription: String?
+    /** Specifies variant's model that has to be added */
+    public var model: String?
+    /** Defines new product's variant sku */
+    public var sku: String?
+    /** Set visibility status */
+    public var visible: String?
+    /** Defines product variant's status */
+    public var status: String?
+    /** Set backorder status */
+    public var backorderStatus: String?
+    /** Specifies the set of visible/invisible product's variants for sale */
+    public var availableForSale: Bool? = true
+    /** Defines category's visibility status */
+    public var avail: Bool? = true
+    /** Defines as a default variant */
+    public var isDefault: Bool?
+    /** Specifies variant's free shipping flag that has to be added */
+    public var isFreeShipping: Bool?
+    /** Specifies whether a tax is charged */
+    public var taxable: Bool? = true
+    /** Defines tax classes where entity has to be added */
+    public var taxClassId: String?
+    /** Defines whether the product is virtual */
+    public var isVirtual: Bool? = false
+    /** Defines inventory tracking for product variant */
+    public var manageStock: Bool?
+    /** Set stock status */
+    public var inStock: Bool?
     /** This parameter is used for selecting a warehouse where you need to set/modify a product quantity. */
     public var warehouseId: String?
     /** This parameter allows to reserve/unreserve product variants quantity. */
@@ -41,44 +79,10 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var spriceCreate: String?
     /** Defines the term of special price offer duration */
     public var spriceExpire: String?
-    /** Defines inventory tracking for product variant */
-    public var manageStock: Bool?
-    /** Set stock status */
-    public var inStock: Bool?
-    /** Defines variant's name that has to be updated */
-    public var name: String?
-    /** Specifies variant's description */
-    public var description: String?
-    /** Defines new product's variant sku */
-    public var sku: String?
-    /** Defines unique meta title for each entity */
-    public var metaTitle: String?
-    /** Defines unique meta description of a entity */
-    public var metaDescription: String?
-    /** Defines unique meta keywords for each entity */
-    public var metaKeywords: String?
-    /** Defines short description */
-    public var shortDescription: String?
-    /** Set visibility status */
-    public var visible: String?
-    /** Defines product variant's status */
-    public var status: String?
-    /** Set backorder status */
-    public var backorderStatus: String?
     /** Weight */
     public var weight: Double? = 0
     /** A barcode is a unique code composed of numbers used as a product identifier. */
     public var barcode: String?
-    /** Is reindex required */
-    public var reindex: Bool? = true
-    /** Specifies whether a tax is charged */
-    public var taxable: Bool? = true
-    /** Defines variant's options list */
-    public var options: [ProductVariantUpdateOptionsInner]?
-    /** Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes */
-    public var harmonizedSystemCode: String?
-    /** The country where the inventory item was made */
-    public var countryOfOrigin: String?
     /** Defines product's width */
     public var width: Double?
     /** Weight Unit */
@@ -89,14 +93,6 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var length: Double?
     /** Global Trade Item Number. An GTIN is an identifier for trade items. */
     public var gtin: String?
-    /** Is cache clear required */
-    public var clearCache: Bool? = true
-    /** Language id */
-    public var langId: String?
-    /** Specifies variant's model that has to be added */
-    public var model: String?
-    /** Specifies the set of visible/invisible product's variants for sale */
-    public var availableForSale: Bool? = true
     /** Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products. */
     public var upc: String?
     /** Manufacturer Part Number. A MPN is an identifier of a particular part design or material used. */
@@ -105,21 +101,44 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var ean: String?
     /** International Standard Book Number. An ISBN is a unique identifier for books. */
     public var isbn: String?
-    /** Defines category's visibility status */
-    public var avail: Bool? = true
-    /** Defines as a default variant */
-    public var isDefault: Bool?
-    /** Specifies variant's free shipping flag that has to be added */
-    public var isFreeShipping: Bool?
-    /** Defines tax classes where entity has to be added */
-    public var taxClassId: String?
-    /** Defines whether the product is virtual */
-    public var isVirtual: Bool? = false
+    /** Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes */
+    public var harmonizedSystemCode: String?
+    /** The country where the inventory item was made */
+    public var countryOfOrigin: String?
+    /** Defines unique meta title for each entity */
+    public var metaTitle: String?
+    /** Defines unique meta description of a entity */
+    public var metaDescription: String?
+    /** Defines unique meta keywords for each entity */
+    public var metaKeywords: String?
+    /** Is reindex required */
+    public var reindex: Bool? = true
+    /** Is cache clear required */
+    public var clearCache: Bool? = true
 
-    public init(storeId: String? = nil, id: String? = nil, productId: String? = nil, warehouseId: String? = nil, reserveQuantity: Double? = nil, quantity: Double? = nil, increaseQuantity: Double? = 0, reduceQuantity: Double? = 0, price: Double? = nil, specialPrice: Double? = nil, retailPrice: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, manageStock: Bool? = nil, inStock: Bool? = nil, name: String? = nil, description: String? = nil, sku: String? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, shortDescription: String? = nil, visible: String? = nil, status: String? = nil, backorderStatus: String? = nil, weight: Double? = 0, barcode: String? = nil, reindex: Bool? = true, taxable: Bool? = true, options: [ProductVariantUpdateOptionsInner]? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, width: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, gtin: String? = nil, clearCache: Bool? = true, langId: String? = nil, model: String? = nil, availableForSale: Bool? = true, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, avail: Bool? = true, isDefault: Bool? = nil, isFreeShipping: Bool? = nil, taxClassId: String? = nil, isVirtual: Bool? = false) {
-        self.storeId = storeId
+    public init(id: String? = nil, productId: String? = nil, storeId: String? = nil, langId: String? = nil, options: [ProductVariantUpdateOptionsInner]? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, model: String? = nil, sku: String? = nil, visible: String? = nil, status: String? = nil, backorderStatus: String? = nil, availableForSale: Bool? = true, avail: Bool? = true, isDefault: Bool? = nil, isFreeShipping: Bool? = nil, taxable: Bool? = true, taxClassId: String? = nil, isVirtual: Bool? = false, manageStock: Bool? = nil, inStock: Bool? = nil, warehouseId: String? = nil, reserveQuantity: Double? = nil, quantity: Double? = nil, increaseQuantity: Double? = 0, reduceQuantity: Double? = 0, price: Double? = nil, specialPrice: Double? = nil, retailPrice: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, weight: Double? = 0, barcode: String? = nil, width: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, reindex: Bool? = true, clearCache: Bool? = true) {
         self.id = id
         self.productId = productId
+        self.storeId = storeId
+        self.langId = langId
+        self.options = options
+        self.name = name
+        self.description = description
+        self.shortDescription = shortDescription
+        self.model = model
+        self.sku = sku
+        self.visible = visible
+        self.status = status
+        self.backorderStatus = backorderStatus
+        self.availableForSale = availableForSale
+        self.avail = avail
+        self.isDefault = isDefault
+        self.isFreeShipping = isFreeShipping
+        self.taxable = taxable
+        self.taxClassId = taxClassId
+        self.isVirtual = isVirtual
+        self.manageStock = manageStock
+        self.inStock = inStock
         self.warehouseId = warehouseId
         self.reserveQuantity = reserveQuantity
         self.quantity = quantity
@@ -133,49 +152,49 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.fixedCostShippingPrice = fixedCostShippingPrice
         self.spriceCreate = spriceCreate
         self.spriceExpire = spriceExpire
-        self.manageStock = manageStock
-        self.inStock = inStock
-        self.name = name
-        self.description = description
-        self.sku = sku
-        self.metaTitle = metaTitle
-        self.metaDescription = metaDescription
-        self.metaKeywords = metaKeywords
-        self.shortDescription = shortDescription
-        self.visible = visible
-        self.status = status
-        self.backorderStatus = backorderStatus
         self.weight = weight
         self.barcode = barcode
-        self.reindex = reindex
-        self.taxable = taxable
-        self.options = options
-        self.harmonizedSystemCode = harmonizedSystemCode
-        self.countryOfOrigin = countryOfOrigin
         self.width = width
         self.weightUnit = weightUnit
         self.height = height
         self.length = length
         self.gtin = gtin
-        self.clearCache = clearCache
-        self.langId = langId
-        self.model = model
-        self.availableForSale = availableForSale
         self.upc = upc
         self.mpn = mpn
         self.ean = ean
         self.isbn = isbn
-        self.avail = avail
-        self.isDefault = isDefault
-        self.isFreeShipping = isFreeShipping
-        self.taxClassId = taxClassId
-        self.isVirtual = isVirtual
+        self.harmonizedSystemCode = harmonizedSystemCode
+        self.countryOfOrigin = countryOfOrigin
+        self.metaTitle = metaTitle
+        self.metaDescription = metaDescription
+        self.metaKeywords = metaKeywords
+        self.reindex = reindex
+        self.clearCache = clearCache
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case storeId = "store_id"
         case id
         case productId = "product_id"
+        case storeId = "store_id"
+        case langId = "lang_id"
+        case options
+        case name
+        case description
+        case shortDescription = "short_description"
+        case model
+        case sku
+        case visible
+        case status
+        case backorderStatus = "backorder_status"
+        case availableForSale = "available_for_sale"
+        case avail
+        case isDefault = "is_default"
+        case isFreeShipping = "is_free_shipping"
+        case taxable
+        case taxClassId = "tax_class_id"
+        case isVirtual = "is_virtual"
+        case manageStock = "manage_stock"
+        case inStock = "in_stock"
         case warehouseId = "warehouse_id"
         case reserveQuantity = "reserve_quantity"
         case quantity
@@ -189,52 +208,52 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case fixedCostShippingPrice = "fixed_cost_shipping_price"
         case spriceCreate = "sprice_create"
         case spriceExpire = "sprice_expire"
-        case manageStock = "manage_stock"
-        case inStock = "in_stock"
-        case name
-        case description
-        case sku
-        case metaTitle = "meta_title"
-        case metaDescription = "meta_description"
-        case metaKeywords = "meta_keywords"
-        case shortDescription = "short_description"
-        case visible
-        case status
-        case backorderStatus = "backorder_status"
         case weight
         case barcode
-        case reindex
-        case taxable
-        case options
-        case harmonizedSystemCode = "harmonized_system_code"
-        case countryOfOrigin = "country_of_origin"
         case width
         case weightUnit = "weight_unit"
         case height
         case length
         case gtin
-        case clearCache = "clear_cache"
-        case langId = "lang_id"
-        case model
-        case availableForSale = "available_for_sale"
         case upc
         case mpn
         case ean
         case isbn
-        case avail
-        case isDefault = "is_default"
-        case isFreeShipping = "is_free_shipping"
-        case taxClassId = "tax_class_id"
-        case isVirtual = "is_virtual"
+        case harmonizedSystemCode = "harmonized_system_code"
+        case countryOfOrigin = "country_of_origin"
+        case metaTitle = "meta_title"
+        case metaDescription = "meta_description"
+        case metaKeywords = "meta_keywords"
+        case reindex
+        case clearCache = "clear_cache"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(id, forKey: .id)
         try container.encodeIfPresent(productId, forKey: .productId)
+        try container.encodeIfPresent(storeId, forKey: .storeId)
+        try container.encodeIfPresent(langId, forKey: .langId)
+        try container.encodeIfPresent(options, forKey: .options)
+        try container.encodeIfPresent(name, forKey: .name)
+        try container.encodeIfPresent(description, forKey: .description)
+        try container.encodeIfPresent(shortDescription, forKey: .shortDescription)
+        try container.encodeIfPresent(model, forKey: .model)
+        try container.encodeIfPresent(sku, forKey: .sku)
+        try container.encodeIfPresent(visible, forKey: .visible)
+        try container.encodeIfPresent(status, forKey: .status)
+        try container.encodeIfPresent(backorderStatus, forKey: .backorderStatus)
+        try container.encodeIfPresent(availableForSale, forKey: .availableForSale)
+        try container.encodeIfPresent(avail, forKey: .avail)
+        try container.encodeIfPresent(isDefault, forKey: .isDefault)
+        try container.encodeIfPresent(isFreeShipping, forKey: .isFreeShipping)
+        try container.encodeIfPresent(taxable, forKey: .taxable)
+        try container.encodeIfPresent(taxClassId, forKey: .taxClassId)
+        try container.encodeIfPresent(isVirtual, forKey: .isVirtual)
+        try container.encodeIfPresent(manageStock, forKey: .manageStock)
+        try container.encodeIfPresent(inStock, forKey: .inStock)
         try container.encodeIfPresent(warehouseId, forKey: .warehouseId)
         try container.encodeIfPresent(reserveQuantity, forKey: .reserveQuantity)
         try container.encodeIfPresent(quantity, forKey: .quantity)
@@ -248,43 +267,24 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(fixedCostShippingPrice, forKey: .fixedCostShippingPrice)
         try container.encodeIfPresent(spriceCreate, forKey: .spriceCreate)
         try container.encodeIfPresent(spriceExpire, forKey: .spriceExpire)
-        try container.encodeIfPresent(manageStock, forKey: .manageStock)
-        try container.encodeIfPresent(inStock, forKey: .inStock)
-        try container.encodeIfPresent(name, forKey: .name)
-        try container.encodeIfPresent(description, forKey: .description)
-        try container.encodeIfPresent(sku, forKey: .sku)
-        try container.encodeIfPresent(metaTitle, forKey: .metaTitle)
-        try container.encodeIfPresent(metaDescription, forKey: .metaDescription)
-        try container.encodeIfPresent(metaKeywords, forKey: .metaKeywords)
-        try container.encodeIfPresent(shortDescription, forKey: .shortDescription)
-        try container.encodeIfPresent(visible, forKey: .visible)
-        try container.encodeIfPresent(status, forKey: .status)
-        try container.encodeIfPresent(backorderStatus, forKey: .backorderStatus)
         try container.encodeIfPresent(weight, forKey: .weight)
         try container.encodeIfPresent(barcode, forKey: .barcode)
-        try container.encodeIfPresent(reindex, forKey: .reindex)
-        try container.encodeIfPresent(taxable, forKey: .taxable)
-        try container.encodeIfPresent(options, forKey: .options)
-        try container.encodeIfPresent(harmonizedSystemCode, forKey: .harmonizedSystemCode)
-        try container.encodeIfPresent(countryOfOrigin, forKey: .countryOfOrigin)
         try container.encodeIfPresent(width, forKey: .width)
         try container.encodeIfPresent(weightUnit, forKey: .weightUnit)
         try container.encodeIfPresent(height, forKey: .height)
         try container.encodeIfPresent(length, forKey: .length)
         try container.encodeIfPresent(gtin, forKey: .gtin)
-        try container.encodeIfPresent(clearCache, forKey: .clearCache)
-        try container.encodeIfPresent(langId, forKey: .langId)
-        try container.encodeIfPresent(model, forKey: .model)
-        try container.encodeIfPresent(availableForSale, forKey: .availableForSale)
         try container.encodeIfPresent(upc, forKey: .upc)
         try container.encodeIfPresent(mpn, forKey: .mpn)
         try container.encodeIfPresent(ean, forKey: .ean)
         try container.encodeIfPresent(isbn, forKey: .isbn)
-        try container.encodeIfPresent(avail, forKey: .avail)
-        try container.encodeIfPresent(isDefault, forKey: .isDefault)
-        try container.encodeIfPresent(isFreeShipping, forKey: .isFreeShipping)
-        try container.encodeIfPresent(taxClassId, forKey: .taxClassId)
-        try container.encodeIfPresent(isVirtual, forKey: .isVirtual)
+        try container.encodeIfPresent(harmonizedSystemCode, forKey: .harmonizedSystemCode)
+        try container.encodeIfPresent(countryOfOrigin, forKey: .countryOfOrigin)
+        try container.encodeIfPresent(metaTitle, forKey: .metaTitle)
+        try container.encodeIfPresent(metaDescription, forKey: .metaDescription)
+        try container.encodeIfPresent(metaKeywords, forKey: .metaKeywords)
+        try container.encodeIfPresent(reindex, forKey: .reindex)
+        try container.encodeIfPresent(clearCache, forKey: .clearCache)
     }
 }
 

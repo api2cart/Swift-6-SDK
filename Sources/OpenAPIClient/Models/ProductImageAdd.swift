@@ -15,22 +15,12 @@ public struct ProductImageAdd: Sendable, Codable, JSONEncodable, Hashable {
         case additional = "additional"
         case thumbnail = "thumbnail"
     }
-    /** Defines product id where the image should be added */
-    public var productId: String?
-    /** Defines image's name */
-    public var imageName: String
     /** Defines image's types that are specified by comma-separated list */
     public var type: ModelType
-    /** Defines URL of the image that has to be added */
-    public var url: String?
-    /** Defines alternative text that has to be attached to the picture */
-    public var label: String?
-    /** Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. */
-    public var mime: String?
-    /** Defines image’s position in the list */
-    public var position: Int? = 0
-    /** Content(body) encoded in base64 of image file */
-    public var content: String?
+    /** Defines image's name */
+    public var imageName: String
+    /** Defines product id where the image should be added */
+    public var productId: String?
     /** Defines product's variants specified by variant id */
     public var productVariantId: String?
     /** Defines product's variants ids */
@@ -41,40 +31,50 @@ public struct ProductImageAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var storeId: String?
     /** Add product image on specified language id */
     public var langId: String?
+    /** Defines URL of the image that has to be added */
+    public var url: String?
+    /** Content(body) encoded in base64 of image file */
+    public var content: String?
+    /** Defines alternative text that has to be attached to the picture */
+    public var label: String?
+    /** Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. */
+    public var mime: String?
+    /** Defines image’s position in the list */
+    public var position: Int? = 0
     /** Use the latest platform API version */
     public var useLatestApiVersion: Bool? = false
 
-    public init(productId: String? = nil, imageName: String, type: ModelType, url: String? = nil, label: String? = nil, mime: String? = nil, position: Int? = 0, content: String? = nil, productVariantId: String? = nil, variantIds: String? = nil, optionValueIds: String? = nil, storeId: String? = nil, langId: String? = nil, useLatestApiVersion: Bool? = false) {
-        self.productId = productId
-        self.imageName = imageName
+    public init(type: ModelType, imageName: String, productId: String? = nil, productVariantId: String? = nil, variantIds: String? = nil, optionValueIds: String? = nil, storeId: String? = nil, langId: String? = nil, url: String? = nil, content: String? = nil, label: String? = nil, mime: String? = nil, position: Int? = 0, useLatestApiVersion: Bool? = false) {
         self.type = type
-        self.url = url
-        self.label = label
-        self.mime = mime
-        self.position = position
-        self.content = content
+        self.imageName = imageName
+        self.productId = productId
         self.productVariantId = productVariantId
         self.variantIds = variantIds
         self.optionValueIds = optionValueIds
         self.storeId = storeId
         self.langId = langId
+        self.url = url
+        self.content = content
+        self.label = label
+        self.mime = mime
+        self.position = position
         self.useLatestApiVersion = useLatestApiVersion
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case productId = "product_id"
-        case imageName = "image_name"
         case type
-        case url
-        case label
-        case mime
-        case position
-        case content
+        case imageName = "image_name"
+        case productId = "product_id"
         case productVariantId = "product_variant_id"
         case variantIds = "variant_ids"
         case optionValueIds = "option_value_ids"
         case storeId = "store_id"
         case langId = "lang_id"
+        case url
+        case content
+        case label
+        case mime
+        case position
         case useLatestApiVersion = "use_latest_api_version"
     }
 
@@ -82,19 +82,19 @@ public struct ProductImageAdd: Sendable, Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(productId, forKey: .productId)
-        try container.encode(imageName, forKey: .imageName)
         try container.encode(type, forKey: .type)
-        try container.encodeIfPresent(url, forKey: .url)
-        try container.encodeIfPresent(label, forKey: .label)
-        try container.encodeIfPresent(mime, forKey: .mime)
-        try container.encodeIfPresent(position, forKey: .position)
-        try container.encodeIfPresent(content, forKey: .content)
+        try container.encode(imageName, forKey: .imageName)
+        try container.encodeIfPresent(productId, forKey: .productId)
         try container.encodeIfPresent(productVariantId, forKey: .productVariantId)
         try container.encodeIfPresent(variantIds, forKey: .variantIds)
         try container.encodeIfPresent(optionValueIds, forKey: .optionValueIds)
         try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(langId, forKey: .langId)
+        try container.encodeIfPresent(url, forKey: .url)
+        try container.encodeIfPresent(content, forKey: .content)
+        try container.encodeIfPresent(label, forKey: .label)
+        try container.encodeIfPresent(mime, forKey: .mime)
+        try container.encodeIfPresent(position, forKey: .position)
         try container.encodeIfPresent(useLatestApiVersion, forKey: .useLatestApiVersion)
     }
 }

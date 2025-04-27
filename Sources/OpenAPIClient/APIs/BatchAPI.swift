@@ -14,18 +14,18 @@ open class BatchAPI {
      
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
      - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+     - parameter ids: (query) Filter batch jobs by ids (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
      - parameter createdTo: (query) Retrieve entities to their creation date (optional)
      - parameter processedFrom: (query) Retrieve entities according to their processing datetime (optional)
      - parameter processedTo: (query) Retrieve entities according to their processing datetime (optional)
-     - parameter ids: (query) Filter batch jobs by ids (optional)
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "{return_code,return_message,pagination,result}")
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseBatchJobList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func batchJobList(count: Int? = nil, pageCursor: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, processedFrom: String? = nil, processedTo: String? = nil, ids: String? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseBatchJobList {
-        return try await batchJobListWithRequestBuilder(count: count, pageCursor: pageCursor, createdFrom: createdFrom, createdTo: createdTo, processedFrom: processedFrom, processedTo: processedTo, ids: ids, responseFields: responseFields, apiConfiguration: apiConfiguration).execute().body
+    open class func batchJobList(count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, processedFrom: String? = nil, processedTo: String? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseBatchJobList {
+        return try await batchJobListWithRequestBuilder(count: count, pageCursor: pageCursor, ids: ids, createdFrom: createdFrom, createdTo: createdTo, processedFrom: processedFrom, processedTo: processedTo, responseFields: responseFields, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -40,16 +40,16 @@ open class BatchAPI {
        - name: ApiKeyAuth
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
      - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+     - parameter ids: (query) Filter batch jobs by ids (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
      - parameter createdTo: (query) Retrieve entities to their creation date (optional)
      - parameter processedFrom: (query) Retrieve entities according to their processing datetime (optional)
      - parameter processedTo: (query) Retrieve entities according to their processing datetime (optional)
-     - parameter ids: (query) Filter batch jobs by ids (optional)
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "{return_code,return_message,pagination,result}")
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseBatchJobList> 
      */
-    open class func batchJobListWithRequestBuilder(count: Int? = nil, pageCursor: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, processedFrom: String? = nil, processedTo: String? = nil, ids: String? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseBatchJobList> {
+    open class func batchJobListWithRequestBuilder(count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, processedFrom: String? = nil, processedTo: String? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseBatchJobList> {
         let localVariablePath = "/batch.job.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -58,11 +58,11 @@ open class BatchAPI {
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "ids": (wrappedValue: ids?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "created_from": (wrappedValue: createdFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "created_to": (wrappedValue: createdTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "processed_from": (wrappedValue: processedFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "processed_to": (wrappedValue: processedTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "ids": (wrappedValue: ids?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 

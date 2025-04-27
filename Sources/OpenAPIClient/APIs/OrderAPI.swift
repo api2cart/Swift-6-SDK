@@ -12,26 +12,26 @@ open class OrderAPI {
     /**
      order.abandoned.list
      
+     - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
+     - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter customerId: (query) Retrieves orders specified by customer id (optional)
      - parameter customerEmail: (query) Retrieves orders specified by customer email (optional)
-     - parameter createdTo: (query) Retrieve entities to their creation date (optional)
-     - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
-     - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
-     - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
-     - parameter skipEmptyEmail: (query) Filter empty emails (optional, default to false)
      - parameter storeId: (query) Store Id (optional)
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
-     - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-     - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "customer,totals,items")
+     - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
+     - parameter createdTo: (query) Retrieve entities to their creation date (optional)
+     - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
+     - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
+     - parameter skipEmptyEmail: (query) Filter empty emails (optional, default to false)
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "customer,totals,items")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseOrderAbandonedList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func orderAbandonedList(customerId: String? = nil, customerEmail: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, skipEmptyEmail: Bool? = nil, storeId: String? = nil, pageCursor: String? = nil, count: Int? = nil, start: Int? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseOrderAbandonedList {
-        return try await orderAbandonedListWithRequestBuilder(customerId: customerId, customerEmail: customerEmail, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, skipEmptyEmail: skipEmptyEmail, storeId: storeId, pageCursor: pageCursor, count: count, start: start, params: params, responseFields: responseFields, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
+    open class func orderAbandonedList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, customerId: String? = nil, customerEmail: String? = nil, storeId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, skipEmptyEmail: Bool? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseOrderAbandonedList {
+        return try await orderAbandonedListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, customerId: customerId, customerEmail: customerEmail, storeId: storeId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, skipEmptyEmail: skipEmptyEmail, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -44,43 +44,43 @@ open class OrderAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
+     - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
+     - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter customerId: (query) Retrieves orders specified by customer id (optional)
      - parameter customerEmail: (query) Retrieves orders specified by customer email (optional)
-     - parameter createdTo: (query) Retrieve entities to their creation date (optional)
-     - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
-     - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
-     - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
-     - parameter skipEmptyEmail: (query) Filter empty emails (optional, default to false)
      - parameter storeId: (query) Store Id (optional)
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
-     - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-     - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "customer,totals,items")
+     - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
+     - parameter createdTo: (query) Retrieve entities to their creation date (optional)
+     - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
+     - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
+     - parameter skipEmptyEmail: (query) Filter empty emails (optional, default to false)
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "customer,totals,items")
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseOrderAbandonedList> 
      */
-    open class func orderAbandonedListWithRequestBuilder(customerId: String? = nil, customerEmail: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, skipEmptyEmail: Bool? = nil, storeId: String? = nil, pageCursor: String? = nil, count: Int? = nil, start: Int? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseOrderAbandonedList> {
+    open class func orderAbandonedListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, customerId: String? = nil, customerEmail: String? = nil, storeId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, skipEmptyEmail: Bool? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseOrderAbandonedList> {
         let localVariablePath = "/order.abandoned.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "customer_id": (wrappedValue: customerId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "customer_email": (wrappedValue: customerEmail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "created_to": (wrappedValue: createdTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "created_from": (wrappedValue: createdFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "modified_to": (wrappedValue: modifiedTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "modified_from": (wrappedValue: modifiedFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "skip_empty_email": (wrappedValue: skipEmptyEmail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "created_from": (wrappedValue: createdFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "created_to": (wrappedValue: createdTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "modified_from": (wrappedValue: modifiedFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "modified_to": (wrappedValue: modifiedTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "skip_empty_email": (wrappedValue: skipEmptyEmail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
@@ -142,17 +142,13 @@ open class OrderAPI {
     /**
      order.count
      
+     - parameter orderIds: (query) Counts orders specified by order ids (optional)
+     - parameter ids: (query) Counts orders specified by ids (optional)
      - parameter customerId: (query) Counts orders quantity specified by customer id (optional)
+     - parameter storeId: (query) Counts orders quantity specified by store id (optional)
      - parameter customerEmail: (query) Counts orders quantity specified by customer email (optional)
      - parameter orderStatus: (query) Counts orders quantity specified by order status (optional)
      - parameter orderStatusIds: (query) Retrieves orders specified by order statuses (optional)
-     - parameter createdTo: (query) Retrieve entities to their creation date (optional)
-     - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
-     - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
-     - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
-     - parameter storeId: (query) Counts orders quantity specified by store id (optional)
-     - parameter ids: (query) Counts orders specified by ids (optional)
-     - parameter orderIds: (query) Counts orders specified by order ids (optional)
      - parameter ebayOrderStatus: (query) Counts orders quantity specified by order status (optional)
      - parameter financialStatus: (query) Counts orders quantity specified by financial status (optional)
      - parameter financialStatusIds: (query) Retrieves orders count specified by financial status ids (optional)
@@ -162,12 +158,16 @@ open class OrderAPI {
      - parameter deliveryMethod: (query) Retrieves order with delivery method (optional)
      - parameter tags: (query) Order tags (optional)
      - parameter shipNodeType: (query) Retrieves order with ship node type (optional)
+     - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
+     - parameter createdTo: (query) Retrieve entities to their creation date (optional)
+     - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
+     - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrderCount200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func orderCount(customerId: String? = nil, customerEmail: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, storeId: String? = nil, ids: String? = nil, orderIds: String? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentChannel: String? = nil, fulfillmentStatus: String? = nil, shippingMethod: String? = nil, deliveryMethod: String? = nil, tags: String? = nil, shipNodeType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderCount200Response {
-        return try await orderCountWithRequestBuilder(customerId: customerId, customerEmail: customerEmail, orderStatus: orderStatus, orderStatusIds: orderStatusIds, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, storeId: storeId, ids: ids, orderIds: orderIds, ebayOrderStatus: ebayOrderStatus, financialStatus: financialStatus, financialStatusIds: financialStatusIds, fulfillmentChannel: fulfillmentChannel, fulfillmentStatus: fulfillmentStatus, shippingMethod: shippingMethod, deliveryMethod: deliveryMethod, tags: tags, shipNodeType: shipNodeType, apiConfiguration: apiConfiguration).execute().body
+    open class func orderCount(orderIds: String? = nil, ids: String? = nil, customerId: String? = nil, storeId: String? = nil, customerEmail: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentChannel: String? = nil, fulfillmentStatus: String? = nil, shippingMethod: String? = nil, deliveryMethod: String? = nil, tags: String? = nil, shipNodeType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderCount200Response {
+        return try await orderCountWithRequestBuilder(orderIds: orderIds, ids: ids, customerId: customerId, storeId: storeId, customerEmail: customerEmail, orderStatus: orderStatus, orderStatusIds: orderStatusIds, ebayOrderStatus: ebayOrderStatus, financialStatus: financialStatus, financialStatusIds: financialStatusIds, fulfillmentChannel: fulfillmentChannel, fulfillmentStatus: fulfillmentStatus, shippingMethod: shippingMethod, deliveryMethod: deliveryMethod, tags: tags, shipNodeType: shipNodeType, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -180,17 +180,13 @@ open class OrderAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
+     - parameter orderIds: (query) Counts orders specified by order ids (optional)
+     - parameter ids: (query) Counts orders specified by ids (optional)
      - parameter customerId: (query) Counts orders quantity specified by customer id (optional)
+     - parameter storeId: (query) Counts orders quantity specified by store id (optional)
      - parameter customerEmail: (query) Counts orders quantity specified by customer email (optional)
      - parameter orderStatus: (query) Counts orders quantity specified by order status (optional)
      - parameter orderStatusIds: (query) Retrieves orders specified by order statuses (optional)
-     - parameter createdTo: (query) Retrieve entities to their creation date (optional)
-     - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
-     - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
-     - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
-     - parameter storeId: (query) Counts orders quantity specified by store id (optional)
-     - parameter ids: (query) Counts orders specified by ids (optional)
-     - parameter orderIds: (query) Counts orders specified by order ids (optional)
      - parameter ebayOrderStatus: (query) Counts orders quantity specified by order status (optional)
      - parameter financialStatus: (query) Counts orders quantity specified by financial status (optional)
      - parameter financialStatusIds: (query) Retrieves orders count specified by financial status ids (optional)
@@ -200,27 +196,27 @@ open class OrderAPI {
      - parameter deliveryMethod: (query) Retrieves order with delivery method (optional)
      - parameter tags: (query) Order tags (optional)
      - parameter shipNodeType: (query) Retrieves order with ship node type (optional)
+     - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
+     - parameter createdTo: (query) Retrieve entities to their creation date (optional)
+     - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
+     - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrderCount200Response> 
      */
-    open class func orderCountWithRequestBuilder(customerId: String? = nil, customerEmail: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, storeId: String? = nil, ids: String? = nil, orderIds: String? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentChannel: String? = nil, fulfillmentStatus: String? = nil, shippingMethod: String? = nil, deliveryMethod: String? = nil, tags: String? = nil, shipNodeType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderCount200Response> {
+    open class func orderCountWithRequestBuilder(orderIds: String? = nil, ids: String? = nil, customerId: String? = nil, storeId: String? = nil, customerEmail: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentChannel: String? = nil, fulfillmentStatus: String? = nil, shippingMethod: String? = nil, deliveryMethod: String? = nil, tags: String? = nil, shipNodeType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderCount200Response> {
         let localVariablePath = "/order.count.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "order_ids": (wrappedValue: orderIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "ids": (wrappedValue: ids?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "customer_id": (wrappedValue: customerId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "customer_email": (wrappedValue: customerEmail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "order_status": (wrappedValue: orderStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "order_status_ids": (wrappedValue: orderStatusIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "created_to": (wrappedValue: createdTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "created_from": (wrappedValue: createdFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "modified_to": (wrappedValue: modifiedTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "modified_from": (wrappedValue: modifiedFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "ids": (wrappedValue: ids?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "order_ids": (wrappedValue: orderIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "ebay_order_status": (wrappedValue: ebayOrderStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "financial_status": (wrappedValue: financialStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "financial_status_ids": (wrappedValue: financialStatusIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
@@ -230,6 +226,10 @@ open class OrderAPI {
             "delivery_method": (wrappedValue: deliveryMethod?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "tags": (wrappedValue: tags?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "ship_node_type": (wrappedValue: shipNodeType?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "created_from": (wrappedValue: createdFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "created_to": (wrappedValue: createdTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "modified_from": (wrappedValue: modifiedFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "modified_to": (wrappedValue: modifiedTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -288,25 +288,25 @@ open class OrderAPI {
     /**
      order.find
      
+     - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
+     - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
      - parameter customerId: (query) Retrieves orders specified by customer id (optional)
      - parameter customerEmail: (query) Retrieves orders specified by customer email (optional)
      - parameter orderStatus: (query) Retrieves orders specified by order status (optional)
-     - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
-     - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "order_id,customer,totals,address,items,bundles,status")
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+     - parameter financialStatus: (query) Retrieves orders specified by financial status (optional)
      - parameter createdTo: (query) Retrieve entities to their creation date (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
      - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
      - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
-     - parameter financialStatus: (query) Retrieves orders specified by financial status (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "order_id,customer,totals,address,items,bundles,status")
+     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrderFind200Response
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func orderFind(customerId: String? = nil, customerEmail: String? = nil, orderStatus: String? = nil, start: Int? = nil, count: Int? = nil, params: String? = nil, exclude: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, financialStatus: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderFind200Response {
-        return try await orderFindWithRequestBuilder(customerId: customerId, customerEmail: customerEmail, orderStatus: orderStatus, start: start, count: count, params: params, exclude: exclude, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, financialStatus: financialStatus, apiConfiguration: apiConfiguration).execute().body
+    open class func orderFind(start: Int? = nil, count: Int? = nil, customerId: String? = nil, customerEmail: String? = nil, orderStatus: String? = nil, financialStatus: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderFind200Response {
+        return try await orderFindWithRequestBuilder(start: start, count: count, customerId: customerId, customerEmail: customerEmail, orderStatus: orderStatus, financialStatus: financialStatus, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -319,41 +319,41 @@ open class OrderAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
+     - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
+     - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
      - parameter customerId: (query) Retrieves orders specified by customer id (optional)
      - parameter customerEmail: (query) Retrieves orders specified by customer email (optional)
      - parameter orderStatus: (query) Retrieves orders specified by order status (optional)
-     - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
-     - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "order_id,customer,totals,address,items,bundles,status")
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+     - parameter financialStatus: (query) Retrieves orders specified by financial status (optional)
      - parameter createdTo: (query) Retrieve entities to their creation date (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
      - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
      - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
-     - parameter financialStatus: (query) Retrieves orders specified by financial status (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "order_id,customer,totals,address,items,bundles,status")
+     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrderFind200Response> 
      */
     @available(*, deprecated, message: "This operation is deprecated.")
-    open class func orderFindWithRequestBuilder(customerId: String? = nil, customerEmail: String? = nil, orderStatus: String? = nil, start: Int? = nil, count: Int? = nil, params: String? = nil, exclude: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, financialStatus: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderFind200Response> {
+    open class func orderFindWithRequestBuilder(start: Int? = nil, count: Int? = nil, customerId: String? = nil, customerEmail: String? = nil, orderStatus: String? = nil, financialStatus: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderFind200Response> {
         let localVariablePath = "/order.find.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "customer_id": (wrappedValue: customerId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "customer_email": (wrappedValue: customerEmail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "order_status": (wrappedValue: orderStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "financial_status": (wrappedValue: financialStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "created_to": (wrappedValue: createdTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "created_from": (wrappedValue: createdFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "modified_to": (wrappedValue: modifiedTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "modified_from": (wrappedValue: modifiedFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "financial_status": (wrappedValue: financialStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -417,20 +417,20 @@ open class OrderAPI {
     /**
      order.info
      
-     - parameter orderId: (query) Retrieves order’s info specified by order id (optional)
      - parameter id: (query) Retrieves order info specified by id (optional)
+     - parameter orderId: (query) Retrieves order’s info specified by order id (optional)
+     - parameter storeId: (query) Defines store id where the order should be found (optional)
      - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "order_id,customer,totals,address,items,bundles,status")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-     - parameter storeId: (query) Defines store id where the order should be found (optional)
      - parameter enableCache: (query) If the value is &#39;true&#39; and order exist in our cache, we will return order.info response from cache (optional, default to false)
      - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrderInfo200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func orderInfo(orderId: String? = nil, id: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, storeId: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderInfo200Response {
-        return try await orderInfoWithRequestBuilder(orderId: orderId, id: id, params: params, responseFields: responseFields, exclude: exclude, storeId: storeId, enableCache: enableCache, useLatestApiVersion: useLatestApiVersion, apiConfiguration: apiConfiguration).execute().body
+    open class func orderInfo(id: String? = nil, orderId: String? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderInfo200Response {
+        return try await orderInfoWithRequestBuilder(id: id, orderId: orderId, storeId: storeId, params: params, responseFields: responseFields, exclude: exclude, enableCache: enableCache, useLatestApiVersion: useLatestApiVersion, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -443,30 +443,30 @@ open class OrderAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
-     - parameter orderId: (query) Retrieves order’s info specified by order id (optional)
      - parameter id: (query) Retrieves order info specified by id (optional)
+     - parameter orderId: (query) Retrieves order’s info specified by order id (optional)
+     - parameter storeId: (query) Defines store id where the order should be found (optional)
      - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "order_id,customer,totals,address,items,bundles,status")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-     - parameter storeId: (query) Defines store id where the order should be found (optional)
      - parameter enableCache: (query) If the value is &#39;true&#39; and order exist in our cache, we will return order.info response from cache (optional, default to false)
      - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrderInfo200Response> 
      */
-    open class func orderInfoWithRequestBuilder(orderId: String? = nil, id: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, storeId: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderInfo200Response> {
+    open class func orderInfoWithRequestBuilder(id: String? = nil, orderId: String? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderInfo200Response> {
         let localVariablePath = "/order.info.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "order_id": (wrappedValue: orderId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "id": (wrappedValue: id?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "order_id": (wrappedValue: orderId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "enable_cache": (wrappedValue: enableCache?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "use_latest_api_version": (wrappedValue: useLatestApiVersion?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
@@ -485,50 +485,50 @@ open class OrderAPI {
     /**
      order.list
      
-     - parameter customerId: (query) Retrieves orders specified by customer id (optional)
-     - parameter customerEmail: (query) Retrieves orders specified by customer email (optional)
-     - parameter phone: (query) Filter orders by customer&#39;s phone number (optional)
-     - parameter orderStatus: (query) Retrieves orders specified by order status (optional)
-     - parameter orderStatusIds: (query) Retrieves orders specified by order statuses (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
      - parameter pageCursor: (query) Used to retrieve orders via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+     - parameter ids: (query) Retrieves orders specified by ids (optional)
+     - parameter orderIds: (query) Retrieves orders specified by order ids (optional)
+     - parameter sinceId: (query) Retrieve entities starting from the specified id. (optional)
+     - parameter storeId: (query) Store Id (optional)
+     - parameter customerId: (query) Retrieves orders specified by customer id (optional)
+     - parameter customerEmail: (query) Retrieves orders specified by customer email (optional)
+     - parameter basketId: (query) Retrieves order’s info specified by basket id. (optional)
+     - parameter currencyId: (query) Currency Id (optional)
+     - parameter phone: (query) Filter orders by customer&#39;s phone number (optional)
+     - parameter orderStatus: (query) Retrieves orders specified by order status (optional)
+     - parameter orderStatusIds: (query) Retrieves orders specified by order statuses (optional)
+     - parameter ebayOrderStatus: (query) Retrieves orders specified by order status (optional)
+     - parameter financialStatus: (query) Retrieves orders specified by financial status (optional)
+     - parameter financialStatusIds: (query) Retrieves orders specified by financial status ids (optional)
+     - parameter fulfillmentStatus: (query) Create order with fulfillment status (optional)
+     - parameter returnStatus: (query) Retrieves orders specified by return status (optional)
+     - parameter fulfillmentChannel: (query) Retrieves order with a fulfillment channel (optional)
+     - parameter shippingMethod: (query) Retrieve entities according to shipping method (optional)
+     - parameter skipOrderIds: (query) Skipped orders by ids (optional)
+     - parameter isDeleted: (query) Filter deleted orders (optional)
+     - parameter shippingCountryIso3: (query) Retrieve entities according to shipping country (optional)
+     - parameter deliveryMethod: (query) Retrieves order with delivery method (optional)
+     - parameter shipNodeType: (query) Retrieves order with ship node type (optional)
+     - parameter createdTo: (query) Retrieve entities to their creation date (optional)
+     - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
+     - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
+     - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
+     - parameter tags: (query) Order tags (optional)
      - parameter sortBy: (query) Set field to sort by (optional, default to "order_id")
      - parameter sortDirection: (query) Set sorting direction (optional, default to "asc")
      - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "order_id,customer,totals,address,items,bundles,status")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-     - parameter createdTo: (query) Retrieve entities to their creation date (optional)
-     - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
-     - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
-     - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
-     - parameter storeId: (query) Store Id (optional)
-     - parameter ids: (query) Retrieves orders specified by ids (optional)
-     - parameter orderIds: (query) Retrieves orders specified by order ids (optional)
-     - parameter ebayOrderStatus: (query) Retrieves orders specified by order status (optional)
-     - parameter basketId: (query) Retrieves order’s info specified by basket id. (optional)
-     - parameter financialStatus: (query) Retrieves orders specified by financial status (optional)
-     - parameter financialStatusIds: (query) Retrieves orders specified by financial status ids (optional)
-     - parameter fulfillmentStatus: (query) Create order with fulfillment status (optional)
-     - parameter fulfillmentChannel: (query) Retrieves order with a fulfillment channel (optional)
-     - parameter shippingMethod: (query) Retrieve entities according to shipping method (optional)
-     - parameter skipOrderIds: (query) Skipped orders by ids (optional)
-     - parameter sinceId: (query) Retrieve entities starting from the specified id. (optional)
-     - parameter isDeleted: (query) Filter deleted orders (optional)
-     - parameter shippingCountryIso3: (query) Retrieve entities according to shipping country (optional)
      - parameter enableCache: (query) If the value is &#39;true&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add) (optional, default to false)
-     - parameter deliveryMethod: (query) Retrieves order with delivery method (optional)
-     - parameter tags: (query) Order tags (optional)
-     - parameter shipNodeType: (query) Retrieves order with ship node type (optional)
-     - parameter currencyId: (query) Currency Id (optional)
-     - parameter returnStatus: (query) Retrieves orders specified by return status (optional)
      - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseOrderList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func orderList(customerId: String? = nil, customerEmail: String? = nil, phone: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, storeId: String? = nil, ids: String? = nil, orderIds: String? = nil, ebayOrderStatus: String? = nil, basketId: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentStatus: String? = nil, fulfillmentChannel: String? = nil, shippingMethod: String? = nil, skipOrderIds: String? = nil, sinceId: String? = nil, isDeleted: Bool? = nil, shippingCountryIso3: String? = nil, enableCache: Bool? = nil, deliveryMethod: String? = nil, tags: String? = nil, shipNodeType: String? = nil, currencyId: String? = nil, returnStatus: String? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseOrderList {
-        return try await orderListWithRequestBuilder(customerId: customerId, customerEmail: customerEmail, phone: phone, orderStatus: orderStatus, orderStatusIds: orderStatusIds, start: start, count: count, pageCursor: pageCursor, sortBy: sortBy, sortDirection: sortDirection, params: params, responseFields: responseFields, exclude: exclude, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, storeId: storeId, ids: ids, orderIds: orderIds, ebayOrderStatus: ebayOrderStatus, basketId: basketId, financialStatus: financialStatus, financialStatusIds: financialStatusIds, fulfillmentStatus: fulfillmentStatus, fulfillmentChannel: fulfillmentChannel, shippingMethod: shippingMethod, skipOrderIds: skipOrderIds, sinceId: sinceId, isDeleted: isDeleted, shippingCountryIso3: shippingCountryIso3, enableCache: enableCache, deliveryMethod: deliveryMethod, tags: tags, shipNodeType: shipNodeType, currencyId: currencyId, returnStatus: returnStatus, useLatestApiVersion: useLatestApiVersion, apiConfiguration: apiConfiguration).execute().body
+    open class func orderList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, orderIds: String? = nil, sinceId: String? = nil, storeId: String? = nil, customerId: String? = nil, customerEmail: String? = nil, basketId: String? = nil, currencyId: String? = nil, phone: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentStatus: String? = nil, returnStatus: String? = nil, fulfillmentChannel: String? = nil, shippingMethod: String? = nil, skipOrderIds: String? = nil, isDeleted: Bool? = nil, shippingCountryIso3: String? = nil, deliveryMethod: String? = nil, shipNodeType: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, tags: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseOrderList {
+        return try await orderListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, ids: ids, orderIds: orderIds, sinceId: sinceId, storeId: storeId, customerId: customerId, customerEmail: customerEmail, basketId: basketId, currencyId: currencyId, phone: phone, orderStatus: orderStatus, orderStatusIds: orderStatusIds, ebayOrderStatus: ebayOrderStatus, financialStatus: financialStatus, financialStatusIds: financialStatusIds, fulfillmentStatus: fulfillmentStatus, returnStatus: returnStatus, fulfillmentChannel: fulfillmentChannel, shippingMethod: shippingMethod, skipOrderIds: skipOrderIds, isDeleted: isDeleted, shippingCountryIso3: shippingCountryIso3, deliveryMethod: deliveryMethod, shipNodeType: shipNodeType, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, tags: tags, sortBy: sortBy, sortDirection: sortDirection, params: params, responseFields: responseFields, exclude: exclude, enableCache: enableCache, useLatestApiVersion: useLatestApiVersion, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -541,91 +541,91 @@ open class OrderAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
-     - parameter customerId: (query) Retrieves orders specified by customer id (optional)
-     - parameter customerEmail: (query) Retrieves orders specified by customer email (optional)
-     - parameter phone: (query) Filter orders by customer&#39;s phone number (optional)
-     - parameter orderStatus: (query) Retrieves orders specified by order status (optional)
-     - parameter orderStatusIds: (query) Retrieves orders specified by order statuses (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
      - parameter pageCursor: (query) Used to retrieve orders via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+     - parameter ids: (query) Retrieves orders specified by ids (optional)
+     - parameter orderIds: (query) Retrieves orders specified by order ids (optional)
+     - parameter sinceId: (query) Retrieve entities starting from the specified id. (optional)
+     - parameter storeId: (query) Store Id (optional)
+     - parameter customerId: (query) Retrieves orders specified by customer id (optional)
+     - parameter customerEmail: (query) Retrieves orders specified by customer email (optional)
+     - parameter basketId: (query) Retrieves order’s info specified by basket id. (optional)
+     - parameter currencyId: (query) Currency Id (optional)
+     - parameter phone: (query) Filter orders by customer&#39;s phone number (optional)
+     - parameter orderStatus: (query) Retrieves orders specified by order status (optional)
+     - parameter orderStatusIds: (query) Retrieves orders specified by order statuses (optional)
+     - parameter ebayOrderStatus: (query) Retrieves orders specified by order status (optional)
+     - parameter financialStatus: (query) Retrieves orders specified by financial status (optional)
+     - parameter financialStatusIds: (query) Retrieves orders specified by financial status ids (optional)
+     - parameter fulfillmentStatus: (query) Create order with fulfillment status (optional)
+     - parameter returnStatus: (query) Retrieves orders specified by return status (optional)
+     - parameter fulfillmentChannel: (query) Retrieves order with a fulfillment channel (optional)
+     - parameter shippingMethod: (query) Retrieve entities according to shipping method (optional)
+     - parameter skipOrderIds: (query) Skipped orders by ids (optional)
+     - parameter isDeleted: (query) Filter deleted orders (optional)
+     - parameter shippingCountryIso3: (query) Retrieve entities according to shipping country (optional)
+     - parameter deliveryMethod: (query) Retrieves order with delivery method (optional)
+     - parameter shipNodeType: (query) Retrieves order with ship node type (optional)
+     - parameter createdTo: (query) Retrieve entities to their creation date (optional)
+     - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
+     - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
+     - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
+     - parameter tags: (query) Order tags (optional)
      - parameter sortBy: (query) Set field to sort by (optional, default to "order_id")
      - parameter sortDirection: (query) Set sorting direction (optional, default to "asc")
      - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "order_id,customer,totals,address,items,bundles,status")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-     - parameter createdTo: (query) Retrieve entities to their creation date (optional)
-     - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
-     - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
-     - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
-     - parameter storeId: (query) Store Id (optional)
-     - parameter ids: (query) Retrieves orders specified by ids (optional)
-     - parameter orderIds: (query) Retrieves orders specified by order ids (optional)
-     - parameter ebayOrderStatus: (query) Retrieves orders specified by order status (optional)
-     - parameter basketId: (query) Retrieves order’s info specified by basket id. (optional)
-     - parameter financialStatus: (query) Retrieves orders specified by financial status (optional)
-     - parameter financialStatusIds: (query) Retrieves orders specified by financial status ids (optional)
-     - parameter fulfillmentStatus: (query) Create order with fulfillment status (optional)
-     - parameter fulfillmentChannel: (query) Retrieves order with a fulfillment channel (optional)
-     - parameter shippingMethod: (query) Retrieve entities according to shipping method (optional)
-     - parameter skipOrderIds: (query) Skipped orders by ids (optional)
-     - parameter sinceId: (query) Retrieve entities starting from the specified id. (optional)
-     - parameter isDeleted: (query) Filter deleted orders (optional)
-     - parameter shippingCountryIso3: (query) Retrieve entities according to shipping country (optional)
      - parameter enableCache: (query) If the value is &#39;true&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add) (optional, default to false)
-     - parameter deliveryMethod: (query) Retrieves order with delivery method (optional)
-     - parameter tags: (query) Order tags (optional)
-     - parameter shipNodeType: (query) Retrieves order with ship node type (optional)
-     - parameter currencyId: (query) Currency Id (optional)
-     - parameter returnStatus: (query) Retrieves orders specified by return status (optional)
      - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseOrderList> 
      */
-    open class func orderListWithRequestBuilder(customerId: String? = nil, customerEmail: String? = nil, phone: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, storeId: String? = nil, ids: String? = nil, orderIds: String? = nil, ebayOrderStatus: String? = nil, basketId: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentStatus: String? = nil, fulfillmentChannel: String? = nil, shippingMethod: String? = nil, skipOrderIds: String? = nil, sinceId: String? = nil, isDeleted: Bool? = nil, shippingCountryIso3: String? = nil, enableCache: Bool? = nil, deliveryMethod: String? = nil, tags: String? = nil, shipNodeType: String? = nil, currencyId: String? = nil, returnStatus: String? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseOrderList> {
+    open class func orderListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, orderIds: String? = nil, sinceId: String? = nil, storeId: String? = nil, customerId: String? = nil, customerEmail: String? = nil, basketId: String? = nil, currencyId: String? = nil, phone: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentStatus: String? = nil, returnStatus: String? = nil, fulfillmentChannel: String? = nil, shippingMethod: String? = nil, skipOrderIds: String? = nil, isDeleted: Bool? = nil, shippingCountryIso3: String? = nil, deliveryMethod: String? = nil, shipNodeType: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, tags: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseOrderList> {
         let localVariablePath = "/order.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "customer_id": (wrappedValue: customerId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "customer_email": (wrappedValue: customerEmail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "phone": (wrappedValue: phone?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "order_status": (wrappedValue: orderStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "order_status_ids": (wrappedValue: orderStatusIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "ids": (wrappedValue: ids?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "order_ids": (wrappedValue: orderIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "since_id": (wrappedValue: sinceId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "customer_id": (wrappedValue: customerId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "customer_email": (wrappedValue: customerEmail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "basket_id": (wrappedValue: basketId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "currency_id": (wrappedValue: currencyId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "phone": (wrappedValue: phone?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "order_status": (wrappedValue: orderStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "order_status_ids": (wrappedValue: orderStatusIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "ebay_order_status": (wrappedValue: ebayOrderStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "financial_status": (wrappedValue: financialStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "financial_status_ids": (wrappedValue: financialStatusIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "fulfillment_status": (wrappedValue: fulfillmentStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "return_status": (wrappedValue: returnStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "fulfillment_channel": (wrappedValue: fulfillmentChannel?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "shipping_method": (wrappedValue: shippingMethod?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "skip_order_ids": (wrappedValue: skipOrderIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "is_deleted": (wrappedValue: isDeleted?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "shipping_country_iso3": (wrappedValue: shippingCountryIso3?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "delivery_method": (wrappedValue: deliveryMethod?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "ship_node_type": (wrappedValue: shipNodeType?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "created_to": (wrappedValue: createdTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "created_from": (wrappedValue: createdFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "modified_to": (wrappedValue: modifiedTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "modified_from": (wrappedValue: modifiedFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "tags": (wrappedValue: tags?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "sort_by": (wrappedValue: sortBy?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "sort_direction": (wrappedValue: sortDirection?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "created_to": (wrappedValue: createdTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "created_from": (wrappedValue: createdFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "modified_to": (wrappedValue: modifiedTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "modified_from": (wrappedValue: modifiedFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "ids": (wrappedValue: ids?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "order_ids": (wrappedValue: orderIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "ebay_order_status": (wrappedValue: ebayOrderStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "basket_id": (wrappedValue: basketId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "financial_status": (wrappedValue: financialStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "financial_status_ids": (wrappedValue: financialStatusIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "fulfillment_status": (wrappedValue: fulfillmentStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "fulfillment_channel": (wrappedValue: fulfillmentChannel?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "shipping_method": (wrappedValue: shippingMethod?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "skip_order_ids": (wrappedValue: skipOrderIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "since_id": (wrappedValue: sinceId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "is_deleted": (wrappedValue: isDeleted?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "shipping_country_iso3": (wrappedValue: shippingCountryIso3?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "enable_cache": (wrappedValue: enableCache?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "delivery_method": (wrappedValue: deliveryMethod?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "tags": (wrappedValue: tags?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "ship_node_type": (wrappedValue: shipNodeType?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "currency_id": (wrappedValue: currencyId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "return_status": (wrappedValue: returnStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "use_latest_api_version": (wrappedValue: useLatestApiVersion?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
@@ -1016,16 +1016,16 @@ open class OrderAPI {
      - parameter id: (query) Entity id 
      - parameter orderId: (query) Defines the order id 
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,order_id,items,tracking_numbers")
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter storeId: (query) Store Id (optional)
+     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,order_id,items,tracking_numbers")
+     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrderShipmentInfo200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func orderShipmentInfo(id: String, orderId: String, start: Int? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderShipmentInfo200Response {
-        return try await orderShipmentInfoWithRequestBuilder(id: id, orderId: orderId, start: start, params: params, responseFields: responseFields, exclude: exclude, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
+    open class func orderShipmentInfo(id: String, orderId: String, start: Int? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderShipmentInfo200Response {
+        return try await orderShipmentInfoWithRequestBuilder(id: id, orderId: orderId, start: start, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1041,27 +1041,27 @@ open class OrderAPI {
      - parameter id: (query) Entity id 
      - parameter orderId: (query) Defines the order id 
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,order_id,items,tracking_numbers")
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter storeId: (query) Store Id (optional)
+     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,order_id,items,tracking_numbers")
+     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrderShipmentInfo200Response> 
      */
-    open class func orderShipmentInfoWithRequestBuilder(id: String, orderId: String, start: Int? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderShipmentInfo200Response> {
+    open class func orderShipmentInfoWithRequestBuilder(id: String, orderId: String, start: Int? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderShipmentInfo200Response> {
         let localVariablePath = "/order.shipment.info.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "id": (wrappedValue: id.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "order_id": (wrappedValue: orderId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -1079,23 +1079,23 @@ open class OrderAPI {
      order.shipment.list
      
      - parameter orderId: (query) Retrieves shipments specified by order id 
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,order_id,items,tracking_numbers")
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+     - parameter storeId: (query) Store Id (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
      - parameter createdTo: (query) Retrieve entities to their creation date (optional)
      - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
      - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
-     - parameter storeId: (query) Store Id (optional)
+     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,order_id,items,tracking_numbers")
+     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseOrderShipmentList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func orderShipmentList(orderId: String, pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseOrderShipmentList {
-        return try await orderShipmentListWithRequestBuilder(orderId: orderId, pageCursor: pageCursor, start: start, count: count, params: params, responseFields: responseFields, exclude: exclude, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
+    open class func orderShipmentList(orderId: String, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseOrderShipmentList {
+        return try await orderShipmentListWithRequestBuilder(orderId: orderId, start: start, count: count, pageCursor: pageCursor, storeId: storeId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1109,39 +1109,39 @@ open class OrderAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter orderId: (query) Retrieves shipments specified by order id 
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,order_id,items,tracking_numbers")
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+     - parameter storeId: (query) Store Id (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
      - parameter createdTo: (query) Retrieve entities to their creation date (optional)
      - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
      - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
-     - parameter storeId: (query) Store Id (optional)
+     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
+     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,order_id,items,tracking_numbers")
+     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseOrderShipmentList> 
      */
-    open class func orderShipmentListWithRequestBuilder(orderId: String, pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseOrderShipmentList> {
+    open class func orderShipmentListWithRequestBuilder(orderId: String, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseOrderShipmentList> {
         let localVariablePath = "/order.shipment.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "order_id": (wrappedValue: orderId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "order_id": (wrappedValue: orderId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "created_from": (wrappedValue: createdFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "created_to": (wrappedValue: createdTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "modified_from": (wrappedValue: modifiedFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "modified_to": (wrappedValue: modifiedTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -1301,17 +1301,17 @@ open class OrderAPI {
      
      - parameter orderIds: (query) Retrieves order transactions specified by order ids 
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter storeId: (query) Store Id (optional)
      - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,order_id,amount,description")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseOrderTransactionList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func orderTransactionList(orderIds: String, count: Int? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, pageCursor: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseOrderTransactionList {
-        return try await orderTransactionListWithRequestBuilder(orderIds: orderIds, count: count, storeId: storeId, params: params, responseFields: responseFields, exclude: exclude, pageCursor: pageCursor, apiConfiguration: apiConfiguration).execute().body
+    open class func orderTransactionList(orderIds: String, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseOrderTransactionList {
+        return try await orderTransactionListWithRequestBuilder(orderIds: orderIds, count: count, pageCursor: pageCursor, storeId: storeId, params: params, responseFields: responseFields, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1326,15 +1326,15 @@ open class OrderAPI {
        - name: ApiKeyAuth
      - parameter orderIds: (query) Retrieves order transactions specified by order ids 
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter storeId: (query) Store Id (optional)
      - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "id,order_id,amount,description")
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-     - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseOrderTransactionList> 
      */
-    open class func orderTransactionListWithRequestBuilder(orderIds: String, count: Int? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, pageCursor: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseOrderTransactionList> {
+    open class func orderTransactionListWithRequestBuilder(orderIds: String, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseOrderTransactionList> {
         let localVariablePath = "/order.transaction.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1342,12 +1342,12 @@ open class OrderAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "order_ids": (wrappedValue: orderIds.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -1367,25 +1367,25 @@ open class OrderAPI {
      - parameter orderId: (query) Defines the orders specified by order id 
      - parameter storeId: (query) Defines store id where the order should be found (optional)
      - parameter orderStatus: (query) Defines new order&#39;s status (optional)
+     - parameter financialStatus: (query) Update order financial status to specified (optional)
+     - parameter fulfillmentStatus: (query) Create order with fulfillment status (optional)
      - parameter cancellationReason: (query) Defines the cancellation reason when the order will be canceled (optional)
+     - parameter orderPaymentMethod: (query) Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39; (optional)
      - parameter comment: (query) Specifies order comment (optional)
      - parameter adminComment: (query) Specifies admin&#39;s order comment (optional)
      - parameter adminPrivateComment: (query) Specifies private admin&#39;s order comment (optional)
+     - parameter invoiceAdminComment: (query) Specifies admin&#39;s order invoice comment (optional)
      - parameter dateModified: (query) Specifies order&#39;s  modification date (optional)
      - parameter dateFinished: (query) Specifies order&#39;s  finished date (optional)
-     - parameter financialStatus: (query) Update order financial status to specified (optional)
-     - parameter fulfillmentStatus: (query) Create order with fulfillment status (optional)
-     - parameter orderPaymentMethod: (query) Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39; (optional)
      - parameter sendNotifications: (query) Send notifications to customer after order was created (optional, default to false)
-     - parameter origin: (query) The source of the order (optional)
      - parameter createInvoice: (query) Determines whether an invoice should be created if it has not already been created (optional)
-     - parameter invoiceAdminComment: (query) Specifies admin&#39;s order invoice comment (optional)
+     - parameter origin: (query) The source of the order (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AccountConfigUpdate200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func orderUpdate(orderId: String, storeId: String? = nil, orderStatus: String? = nil, cancellationReason: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, financialStatus: String? = nil, fulfillmentStatus: String? = nil, orderPaymentMethod: String? = nil, sendNotifications: Bool? = nil, origin: String? = nil, createInvoice: Bool? = nil, invoiceAdminComment: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AccountConfigUpdate200Response {
-        return try await orderUpdateWithRequestBuilder(orderId: orderId, storeId: storeId, orderStatus: orderStatus, cancellationReason: cancellationReason, comment: comment, adminComment: adminComment, adminPrivateComment: adminPrivateComment, dateModified: dateModified, dateFinished: dateFinished, financialStatus: financialStatus, fulfillmentStatus: fulfillmentStatus, orderPaymentMethod: orderPaymentMethod, sendNotifications: sendNotifications, origin: origin, createInvoice: createInvoice, invoiceAdminComment: invoiceAdminComment, apiConfiguration: apiConfiguration).execute().body
+    open class func orderUpdate(orderId: String, storeId: String? = nil, orderStatus: String? = nil, financialStatus: String? = nil, fulfillmentStatus: String? = nil, cancellationReason: String? = nil, orderPaymentMethod: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, invoiceAdminComment: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, sendNotifications: Bool? = nil, createInvoice: Bool? = nil, origin: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AccountConfigUpdate200Response {
+        return try await orderUpdateWithRequestBuilder(orderId: orderId, storeId: storeId, orderStatus: orderStatus, financialStatus: financialStatus, fulfillmentStatus: fulfillmentStatus, cancellationReason: cancellationReason, orderPaymentMethod: orderPaymentMethod, comment: comment, adminComment: adminComment, adminPrivateComment: adminPrivateComment, invoiceAdminComment: invoiceAdminComment, dateModified: dateModified, dateFinished: dateFinished, sendNotifications: sendNotifications, createInvoice: createInvoice, origin: origin, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1401,23 +1401,23 @@ open class OrderAPI {
      - parameter orderId: (query) Defines the orders specified by order id 
      - parameter storeId: (query) Defines store id where the order should be found (optional)
      - parameter orderStatus: (query) Defines new order&#39;s status (optional)
+     - parameter financialStatus: (query) Update order financial status to specified (optional)
+     - parameter fulfillmentStatus: (query) Create order with fulfillment status (optional)
      - parameter cancellationReason: (query) Defines the cancellation reason when the order will be canceled (optional)
+     - parameter orderPaymentMethod: (query) Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39; (optional)
      - parameter comment: (query) Specifies order comment (optional)
      - parameter adminComment: (query) Specifies admin&#39;s order comment (optional)
      - parameter adminPrivateComment: (query) Specifies private admin&#39;s order comment (optional)
+     - parameter invoiceAdminComment: (query) Specifies admin&#39;s order invoice comment (optional)
      - parameter dateModified: (query) Specifies order&#39;s  modification date (optional)
      - parameter dateFinished: (query) Specifies order&#39;s  finished date (optional)
-     - parameter financialStatus: (query) Update order financial status to specified (optional)
-     - parameter fulfillmentStatus: (query) Create order with fulfillment status (optional)
-     - parameter orderPaymentMethod: (query) Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39; (optional)
      - parameter sendNotifications: (query) Send notifications to customer after order was created (optional, default to false)
-     - parameter origin: (query) The source of the order (optional)
      - parameter createInvoice: (query) Determines whether an invoice should be created if it has not already been created (optional)
-     - parameter invoiceAdminComment: (query) Specifies admin&#39;s order invoice comment (optional)
+     - parameter origin: (query) The source of the order (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AccountConfigUpdate200Response> 
      */
-    open class func orderUpdateWithRequestBuilder(orderId: String, storeId: String? = nil, orderStatus: String? = nil, cancellationReason: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, financialStatus: String? = nil, fulfillmentStatus: String? = nil, orderPaymentMethod: String? = nil, sendNotifications: Bool? = nil, origin: String? = nil, createInvoice: Bool? = nil, invoiceAdminComment: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AccountConfigUpdate200Response> {
+    open class func orderUpdateWithRequestBuilder(orderId: String, storeId: String? = nil, orderStatus: String? = nil, financialStatus: String? = nil, fulfillmentStatus: String? = nil, cancellationReason: String? = nil, orderPaymentMethod: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, invoiceAdminComment: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, sendNotifications: Bool? = nil, createInvoice: Bool? = nil, origin: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AccountConfigUpdate200Response> {
         let localVariablePath = "/order.update.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1427,19 +1427,19 @@ open class OrderAPI {
             "order_id": (wrappedValue: orderId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "order_status": (wrappedValue: orderStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "financial_status": (wrappedValue: financialStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "fulfillment_status": (wrappedValue: fulfillmentStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "cancellation_reason": (wrappedValue: cancellationReason?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "order_payment_method": (wrappedValue: orderPaymentMethod?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "comment": (wrappedValue: comment?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "admin_comment": (wrappedValue: adminComment?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "admin_private_comment": (wrappedValue: adminPrivateComment?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "invoice_admin_comment": (wrappedValue: invoiceAdminComment?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "date_modified": (wrappedValue: dateModified?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "date_finished": (wrappedValue: dateFinished?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "financial_status": (wrappedValue: financialStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "fulfillment_status": (wrappedValue: fulfillmentStatus?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "order_payment_method": (wrappedValue: orderPaymentMethod?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "send_notifications": (wrappedValue: sendNotifications?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "origin": (wrappedValue: origin?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "create_invoice": (wrappedValue: createInvoice?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "invoice_admin_comment": (wrappedValue: invoiceAdminComment?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "origin": (wrappedValue: origin?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [

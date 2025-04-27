@@ -130,7 +130,7 @@ This endpoint does not need any parameter.
 
 # **cartCatalogPriceRulesList**
 ```swift
-    open class func cartCatalogPriceRulesList(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, ids: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartCatalogPriceRulesList?, _ error: Error?) -> Void)
+    open class func cartCatalogPriceRulesList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartCatalogPriceRulesList?, _ error: Error?) -> Void)
 ```
 
 cart.catalog_price_rules.list
@@ -142,16 +142,16 @@ Get cart catalog price rules discounts.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let ids = "ids_example" // String | Retrieves  catalog_price_rules by ids (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,description")
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,description")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // cart.catalog_price_rules.list
-CartAPI.cartCatalogPriceRulesList(pageCursor: pageCursor, start: start, count: count, ids: ids, params: params, responseFields: responseFields, exclude: exclude) { (response, error) in
+CartAPI.cartCatalogPriceRulesList(start: start, count: count, pageCursor: pageCursor, ids: ids, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -167,12 +167,12 @@ CartAPI.cartCatalogPriceRulesList(pageCursor: pageCursor, start: start, count: c
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **ids** | **String** | Retrieves  catalog_price_rules by ids | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,description&quot;]
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,description&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
@@ -356,7 +356,7 @@ Use this method to create a coupon with specified conditions.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let cartCouponAdd = CartCouponAdd(storeId: "storeId_example", code: "code_example", name: "name_example", codes: ["codes_example"], actionType: "actionType_example", actionApplyTo: "actionApplyTo_example", actionScope: "actionScope_example", actionAmount: 123, dateStart: "dateStart_example", dateEnd: "dateEnd_example", usageLimit: 123, usageLimitPerCustomer: 123, actionConditionEntity: "actionConditionEntity_example", actionConditionKey: "actionConditionKey_example", actionConditionOperator: "actionConditionOperator_example", actionConditionValue: "actionConditionValue_example", includeTax: true) // CartCouponAdd | 
+let cartCouponAdd = CartCouponAdd(code: "code_example", actionType: "actionType_example", actionApplyTo: "actionApplyTo_example", actionScope: "actionScope_example", actionAmount: 123, codes: ["codes_example"], name: "name_example", dateStart: "dateStart_example", dateEnd: "dateEnd_example", usageLimit: 123, usageLimitPerCustomer: 123, actionConditionEntity: "actionConditionEntity_example", actionConditionKey: "actionConditionKey_example", actionConditionOperator: "actionConditionOperator_example", actionConditionValue: "actionConditionValue_example", includeTax: true, storeId: "storeId_example") // CartCouponAdd | 
 
 // cart.coupon.add
 CartAPI.cartCouponAdd(cartCouponAdd: cartCouponAdd) { (response, error) in
@@ -394,7 +394,7 @@ Name | Type | Description  | Notes
 
 # **cartCouponConditionAdd**
 ```swift
-    open class func cartCouponConditionAdd(couponId: String, entity: Entity_cartCouponConditionAdd, key: Key_cartCouponConditionAdd, _operator: String, value: String, storeId: String? = nil, target: String? = nil, includeTax: Bool? = nil, includeShipping: Bool? = nil, completion: @escaping (_ data: BasketLiveShippingServiceDelete200Response?, _ error: Error?) -> Void)
+    open class func cartCouponConditionAdd(couponId: String, entity: Entity_cartCouponConditionAdd, key: Key_cartCouponConditionAdd, _operator: String, value: String, target: String? = nil, includeTax: Bool? = nil, includeShipping: Bool? = nil, storeId: String? = nil, completion: @escaping (_ data: BasketLiveShippingServiceDelete200Response?, _ error: Error?) -> Void)
 ```
 
 cart.coupon.condition.add
@@ -411,13 +411,13 @@ let entity = "entity_example" // String | Defines condition entity type
 let key = "key_example" // String | Defines condition entity attribute key
 let _operator = "_operator_example" // String | Defines condition operator
 let value = "value_example" // String | Defines condition value, can be comma separated according to the operator.
-let storeId = "storeId_example" // String | Store Id (optional)
 let target = "target_example" // String | Defines condition operator (optional) (default to "coupon_prerequisite")
 let includeTax = true // Bool | Indicates whether to apply a discount for taxes. (optional) (default to false)
 let includeShipping = true // Bool | Indicates whether to apply a discount for shipping. (optional) (default to false)
+let storeId = "storeId_example" // String | Store Id (optional)
 
 // cart.coupon.condition.add
-CartAPI.cartCouponConditionAdd(couponId: couponId, entity: entity, key: key, _operator: _operator, value: value, storeId: storeId, target: target, includeTax: includeTax, includeShipping: includeShipping) { (response, error) in
+CartAPI.cartCouponConditionAdd(couponId: couponId, entity: entity, key: key, _operator: _operator, value: value, target: target, includeTax: includeTax, includeShipping: includeShipping, storeId: storeId) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -438,10 +438,10 @@ Name | Type | Description  | Notes
  **key** | **String** | Defines condition entity attribute key | 
  **_operator** | **String** | Defines condition operator | 
  **value** | **String** | Defines condition value, can be comma separated according to the operator. | 
- **storeId** | **String** | Store Id | [optional] 
  **target** | **String** | Defines condition operator | [optional] [default to &quot;coupon_prerequisite&quot;]
  **includeTax** | **Bool** | Indicates whether to apply a discount for taxes. | [optional] [default to false]
  **includeShipping** | **Bool** | Indicates whether to apply a discount for shipping. | [optional] [default to false]
+ **storeId** | **String** | Store Id | [optional] 
 
 ### Return type
 
@@ -460,7 +460,7 @@ Name | Type | Description  | Notes
 
 # **cartCouponCount**
 ```swift
-    open class func cartCouponCount(storeId: String? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, avail: Bool? = nil, completion: @escaping (_ data: CartCouponCount200Response?, _ error: Error?) -> Void)
+    open class func cartCouponCount(storeId: String? = nil, avail: Bool? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, completion: @escaping (_ data: CartCouponCount200Response?, _ error: Error?) -> Void)
 ```
 
 cart.coupon.count
@@ -473,14 +473,14 @@ This method allows you to get the number of coupons. On some platforms, you can 
 import OpenAPIClient
 
 let storeId = "storeId_example" // String | Store Id (optional)
+let avail = false // Bool | Defines category's visibility status (optional) (default to true)
 let dateStartFrom = "dateStartFrom_example" // String | Filter entity by date_start (greater or equal) (optional)
 let dateStartTo = "dateStartTo_example" // String | Filter entity by date_start (less or equal) (optional)
 let dateEndFrom = "dateEndFrom_example" // String | Filter entity by date_end (greater or equal) (optional)
 let dateEndTo = "dateEndTo_example" // String | Filter entity by date_end (less or equal) (optional)
-let avail = false // Bool | Defines category's visibility status (optional) (default to true)
 
 // cart.coupon.count
-CartAPI.cartCouponCount(storeId: storeId, dateStartFrom: dateStartFrom, dateStartTo: dateStartTo, dateEndFrom: dateEndFrom, dateEndTo: dateEndTo, avail: avail) { (response, error) in
+CartAPI.cartCouponCount(storeId: storeId, avail: avail, dateStartFrom: dateStartFrom, dateStartTo: dateStartTo, dateEndFrom: dateEndFrom, dateEndTo: dateEndTo) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -497,11 +497,11 @@ CartAPI.cartCouponCount(storeId: storeId, dateStartFrom: dateStartFrom, dateStar
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storeId** | **String** | Store Id | [optional] 
+ **avail** | **Bool** | Defines category&#39;s visibility status | [optional] [default to true]
  **dateStartFrom** | **String** | Filter entity by date_start (greater or equal) | [optional] 
  **dateStartTo** | **String** | Filter entity by date_start (less or equal) | [optional] 
  **dateEndFrom** | **String** | Filter entity by date_end (greater or equal) | [optional] 
  **dateEndTo** | **String** | Filter entity by date_end (less or equal) | [optional] 
- **avail** | **Bool** | Defines category&#39;s visibility status | [optional] [default to true]
 
 ### Return type
 
@@ -572,7 +572,7 @@ Name | Type | Description  | Notes
 
 # **cartCouponList**
 ```swift
-    open class func cartCouponList(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, couponsIds: String? = nil, storeId: String? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, avail: Bool? = nil, langId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartCouponList?, _ error: Error?) -> Void)
+    open class func cartCouponList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, couponsIds: String? = nil, storeId: String? = nil, langId: String? = nil, avail: Bool? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartCouponList?, _ error: Error?) -> Void)
 ```
 
 cart.coupon.list
@@ -584,23 +584,23 @@ Get cart coupon discounts.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let couponsIds = "couponsIds_example" // String | Filter coupons by ids (optional)
 let storeId = "storeId_example" // String | Filter coupons by store id (optional)
+let langId = "langId_example" // String | Language id (optional)
+let avail = false // Bool | Filter coupons by avail status (optional)
 let dateStartFrom = "dateStartFrom_example" // String | Filter entity by date_start (greater or equal) (optional)
 let dateStartTo = "dateStartTo_example" // String | Filter entity by date_start (less or equal) (optional)
 let dateEndFrom = "dateEndFrom_example" // String | Filter entity by date_end (greater or equal) (optional)
 let dateEndTo = "dateEndTo_example" // String | Filter entity by date_end (less or equal) (optional)
-let avail = false // Bool | Filter coupons by avail status (optional)
-let langId = "langId_example" // String | Language id (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,code,name,description")
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,code,name,description")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // cart.coupon.list
-CartAPI.cartCouponList(pageCursor: pageCursor, start: start, count: count, couponsIds: couponsIds, storeId: storeId, dateStartFrom: dateStartFrom, dateStartTo: dateStartTo, dateEndFrom: dateEndFrom, dateEndTo: dateEndTo, avail: avail, langId: langId, params: params, responseFields: responseFields, exclude: exclude) { (response, error) in
+CartAPI.cartCouponList(start: start, count: count, pageCursor: pageCursor, couponsIds: couponsIds, storeId: storeId, langId: langId, avail: avail, dateStartFrom: dateStartFrom, dateStartTo: dateStartTo, dateEndFrom: dateEndFrom, dateEndTo: dateEndTo, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -616,19 +616,19 @@ CartAPI.cartCouponList(pageCursor: pageCursor, start: start, count: count, coupo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **couponsIds** | **String** | Filter coupons by ids | [optional] 
  **storeId** | **String** | Filter coupons by store id | [optional] 
+ **langId** | **String** | Language id | [optional] 
+ **avail** | **Bool** | Filter coupons by avail status | [optional] 
  **dateStartFrom** | **String** | Filter entity by date_start (greater or equal) | [optional] 
  **dateStartTo** | **String** | Filter entity by date_start (less or equal) | [optional] 
  **dateEndFrom** | **String** | Filter entity by date_end (greater or equal) | [optional] 
  **dateEndTo** | **String** | Filter entity by date_end (less or equal) | [optional] 
- **avail** | **Bool** | Filter coupons by avail status | [optional] 
- **langId** | **String** | Language id | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,code,name,description&quot;]
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,code,name,description&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
@@ -958,7 +958,7 @@ Name | Type | Description  | Notes
 
 # **cartGiftcardList**
 ```swift
-    open class func cartGiftcardList(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartGiftCardList?, _ error: Error?) -> Void)
+    open class func cartGiftcardList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartGiftCardList?, _ error: Error?) -> Void)
 ```
 
 cart.giftcard.list
@@ -970,16 +970,16 @@ Get gift cards list.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,code,name")
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,code,name")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // cart.giftcard.list
-CartAPI.cartGiftcardList(pageCursor: pageCursor, start: start, count: count, storeId: storeId, params: params, responseFields: responseFields, exclude: exclude) { (response, error) in
+CartAPI.cartGiftcardList(start: start, count: count, pageCursor: pageCursor, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -995,12 +995,12 @@ CartAPI.cartGiftcardList(pageCursor: pageCursor, start: start, count: count, sto
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **storeId** | **String** | Store Id | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,code,name&quot;]
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,code,name&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
@@ -1020,7 +1020,7 @@ Name | Type | Description  | Notes
 
 # **cartInfo**
 ```swift
-    open class func cartInfo(params: String? = nil, responseFields: String? = nil, exclude: String? = nil, storeId: String? = nil, completion: @escaping (_ data: CartInfo200Response?, _ error: Error?) -> Void)
+    open class func cartInfo(storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: CartInfo200Response?, _ error: Error?) -> Void)
 ```
 
 cart.info
@@ -1032,13 +1032,13 @@ This method allows you to get various information about the store, including a l
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "store_name,store_url,db_prefix")
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "store_name,store_url,db_prefix")
+let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // cart.info
-CartAPI.cartInfo(params: params, responseFields: responseFields, exclude: exclude, storeId: storeId) { (response, error) in
+CartAPI.cartInfo(storeId: storeId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1054,10 +1054,10 @@ CartAPI.cartInfo(params: params, responseFields: responseFields, exclude: exclud
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;store_name,store_url,db_prefix&quot;]
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **storeId** | **String** | Store Id | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;store_name,store_url,db_prefix&quot;]
+ **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -1122,7 +1122,7 @@ This endpoint does not need any parameter.
 
 # **cartMetaDataList**
 ```swift
-    open class func cartMetaDataList(entityId: String, entity: String? = nil, storeId: String? = nil, langId: String? = nil, key: String? = nil, count: Int? = nil, pageCursor: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartMetaDataList?, _ error: Error?) -> Void)
+    open class func cartMetaDataList(entityId: String, count: Int? = nil, pageCursor: String? = nil, entity: String? = nil, storeId: String? = nil, langId: String? = nil, key: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartMetaDataList?, _ error: Error?) -> Void)
 ```
 
 cart.meta_data.list
@@ -1135,18 +1135,18 @@ Using this method, you can get a list of metadata for various entities (products
 import OpenAPIClient
 
 let entityId = "entityId_example" // String | Entity Id
+let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let entity = "entity_example" // String | Entity (optional) (default to "product")
 let storeId = "storeId_example" // String | Store Id (optional)
 let langId = "langId_example" // String | Language id (optional)
 let key = "key_example" // String | Key (optional)
-let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
-let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "key,value")
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "key,value")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // cart.meta_data.list
-CartAPI.cartMetaDataList(entityId: entityId, entity: entity, storeId: storeId, langId: langId, key: key, count: count, pageCursor: pageCursor, params: params, responseFields: responseFields, exclude: exclude) { (response, error) in
+CartAPI.cartMetaDataList(entityId: entityId, count: count, pageCursor: pageCursor, entity: entity, storeId: storeId, langId: langId, key: key, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1163,14 +1163,14 @@ CartAPI.cartMetaDataList(entityId: entityId, entity: entity, storeId: storeId, l
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entityId** | **String** | Entity Id | 
+ **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **entity** | **String** | Entity | [optional] [default to &quot;product&quot;]
  **storeId** | **String** | Store Id | [optional] 
  **langId** | **String** | Language id | [optional] 
  **key** | **String** | Key | [optional] 
- **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;key,value&quot;]
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;key,value&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
@@ -1356,7 +1356,7 @@ This endpoint does not need any parameter.
 
 # **cartPluginList**
 ```swift
-    open class func cartPluginList(storeId: String? = nil, start: Int? = nil, count: Int? = nil, completion: @escaping (_ data: CartPluginList200Response?, _ error: Error?) -> Void)
+    open class func cartPluginList(start: Int? = nil, count: Int? = nil, storeId: String? = nil, completion: @escaping (_ data: CartPluginList200Response?, _ error: Error?) -> Void)
 ```
 
 cart.plugin.list
@@ -1368,12 +1368,12 @@ Get a list of third-party plugins installed on the store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let storeId = "storeId_example" // String | Store Id (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let storeId = "storeId_example" // String | Store Id (optional)
 
 // cart.plugin.list
-CartAPI.cartPluginList(storeId: storeId, start: start, count: count) { (response, error) in
+CartAPI.cartPluginList(start: start, count: count, storeId: storeId) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1389,9 +1389,9 @@ CartAPI.cartPluginList(storeId: storeId, start: start, count: count) { (response
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storeId** | **String** | Store Id | [optional] 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **storeId** | **String** | Store Id | [optional] 
 
 ### Return type
 
@@ -1526,7 +1526,7 @@ Name | Type | Description  | Notes
 
 # **cartScriptList**
 ```swift
-    open class func cartScriptList(pageCursor: String? = nil, start: Int? = nil, count: Int? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, scriptIds: String? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartScriptList?, _ error: Error?) -> Void)
+    open class func cartScriptList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, scriptIds: String? = nil, storeId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartScriptList?, _ error: Error?) -> Void)
 ```
 
 cart.script.list
@@ -1538,21 +1538,21 @@ Get scripts installed to the storefront
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
+let scriptIds = "scriptIds_example" // String | Retrieves only scripts with specific ids (optional)
+let storeId = "storeId_example" // String | Store Id (optional)
 let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
 let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
-let scriptIds = "scriptIds_example" // String | Retrieves only scripts with specific ids (optional)
-let storeId = "storeId_example" // String | Store Id (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,description")
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,description")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // cart.script.list
-CartAPI.cartScriptList(pageCursor: pageCursor, start: start, count: count, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, scriptIds: scriptIds, storeId: storeId, params: params, responseFields: responseFields, exclude: exclude) { (response, error) in
+CartAPI.cartScriptList(start: start, count: count, pageCursor: pageCursor, scriptIds: scriptIds, storeId: storeId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1568,17 +1568,17 @@ CartAPI.cartScriptList(pageCursor: pageCursor, start: start, count: count, creat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
+ **scriptIds** | **String** | Retrieves only scripts with specific ids | [optional] 
+ **storeId** | **String** | Store Id | [optional] 
  **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
  **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
- **scriptIds** | **String** | Retrieves only scripts with specific ids | [optional] 
- **storeId** | **String** | Store Id | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,description&quot;]
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,description&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
@@ -1598,7 +1598,7 @@ Name | Type | Description  | Notes
 
 # **cartShippingZonesList**
 ```swift
-    open class func cartShippingZonesList(storeId: String? = nil, start: Int? = nil, count: Int? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartShippingZonesList?, _ error: Error?) -> Void)
+    open class func cartShippingZonesList(start: Int? = nil, count: Int? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartShippingZonesList?, _ error: Error?) -> Void)
 ```
 
 cart.shipping_zones.list
@@ -1610,15 +1610,15 @@ Get list of shipping zones
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let storeId = "storeId_example" // String | Store Id (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,enabled")
+let storeId = "storeId_example" // String | Store Id (optional)
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,enabled")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // cart.shipping_zones.list
-CartAPI.cartShippingZonesList(storeId: storeId, start: start, count: count, params: params, responseFields: responseFields, exclude: exclude) { (response, error) in
+CartAPI.cartShippingZonesList(start: start, count: count, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1634,11 +1634,11 @@ CartAPI.cartShippingZonesList(storeId: storeId, start: start, count: count, para
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storeId** | **String** | Store Id | [optional] 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,enabled&quot;]
+ **storeId** | **String** | Store Id | [optional] 
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,enabled&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
