@@ -27,8 +27,14 @@ public struct OrderShipmentUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var deliveredAt: String?
     /** Allows rewrite tracking numbers */
     public var replace: Bool? = true
+    /** Send notifications to customer after order was created */
+    public var sendNotifications: Bool? = false
+    /** Defines name of the company which provides shipment tracking */
+    public var trackingProvider: String?
+    /** Defines items in the order that will be shipped */
+    public var items: [OrderShipmentAddItemsInner]?
 
-    public init(shipmentId: String, orderId: String? = nil, storeId: String? = nil, shipmentProvider: String? = nil, trackingNumbers: [OrderShipmentAddTrackingNumbersInner]? = nil, trackingLink: String? = nil, isShipped: Bool? = true, deliveredAt: String? = nil, replace: Bool? = true) {
+    public init(shipmentId: String, orderId: String? = nil, storeId: String? = nil, shipmentProvider: String? = nil, trackingNumbers: [OrderShipmentAddTrackingNumbersInner]? = nil, trackingLink: String? = nil, isShipped: Bool? = true, deliveredAt: String? = nil, replace: Bool? = true, sendNotifications: Bool? = false, trackingProvider: String? = nil, items: [OrderShipmentAddItemsInner]? = nil) {
         self.shipmentId = shipmentId
         self.orderId = orderId
         self.storeId = storeId
@@ -38,6 +44,9 @@ public struct OrderShipmentUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.isShipped = isShipped
         self.deliveredAt = deliveredAt
         self.replace = replace
+        self.sendNotifications = sendNotifications
+        self.trackingProvider = trackingProvider
+        self.items = items
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -50,6 +59,9 @@ public struct OrderShipmentUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case isShipped = "is_shipped"
         case deliveredAt = "delivered_at"
         case replace
+        case sendNotifications = "send_notifications"
+        case trackingProvider = "tracking_provider"
+        case items
     }
 
     // Encodable protocol methods
@@ -65,6 +77,9 @@ public struct OrderShipmentUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(isShipped, forKey: .isShipped)
         try container.encodeIfPresent(deliveredAt, forKey: .deliveredAt)
         try container.encodeIfPresent(replace, forKey: .replace)
+        try container.encodeIfPresent(sendNotifications, forKey: .sendNotifications)
+        try container.encodeIfPresent(trackingProvider, forKey: .trackingProvider)
+        try container.encodeIfPresent(items, forKey: .items)
     }
 }
 

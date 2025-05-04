@@ -35,10 +35,12 @@ public struct OrderShipmentAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var enableCache: Bool? = false
     /** Disable or enable check process status. Please note that the response will be slower due to additional requests to the store. */
     public var checkProcessStatus: Bool? = false
+    /** Defines name of the company which provides shipment tracking */
+    public var trackingProvider: String?
     /** Use the latest platform API version */
     public var useLatestApiVersion: Bool? = false
 
-    public init(orderId: String? = nil, warehouseId: String? = nil, storeId: String? = nil, shipmentProvider: String? = nil, shippingMethod: String? = nil, items: [OrderShipmentAddItemsInner]? = nil, trackingNumbers: [OrderShipmentAddTrackingNumbersInner]? = nil, trackingLink: String? = nil, isShipped: Bool? = true, sendNotifications: Bool? = false, adjustStock: Bool? = false, enableCache: Bool? = false, checkProcessStatus: Bool? = false, useLatestApiVersion: Bool? = false) {
+    public init(orderId: String? = nil, warehouseId: String? = nil, storeId: String? = nil, shipmentProvider: String? = nil, shippingMethod: String? = nil, items: [OrderShipmentAddItemsInner]? = nil, trackingNumbers: [OrderShipmentAddTrackingNumbersInner]? = nil, trackingLink: String? = nil, isShipped: Bool? = true, sendNotifications: Bool? = false, adjustStock: Bool? = false, enableCache: Bool? = false, checkProcessStatus: Bool? = false, trackingProvider: String? = nil, useLatestApiVersion: Bool? = false) {
         self.orderId = orderId
         self.warehouseId = warehouseId
         self.storeId = storeId
@@ -52,6 +54,7 @@ public struct OrderShipmentAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.adjustStock = adjustStock
         self.enableCache = enableCache
         self.checkProcessStatus = checkProcessStatus
+        self.trackingProvider = trackingProvider
         self.useLatestApiVersion = useLatestApiVersion
     }
 
@@ -69,6 +72,7 @@ public struct OrderShipmentAdd: Sendable, Codable, JSONEncodable, Hashable {
         case adjustStock = "adjust_stock"
         case enableCache = "enable_cache"
         case checkProcessStatus = "check_process_status"
+        case trackingProvider = "tracking_provider"
         case useLatestApiVersion = "use_latest_api_version"
     }
 
@@ -89,6 +93,7 @@ public struct OrderShipmentAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(adjustStock, forKey: .adjustStock)
         try container.encodeIfPresent(enableCache, forKey: .enableCache)
         try container.encodeIfPresent(checkProcessStatus, forKey: .checkProcessStatus)
+        try container.encodeIfPresent(trackingProvider, forKey: .trackingProvider)
         try container.encodeIfPresent(useLatestApiVersion, forKey: .useLatestApiVersion)
     }
 }

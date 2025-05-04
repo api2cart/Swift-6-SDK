@@ -867,7 +867,7 @@ Add a shipment to the order.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let orderShipmentAdd = OrderShipmentAdd(orderId: "orderId_example", warehouseId: "warehouseId_example", storeId: "storeId_example", shipmentProvider: "shipmentProvider_example", shippingMethod: "shippingMethod_example", items: [OrderShipmentAdd_items_inner(orderProductId: "orderProductId_example", quantity: 123)], trackingNumbers: [OrderShipmentAdd_tracking_numbers_inner(carrierId: "carrierId_example", trackingNumber: "trackingNumber_example")], trackingLink: "trackingLink_example", isShipped: true, sendNotifications: true, adjustStock: true, enableCache: true, checkProcessStatus: false, useLatestApiVersion: true) // OrderShipmentAdd | 
+let orderShipmentAdd = OrderShipmentAdd(orderId: "orderId_example", warehouseId: "warehouseId_example", storeId: "storeId_example", shipmentProvider: "shipmentProvider_example", shippingMethod: "shippingMethod_example", items: [OrderShipmentAdd_items_inner(orderProductId: "orderProductId_example", quantity: 123)], trackingNumbers: [OrderShipmentAdd_tracking_numbers_inner(carrierId: "carrierId_example", trackingNumber: "trackingNumber_example")], trackingLink: "trackingLink_example", isShipped: true, sendNotifications: true, adjustStock: true, enableCache: true, checkProcessStatus: false, trackingProvider: "trackingProvider_example", useLatestApiVersion: true) // OrderShipmentAdd | 
 
 // order.shipment.add
 OrderAPI.orderShipmentAdd(orderShipmentAdd: orderShipmentAdd) { (response, error) in
@@ -1205,7 +1205,7 @@ Update order's shipment information.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let orderShipmentUpdate = OrderShipmentUpdate(shipmentId: "shipmentId_example", orderId: "orderId_example", storeId: "storeId_example", shipmentProvider: "shipmentProvider_example", trackingNumbers: [OrderShipmentAdd_tracking_numbers_inner(carrierId: "carrierId_example", trackingNumber: "trackingNumber_example")], trackingLink: "trackingLink_example", isShipped: true, deliveredAt: "deliveredAt_example", replace: false) // OrderShipmentUpdate | 
+let orderShipmentUpdate = OrderShipmentUpdate(shipmentId: "shipmentId_example", orderId: "orderId_example", storeId: "storeId_example", shipmentProvider: "shipmentProvider_example", trackingNumbers: [OrderShipmentAdd_tracking_numbers_inner(carrierId: "carrierId_example", trackingNumber: "trackingNumber_example")], trackingLink: "trackingLink_example", isShipped: true, deliveredAt: "deliveredAt_example", replace: false, sendNotifications: true, trackingProvider: "trackingProvider_example", items: [OrderShipmentAdd_items_inner(orderProductId: "orderProductId_example", quantity: 123)]) // OrderShipmentUpdate | 
 
 // order.shipment.update
 OrderAPI.orderShipmentUpdate(orderShipmentUpdate: orderShipmentUpdate) { (response, error) in

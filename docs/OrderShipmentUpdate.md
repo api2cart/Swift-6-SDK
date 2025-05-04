@@ -12,6 +12,9 @@ Name | Type | Description | Notes
 **isShipped** | **Bool** | Defines shipment&#39;s status | [optional] [default to true]
 **deliveredAt** | **String** | Defines the date of delivery | [optional] 
 **replace** | **Bool** | Allows rewrite tracking numbers | [optional] [default to true]
+**sendNotifications** | **Bool** | Send notifications to customer after order was created | [optional] [default to false]
+**trackingProvider** | **String** | Defines name of the company which provides shipment tracking | [optional] 
+**items** | [OrderShipmentAddItemsInner] | Defines items in the order that will be shipped | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
