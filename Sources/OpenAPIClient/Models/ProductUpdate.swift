@@ -171,8 +171,13 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var clearCache: Bool? = true
     /** Disable or enable check process status. Please note that the response will be slower due to additional requests to the store. */
     public var checkProcessStatus: Bool? = false
+    /** An array of Item Specific Name/Value pairs used by the seller to provide descriptive details of an item in a structured manner.         The list of possible specifications can be obtained using the category.info method (additional_fields->product_specifics).         <b>The structure of the parameter is different for specific platforms.</b> */
+    public var specifics: [ProductAddSpecificsInner]?
+    /** Add Shop Section Id */
+    public var shopSectionId: Int?
+    public var personalizationDetails: ProductAddPersonalizationDetails?
 
-    public init(id: String? = nil, model: String? = nil, sku: String? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, price: Double? = nil, oldPrice: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, retailPrice: Double? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, reservePrice: Double? = nil, buyitnowPrice: Double? = nil, taxable: Bool? = true, taxClassId: String? = nil, type: String? = nil, status: String? = nil, condition: String? = nil, visible: String? = nil, inStock: Bool? = nil, avail: Bool? = true, availFrom: String? = nil, productClass: String? = nil, availableForView: Bool? = nil, storesIds: String? = nil, storeId: String? = nil, langId: String? = nil, quantity: Double? = nil, reserveQuantity: Double? = nil, manageStock: Bool? = nil, backorderStatus: String? = nil, increaseQuantity: Double? = nil, reduceQuantity: Double? = nil, warehouseId: String? = nil, weight: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, width: Double? = nil, dimensionsUnit: String? = nil, isVirtual: Bool? = false, isFreeShipping: Bool? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, barcode: String? = nil, manufacturer: String? = nil, manufacturerId: String? = nil, categoriesIds: String? = nil, relatedProductsIds: String? = nil, upSellProductsIds: String? = nil, crossSellProductsIds: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, seoUrl: String? = nil, searchKeywords: String? = nil, tags: String? = nil, deliveryCode: String? = nil, packageDetails: ProductAddPackageDetails? = nil, countryOfOrigin: String? = nil, harmonizedSystemCode: String? = nil, shippingTemplateId: Int? = 0, whenMade: String? = "made_to_order", isSupply: Bool? = true, downloadable: Bool? = false, materials: [String]? = nil, autoRenew: Bool? = false, onSale: Bool? = false, productionPartnerIds: String? = nil, manufacturerInfo: ProductAddManufacturerInfo? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = false, reindex: Bool? = true, clearCache: Bool? = true, checkProcessStatus: Bool? = false) {
+    public init(id: String? = nil, model: String? = nil, sku: String? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, price: Double? = nil, oldPrice: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, retailPrice: Double? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, reservePrice: Double? = nil, buyitnowPrice: Double? = nil, taxable: Bool? = true, taxClassId: String? = nil, type: String? = nil, status: String? = nil, condition: String? = nil, visible: String? = nil, inStock: Bool? = nil, avail: Bool? = true, availFrom: String? = nil, productClass: String? = nil, availableForView: Bool? = nil, storesIds: String? = nil, storeId: String? = nil, langId: String? = nil, quantity: Double? = nil, reserveQuantity: Double? = nil, manageStock: Bool? = nil, backorderStatus: String? = nil, increaseQuantity: Double? = nil, reduceQuantity: Double? = nil, warehouseId: String? = nil, weight: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, width: Double? = nil, dimensionsUnit: String? = nil, isVirtual: Bool? = false, isFreeShipping: Bool? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, barcode: String? = nil, manufacturer: String? = nil, manufacturerId: String? = nil, categoriesIds: String? = nil, relatedProductsIds: String? = nil, upSellProductsIds: String? = nil, crossSellProductsIds: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, seoUrl: String? = nil, searchKeywords: String? = nil, tags: String? = nil, deliveryCode: String? = nil, packageDetails: ProductAddPackageDetails? = nil, countryOfOrigin: String? = nil, harmonizedSystemCode: String? = nil, shippingTemplateId: Int? = 0, whenMade: String? = "made_to_order", isSupply: Bool? = true, downloadable: Bool? = false, materials: [String]? = nil, autoRenew: Bool? = false, onSale: Bool? = false, productionPartnerIds: String? = nil, manufacturerInfo: ProductAddManufacturerInfo? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = false, reindex: Bool? = true, clearCache: Bool? = true, checkProcessStatus: Bool? = false, specifics: [ProductAddSpecificsInner]? = nil, shopSectionId: Int? = nil, personalizationDetails: ProductAddPersonalizationDetails? = nil) {
         self.id = id
         self.model = model
         self.sku = sku
@@ -255,6 +260,9 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.reindex = reindex
         self.clearCache = clearCache
         self.checkProcessStatus = checkProcessStatus
+        self.specifics = specifics
+        self.shopSectionId = shopSectionId
+        self.personalizationDetails = personalizationDetails
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -340,6 +348,9 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case reindex
         case clearCache = "clear_cache"
         case checkProcessStatus = "check_process_status"
+        case specifics
+        case shopSectionId = "shop_section_id"
+        case personalizationDetails = "personalization_details"
     }
 
     // Encodable protocol methods
@@ -428,6 +439,9 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(reindex, forKey: .reindex)
         try container.encodeIfPresent(clearCache, forKey: .clearCache)
         try container.encodeIfPresent(checkProcessStatus, forKey: .checkProcessStatus)
+        try container.encodeIfPresent(specifics, forKey: .specifics)
+        try container.encodeIfPresent(shopSectionId, forKey: .shopSectionId)
+        try container.encodeIfPresent(personalizationDetails, forKey: .personalizationDetails)
     }
 }
 

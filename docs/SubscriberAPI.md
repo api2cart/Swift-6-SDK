@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **subscriberList**
 ```swift
-    open class func subscriberList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, subscribed: Bool? = nil, storeId: String? = nil, email: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseSubscriberList?, _ error: Error?) -> Void)
+    open class func subscriberList(ids: String? = nil, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, subscribed: Bool? = nil, storeId: String? = nil, email: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseSubscriberList?, _ error: Error?) -> Void)
 ```
 
 subscriber.list
@@ -21,6 +21,7 @@ Get subscribers list
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
+let ids = "ids_example" // String | Retrieves subscribers specified by ids (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
 let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
@@ -36,7 +37,7 @@ let params = "params_example" // String | Set this parameter in order to choose 
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // subscriber.list
-SubscriberAPI.subscriberList(start: start, count: count, pageCursor: pageCursor, subscribed: subscribed, storeId: storeId, email: email, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
+SubscriberAPI.subscriberList(ids: ids, start: start, count: count, pageCursor: pageCursor, subscribed: subscribed, storeId: storeId, email: email, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -52,6 +53,7 @@ SubscriberAPI.subscriberList(start: start, count: count, pageCursor: pageCursor,
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ids** | **String** | Retrieves subscribers specified by ids | [optional] 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
