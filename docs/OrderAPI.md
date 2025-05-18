@@ -1359,7 +1359,7 @@ Name | Type | Description  | Notes
 
 # **orderUpdate**
 ```swift
-    open class func orderUpdate(orderId: String, storeId: String? = nil, orderStatus: String? = nil, financialStatus: String? = nil, fulfillmentStatus: String? = nil, cancellationReason: String? = nil, orderPaymentMethod: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, invoiceAdminComment: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, sendNotifications: Bool? = nil, createInvoice: Bool? = nil, origin: String? = nil, completion: @escaping (_ data: AccountConfigUpdate200Response?, _ error: Error?) -> Void)
+    open class func orderUpdate(orderId: String, storeId: String? = nil, orderStatus: String? = nil, financialStatus: String? = nil, fulfillmentStatus: String? = nil, cancellationReason: String? = nil, orderPaymentMethod: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, invoiceAdminComment: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, sendNotifications: Bool? = nil, createInvoice: Bool? = nil, origin: String? = nil, tags: String? = nil, completion: @escaping (_ data: AccountConfigUpdate200Response?, _ error: Error?) -> Void)
 ```
 
 order.update
@@ -1387,9 +1387,10 @@ let dateFinished = "dateFinished_example" // String | Specifies order's  finishe
 let sendNotifications = true // Bool | Send notifications to customer after order was created (optional) (default to false)
 let createInvoice = true // Bool | Determines whether an invoice should be created if it has not already been created (optional)
 let origin = "origin_example" // String | The source of the order (optional)
+let tags = "tags_example" // String | Order tags (optional)
 
 // order.update
-OrderAPI.orderUpdate(orderId: orderId, storeId: storeId, orderStatus: orderStatus, financialStatus: financialStatus, fulfillmentStatus: fulfillmentStatus, cancellationReason: cancellationReason, orderPaymentMethod: orderPaymentMethod, comment: comment, adminComment: adminComment, adminPrivateComment: adminPrivateComment, invoiceAdminComment: invoiceAdminComment, dateModified: dateModified, dateFinished: dateFinished, sendNotifications: sendNotifications, createInvoice: createInvoice, origin: origin) { (response, error) in
+OrderAPI.orderUpdate(orderId: orderId, storeId: storeId, orderStatus: orderStatus, financialStatus: financialStatus, fulfillmentStatus: fulfillmentStatus, cancellationReason: cancellationReason, orderPaymentMethod: orderPaymentMethod, comment: comment, adminComment: adminComment, adminPrivateComment: adminPrivateComment, invoiceAdminComment: invoiceAdminComment, dateModified: dateModified, dateFinished: dateFinished, sendNotifications: sendNotifications, createInvoice: createInvoice, origin: origin, tags: tags) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1421,6 +1422,7 @@ Name | Type | Description  | Notes
  **sendNotifications** | **Bool** | Send notifications to customer after order was created | [optional] [default to false]
  **createInvoice** | **Bool** | Determines whether an invoice should be created if it has not already been created | [optional] 
  **origin** | **String** | The source of the order | [optional] 
+ **tags** | **String** | Order tags | [optional] 
 
 ### Return type
 
