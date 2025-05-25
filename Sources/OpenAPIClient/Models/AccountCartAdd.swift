@@ -49,6 +49,7 @@ public struct AccountCartAdd: Sendable, Codable, JSONEncodable, Hashable {
         case sspremium = "SSPremium"
         case salla = "Salla"
         case shopify = "Shopify"
+        case shopee = "Shopee"
         case shoplazza = "Shoplazza"
         case shopline = "Shopline"
         case shopware = "Shopware"
@@ -236,6 +237,18 @@ public struct AccountCartAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var shopifyApiPassword: String?
     /** Shared secret */
     public var shopifySharedSecret: String?
+    /** Shopee Partner ID */
+    public var shopeePartnerId: String?
+    /** Shopee Partner Key */
+    public var shopeePartnerKey: String?
+    /** Shopee SHOP ID */
+    public var shopeeShopId: String?
+    /** Shopee Refresh Token */
+    public var shopeeRefreshToken: String?
+    /** Shopee API endpoint Region. Use for Chinese Mainland or Brazil. */
+    public var shopeeRegion: String?
+    /** Shopee Environment */
+    public var shopeeEnvironment: String? = "production"
     /** Access token authorizing the app to access resources on behalf of a user */
     public var shoplazzaAccessToken: String?
     /** Shared secret */
@@ -378,8 +391,16 @@ public struct AccountCartAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var sallaRefreshToken: String?
     /** Salla Access Token */
     public var sallaAccessToken: String?
+    /** Temu App Key */
+    public var temuAppKey: String?
+    /** Temu App Secret */
+    public var temuAppSecret: String?
+    /** Temu Access Token */
+    public var temuAccessToken: String
+    /** Temu API endpoint Region. */
+    public var temuRegion: String? = "US"
 
-    public init(cartId: CartId, storeUrl: String? = nil, bridgeUrl: String? = nil, storeRoot: String? = nil, storeKey: String? = nil, validateVersion: Bool? = false, verify: Bool? = true, dbTablesPrefix: String? = nil, userAgent: String? = nil, ftpHost: String? = nil, ftpUser: String? = nil, ftpPassword: String? = nil, ftpPort: Int? = nil, ftpStoreDir: String? = nil, _3dcartPrivateKey: String? = nil, _3dcartAccessToken: String? = nil, _3dcartapiApiKey: String? = nil, amazonSpClientId: String? = nil, amazonSpClientSecret: String? = nil, amazonSpRefreshToken: String? = nil, amazonSpAwsRegion: String? = nil, amazonSpApiEnvironment: String? = "production", amazonSellerId: String? = nil, aspdotnetstorefrontApiUser: String? = nil, aspdotnetstorefrontApiPass: String? = nil, bigcommerceapiAdminAccount: String? = nil, bigcommerceapiApiPath: String? = nil, bigcommerceapiApiKey: String? = nil, bigcommerceapiClientId: String? = nil, bigcommerceapiAccessToken: String? = nil, bigcommerceapiContext: String? = nil, bolApiKey: String? = nil, bolApiSecret: String? = nil, bolRetailerId: Int? = nil, bigcartelUserName: String, bigcartelPassword: String, demandwareClientId: String? = nil, demandwareApiPassword: String? = nil, demandwareUserName: String? = nil, demandwareUserPassword: String? = nil, ebayClientId: String? = nil, ebayClientSecret: String? = nil, ebayRuname: String? = nil, ebayAccessToken: String? = nil, ebayRefreshToken: String? = nil, ebayEnvironment: String? = "production", ebaySiteId: Int? = 0, walmartClientId: String? = nil, walmartClientSecret: String? = nil, walmartEnvironment: String? = "production", walmartChannelType: String? = nil, walmartRegion: String? = "us", ecwidAcessToken: String? = nil, ecwidStoreId: String? = nil, lazadaAppId: String? = nil, lazadaAppSecret: String? = nil, lazadaRefreshToken: String? = nil, lazadaRegion: String? = nil, lightspeedApiKey: String? = nil, lightspeedApiSecret: String? = nil, etsyKeystring: String? = nil, etsySharedSecret: String? = nil, etsyAccessToken: String? = nil, etsyTokenSecret: String? = nil, etsyClientId: String? = nil, etsyRefreshToken: String? = nil, facebookAppId: String? = nil, facebookAppSecret: String? = nil, facebookAccessToken: String? = nil, facebookBusinessId: String? = nil, netoApiKey: String? = nil, netoApiUsername: String? = nil, shoplineAccessToken: String? = nil, shoplineAppKey: String? = nil, shoplineAppSecret: String? = nil, shoplineSharedSecret: String? = nil, shopifyAccessToken: String? = nil, shopifyApiKey: String? = nil, shopifyApiPassword: String? = nil, shopifySharedSecret: String? = nil, shoplazzaAccessToken: String? = nil, shoplazzaSharedSecret: String? = nil, shopwareAccessKey: String? = nil, shopwareApiKey: String? = nil, shopwareApiSecret: String? = nil, mivaAccessToken: String? = nil, mivaSignature: String? = nil, tiendanubeUserId: Int? = nil, tiendanubeAccessToken: String? = nil, tiendanubeClientSecret: String? = nil, volusionLogin: String? = nil, volusionPassword: String? = nil, hybrisClientId: String? = nil, hybrisClientSecret: String? = nil, hybrisUsername: String? = nil, hybrisPassword: String? = nil, hybrisWebsites: [AccountCartAddHybrisWebsitesInner]? = nil, squareClientId: String? = nil, squareClientSecret: String? = nil, squareRefreshToken: String? = nil, squarespaceApiKey: String? = nil, squarespaceClientId: String? = nil, squarespaceClientSecret: String? = nil, squarespaceAccessToken: String? = nil, squarespaceRefreshToken: String? = nil, commercehqApiKey: String? = nil, commercehqApiPassword: String? = nil, wcConsumerKey: String? = nil, wcConsumerSecret: String? = nil, magentoConsumerKey: String? = nil, magentoConsumerSecret: String? = nil, magentoAccessToken: String? = nil, magentoTokenSecret: String? = nil, prestashopWebserviceKey: String? = nil, wixAppId: String, wixAppSecretKey: String, wixInstanceId: String? = nil, wixRefreshToken: String? = nil, mercadoLibreAppId: String? = nil, mercadoLibreAppSecretKey: String? = nil, mercadoLibreRefreshToken: String? = nil, zidClientId: Int? = nil, zidClientSecret: String? = nil, zidAccessToken: String? = nil, zidAuthorization: String? = nil, zidRefreshToken: String? = nil, flipkartClientId: String? = nil, flipkartClientSecret: String? = nil, allegroClientId: String? = nil, allegroClientSecret: String? = nil, allegroAccessToken: String? = nil, allegroRefreshToken: String? = nil, allegroEnvironment: String? = "production", zohoClientId: String? = nil, zohoClientSecret: String? = nil, zohoRefreshToken: String? = nil, zohoRegion: String? = nil, ottoClientId: String? = nil, ottoClientSecret: String? = nil, ottoAppId: String? = nil, ottoRefreshToken: String? = nil, ottoEnvironment: String? = "production", ottoAccessToken: String? = nil, tiktokshopAppKey: String? = nil, tiktokshopAppSecret: String? = nil, tiktokshopRefreshToken: String? = nil, tiktokshopAccessToken: String? = nil, sallaClientId: String? = nil, sallaClientSecret: String? = nil, sallaRefreshToken: String? = nil, sallaAccessToken: String? = nil) {
+    public init(cartId: CartId, storeUrl: String? = nil, bridgeUrl: String? = nil, storeRoot: String? = nil, storeKey: String? = nil, validateVersion: Bool? = false, verify: Bool? = true, dbTablesPrefix: String? = nil, userAgent: String? = nil, ftpHost: String? = nil, ftpUser: String? = nil, ftpPassword: String? = nil, ftpPort: Int? = nil, ftpStoreDir: String? = nil, _3dcartPrivateKey: String? = nil, _3dcartAccessToken: String? = nil, _3dcartapiApiKey: String? = nil, amazonSpClientId: String? = nil, amazonSpClientSecret: String? = nil, amazonSpRefreshToken: String? = nil, amazonSpAwsRegion: String? = nil, amazonSpApiEnvironment: String? = "production", amazonSellerId: String? = nil, aspdotnetstorefrontApiUser: String? = nil, aspdotnetstorefrontApiPass: String? = nil, bigcommerceapiAdminAccount: String? = nil, bigcommerceapiApiPath: String? = nil, bigcommerceapiApiKey: String? = nil, bigcommerceapiClientId: String? = nil, bigcommerceapiAccessToken: String? = nil, bigcommerceapiContext: String? = nil, bolApiKey: String? = nil, bolApiSecret: String? = nil, bolRetailerId: Int? = nil, bigcartelUserName: String, bigcartelPassword: String, demandwareClientId: String? = nil, demandwareApiPassword: String? = nil, demandwareUserName: String? = nil, demandwareUserPassword: String? = nil, ebayClientId: String? = nil, ebayClientSecret: String? = nil, ebayRuname: String? = nil, ebayAccessToken: String? = nil, ebayRefreshToken: String? = nil, ebayEnvironment: String? = "production", ebaySiteId: Int? = 0, walmartClientId: String? = nil, walmartClientSecret: String? = nil, walmartEnvironment: String? = "production", walmartChannelType: String? = nil, walmartRegion: String? = "us", ecwidAcessToken: String? = nil, ecwidStoreId: String? = nil, lazadaAppId: String? = nil, lazadaAppSecret: String? = nil, lazadaRefreshToken: String? = nil, lazadaRegion: String? = nil, lightspeedApiKey: String? = nil, lightspeedApiSecret: String? = nil, etsyKeystring: String? = nil, etsySharedSecret: String? = nil, etsyAccessToken: String? = nil, etsyTokenSecret: String? = nil, etsyClientId: String? = nil, etsyRefreshToken: String? = nil, facebookAppId: String? = nil, facebookAppSecret: String? = nil, facebookAccessToken: String? = nil, facebookBusinessId: String? = nil, netoApiKey: String? = nil, netoApiUsername: String? = nil, shoplineAccessToken: String? = nil, shoplineAppKey: String? = nil, shoplineAppSecret: String? = nil, shoplineSharedSecret: String? = nil, shopifyAccessToken: String? = nil, shopifyApiKey: String? = nil, shopifyApiPassword: String? = nil, shopifySharedSecret: String? = nil, shopeePartnerId: String? = nil, shopeePartnerKey: String? = nil, shopeeShopId: String? = nil, shopeeRefreshToken: String? = nil, shopeeRegion: String? = nil, shopeeEnvironment: String? = "production", shoplazzaAccessToken: String? = nil, shoplazzaSharedSecret: String? = nil, shopwareAccessKey: String? = nil, shopwareApiKey: String? = nil, shopwareApiSecret: String? = nil, mivaAccessToken: String? = nil, mivaSignature: String? = nil, tiendanubeUserId: Int? = nil, tiendanubeAccessToken: String? = nil, tiendanubeClientSecret: String? = nil, volusionLogin: String? = nil, volusionPassword: String? = nil, hybrisClientId: String? = nil, hybrisClientSecret: String? = nil, hybrisUsername: String? = nil, hybrisPassword: String? = nil, hybrisWebsites: [AccountCartAddHybrisWebsitesInner]? = nil, squareClientId: String? = nil, squareClientSecret: String? = nil, squareRefreshToken: String? = nil, squarespaceApiKey: String? = nil, squarespaceClientId: String? = nil, squarespaceClientSecret: String? = nil, squarespaceAccessToken: String? = nil, squarespaceRefreshToken: String? = nil, commercehqApiKey: String? = nil, commercehqApiPassword: String? = nil, wcConsumerKey: String? = nil, wcConsumerSecret: String? = nil, magentoConsumerKey: String? = nil, magentoConsumerSecret: String? = nil, magentoAccessToken: String? = nil, magentoTokenSecret: String? = nil, prestashopWebserviceKey: String? = nil, wixAppId: String, wixAppSecretKey: String, wixInstanceId: String? = nil, wixRefreshToken: String? = nil, mercadoLibreAppId: String? = nil, mercadoLibreAppSecretKey: String? = nil, mercadoLibreRefreshToken: String? = nil, zidClientId: Int? = nil, zidClientSecret: String? = nil, zidAccessToken: String? = nil, zidAuthorization: String? = nil, zidRefreshToken: String? = nil, flipkartClientId: String? = nil, flipkartClientSecret: String? = nil, allegroClientId: String? = nil, allegroClientSecret: String? = nil, allegroAccessToken: String? = nil, allegroRefreshToken: String? = nil, allegroEnvironment: String? = "production", zohoClientId: String? = nil, zohoClientSecret: String? = nil, zohoRefreshToken: String? = nil, zohoRegion: String? = nil, ottoClientId: String? = nil, ottoClientSecret: String? = nil, ottoAppId: String? = nil, ottoRefreshToken: String? = nil, ottoEnvironment: String? = "production", ottoAccessToken: String? = nil, tiktokshopAppKey: String? = nil, tiktokshopAppSecret: String? = nil, tiktokshopRefreshToken: String? = nil, tiktokshopAccessToken: String? = nil, sallaClientId: String? = nil, sallaClientSecret: String? = nil, sallaRefreshToken: String? = nil, sallaAccessToken: String? = nil, temuAppKey: String? = nil, temuAppSecret: String? = nil, temuAccessToken: String, temuRegion: String? = "US") {
         self.cartId = cartId
         self.storeUrl = storeUrl
         self.bridgeUrl = bridgeUrl
@@ -460,6 +481,12 @@ public struct AccountCartAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.shopifyApiKey = shopifyApiKey
         self.shopifyApiPassword = shopifyApiPassword
         self.shopifySharedSecret = shopifySharedSecret
+        self.shopeePartnerId = shopeePartnerId
+        self.shopeePartnerKey = shopeePartnerKey
+        self.shopeeShopId = shopeeShopId
+        self.shopeeRefreshToken = shopeeRefreshToken
+        self.shopeeRegion = shopeeRegion
+        self.shopeeEnvironment = shopeeEnvironment
         self.shoplazzaAccessToken = shoplazzaAccessToken
         self.shoplazzaSharedSecret = shoplazzaSharedSecret
         self.shopwareAccessKey = shopwareAccessKey
@@ -531,6 +558,10 @@ public struct AccountCartAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.sallaClientSecret = sallaClientSecret
         self.sallaRefreshToken = sallaRefreshToken
         self.sallaAccessToken = sallaAccessToken
+        self.temuAppKey = temuAppKey
+        self.temuAppSecret = temuAppSecret
+        self.temuAccessToken = temuAccessToken
+        self.temuRegion = temuRegion
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -614,6 +645,12 @@ public struct AccountCartAdd: Sendable, Codable, JSONEncodable, Hashable {
         case shopifyApiKey = "shopify_api_key"
         case shopifyApiPassword = "shopify_api_password"
         case shopifySharedSecret = "shopify_shared_secret"
+        case shopeePartnerId = "shopee_partner_id"
+        case shopeePartnerKey = "shopee_partner_key"
+        case shopeeShopId = "shopee_shop_id"
+        case shopeeRefreshToken = "shopee_refresh_token"
+        case shopeeRegion = "shopee_region"
+        case shopeeEnvironment = "shopee_environment"
         case shoplazzaAccessToken = "shoplazza_access_token"
         case shoplazzaSharedSecret = "shoplazza_shared_secret"
         case shopwareAccessKey = "shopware_access_key"
@@ -685,6 +722,10 @@ public struct AccountCartAdd: Sendable, Codable, JSONEncodable, Hashable {
         case sallaClientSecret = "salla_client_secret"
         case sallaRefreshToken = "salla_refresh_token"
         case sallaAccessToken = "salla_access_token"
+        case temuAppKey = "temu_app_key"
+        case temuAppSecret = "temu_app_secret"
+        case temuAccessToken = "temu_access_token"
+        case temuRegion = "temu_region"
     }
 
     // Encodable protocol methods
@@ -771,6 +812,12 @@ public struct AccountCartAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(shopifyApiKey, forKey: .shopifyApiKey)
         try container.encodeIfPresent(shopifyApiPassword, forKey: .shopifyApiPassword)
         try container.encodeIfPresent(shopifySharedSecret, forKey: .shopifySharedSecret)
+        try container.encodeIfPresent(shopeePartnerId, forKey: .shopeePartnerId)
+        try container.encodeIfPresent(shopeePartnerKey, forKey: .shopeePartnerKey)
+        try container.encodeIfPresent(shopeeShopId, forKey: .shopeeShopId)
+        try container.encodeIfPresent(shopeeRefreshToken, forKey: .shopeeRefreshToken)
+        try container.encodeIfPresent(shopeeRegion, forKey: .shopeeRegion)
+        try container.encodeIfPresent(shopeeEnvironment, forKey: .shopeeEnvironment)
         try container.encodeIfPresent(shoplazzaAccessToken, forKey: .shoplazzaAccessToken)
         try container.encodeIfPresent(shoplazzaSharedSecret, forKey: .shoplazzaSharedSecret)
         try container.encodeIfPresent(shopwareAccessKey, forKey: .shopwareAccessKey)
@@ -842,6 +889,10 @@ public struct AccountCartAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sallaClientSecret, forKey: .sallaClientSecret)
         try container.encodeIfPresent(sallaRefreshToken, forKey: .sallaRefreshToken)
         try container.encodeIfPresent(sallaAccessToken, forKey: .sallaAccessToken)
+        try container.encodeIfPresent(temuAppKey, forKey: .temuAppKey)
+        try container.encodeIfPresent(temuAppSecret, forKey: .temuAppSecret)
+        try container.encode(temuAccessToken, forKey: .temuAccessToken)
+        try container.encodeIfPresent(temuRegion, forKey: .temuRegion)
     }
 }
 
