@@ -163,7 +163,7 @@ Name | Type | Description | Notes
 **temuAppKey** | **String** | Temu App Key | [optional] 
 **temuAppSecret** | **String** | Temu App Secret | [optional] 
 **temuAccessToken** | **String** | Temu Access Token | 
-**temuRegion** | **String** | Temu API endpoint Region. | [optional] [default to "US"]
+**temuRegion** | **String** | Temu API endpoint Region. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -265,7 +265,7 @@ open class AccountAPI {
      - parameter temuAppKey: (query) Temu App Key (optional)
      - parameter temuAppSecret: (query) Temu App Secret (optional)
      - parameter temuAccessToken: (query) Temu Access Token (optional)
-     - parameter temuRegion: (query) Temu API endpoint Region. (optional, default to "US")
+     - parameter temuRegion: (query) Temu API endpoint Region. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AccountConfigUpdate200Response
      */
@@ -437,7 +437,7 @@ open class AccountAPI {
      - parameter temuAppKey: (query) Temu App Key (optional)
      - parameter temuAppSecret: (query) Temu App Secret (optional)
      - parameter temuAccessToken: (query) Temu Access Token (optional)
-     - parameter temuRegion: (query) Temu API endpoint Region. (optional, default to "US")
+     - parameter temuRegion: (query) Temu API endpoint Region. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AccountConfigUpdate200Response> 
      */
