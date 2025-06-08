@@ -12,6 +12,7 @@ public struct Webhook: Sendable, Codable, JSONEncodable, Hashable {
     public var id: Int?
     public var label: String?
     public var storeId: String?
+    public var langId: String?
     public var active: Bool?
     public var callback: String?
     public var fields: String?
@@ -22,10 +23,11 @@ public struct Webhook: Sendable, Codable, JSONEncodable, Hashable {
     public var additionalFields: JSONValue?
     public var customFields: JSONValue?
 
-    public init(id: Int? = nil, label: String? = nil, storeId: String? = nil, active: Bool? = nil, callback: String? = nil, fields: String? = nil, createdAt: String? = nil, updatedAt: String? = nil, entity: String? = nil, action: String? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
+    public init(id: Int? = nil, label: String? = nil, storeId: String? = nil, langId: String? = nil, active: Bool? = nil, callback: String? = nil, fields: String? = nil, createdAt: String? = nil, updatedAt: String? = nil, entity: String? = nil, action: String? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
         self.id = id
         self.label = label
         self.storeId = storeId
+        self.langId = langId
         self.active = active
         self.callback = callback
         self.fields = fields
@@ -41,6 +43,7 @@ public struct Webhook: Sendable, Codable, JSONEncodable, Hashable {
         case id
         case label
         case storeId = "store_id"
+        case langId = "lang_id"
         case active
         case callback
         case fields
@@ -59,6 +62,7 @@ public struct Webhook: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(id, forKey: .id)
         try container.encodeIfPresent(label, forKey: .label)
         try container.encodeIfPresent(storeId, forKey: .storeId)
+        try container.encodeIfPresent(langId, forKey: .langId)
         try container.encodeIfPresent(active, forKey: .active)
         try container.encodeIfPresent(callback, forKey: .callback)
         try container.encodeIfPresent(fields, forKey: .fields)

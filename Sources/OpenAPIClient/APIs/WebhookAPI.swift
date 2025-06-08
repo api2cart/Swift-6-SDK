@@ -71,13 +71,14 @@ open class WebhookAPI {
      - parameter label: (query) The name you give to the webhook (optional)
      - parameter fields: (query) Fields the webhook should send (optional, default to "force_all")
      - parameter active: (query) Webhook status (optional, default to true)
+     - parameter langId: (query) Language id (optional)
      - parameter storeId: (query) Defines store id where the webhook should be assigned (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: BasketLiveShippingServiceCreate200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func webhookCreate(entity: String, action: String, callback: String? = nil, label: String? = nil, fields: String? = nil, active: Bool? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BasketLiveShippingServiceCreate200Response {
-        return try await webhookCreateWithRequestBuilder(entity: entity, action: action, callback: callback, label: label, fields: fields, active: active, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
+    open class func webhookCreate(entity: String, action: String, callback: String? = nil, label: String? = nil, fields: String? = nil, active: Bool? = nil, langId: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BasketLiveShippingServiceCreate200Response {
+        return try await webhookCreateWithRequestBuilder(entity: entity, action: action, callback: callback, label: label, fields: fields, active: active, langId: langId, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -96,11 +97,12 @@ open class WebhookAPI {
      - parameter label: (query) The name you give to the webhook (optional)
      - parameter fields: (query) Fields the webhook should send (optional, default to "force_all")
      - parameter active: (query) Webhook status (optional, default to true)
+     - parameter langId: (query) Language id (optional)
      - parameter storeId: (query) Defines store id where the webhook should be assigned (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<BasketLiveShippingServiceCreate200Response> 
      */
-    open class func webhookCreateWithRequestBuilder(entity: String, action: String, callback: String? = nil, label: String? = nil, fields: String? = nil, active: Bool? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BasketLiveShippingServiceCreate200Response> {
+    open class func webhookCreateWithRequestBuilder(entity: String, action: String, callback: String? = nil, label: String? = nil, fields: String? = nil, active: Bool? = nil, langId: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BasketLiveShippingServiceCreate200Response> {
         let localVariablePath = "/webhook.create.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -113,6 +115,7 @@ open class WebhookAPI {
             "label": (wrappedValue: label?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "fields": (wrappedValue: fields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "active": (wrappedValue: active?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "lang_id": (wrappedValue: langId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
@@ -289,12 +292,13 @@ open class WebhookAPI {
      - parameter label: (query) The name you give to the webhook (optional)
      - parameter fields: (query) Fields the webhook should send (optional)
      - parameter active: (query) Webhook status (optional)
+     - parameter langId: (query) Language id (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProductImageUpdate200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func webhookUpdate(id: String, callback: String? = nil, label: String? = nil, fields: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductImageUpdate200Response {
-        return try await webhookUpdateWithRequestBuilder(id: id, callback: callback, label: label, fields: fields, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func webhookUpdate(id: String, callback: String? = nil, label: String? = nil, fields: String? = nil, active: Bool? = nil, langId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductImageUpdate200Response {
+        return try await webhookUpdateWithRequestBuilder(id: id, callback: callback, label: label, fields: fields, active: active, langId: langId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -312,10 +316,11 @@ open class WebhookAPI {
      - parameter label: (query) The name you give to the webhook (optional)
      - parameter fields: (query) Fields the webhook should send (optional)
      - parameter active: (query) Webhook status (optional)
+     - parameter langId: (query) Language id (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProductImageUpdate200Response> 
      */
-    open class func webhookUpdateWithRequestBuilder(id: String, callback: String? = nil, label: String? = nil, fields: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductImageUpdate200Response> {
+    open class func webhookUpdateWithRequestBuilder(id: String, callback: String? = nil, label: String? = nil, fields: String? = nil, active: Bool? = nil, langId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductImageUpdate200Response> {
         let localVariablePath = "/webhook.update.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -327,6 +332,7 @@ open class WebhookAPI {
             "label": (wrappedValue: label?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "fields": (wrappedValue: fields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "active": (wrappedValue: active?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "lang_id": (wrappedValue: langId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [

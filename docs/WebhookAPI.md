@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 # **webhookCreate**
 ```swift
-    open class func webhookCreate(entity: String, action: String, callback: String? = nil, label: String? = nil, fields: String? = nil, active: Bool? = nil, storeId: String? = nil, completion: @escaping (_ data: BasketLiveShippingServiceCreate200Response?, _ error: Error?) -> Void)
+    open class func webhookCreate(entity: String, action: String, callback: String? = nil, label: String? = nil, fields: String? = nil, active: Bool? = nil, langId: String? = nil, storeId: String? = nil, completion: @escaping (_ data: BasketLiveShippingServiceCreate200Response?, _ error: Error?) -> Void)
 ```
 
 webhook.create
@@ -86,10 +86,11 @@ let callback = "callback_example" // String | Callback url that returns shipping
 let label = "label_example" // String | The name you give to the webhook (optional)
 let fields = "fields_example" // String | Fields the webhook should send (optional) (default to "force_all")
 let active = true // Bool | Webhook status (optional) (default to true)
+let langId = "langId_example" // String | Language id (optional)
 let storeId = "storeId_example" // String | Defines store id where the webhook should be assigned (optional)
 
 // webhook.create
-WebhookAPI.webhookCreate(entity: entity, action: action, callback: callback, label: label, fields: fields, active: active, storeId: storeId) { (response, error) in
+WebhookAPI.webhookCreate(entity: entity, action: action, callback: callback, label: label, fields: fields, active: active, langId: langId, storeId: storeId) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -111,6 +112,7 @@ Name | Type | Description  | Notes
  **label** | **String** | The name you give to the webhook | [optional] 
  **fields** | **String** | Fields the webhook should send | [optional] [default to &quot;force_all&quot;]
  **active** | **Bool** | Webhook status | [optional] [default to true]
+ **langId** | **String** | Language id | [optional] 
  **storeId** | **String** | Defines store id where the webhook should be assigned | [optional] 
 
 ### Return type
@@ -288,7 +290,7 @@ Name | Type | Description  | Notes
 
 # **webhookUpdate**
 ```swift
-    open class func webhookUpdate(id: String, callback: String? = nil, label: String? = nil, fields: String? = nil, active: Bool? = nil, completion: @escaping (_ data: ProductImageUpdate200Response?, _ error: Error?) -> Void)
+    open class func webhookUpdate(id: String, callback: String? = nil, label: String? = nil, fields: String? = nil, active: Bool? = nil, langId: String? = nil, completion: @escaping (_ data: ProductImageUpdate200Response?, _ error: Error?) -> Void)
 ```
 
 webhook.update
@@ -305,9 +307,10 @@ let callback = "callback_example" // String | Callback url that returns shipping
 let label = "label_example" // String | The name you give to the webhook (optional)
 let fields = "fields_example" // String | Fields the webhook should send (optional)
 let active = true // Bool | Webhook status (optional)
+let langId = "langId_example" // String | Language id (optional)
 
 // webhook.update
-WebhookAPI.webhookUpdate(id: id, callback: callback, label: label, fields: fields, active: active) { (response, error) in
+WebhookAPI.webhookUpdate(id: id, callback: callback, label: label, fields: fields, active: active, langId: langId) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -328,6 +331,7 @@ Name | Type | Description  | Notes
  **label** | **String** | The name you give to the webhook | [optional] 
  **fields** | **String** | Fields the webhook should send | [optional] 
  **active** | **Bool** | Webhook status | [optional] 
+ **langId** | **String** | Language id | [optional] 
 
 ### Return type
 

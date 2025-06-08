@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **id** | **Int** |  | [optional] 
 **label** | **String** |  | [optional] 
 **storeId** | **String** |  | [optional] 
+**langId** | **String** |  | [optional] 
 **active** | **Bool** |  | [optional] 
 **callback** | **String** |  | [optional] 
 **fields** | **String** |  | [optional] 
