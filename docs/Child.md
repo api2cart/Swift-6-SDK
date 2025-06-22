@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **availForSale** | **Bool** |  | [optional] 
 **allowBackorders** | **Bool** |  | [optional] 
 **inStock** | **Bool** |  | [optional] 
+**onSale** | **Bool** |  | [optional] 
 **manageStock** | **Bool** |  | [optional] 
 **inventoryLevel** | **Double** |  | [optional] 
 **inventory** | [ProductInventory] |  | [optional] 

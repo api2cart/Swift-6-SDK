@@ -36,6 +36,7 @@ public struct Child: Sendable, Codable, JSONEncodable, Hashable {
     public var availForSale: Bool?
     public var allowBackorders: Bool?
     public var inStock: Bool?
+    public var onSale: Bool?
     public var manageStock: Bool?
     public var inventoryLevel: Double?
     public var inventory: [ProductInventory]?
@@ -56,7 +57,7 @@ public struct Child: Sendable, Codable, JSONEncodable, Hashable {
     public var additionalFields: JSONValue?
     public var customFields: JSONValue?
 
-    public init(id: String? = nil, parentId: String? = nil, sku: String? = nil, upc: String? = nil, ean: String? = nil, mpn: String? = nil, gtin: String? = nil, isbn: String? = nil, url: String? = nil, seoUrl: String? = nil, sortOrder: Int? = nil, createdTime: A2CDateTime? = nil, modifiedTime: A2CDateTime? = nil, name: String? = nil, shortDescription: String? = nil, fullDescription: String? = nil, images: [Image]? = nil, combination: [ProductChildItemCombination]? = nil, defaultPrice: Double? = nil, costPrice: Double? = nil, listPrice: Double? = nil, wholesalePrice: Double? = nil, advancedPrice: [ProductAdvancedPrice]? = nil, taxClassId: String? = nil, availForSale: Bool? = nil, allowBackorders: Bool? = nil, inStock: Bool? = nil, manageStock: Bool? = nil, inventoryLevel: Double? = nil, inventory: [ProductInventory]? = nil, minQuantity: Double? = nil, defaultQtyInPack: Double? = nil, isQtyInPackFixed: Bool? = nil, weightUnit: String? = nil, weight: Double? = nil, dimensionsUnit: String? = nil, width: Double? = nil, height: Double? = nil, length: Double? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, discounts: [Discount]? = nil, isVirtual: Bool? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
+    public init(id: String? = nil, parentId: String? = nil, sku: String? = nil, upc: String? = nil, ean: String? = nil, mpn: String? = nil, gtin: String? = nil, isbn: String? = nil, url: String? = nil, seoUrl: String? = nil, sortOrder: Int? = nil, createdTime: A2CDateTime? = nil, modifiedTime: A2CDateTime? = nil, name: String? = nil, shortDescription: String? = nil, fullDescription: String? = nil, images: [Image]? = nil, combination: [ProductChildItemCombination]? = nil, defaultPrice: Double? = nil, costPrice: Double? = nil, listPrice: Double? = nil, wholesalePrice: Double? = nil, advancedPrice: [ProductAdvancedPrice]? = nil, taxClassId: String? = nil, availForSale: Bool? = nil, allowBackorders: Bool? = nil, inStock: Bool? = nil, onSale: Bool? = nil, manageStock: Bool? = nil, inventoryLevel: Double? = nil, inventory: [ProductInventory]? = nil, minQuantity: Double? = nil, defaultQtyInPack: Double? = nil, isQtyInPackFixed: Bool? = nil, weightUnit: String? = nil, weight: Double? = nil, dimensionsUnit: String? = nil, width: Double? = nil, height: Double? = nil, length: Double? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, discounts: [Discount]? = nil, isVirtual: Bool? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
         self.id = id
         self.parentId = parentId
         self.sku = sku
@@ -84,6 +85,7 @@ public struct Child: Sendable, Codable, JSONEncodable, Hashable {
         self.availForSale = availForSale
         self.allowBackorders = allowBackorders
         self.inStock = inStock
+        self.onSale = onSale
         self.manageStock = manageStock
         self.inventoryLevel = inventoryLevel
         self.inventory = inventory
@@ -133,6 +135,7 @@ public struct Child: Sendable, Codable, JSONEncodable, Hashable {
         case availForSale = "avail_for_sale"
         case allowBackorders = "allow_backorders"
         case inStock = "in_stock"
+        case onSale = "on_sale"
         case manageStock = "manage_stock"
         case inventoryLevel = "inventory_level"
         case inventory
@@ -185,6 +188,7 @@ public struct Child: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(availForSale, forKey: .availForSale)
         try container.encodeIfPresent(allowBackorders, forKey: .allowBackorders)
         try container.encodeIfPresent(inStock, forKey: .inStock)
+        try container.encodeIfPresent(onSale, forKey: .onSale)
         try container.encodeIfPresent(manageStock, forKey: .manageStock)
         try container.encodeIfPresent(inventoryLevel, forKey: .inventoryLevel)
         try container.encodeIfPresent(inventory, forKey: .inventory)

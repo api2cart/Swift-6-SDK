@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 # **webhookCreate**
 ```swift
-    open class func webhookCreate(entity: String, action: String, callback: String? = nil, label: String? = nil, fields: String? = nil, active: Bool? = nil, langId: String? = nil, storeId: String? = nil, completion: @escaping (_ data: BasketLiveShippingServiceCreate200Response?, _ error: Error?) -> Void)
+    open class func webhookCreate(entity: String, action: String, callback: String? = nil, label: String? = nil, fields: String? = nil, responseFields: String? = nil, active: Bool? = nil, langId: String? = nil, storeId: String? = nil, completion: @escaping (_ data: BasketLiveShippingServiceCreate200Response?, _ error: Error?) -> Void)
 ```
 
 webhook.create
@@ -85,12 +85,13 @@ let action = "action_example" // String | Specify what action (event) will trigg
 let callback = "callback_example" // String | Callback url that returns shipping rates. It should be able to accept POST requests with json data. (optional)
 let label = "label_example" // String | The name you give to the webhook (optional)
 let fields = "fields_example" // String | Fields the webhook should send (optional) (default to "force_all")
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let active = true // Bool | Webhook status (optional) (default to true)
 let langId = "langId_example" // String | Language id (optional)
 let storeId = "storeId_example" // String | Defines store id where the webhook should be assigned (optional)
 
 // webhook.create
-WebhookAPI.webhookCreate(entity: entity, action: action, callback: callback, label: label, fields: fields, active: active, langId: langId, storeId: storeId) { (response, error) in
+WebhookAPI.webhookCreate(entity: entity, action: action, callback: callback, label: label, fields: fields, responseFields: responseFields, active: active, langId: langId, storeId: storeId) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -111,6 +112,7 @@ Name | Type | Description  | Notes
  **callback** | **String** | Callback url that returns shipping rates. It should be able to accept POST requests with json data. | [optional] 
  **label** | **String** | The name you give to the webhook | [optional] 
  **fields** | **String** | Fields the webhook should send | [optional] [default to &quot;force_all&quot;]
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **active** | **Bool** | Webhook status | [optional] [default to true]
  **langId** | **String** | Language id | [optional] 
  **storeId** | **String** | Defines store id where the webhook should be assigned | [optional] 
@@ -290,7 +292,7 @@ Name | Type | Description  | Notes
 
 # **webhookUpdate**
 ```swift
-    open class func webhookUpdate(id: String, callback: String? = nil, label: String? = nil, fields: String? = nil, active: Bool? = nil, langId: String? = nil, completion: @escaping (_ data: ProductImageUpdate200Response?, _ error: Error?) -> Void)
+    open class func webhookUpdate(id: String, callback: String? = nil, label: String? = nil, fields: String? = nil, responseFields: String? = nil, active: Bool? = nil, langId: String? = nil, completion: @escaping (_ data: ProductImageUpdate200Response?, _ error: Error?) -> Void)
 ```
 
 webhook.update
@@ -306,11 +308,12 @@ let id = "id_example" // String | Webhook id
 let callback = "callback_example" // String | Callback url that returns shipping rates. It should be able to accept POST requests with json data. (optional)
 let label = "label_example" // String | The name you give to the webhook (optional)
 let fields = "fields_example" // String | Fields the webhook should send (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let active = true // Bool | Webhook status (optional)
 let langId = "langId_example" // String | Language id (optional)
 
 // webhook.update
-WebhookAPI.webhookUpdate(id: id, callback: callback, label: label, fields: fields, active: active, langId: langId) { (response, error) in
+WebhookAPI.webhookUpdate(id: id, callback: callback, label: label, fields: fields, responseFields: responseFields, active: active, langId: langId) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -330,6 +333,7 @@ Name | Type | Description  | Notes
  **callback** | **String** | Callback url that returns shipping rates. It should be able to accept POST requests with json data. | [optional] 
  **label** | **String** | The name you give to the webhook | [optional] 
  **fields** | **String** | Fields the webhook should send | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **active** | **Bool** | Webhook status | [optional] 
  **langId** | **String** | Language id | [optional] 
 
