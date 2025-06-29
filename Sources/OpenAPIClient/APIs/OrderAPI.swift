@@ -1101,7 +1101,7 @@ open class OrderAPI {
     /**
      order.shipment.list
      - GET /order.shipment.list.json
-     - Get list of shipments by orders.
+     - Get list of shipments per order.
      - API Key:
        - type: apiKey x-store-key (HEADER)
        - name: StoreKeyAuth

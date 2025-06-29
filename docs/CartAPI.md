@@ -356,7 +356,7 @@ Use this method to create a coupon with specified conditions.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let cartCouponAdd = CartCouponAdd(code: "code_example", actionType: "actionType_example", actionApplyTo: "actionApplyTo_example", actionScope: "actionScope_example", actionAmount: 123, codes: ["codes_example"], name: "name_example", dateStart: "dateStart_example", dateEnd: "dateEnd_example", usageLimit: 123, usageLimitPerCustomer: 123, actionConditionEntity: "actionConditionEntity_example", actionConditionKey: "actionConditionKey_example", actionConditionOperator: "actionConditionOperator_example", actionConditionValue: "actionConditionValue_example", includeTax: true, storeId: "storeId_example") // CartCouponAdd | 
+let cartCouponAdd = CartCouponAdd(code: "code_example", actionType: "actionType_example", actionApplyTo: "actionApplyTo_example", actionScope: "actionScope_example", actionAmount: 123, codes: ["codes_example"], name: "name_example", dateStart: "dateStart_example", dateEnd: "dateEnd_example", usageLimit: 123, usageLimitPerCustomer: 123, actionConditionEntity: "actionConditionEntity_example", actionConditionKey: "actionConditionKey_example", actionConditionOperator: "actionConditionOperator_example", actionConditionValue: "actionConditionValue_example", includeTax: true, storeId: "storeId_example", freeCashOnDelivery: true) // CartCouponAdd | 
 
 // cart.coupon.add
 CartAPI.cartCouponAdd(cartCouponAdd: cartCouponAdd) { (response, error) in

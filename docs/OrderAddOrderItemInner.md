@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **orderItemWeight** | **Double** | Defines orders specified by order item weight | [optional] 
 **orderItemVariantId** | **String** | Ordered product variant. Where x is order item ID | [optional] 
 **orderItemTax** | **Double** | Percentage of tax for product order | [optional] [default to 0]
+**orderItemTaxClass** | **String** | Id of the tax class of product. | [optional] 
 **orderItemPriceIncludesTax** | **Bool** | Defines if item price includes tax | [optional] [default to false]
 **orderItemParent** | **Int** | Index of the parent grouped/bundle product | [optional] 
 **orderItemParentOptionName** | **String** | Option name of the parent grouped/bundle product | [optional] 

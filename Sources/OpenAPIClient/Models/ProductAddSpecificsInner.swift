@@ -16,16 +16,18 @@ public struct ProductAddSpecificsInner: Sendable, Codable, JSONEncodable, Hashab
     public var values: [String]?
     public var usedForVariations: Bool? = false
     public var scaleId: Int?
+    public var inputValue: String?
     public var foodDetails: ProductAddSpecificsInnerFoodDetails?
     public var groupProductsDetails: [ProductAddSpecificsInnerGroupProductsDetailsInner]?
     public var bookingDetails: ProductAddSpecificsInnerBookingDetails?
 
-    public init(name: String? = nil, value: String? = nil, values: [String]? = nil, usedForVariations: Bool? = false, scaleId: Int? = nil, foodDetails: ProductAddSpecificsInnerFoodDetails? = nil, groupProductsDetails: [ProductAddSpecificsInnerGroupProductsDetailsInner]? = nil, bookingDetails: ProductAddSpecificsInnerBookingDetails? = nil) {
+    public init(name: String? = nil, value: String? = nil, values: [String]? = nil, usedForVariations: Bool? = false, scaleId: Int? = nil, inputValue: String? = nil, foodDetails: ProductAddSpecificsInnerFoodDetails? = nil, groupProductsDetails: [ProductAddSpecificsInnerGroupProductsDetailsInner]? = nil, bookingDetails: ProductAddSpecificsInnerBookingDetails? = nil) {
         self.name = name
         self.value = value
         self.values = values
         self.usedForVariations = usedForVariations
         self.scaleId = scaleId
+        self.inputValue = inputValue
         self.foodDetails = foodDetails
         self.groupProductsDetails = groupProductsDetails
         self.bookingDetails = bookingDetails
@@ -37,6 +39,7 @@ public struct ProductAddSpecificsInner: Sendable, Codable, JSONEncodable, Hashab
         case values
         case usedForVariations = "used_for_variations"
         case scaleId = "scale_id"
+        case inputValue = "input_value"
         case foodDetails = "food_details"
         case groupProductsDetails = "group_products_details"
         case bookingDetails = "booking_details"
@@ -51,6 +54,7 @@ public struct ProductAddSpecificsInner: Sendable, Codable, JSONEncodable, Hashab
         try container.encodeIfPresent(values, forKey: .values)
         try container.encodeIfPresent(usedForVariations, forKey: .usedForVariations)
         try container.encodeIfPresent(scaleId, forKey: .scaleId)
+        try container.encodeIfPresent(inputValue, forKey: .inputValue)
         try container.encodeIfPresent(foodDetails, forKey: .foodDetails)
         try container.encodeIfPresent(groupProductsDetails, forKey: .groupProductsDetails)
         try container.encodeIfPresent(bookingDetails, forKey: .bookingDetails)

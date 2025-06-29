@@ -25,6 +25,8 @@ public struct OrderAddOrderItemInner: Sendable, Codable, JSONEncodable, Hashable
     public var orderItemVariantId: String?
     /** Percentage of tax for product order */
     public var orderItemTax: Double? = 0
+    /** Id of the tax class of product. */
+    public var orderItemTaxClass: String?
     /** Defines if item price includes tax */
     public var orderItemPriceIncludesTax: Bool? = false
     /** Index of the parent grouped/bundle product */
@@ -38,7 +40,7 @@ public struct OrderAddOrderItemInner: Sendable, Codable, JSONEncodable, Hashable
     public var orderItemOption: [OrderAddOrderItemInnerOrderItemOptionInner]?
     public var orderItemProperty: [OrderAddOrderItemInnerOrderItemPropertyInner]?
 
-    public init(orderItemId: String, orderItemName: String, orderItemModel: String? = nil, orderItemPrice: Double, orderItemQuantity: Int, orderItemWeight: Double? = nil, orderItemVariantId: String? = nil, orderItemTax: Double? = 0, orderItemPriceIncludesTax: Bool? = false, orderItemParent: Int? = nil, orderItemParentOptionName: String? = nil, orderItemAllowRefundItemsSeparately: Bool? = nil, orderItemAllowShipItemsSeparately: Bool? = nil, orderItemOption: [OrderAddOrderItemInnerOrderItemOptionInner]? = nil, orderItemProperty: [OrderAddOrderItemInnerOrderItemPropertyInner]? = nil) {
+    public init(orderItemId: String, orderItemName: String, orderItemModel: String? = nil, orderItemPrice: Double, orderItemQuantity: Int, orderItemWeight: Double? = nil, orderItemVariantId: String? = nil, orderItemTax: Double? = 0, orderItemTaxClass: String? = nil, orderItemPriceIncludesTax: Bool? = false, orderItemParent: Int? = nil, orderItemParentOptionName: String? = nil, orderItemAllowRefundItemsSeparately: Bool? = nil, orderItemAllowShipItemsSeparately: Bool? = nil, orderItemOption: [OrderAddOrderItemInnerOrderItemOptionInner]? = nil, orderItemProperty: [OrderAddOrderItemInnerOrderItemPropertyInner]? = nil) {
         self.orderItemId = orderItemId
         self.orderItemName = orderItemName
         self.orderItemModel = orderItemModel
@@ -47,6 +49,7 @@ public struct OrderAddOrderItemInner: Sendable, Codable, JSONEncodable, Hashable
         self.orderItemWeight = orderItemWeight
         self.orderItemVariantId = orderItemVariantId
         self.orderItemTax = orderItemTax
+        self.orderItemTaxClass = orderItemTaxClass
         self.orderItemPriceIncludesTax = orderItemPriceIncludesTax
         self.orderItemParent = orderItemParent
         self.orderItemParentOptionName = orderItemParentOptionName
@@ -65,6 +68,7 @@ public struct OrderAddOrderItemInner: Sendable, Codable, JSONEncodable, Hashable
         case orderItemWeight = "order_item_weight"
         case orderItemVariantId = "order_item_variant_id"
         case orderItemTax = "order_item_tax"
+        case orderItemTaxClass = "order_item_tax_class"
         case orderItemPriceIncludesTax = "order_item_price_includes_tax"
         case orderItemParent = "order_item_parent"
         case orderItemParentOptionName = "order_item_parent_option_name"
@@ -86,6 +90,7 @@ public struct OrderAddOrderItemInner: Sendable, Codable, JSONEncodable, Hashable
         try container.encodeIfPresent(orderItemWeight, forKey: .orderItemWeight)
         try container.encodeIfPresent(orderItemVariantId, forKey: .orderItemVariantId)
         try container.encodeIfPresent(orderItemTax, forKey: .orderItemTax)
+        try container.encodeIfPresent(orderItemTaxClass, forKey: .orderItemTaxClass)
         try container.encodeIfPresent(orderItemPriceIncludesTax, forKey: .orderItemPriceIncludesTax)
         try container.encodeIfPresent(orderItemParent, forKey: .orderItemParent)
         try container.encodeIfPresent(orderItemParentOptionName, forKey: .orderItemParentOptionName)

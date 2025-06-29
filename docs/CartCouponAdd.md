@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **actionConditionValue** | **String** | Defines condition attribute value/s. Can be comma separated string. | [optional] 
 **includeTax** | **Bool** | Indicates whether to apply a discount for taxes. | [optional] [default to false]
 **storeId** | **String** | Store Id | [optional] 
+**freeCashOnDelivery** | **Bool** | Defines whether the coupon provides free cash on delivery | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

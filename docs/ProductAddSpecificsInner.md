@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **values** | **[String]** |  | [optional] 
 **usedForVariations** | **Bool** |  | [optional] [default to false]
 **scaleId** | **Int** |  | [optional] 
+**inputValue** | **String** |  | [optional] 
 **foodDetails** | [**ProductAddSpecificsInnerFoodDetails**](ProductAddSpecificsInnerFoodDetails.md) |  | [optional] 
 **groupProductsDetails** | [ProductAddSpecificsInnerGroupProductsDetailsInner] |  | [optional] 
 **bookingDetails** | [**ProductAddSpecificsInnerBookingDetails**](ProductAddSpecificsInnerBookingDetails.md) |  | [optional] 
