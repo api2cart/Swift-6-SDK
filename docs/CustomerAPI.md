@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 # **customerCount**
 ```swift
-    open class func customerCount(ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, completion: @escaping (_ data: CustomerCount200Response?, _ error: Error?) -> Void)
+    open class func customerCount(ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, includeGuests: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, completion: @escaping (_ data: CustomerCount200Response?, _ error: Error?) -> Void)
 ```
 
 customer.count
@@ -202,6 +202,7 @@ let customerListId = "customerListId_example" // String | The numeric ID of the 
 let groupId = "groupId_example" // String | Customer group_id (optional)
 let storeId = "storeId_example" // String | Counts customer specified by store id (optional)
 let avail = false // Bool | Defines category's visibility status (optional) (default to true)
+let includeGuests = true // Bool | Indicates whether to include guest customers in the total count. (optional) (default to false)
 let findValue = "findValue_example" // String | Entity search that is specified by some value (optional)
 let findWhere = "findWhere_example" // String | Counts customers that are searched specified by field (optional)
 let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
@@ -210,7 +211,7 @@ let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from the
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
 
 // customer.count
-CustomerAPI.customerCount(ids: ids, sinceId: sinceId, customerListId: customerListId, groupId: groupId, storeId: storeId, avail: avail, findValue: findValue, findWhere: findWhere, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo) { (response, error) in
+CustomerAPI.customerCount(ids: ids, sinceId: sinceId, customerListId: customerListId, groupId: groupId, storeId: storeId, avail: avail, includeGuests: includeGuests, findValue: findValue, findWhere: findWhere, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -232,6 +233,7 @@ Name | Type | Description  | Notes
  **groupId** | **String** | Customer group_id | [optional] 
  **storeId** | **String** | Counts customer specified by store id | [optional] 
  **avail** | **Bool** | Defines category&#39;s visibility status | [optional] [default to true]
+ **includeGuests** | **Bool** | Indicates whether to include guest customers in the total count. | [optional] [default to false]
  **findValue** | **String** | Entity search that is specified by some value | [optional] 
  **findWhere** | **String** | Counts customers that are searched specified by field | [optional] 
  **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
@@ -306,7 +308,7 @@ Name | Type | Description  | Notes
 
 # **customerFind**
 ```swift
-    open class func customerFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, completion: @escaping (_ data: CustomerFind200Response?, _ error: Error?) -> Void)
+    open class func customerFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, includeGuests: Bool? = nil, completion: @escaping (_ data: CustomerFind200Response?, _ error: Error?) -> Void)
 ```
 
 customer.find
@@ -322,9 +324,10 @@ let findValue = "findValue_example" // String | Entity search that is specified 
 let findWhere = "findWhere_example" // String | Entity search that is specified by the comma-separated unique fields (optional) (default to "email")
 let findParams = "findParams_example" // String | Entity search that is specified by comma-separated parameters (optional) (default to "whole_words")
 let storeId = "storeId_example" // String | Store Id (optional)
+let includeGuests = true // Bool | Indicates whether to search among guest customers when looking up a customer. (optional) (default to false)
 
 // customer.find
-CustomerAPI.customerFind(findValue: findValue, findWhere: findWhere, findParams: findParams, storeId: storeId) { (response, error) in
+CustomerAPI.customerFind(findValue: findValue, findWhere: findWhere, findParams: findParams, storeId: storeId, includeGuests: includeGuests) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -344,6 +347,7 @@ Name | Type | Description  | Notes
  **findWhere** | **String** | Entity search that is specified by the comma-separated unique fields | [optional] [default to &quot;email&quot;]
  **findParams** | **String** | Entity search that is specified by comma-separated parameters | [optional] [default to &quot;whole_words&quot;]
  **storeId** | **String** | Store Id | [optional] 
+ **includeGuests** | **Bool** | Indicates whether to search among guest customers when looking up a customer. | [optional] [default to false]
 
 ### Return type
 
@@ -542,7 +546,7 @@ Name | Type | Description  | Notes
 
 # **customerList**
 ```swift
-    open class func customerList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCustomerList?, _ error: Error?) -> Void)
+    open class func customerList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, includeGuests: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCustomerList?, _ error: Error?) -> Void)
 ```
 
 customer.list
@@ -563,6 +567,7 @@ let customerListId = "customerListId_example" // String | The numeric ID of the 
 let groupId = "groupId_example" // String | Customer group_id (optional)
 let storeId = "storeId_example" // String | Retrieves customers specified by store id (optional)
 let avail = false // Bool | Defines category's visibility status (optional) (default to true)
+let includeGuests = true // Bool | Indicates whether to include guest customers in the list results. (optional) (default to false)
 let findValue = "findValue_example" // String | Entity search that is specified by some value (optional)
 let findWhere = "findWhere_example" // String | Customer search that is specified by field (optional)
 let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
@@ -576,7 +581,7 @@ let params = "params_example" // String | Set this parameter in order to choose 
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // customer.list
-CustomerAPI.customerList(start: start, count: count, pageCursor: pageCursor, ids: ids, sinceId: sinceId, customerListId: customerListId, groupId: groupId, storeId: storeId, avail: avail, findValue: findValue, findWhere: findWhere, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, sortBy: sortBy, sortDirection: sortDirection, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
+CustomerAPI.customerList(start: start, count: count, pageCursor: pageCursor, ids: ids, sinceId: sinceId, customerListId: customerListId, groupId: groupId, storeId: storeId, avail: avail, includeGuests: includeGuests, findValue: findValue, findWhere: findWhere, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, sortBy: sortBy, sortDirection: sortDirection, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -601,6 +606,7 @@ Name | Type | Description  | Notes
  **groupId** | **String** | Customer group_id | [optional] 
  **storeId** | **String** | Retrieves customers specified by store id | [optional] 
  **avail** | **Bool** | Defines category&#39;s visibility status | [optional] [default to true]
+ **includeGuests** | **Bool** | Indicates whether to include guest customers in the list results. | [optional] [default to false]
  **findValue** | **String** | Entity search that is specified by some value | [optional] 
  **findWhere** | **String** | Customer search that is specified by field | [optional] 
  **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 

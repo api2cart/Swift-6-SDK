@@ -174,6 +174,7 @@ open class CustomerAPI {
      - parameter groupId: (query) Customer group_id (optional)
      - parameter storeId: (query) Counts customer specified by store id (optional)
      - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
+     - parameter includeGuests: (query) Indicates whether to include guest customers in the total count. (optional, default to false)
      - parameter findValue: (query) Entity search that is specified by some value (optional)
      - parameter findWhere: (query) Counts customers that are searched specified by field (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
@@ -184,8 +185,8 @@ open class CustomerAPI {
      - returns: CustomerCount200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func customerCount(ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerCount200Response {
-        return try await customerCountWithRequestBuilder(ids: ids, sinceId: sinceId, customerListId: customerListId, groupId: groupId, storeId: storeId, avail: avail, findValue: findValue, findWhere: findWhere, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, apiConfiguration: apiConfiguration).execute().body
+    open class func customerCount(ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, includeGuests: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerCount200Response {
+        return try await customerCountWithRequestBuilder(ids: ids, sinceId: sinceId, customerListId: customerListId, groupId: groupId, storeId: storeId, avail: avail, includeGuests: includeGuests, findValue: findValue, findWhere: findWhere, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -204,6 +205,7 @@ open class CustomerAPI {
      - parameter groupId: (query) Customer group_id (optional)
      - parameter storeId: (query) Counts customer specified by store id (optional)
      - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
+     - parameter includeGuests: (query) Indicates whether to include guest customers in the total count. (optional, default to false)
      - parameter findValue: (query) Entity search that is specified by some value (optional)
      - parameter findWhere: (query) Counts customers that are searched specified by field (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
@@ -213,7 +215,7 @@ open class CustomerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CustomerCount200Response> 
      */
-    open class func customerCountWithRequestBuilder(ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CustomerCount200Response> {
+    open class func customerCountWithRequestBuilder(ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, includeGuests: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CustomerCount200Response> {
         let localVariablePath = "/customer.count.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -226,6 +228,7 @@ open class CustomerAPI {
             "group_id": (wrappedValue: groupId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "avail": (wrappedValue: avail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "include_guests": (wrappedValue: includeGuests?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "find_value": (wrappedValue: findValue?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "find_where": (wrappedValue: findWhere?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "created_from": (wrappedValue: createdFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
@@ -299,12 +302,13 @@ open class CustomerAPI {
      - parameter findWhere: (query) Entity search that is specified by the comma-separated unique fields (optional, default to "email")
      - parameter findParams: (query) Entity search that is specified by comma-separated parameters (optional, default to "whole_words")
      - parameter storeId: (query) Store Id (optional)
+     - parameter includeGuests: (query) Indicates whether to search among guest customers when looking up a customer. (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CustomerFind200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func customerFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerFind200Response {
-        return try await customerFindWithRequestBuilder(findValue: findValue, findWhere: findWhere, findParams: findParams, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
+    open class func customerFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, includeGuests: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerFind200Response {
+        return try await customerFindWithRequestBuilder(findValue: findValue, findWhere: findWhere, findParams: findParams, storeId: storeId, includeGuests: includeGuests, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -321,10 +325,11 @@ open class CustomerAPI {
      - parameter findWhere: (query) Entity search that is specified by the comma-separated unique fields (optional, default to "email")
      - parameter findParams: (query) Entity search that is specified by comma-separated parameters (optional, default to "whole_words")
      - parameter storeId: (query) Store Id (optional)
+     - parameter includeGuests: (query) Indicates whether to search among guest customers when looking up a customer. (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CustomerFind200Response> 
      */
-    open class func customerFindWithRequestBuilder(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CustomerFind200Response> {
+    open class func customerFindWithRequestBuilder(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, includeGuests: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CustomerFind200Response> {
         let localVariablePath = "/customer.find.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -335,6 +340,7 @@ open class CustomerAPI {
             "find_where": (wrappedValue: findWhere?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "find_params": (wrappedValue: findParams?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "include_guests": (wrappedValue: includeGuests?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -546,6 +552,7 @@ open class CustomerAPI {
      - parameter groupId: (query) Customer group_id (optional)
      - parameter storeId: (query) Retrieves customers specified by store id (optional)
      - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
+     - parameter includeGuests: (query) Indicates whether to include guest customers in the list results. (optional, default to false)
      - parameter findValue: (query) Entity search that is specified by some value (optional)
      - parameter findWhere: (query) Customer search that is specified by field (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
@@ -561,8 +568,8 @@ open class CustomerAPI {
      - returns: ModelResponseCustomerList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func customerList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCustomerList {
-        return try await customerListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, ids: ids, sinceId: sinceId, customerListId: customerListId, groupId: groupId, storeId: storeId, avail: avail, findValue: findValue, findWhere: findWhere, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, sortBy: sortBy, sortDirection: sortDirection, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
+    open class func customerList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, includeGuests: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCustomerList {
+        return try await customerListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, ids: ids, sinceId: sinceId, customerListId: customerListId, groupId: groupId, storeId: storeId, avail: avail, includeGuests: includeGuests, findValue: findValue, findWhere: findWhere, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, sortBy: sortBy, sortDirection: sortDirection, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -584,6 +591,7 @@ open class CustomerAPI {
      - parameter groupId: (query) Customer group_id (optional)
      - parameter storeId: (query) Retrieves customers specified by store id (optional)
      - parameter avail: (query) Defines category&#39;s visibility status (optional, default to true)
+     - parameter includeGuests: (query) Indicates whether to include guest customers in the list results. (optional, default to false)
      - parameter findValue: (query) Entity search that is specified by some value (optional)
      - parameter findWhere: (query) Customer search that is specified by field (optional)
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
@@ -598,7 +606,7 @@ open class CustomerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseCustomerList> 
      */
-    open class func customerListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCustomerList> {
+    open class func customerListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, includeGuests: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCustomerList> {
         let localVariablePath = "/customer.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -614,6 +622,7 @@ open class CustomerAPI {
             "group_id": (wrappedValue: groupId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "avail": (wrappedValue: avail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "include_guests": (wrappedValue: includeGuests?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "find_value": (wrappedValue: findValue?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "find_where": (wrappedValue: findWhere?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "created_from": (wrappedValue: createdFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),

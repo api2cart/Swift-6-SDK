@@ -56,6 +56,7 @@ public struct CartCreate: Sendable, Codable, JSONEncodable, Hashable {
         case shopwareApi = "ShopwareApi"
         case square = "Square"
         case squarespace = "Squarespace"
+        case temu = "Temu"
         case tiendanube = "Tiendanube"
         case tikTokShop = "TikTokShop"
         case tomatocart = "Tomatocart"
