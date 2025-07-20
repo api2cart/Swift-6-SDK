@@ -149,10 +149,10 @@ open class CategoryAPI {
      - parameter productId: (query) Defines category assign to the product, specified by product id 
      - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: CartConfigUpdate200Response
+     - returns: CategoryAssign200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func categoryAssign(categoryId: String, productId: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartConfigUpdate200Response {
+    open class func categoryAssign(categoryId: String, productId: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryAssign200Response {
         return try await categoryAssignWithRequestBuilder(categoryId: categoryId, productId: productId, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -170,9 +170,9 @@ open class CategoryAPI {
      - parameter productId: (query) Defines category assign to the product, specified by product id 
      - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<CartConfigUpdate200Response> 
+     - returns: RequestBuilder<CategoryAssign200Response> 
      */
-    open class func categoryAssignWithRequestBuilder(categoryId: String, productId: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartConfigUpdate200Response> {
+    open class func categoryAssignWithRequestBuilder(categoryId: String, productId: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryAssign200Response> {
         let localVariablePath = "/category.assign.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -190,7 +190,7 @@ open class CategoryAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CartConfigUpdate200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CategoryAssign200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -698,10 +698,10 @@ open class CategoryAPI {
      - parameter productId: (query) Defines category unassign to the product, specified by product id 
      - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: CartConfigUpdate200Response
+     - returns: CategoryAssign200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func categoryUnassign(categoryId: String, productId: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartConfigUpdate200Response {
+    open class func categoryUnassign(categoryId: String, productId: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryAssign200Response {
         return try await categoryUnassignWithRequestBuilder(categoryId: categoryId, productId: productId, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -719,9 +719,9 @@ open class CategoryAPI {
      - parameter productId: (query) Defines category unassign to the product, specified by product id 
      - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<CartConfigUpdate200Response> 
+     - returns: RequestBuilder<CategoryAssign200Response> 
      */
-    open class func categoryUnassignWithRequestBuilder(categoryId: String, productId: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartConfigUpdate200Response> {
+    open class func categoryUnassignWithRequestBuilder(categoryId: String, productId: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryAssign200Response> {
         let localVariablePath = "/category.unassign.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -739,7 +739,7 @@ open class CategoryAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CartConfigUpdate200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CategoryAssign200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

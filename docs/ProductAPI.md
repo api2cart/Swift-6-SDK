@@ -1,6 +1,6 @@
 # ProductAPI
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,7 +18,6 @@ Method | HTTP request | Description
 [**productCurrencyList**](ProductAPI.md#productcurrencylist) | **GET** /product.currency.list.json | product.currency.list
 [**productDelete**](ProductAPI.md#productdelete) | **DELETE** /product.delete.json | product.delete
 [**productDeleteBatch**](ProductAPI.md#productdeletebatch) | **POST** /product.delete.batch.json | product.delete.batch
-[**productFields**](ProductAPI.md#productfields) | **GET** /product.fields.json | product.fields
 [**productFind**](ProductAPI.md#productfind) | **GET** /product.find.json | product.find
 [**productImageAdd**](ProductAPI.md#productimageadd) | **POST** /product.image.add.json | product.image.add
 [**productImageDelete**](ProductAPI.md#productimagedelete) | **DELETE** /product.image.delete.json | product.image.delete
@@ -44,13 +43,10 @@ Method | HTTP request | Description
 [**productUpdateBatch**](ProductAPI.md#productupdatebatch) | **POST** /product.update.batch.json | product.update.batch
 [**productVariantAdd**](ProductAPI.md#productvariantadd) | **POST** /product.variant.add.json | product.variant.add
 [**productVariantAddBatch**](ProductAPI.md#productvariantaddbatch) | **POST** /product.variant.add.batch.json | product.variant.add.batch
-[**productVariantCount**](ProductAPI.md#productvariantcount) | **GET** /product.variant.count.json | product.variant.count
 [**productVariantDelete**](ProductAPI.md#productvariantdelete) | **DELETE** /product.variant.delete.json | product.variant.delete
 [**productVariantDeleteBatch**](ProductAPI.md#productvariantdeletebatch) | **POST** /product.variant.delete.batch.json | product.variant.delete.batch
 [**productVariantImageAdd**](ProductAPI.md#productvariantimageadd) | **POST** /product.variant.image.add.json | product.variant.image.add
 [**productVariantImageDelete**](ProductAPI.md#productvariantimagedelete) | **DELETE** /product.variant.image.delete.json | product.variant.image.delete
-[**productVariantInfo**](ProductAPI.md#productvariantinfo) | **GET** /product.variant.info.json | product.variant.info
-[**productVariantList**](ProductAPI.md#productvariantlist) | **GET** /product.variant.list.json | product.variant.list
 [**productVariantPriceAdd**](ProductAPI.md#productvariantpriceadd) | **POST** /product.variant.price.add.json | product.variant.price.add
 [**productVariantPriceDelete**](ProductAPI.md#productvariantpricedelete) | **DELETE** /product.variant.price.delete.json | product.variant.price.delete
 [**productVariantPriceUpdate**](ProductAPI.md#productvariantpriceupdate) | **PUT** /product.variant.price.update.json | product.variant.price.update
@@ -976,52 +972,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **productFields**
-```swift
-    open class func productFields(completion: @escaping (_ data: CartConfigUpdate200Response?, _ error: Error?) -> Void)
-```
-
-product.fields
-
-Retrieve all available fields for product item in store.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-
-// product.fields
-ProductAPI.productFields() { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2484,68 +2434,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **productVariantCount**
-```swift
-    open class func productVariantCount(productId: String, categoryId: String? = nil, storeId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, completion: @escaping (_ data: ProductVariantCount200Response?, _ error: Error?) -> Void)
-```
-
-product.variant.count
-
-Get count variants.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let productId = "productId_example" // String | Retrieves products' variants specified by product id
-let categoryId = "categoryId_example" // String | Counts products’ variants specified by category id (optional)
-let storeId = "storeId_example" // String | Retrieves variants specified by store id (optional)
-let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
-let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
-let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
-let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
-
-// product.variant.count
-ProductAPI.productVariantCount(productId: productId, categoryId: categoryId, storeId: storeId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **productId** | **String** | Retrieves products&#39; variants specified by product id | 
- **categoryId** | **String** | Counts products’ variants specified by category id | [optional] 
- **storeId** | **String** | Retrieves variants specified by store id | [optional] 
- **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
- **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
- **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
- **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
-
-### Return type
-
-[**ProductVariantCount200Response**](ProductVariantCount200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **productVariantDelete**
 ```swift
     open class func productVariantDelete(id: String, productId: String, storeId: String? = nil, completion: @escaping (_ data: AttributeValueDelete200Response?, _ error: Error?) -> Void)
@@ -2744,132 +2632,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AttributeDelete200Response**](AttributeDelete200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **productVariantInfo**
-```swift
-    open class func productVariantInfo(id: String, storeId: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ProductInfo200Response?, _ error: Error?) -> Void)
-```
-
-product.variant.info
-
-Get variant info. This method is deprecated, and its development is stopped. Please use \"product.child_item.info\" instead.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let id = "id_example" // String | Retrieves variant's info specified by variant id
-let storeId = "storeId_example" // String | Retrieves variant info specified by store id (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,description,price")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-
-// product.variant.info
-ProductAPI.productVariantInfo(id: id, storeId: storeId, params: params, exclude: exclude) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String** | Retrieves variant&#39;s info specified by variant id | 
- **storeId** | **String** | Retrieves variant info specified by store id | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,description,price&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
-
-### Return type
-
-[**ProductInfo200Response**](ProductInfo200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **productVariantList**
-```swift
-    open class func productVariantList(start: Int? = nil, count: Int? = nil, productId: String? = nil, categoryId: String? = nil, storeId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ProductVariantList200Response?, _ error: Error?) -> Void)
-```
-
-product.variant.list
-
-Get a list of variants. This method is deprecated, and its development is stopped. Please use \"product.child_item.list\" instead.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
-let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
-let productId = "productId_example" // String | Retrieves products' variants specified by product id (optional)
-let categoryId = "categoryId_example" // String | Retrieves products’ variants specified by category id (optional)
-let storeId = "storeId_example" // String | Retrieves variants specified by store id (optional)
-let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
-let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
-let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
-let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,description,price")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-
-// product.variant.list
-ProductAPI.productVariantList(start: start, count: count, productId: productId, categoryId: categoryId, storeId: storeId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, params: params, exclude: exclude) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
- **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **productId** | **String** | Retrieves products&#39; variants specified by product id | [optional] 
- **categoryId** | **String** | Retrieves products’ variants specified by category id | [optional] 
- **storeId** | **String** | Retrieves variants specified by store id | [optional] 
- **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
- **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
- **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
- **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,description,price&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
-
-### Return type
-
-[**ProductVariantList200Response**](ProductVariantList200Response.md)
 
 ### Authorization
 

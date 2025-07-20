@@ -25,7 +25,7 @@ open class OpenAPIClientAPIConfiguration: @unchecked Sendable {
     public var interceptor: OpenAPIInterceptor
 
     public init(
-        basePath: String = "https://api.api2cart.com/v1.1",
+        basePath: String = "https://api.api2cart.local.com/v1.1",
         customHeaders: [String: String] = [:],
         credential: URLCredential? = nil,
         requestBuilderFactory: RequestBuilderFactory = URLSessionRequestBuilderFactory(),

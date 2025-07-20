@@ -1,29 +1,22 @@
 # CartAPI
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cartBridge**](CartAPI.md#cartbridge) | **GET** /cart.bridge.json | cart.bridge
 [**cartCatalogPriceRulesCount**](CartAPI.md#cartcatalogpricerulescount) | **GET** /cart.catalog_price_rules.count.json | cart.catalog_price_rules.count
 [**cartCatalogPriceRulesList**](CartAPI.md#cartcatalogpriceruleslist) | **GET** /cart.catalog_price_rules.list.json | cart.catalog_price_rules.list
-[**cartClearCache**](CartAPI.md#cartclearcache) | **POST** /cart.clear_cache.json | cart.clear_cache
-[**cartConfig**](CartAPI.md#cartconfig) | **GET** /cart.config.json | cart.config
-[**cartConfigUpdate**](CartAPI.md#cartconfigupdate) | **PUT** /cart.config.update.json | cart.config.update
 [**cartCouponAdd**](CartAPI.md#cartcouponadd) | **POST** /cart.coupon.add.json | cart.coupon.add
 [**cartCouponConditionAdd**](CartAPI.md#cartcouponconditionadd) | **POST** /cart.coupon.condition.add.json | cart.coupon.condition.add
 [**cartCouponCount**](CartAPI.md#cartcouponcount) | **GET** /cart.coupon.count.json | cart.coupon.count
 [**cartCouponDelete**](CartAPI.md#cartcoupondelete) | **DELETE** /cart.coupon.delete.json | cart.coupon.delete
 [**cartCouponList**](CartAPI.md#cartcouponlist) | **GET** /cart.coupon.list.json | cart.coupon.list
-[**cartCreate**](CartAPI.md#cartcreate) | **POST** /cart.create.json | cart.create
 [**cartDelete**](CartAPI.md#cartdelete) | **DELETE** /cart.delete.json | cart.delete
-[**cartDisconnect**](CartAPI.md#cartdisconnect) | **GET** /cart.disconnect.json | cart.disconnect
 [**cartGiftcardAdd**](CartAPI.md#cartgiftcardadd) | **POST** /cart.giftcard.add.json | cart.giftcard.add
 [**cartGiftcardCount**](CartAPI.md#cartgiftcardcount) | **GET** /cart.giftcard.count.json | cart.giftcard.count
 [**cartGiftcardDelete**](CartAPI.md#cartgiftcarddelete) | **DELETE** /cart.giftcard.delete.json | cart.giftcard.delete
 [**cartGiftcardList**](CartAPI.md#cartgiftcardlist) | **GET** /cart.giftcard.list.json | cart.giftcard.list
 [**cartInfo**](CartAPI.md#cartinfo) | **GET** /cart.info.json | cart.info
-[**cartList**](CartAPI.md#cartlist) | **GET** /cart.list.json | cart.list
 [**cartMetaDataList**](CartAPI.md#cartmetadatalist) | **GET** /cart.meta_data.list.json | cart.meta_data.list
 [**cartMetaDataSet**](CartAPI.md#cartmetadataset) | **POST** /cart.meta_data.set.json | cart.meta_data.set
 [**cartMetaDataUnset**](CartAPI.md#cartmetadataunset) | **DELETE** /cart.meta_data.unset.json | cart.meta_data.unset
@@ -35,52 +28,6 @@ Method | HTTP request | Description
 [**cartShippingZonesList**](CartAPI.md#cartshippingzoneslist) | **GET** /cart.shipping_zones.list.json | cart.shipping_zones.list
 [**cartValidate**](CartAPI.md#cartvalidate) | **GET** /cart.validate.json | cart.validate
 
-
-# **cartBridge**
-```swift
-    open class func cartBridge(completion: @escaping (_ data: CartBridge200Response?, _ error: Error?) -> Void)
-```
-
-cart.bridge
-
-Get bridge key and store key
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-
-// cart.bridge
-CartAPI.cartBridge() { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**CartBridge200Response**](CartBridge200Response.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cartCatalogPriceRulesCount**
 ```swift
@@ -186,158 +133,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cartClearCache**
-```swift
-    open class func cartClearCache(cacheType: String, completion: @escaping (_ data: CartClearCache200Response?, _ error: Error?) -> Void)
-```
-
-cart.clear_cache
-
-Clear cache on store.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let cacheType = "cacheType_example" // String | Defines which cache should be cleared.
-
-// cart.clear_cache
-CartAPI.cartClearCache(cacheType: cacheType) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cacheType** | **String** | Defines which cache should be cleared. | 
-
-### Return type
-
-[**CartClearCache200Response**](CartClearCache200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cartConfig**
-```swift
-    open class func cartConfig(params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: CartConfig200Response?, _ error: Error?) -> Void)
-```
-
-cart.config
-
-Get list of cart configs
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "store_name,store_url,db_prefix")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-
-// cart.config
-CartAPI.cartConfig(params: params, exclude: exclude) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;store_name,store_url,db_prefix&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
-
-### Return type
-
-[**CartConfig200Response**](CartConfig200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cartConfigUpdate**
-```swift
-    open class func cartConfigUpdate(cartConfigUpdate: CartConfigUpdate, completion: @escaping (_ data: CartConfigUpdate200Response?, _ error: Error?) -> Void)
-```
-
-cart.config.update
-
-Use this API method to update custom data in client database.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let cartConfigUpdate = CartConfigUpdate(dbTablesPrefix: "dbTablesPrefix_example", customFields: 123, storeId: "storeId_example", userAgent: "userAgent_example") // CartConfigUpdate | 
-
-// cart.config.update
-CartAPI.cartConfigUpdate(cartConfigUpdate: cartConfigUpdate) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cartConfigUpdate** | [**CartConfigUpdate**](CartConfigUpdate.md) |  | 
-
-### Return type
-
-[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -646,56 +441,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **cartCreate**
-```swift
-    open class func cartCreate(cartCreate: CartCreate, completion: @escaping (_ data: AccountCartAdd200Response?, _ error: Error?) -> Void)
-```
-
-cart.create
-
-Add store to the account
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let cartCreate = CartCreate(cartId: "cartId_example", storeUrl: "storeUrl_example", bridgeUrl: "bridgeUrl_example", storeRoot: "storeRoot_example", storeKey: "storeKey_example", sharedSecret: "sharedSecret_example", validateVersion: true, verify: false, dbTablesPrefix: "dbTablesPrefix_example", userAgent: "userAgent_example", ftpHost: "ftpHost_example", ftpUser: "ftpUser_example", ftpPassword: "ftpPassword_example", ftpPort: 123, ftpStoreDir: "ftpStoreDir_example", apiKey3dcart: "apiKey3dcart_example", adminAccount: "adminAccount_example", apiPath: "apiPath_example", apiKeyBigcommerce: "apiKeyBigcommerce_example", clientId: "clientId_example", accessToken: "accessToken_example", context: "context_example", accessToken: "accessToken_example", apiKeyShopify: "apiKeyShopify_example", apiPassword: "apiPassword_example", accessTokenShopify: "accessTokenShopify_example", apiKey: "apiKey_example", apiUsername: "apiUsername_example", encryptedPassword: "encryptedPassword_example", login: "login_example", apiUserAdnsf: "apiUserAdnsf_example", apiPass: "apiPass_example", privateKey: "privateKey_example", appToken: "appToken_example", etsyKeystring: "etsyKeystring_example", etsySharedSecret: "etsySharedSecret_example", tokenSecret: "tokenSecret_example", etsyClientId: "etsyClientId_example", etsyRefreshToken: "etsyRefreshToken_example", ebayClientId: "ebayClientId_example", ebayClientSecret: "ebayClientSecret_example", ebayRuname: "ebayRuname_example", ebayAccessToken: "ebayAccessToken_example", ebayRefreshToken: "ebayRefreshToken_example", ebayEnvironment: "ebayEnvironment_example", ebaySiteId: 123, dwClientId: "dwClientId_example", dwApiPass: "dwApiPass_example", demandwareUserName: "demandwareUserName_example", demandwareUserPassword: "demandwareUserPassword_example", storeId: "storeId_example", sellerId: "sellerId_example", environment: "environment_example", hybrisClientId: "hybrisClientId_example", hybrisClientSecret: "hybrisClientSecret_example", hybrisUsername: "hybrisUsername_example", hybrisPassword: "hybrisPassword_example", hybrisWebsites: [AccountCartAdd_hybris_websites_inner(uid: "uid_example", url: "url_example", storeIds: ["storeIds_example"])], walmartClientId: "walmartClientId_example", walmartClientSecret: "walmartClientSecret_example", walmartEnvironment: "walmartEnvironment_example", walmartChannelType: "walmartChannelType_example", walmartRegion: "walmartRegion_example", lightspeedApiKey: "lightspeedApiKey_example", lightspeedApiSecret: "lightspeedApiSecret_example", shoplazzaAccessToken: "shoplazzaAccessToken_example", shoplazzaSharedSecret: "shoplazzaSharedSecret_example", shopwareAccessKey: "shopwareAccessKey_example", shopwareApiKey: "shopwareApiKey_example", shopwareApiSecret: "shopwareApiSecret_example", commercehqApiKey: "commercehqApiKey_example", commercehqApiPassword: "commercehqApiPassword_example", _3dcartPrivateKey: "_3dcartPrivateKey_example", _3dcartAccessToken: "_3dcartAccessToken_example", wcConsumerKey: "wcConsumerKey_example", wcConsumerSecret: "wcConsumerSecret_example", magentoConsumerKey: "magentoConsumerKey_example", magentoConsumerSecret: "magentoConsumerSecret_example", magentoAccessToken: "magentoAccessToken_example", magentoTokenSecret: "magentoTokenSecret_example", prestashopWebserviceKey: "prestashopWebserviceKey_example", wixAppId: "wixAppId_example", wixAppSecretKey: "wixAppSecretKey_example", wixInstanceId: "wixInstanceId_example", wixRefreshToken: "wixRefreshToken_example", mercadoLibreAppId: "mercadoLibreAppId_example", mercadoLibreAppSecretKey: "mercadoLibreAppSecretKey_example", mercadoLibreRefreshToken: "mercadoLibreRefreshToken_example", zidClientId: 123, zidClientSecret: "zidClientSecret_example", zidAccessToken: "zidAccessToken_example", zidAuthorization: "zidAuthorization_example", zidRefreshToken: "zidRefreshToken_example", flipkartClientId: "flipkartClientId_example", flipkartClientSecret: "flipkartClientSecret_example", allegroClientId: "allegroClientId_example", allegroClientSecret: "allegroClientSecret_example", allegroAccessToken: "allegroAccessToken_example", allegroRefreshToken: "allegroRefreshToken_example", allegroEnvironment: "allegroEnvironment_example") // CartCreate | 
-
-// cart.create
-CartAPI.cartCreate(cartCreate: cartCreate) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cartCreate** | [**CartCreate**](CartCreate.md) |  | 
-
-### Return type
-
-[**AccountCartAdd200Response**](AccountCartAdd200Response.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **cartDelete**
 ```swift
     open class func cartDelete(deleteBridge: Bool? = nil, completion: @escaping (_ data: CartDelete200Response?, _ error: Error?) -> Void)
@@ -734,56 +479,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CartDelete200Response**](CartDelete200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cartDisconnect**
-```swift
-    open class func cartDisconnect(deleteBridge: Bool? = nil, completion: @escaping (_ data: CartDisconnect200Response?, _ error: Error?) -> Void)
-```
-
-cart.disconnect
-
-Disconnect with the store and clear store session data.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let deleteBridge = true // Bool | Identifies if there is a necessity to delete bridge (optional) (default to false)
-
-// cart.disconnect
-CartAPI.cartDisconnect(deleteBridge: deleteBridge) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **deleteBridge** | **Bool** | Identifies if there is a necessity to delete bridge | [optional] [default to false]
-
-### Return type
-
-[**CartDisconnect200Response**](CartDisconnect200Response.md)
 
 ### Authorization
 
@@ -1066,52 +761,6 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cartList**
-```swift
-    open class func cartList(completion: @escaping (_ data: CartList200Response?, _ error: Error?) -> Void)
-```
-
-cart.list
-
-Get list of supported carts
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-
-// cart.list
-CartAPI.cartList() { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**CartList200Response**](CartList200Response.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

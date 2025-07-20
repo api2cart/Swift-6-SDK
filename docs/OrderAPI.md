@@ -1,6 +1,6 @@
 # OrderAPI
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**orderAdd**](OrderAPI.md#orderadd) | **POST** /order.add.json | order.add
 [**orderCount**](OrderAPI.md#ordercount) | **GET** /order.count.json | order.count
 [**orderFinancialStatusList**](OrderAPI.md#orderfinancialstatuslist) | **GET** /order.financial_status.list.json | order.financial_status.list
-[**orderFind**](OrderAPI.md#orderfind) | **GET** /order.find.json | order.find
 [**orderFulfillmentStatusList**](OrderAPI.md#orderfulfillmentstatuslist) | **GET** /order.fulfillment_status.list.json | order.fulfillment_status.list
 [**orderInfo**](OrderAPI.md#orderinfo) | **GET** /order.info.json | order.info
 [**orderList**](OrderAPI.md#orderlist) | **GET** /order.list.json | order.list
@@ -277,78 +276,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**OrderFinancialStatusList200Response**](OrderFinancialStatusList200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **orderFind**
-```swift
-    open class func orderFind(start: Int? = nil, count: Int? = nil, customerId: String? = nil, customerEmail: String? = nil, orderStatus: String? = nil, financialStatus: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: OrderFind200Response?, _ error: Error?) -> Void)
-```
-
-order.find
-
-This method is deprecated and won't be supported in the future. Please use \"order.list\" instead.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
-let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
-let customerId = "customerId_example" // String | Retrieves orders specified by customer id (optional)
-let customerEmail = "customerEmail_example" // String | Retrieves orders specified by customer email (optional)
-let orderStatus = "orderStatus_example" // String | Retrieves orders specified by order status (optional)
-let financialStatus = "financialStatus_example" // String | Retrieves orders specified by financial status (optional)
-let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
-let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
-let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
-let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "order_id,customer,totals,address,items,bundles,status")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-
-// order.find
-OrderAPI.orderFind(start: start, count: count, customerId: customerId, customerEmail: customerEmail, orderStatus: orderStatus, financialStatus: financialStatus, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, params: params, exclude: exclude) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
- **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **customerId** | **String** | Retrieves orders specified by customer id | [optional] 
- **customerEmail** | **String** | Retrieves orders specified by customer email | [optional] 
- **orderStatus** | **String** | Retrieves orders specified by order status | [optional] 
- **financialStatus** | **String** | Retrieves orders specified by financial status | [optional] 
- **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
- **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
- **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
- **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;order_id,customer,totals,address,items,bundles,status&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
-
-### Return type
-
-[**OrderFind200Response**](OrderFind200Response.md)
 
 ### Authorization
 
