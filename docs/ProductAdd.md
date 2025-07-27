@@ -40,6 +40,7 @@ Name | Type | Description | Notes
 **backorderStatus** | **String** | Set backorder status | [optional] 
 **minOrderQuantity** | **Double** | The minimum quantity an order must contain, to be eligible to purchase this product. | [optional] 
 **maxOrderQuantity** | **Double** | The maximum quantity an order can contain when purchasing the product. | [optional] 
+**lowStockThreshold** | **Double** | Specify the quantity threshold below which the product is considered low in stock | [optional] 
 **weight** | **Double** | Weight | [optional] [default to 0]
 **weightUnit** | **String** | Weight Unit | [optional] 
 **width** | **Double** | Defines product&#39;s width | [optional] 

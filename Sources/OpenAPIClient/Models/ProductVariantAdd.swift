@@ -61,6 +61,8 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var backorderStatus: String?
     /** Defines inventory tracking for product variant */
     public var manageStock: Bool?
+    /** Specify the quantity threshold below which the product is considered low in stock */
+    public var lowStockThreshold: Double?
     /** Weight */
     public var weight: Double? = 0
     /** Defines product's width */
@@ -114,7 +116,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
     /** Is cache clear required */
     public var clearCache: Bool? = true
 
-    public init(productId: String? = nil, attributes: [ProductVariantAddAttributesInner]? = nil, name: String? = nil, model: String, description: String? = nil, shortDescription: String? = nil, availableForView: Bool? = true, availableForSale: Bool? = true, isVirtual: Bool? = false, isDefault: Bool? = nil, storeId: String? = nil, storesIds: String? = nil, langId: String? = nil, price: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceModified: String? = nil, spriceExpire: String? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, quantity: Double? = 0, warehouseId: String? = nil, inStock: Bool? = nil, backorderStatus: String? = nil, manageStock: Bool? = nil, weight: Double? = 0, width: Double? = nil, height: Double? = nil, length: Double? = nil, weightUnit: String? = nil, sku: String? = nil, barcode: String? = nil, gtin: String? = nil, upc: String? = nil, ean: String? = nil, mpn: String? = nil, isbn: String? = nil, manufacturer: String? = nil, createdAt: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, url: String? = nil, taxClassId: String? = nil, taxable: Bool? = true, fixedCostShippingPrice: Double? = nil, isFreeShipping: Bool? = nil, countryOfOrigin: String? = nil, harmonizedSystemCode: String? = nil, marketplaceItemProperties: String? = nil, clearCache: Bool? = true) {
+    public init(productId: String? = nil, attributes: [ProductVariantAddAttributesInner]? = nil, name: String? = nil, model: String, description: String? = nil, shortDescription: String? = nil, availableForView: Bool? = true, availableForSale: Bool? = true, isVirtual: Bool? = false, isDefault: Bool? = nil, storeId: String? = nil, storesIds: String? = nil, langId: String? = nil, price: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceModified: String? = nil, spriceExpire: String? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, quantity: Double? = 0, warehouseId: String? = nil, inStock: Bool? = nil, backorderStatus: String? = nil, manageStock: Bool? = nil, lowStockThreshold: Double? = nil, weight: Double? = 0, width: Double? = nil, height: Double? = nil, length: Double? = nil, weightUnit: String? = nil, sku: String? = nil, barcode: String? = nil, gtin: String? = nil, upc: String? = nil, ean: String? = nil, mpn: String? = nil, isbn: String? = nil, manufacturer: String? = nil, createdAt: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, url: String? = nil, taxClassId: String? = nil, taxable: Bool? = true, fixedCostShippingPrice: Double? = nil, isFreeShipping: Bool? = nil, countryOfOrigin: String? = nil, harmonizedSystemCode: String? = nil, marketplaceItemProperties: String? = nil, clearCache: Bool? = true) {
         self.productId = productId
         self.attributes = attributes
         self.name = name
@@ -141,6 +143,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.inStock = inStock
         self.backorderStatus = backorderStatus
         self.manageStock = manageStock
+        self.lowStockThreshold = lowStockThreshold
         self.weight = weight
         self.width = width
         self.height = height
@@ -196,6 +199,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
         case inStock = "in_stock"
         case backorderStatus = "backorder_status"
         case manageStock = "manage_stock"
+        case lowStockThreshold = "low_stock_threshold"
         case weight
         case width
         case height
@@ -254,6 +258,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(inStock, forKey: .inStock)
         try container.encodeIfPresent(backorderStatus, forKey: .backorderStatus)
         try container.encodeIfPresent(manageStock, forKey: .manageStock)
+        try container.encodeIfPresent(lowStockThreshold, forKey: .lowStockThreshold)
         try container.encodeIfPresent(weight, forKey: .weight)
         try container.encodeIfPresent(width, forKey: .width)
         try container.encodeIfPresent(height, forKey: .height)

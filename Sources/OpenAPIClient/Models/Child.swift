@@ -41,6 +41,7 @@ public struct Child: Sendable, Codable, JSONEncodable, Hashable {
     public var inventoryLevel: Double?
     public var inventory: [ProductInventory]?
     public var minQuantity: Double?
+    public var lowStockThreshold: Double?
     public var defaultQtyInPack: Double?
     public var isQtyInPackFixed: Bool?
     public var weightUnit: String?
@@ -57,7 +58,7 @@ public struct Child: Sendable, Codable, JSONEncodable, Hashable {
     public var additionalFields: JSONValue?
     public var customFields: JSONValue?
 
-    public init(id: String? = nil, parentId: String? = nil, sku: String? = nil, upc: String? = nil, ean: String? = nil, mpn: String? = nil, gtin: String? = nil, isbn: String? = nil, url: String? = nil, seoUrl: String? = nil, sortOrder: Int? = nil, createdTime: A2CDateTime? = nil, modifiedTime: A2CDateTime? = nil, name: String? = nil, shortDescription: String? = nil, fullDescription: String? = nil, images: [Image]? = nil, combination: [ProductChildItemCombination]? = nil, defaultPrice: Double? = nil, costPrice: Double? = nil, listPrice: Double? = nil, wholesalePrice: Double? = nil, advancedPrice: [ProductAdvancedPrice]? = nil, taxClassId: String? = nil, availForSale: Bool? = nil, allowBackorders: Bool? = nil, inStock: Bool? = nil, onSale: Bool? = nil, manageStock: Bool? = nil, inventoryLevel: Double? = nil, inventory: [ProductInventory]? = nil, minQuantity: Double? = nil, defaultQtyInPack: Double? = nil, isQtyInPackFixed: Bool? = nil, weightUnit: String? = nil, weight: Double? = nil, dimensionsUnit: String? = nil, width: Double? = nil, height: Double? = nil, length: Double? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, discounts: [Discount]? = nil, isVirtual: Bool? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
+    public init(id: String? = nil, parentId: String? = nil, sku: String? = nil, upc: String? = nil, ean: String? = nil, mpn: String? = nil, gtin: String? = nil, isbn: String? = nil, url: String? = nil, seoUrl: String? = nil, sortOrder: Int? = nil, createdTime: A2CDateTime? = nil, modifiedTime: A2CDateTime? = nil, name: String? = nil, shortDescription: String? = nil, fullDescription: String? = nil, images: [Image]? = nil, combination: [ProductChildItemCombination]? = nil, defaultPrice: Double? = nil, costPrice: Double? = nil, listPrice: Double? = nil, wholesalePrice: Double? = nil, advancedPrice: [ProductAdvancedPrice]? = nil, taxClassId: String? = nil, availForSale: Bool? = nil, allowBackorders: Bool? = nil, inStock: Bool? = nil, onSale: Bool? = nil, manageStock: Bool? = nil, inventoryLevel: Double? = nil, inventory: [ProductInventory]? = nil, minQuantity: Double? = nil, lowStockThreshold: Double? = nil, defaultQtyInPack: Double? = nil, isQtyInPackFixed: Bool? = nil, weightUnit: String? = nil, weight: Double? = nil, dimensionsUnit: String? = nil, width: Double? = nil, height: Double? = nil, length: Double? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, discounts: [Discount]? = nil, isVirtual: Bool? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
         self.id = id
         self.parentId = parentId
         self.sku = sku
@@ -90,6 +91,7 @@ public struct Child: Sendable, Codable, JSONEncodable, Hashable {
         self.inventoryLevel = inventoryLevel
         self.inventory = inventory
         self.minQuantity = minQuantity
+        self.lowStockThreshold = lowStockThreshold
         self.defaultQtyInPack = defaultQtyInPack
         self.isQtyInPackFixed = isQtyInPackFixed
         self.weightUnit = weightUnit
@@ -140,6 +142,7 @@ public struct Child: Sendable, Codable, JSONEncodable, Hashable {
         case inventoryLevel = "inventory_level"
         case inventory
         case minQuantity = "min_quantity"
+        case lowStockThreshold = "low_stock_threshold"
         case defaultQtyInPack = "default_qty_in_pack"
         case isQtyInPackFixed = "is_qty_in_pack_fixed"
         case weightUnit = "weight_unit"
@@ -193,6 +196,7 @@ public struct Child: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(inventoryLevel, forKey: .inventoryLevel)
         try container.encodeIfPresent(inventory, forKey: .inventory)
         try container.encodeIfPresent(minQuantity, forKey: .minQuantity)
+        try container.encodeIfPresent(lowStockThreshold, forKey: .lowStockThreshold)
         try container.encodeIfPresent(defaultQtyInPack, forKey: .defaultQtyInPack)
         try container.encodeIfPresent(isQtyInPackFixed, forKey: .isQtyInPackFixed)
         try container.encodeIfPresent(weightUnit, forKey: .weightUnit)

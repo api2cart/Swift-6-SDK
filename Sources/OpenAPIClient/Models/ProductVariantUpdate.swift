@@ -35,6 +35,8 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var status: String?
     /** Set backorder status */
     public var backorderStatus: String?
+    /** Specify the quantity threshold below which the product is considered low in stock */
+    public var lowStockThreshold: Double?
     /** Specifies the set of visible/invisible product's variants for sale */
     public var availableForSale: Bool? = true
     /** Defines category's visibility status */
@@ -116,7 +118,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
     /** Is cache clear required */
     public var clearCache: Bool? = true
 
-    public init(id: String? = nil, productId: String? = nil, storeId: String? = nil, langId: String? = nil, options: [ProductVariantUpdateOptionsInner]? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, model: String? = nil, sku: String? = nil, visible: String? = nil, status: String? = nil, backorderStatus: String? = nil, availableForSale: Bool? = true, avail: Bool? = true, isDefault: Bool? = nil, isFreeShipping: Bool? = nil, taxable: Bool? = true, taxClassId: String? = nil, isVirtual: Bool? = false, manageStock: Bool? = nil, inStock: Bool? = nil, warehouseId: String? = nil, reserveQuantity: Double? = nil, quantity: Double? = nil, increaseQuantity: Double? = 0, reduceQuantity: Double? = 0, price: Double? = nil, specialPrice: Double? = nil, retailPrice: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, weight: Double? = 0, barcode: String? = nil, width: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, reindex: Bool? = true, clearCache: Bool? = true) {
+    public init(id: String? = nil, productId: String? = nil, storeId: String? = nil, langId: String? = nil, options: [ProductVariantUpdateOptionsInner]? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, model: String? = nil, sku: String? = nil, visible: String? = nil, status: String? = nil, backorderStatus: String? = nil, lowStockThreshold: Double? = nil, availableForSale: Bool? = true, avail: Bool? = true, isDefault: Bool? = nil, isFreeShipping: Bool? = nil, taxable: Bool? = true, taxClassId: String? = nil, isVirtual: Bool? = false, manageStock: Bool? = nil, inStock: Bool? = nil, warehouseId: String? = nil, reserveQuantity: Double? = nil, quantity: Double? = nil, increaseQuantity: Double? = 0, reduceQuantity: Double? = 0, price: Double? = nil, specialPrice: Double? = nil, retailPrice: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, weight: Double? = 0, barcode: String? = nil, width: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, reindex: Bool? = true, clearCache: Bool? = true) {
         self.id = id
         self.productId = productId
         self.storeId = storeId
@@ -130,6 +132,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.visible = visible
         self.status = status
         self.backorderStatus = backorderStatus
+        self.lowStockThreshold = lowStockThreshold
         self.availableForSale = availableForSale
         self.avail = avail
         self.isDefault = isDefault
@@ -186,6 +189,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case visible
         case status
         case backorderStatus = "backorder_status"
+        case lowStockThreshold = "low_stock_threshold"
         case availableForSale = "available_for_sale"
         case avail
         case isDefault = "is_default"
@@ -245,6 +249,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(visible, forKey: .visible)
         try container.encodeIfPresent(status, forKey: .status)
         try container.encodeIfPresent(backorderStatus, forKey: .backorderStatus)
+        try container.encodeIfPresent(lowStockThreshold, forKey: .lowStockThreshold)
         try container.encodeIfPresent(availableForSale, forKey: .availableForSale)
         try container.encodeIfPresent(avail, forKey: .avail)
         try container.encodeIfPresent(isDefault, forKey: .isDefault)
