@@ -25,6 +25,8 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var availableForView: Bool? = true
     /** Specifies the set of visible/invisible product's variants for sale */
     public var availableForSale: Bool? = true
+    /** Defines status */
+    public var status: String?
     /** Defines whether the product is virtual */
     public var isVirtual: Bool? = false
     /** Defines as a default variant */
@@ -87,6 +89,8 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var mpn: String?
     /** International Standard Book Number. An ISBN is a unique identifier for books. */
     public var isbn: String?
+    /** Defines unique URL for SEO */
+    public var seoUrl: String?
     /** Specifies the product variant's manufacturer */
     public var manufacturer: String?
     /** Defines the date of entity creation */
@@ -116,7 +120,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
     /** Is cache clear required */
     public var clearCache: Bool? = true
 
-    public init(productId: String? = nil, attributes: [ProductVariantAddAttributesInner]? = nil, name: String? = nil, model: String, description: String? = nil, shortDescription: String? = nil, availableForView: Bool? = true, availableForSale: Bool? = true, isVirtual: Bool? = false, isDefault: Bool? = nil, storeId: String? = nil, storesIds: String? = nil, langId: String? = nil, price: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceModified: String? = nil, spriceExpire: String? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, quantity: Double? = 0, warehouseId: String? = nil, inStock: Bool? = nil, backorderStatus: String? = nil, manageStock: Bool? = nil, lowStockThreshold: Double? = nil, weight: Double? = 0, width: Double? = nil, height: Double? = nil, length: Double? = nil, weightUnit: String? = nil, sku: String? = nil, barcode: String? = nil, gtin: String? = nil, upc: String? = nil, ean: String? = nil, mpn: String? = nil, isbn: String? = nil, manufacturer: String? = nil, createdAt: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, url: String? = nil, taxClassId: String? = nil, taxable: Bool? = true, fixedCostShippingPrice: Double? = nil, isFreeShipping: Bool? = nil, countryOfOrigin: String? = nil, harmonizedSystemCode: String? = nil, marketplaceItemProperties: String? = nil, clearCache: Bool? = true) {
+    public init(productId: String? = nil, attributes: [ProductVariantAddAttributesInner]? = nil, name: String? = nil, model: String, description: String? = nil, shortDescription: String? = nil, availableForView: Bool? = true, availableForSale: Bool? = true, status: String? = nil, isVirtual: Bool? = false, isDefault: Bool? = nil, storeId: String? = nil, storesIds: String? = nil, langId: String? = nil, price: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceModified: String? = nil, spriceExpire: String? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, quantity: Double? = 0, warehouseId: String? = nil, inStock: Bool? = nil, backorderStatus: String? = nil, manageStock: Bool? = nil, lowStockThreshold: Double? = nil, weight: Double? = 0, width: Double? = nil, height: Double? = nil, length: Double? = nil, weightUnit: String? = nil, sku: String? = nil, barcode: String? = nil, gtin: String? = nil, upc: String? = nil, ean: String? = nil, mpn: String? = nil, isbn: String? = nil, seoUrl: String? = nil, manufacturer: String? = nil, createdAt: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, url: String? = nil, taxClassId: String? = nil, taxable: Bool? = true, fixedCostShippingPrice: Double? = nil, isFreeShipping: Bool? = nil, countryOfOrigin: String? = nil, harmonizedSystemCode: String? = nil, marketplaceItemProperties: String? = nil, clearCache: Bool? = true) {
         self.productId = productId
         self.attributes = attributes
         self.name = name
@@ -125,6 +129,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.shortDescription = shortDescription
         self.availableForView = availableForView
         self.availableForSale = availableForSale
+        self.status = status
         self.isVirtual = isVirtual
         self.isDefault = isDefault
         self.storeId = storeId
@@ -156,6 +161,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.ean = ean
         self.mpn = mpn
         self.isbn = isbn
+        self.seoUrl = seoUrl
         self.manufacturer = manufacturer
         self.createdAt = createdAt
         self.metaTitle = metaTitle
@@ -181,6 +187,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
         case shortDescription = "short_description"
         case availableForView = "available_for_view"
         case availableForSale = "available_for_sale"
+        case status
         case isVirtual = "is_virtual"
         case isDefault = "is_default"
         case storeId = "store_id"
@@ -212,6 +219,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
         case ean
         case mpn
         case isbn
+        case seoUrl = "seo_url"
         case manufacturer
         case createdAt = "created_at"
         case metaTitle = "meta_title"
@@ -240,6 +248,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(shortDescription, forKey: .shortDescription)
         try container.encodeIfPresent(availableForView, forKey: .availableForView)
         try container.encodeIfPresent(availableForSale, forKey: .availableForSale)
+        try container.encodeIfPresent(status, forKey: .status)
         try container.encodeIfPresent(isVirtual, forKey: .isVirtual)
         try container.encodeIfPresent(isDefault, forKey: .isDefault)
         try container.encodeIfPresent(storeId, forKey: .storeId)
@@ -271,6 +280,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(ean, forKey: .ean)
         try container.encodeIfPresent(mpn, forKey: .mpn)
         try container.encodeIfPresent(isbn, forKey: .isbn)
+        try container.encodeIfPresent(seoUrl, forKey: .seoUrl)
         try container.encodeIfPresent(manufacturer, forKey: .manufacturer)
         try container.encodeIfPresent(createdAt, forKey: .createdAt)
         try container.encodeIfPresent(metaTitle, forKey: .metaTitle)
