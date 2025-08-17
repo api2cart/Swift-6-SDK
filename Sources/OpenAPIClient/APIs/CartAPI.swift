@@ -383,6 +383,7 @@ open class CartAPI {
      - parameter storeId: (query) Filter coupons by store id (optional)
      - parameter langId: (query) Language id (optional)
      - parameter avail: (query) Filter coupons by avail status (optional)
+     - parameter status: (query) Defines coupon&#39;s status (optional)
      - parameter dateStartFrom: (query) Filter entity by date_start (greater or equal) (optional)
      - parameter dateStartTo: (query) Filter entity by date_start (less or equal) (optional)
      - parameter dateEndFrom: (query) Filter entity by date_end (greater or equal) (optional)
@@ -394,8 +395,8 @@ open class CartAPI {
      - returns: ModelResponseCartCouponList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartCouponList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, couponsIds: String? = nil, storeId: String? = nil, langId: String? = nil, avail: Bool? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartCouponList {
-        return try await cartCouponListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, couponsIds: couponsIds, storeId: storeId, langId: langId, avail: avail, dateStartFrom: dateStartFrom, dateStartTo: dateStartTo, dateEndFrom: dateEndFrom, dateEndTo: dateEndTo, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
+    open class func cartCouponList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, couponsIds: String? = nil, storeId: String? = nil, langId: String? = nil, avail: Bool? = nil, status: String? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartCouponList {
+        return try await cartCouponListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, couponsIds: couponsIds, storeId: storeId, langId: langId, avail: avail, status: status, dateStartFrom: dateStartFrom, dateStartTo: dateStartTo, dateEndFrom: dateEndFrom, dateEndTo: dateEndTo, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -415,6 +416,7 @@ open class CartAPI {
      - parameter storeId: (query) Filter coupons by store id (optional)
      - parameter langId: (query) Language id (optional)
      - parameter avail: (query) Filter coupons by avail status (optional)
+     - parameter status: (query) Defines coupon&#39;s status (optional)
      - parameter dateStartFrom: (query) Filter entity by date_start (greater or equal) (optional)
      - parameter dateStartTo: (query) Filter entity by date_start (less or equal) (optional)
      - parameter dateEndFrom: (query) Filter entity by date_end (greater or equal) (optional)
@@ -425,7 +427,7 @@ open class CartAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseCartCouponList> 
      */
-    open class func cartCouponListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, couponsIds: String? = nil, storeId: String? = nil, langId: String? = nil, avail: Bool? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartCouponList> {
+    open class func cartCouponListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, couponsIds: String? = nil, storeId: String? = nil, langId: String? = nil, avail: Bool? = nil, status: String? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartCouponList> {
         let localVariablePath = "/cart.coupon.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -439,6 +441,7 @@ open class CartAPI {
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "lang_id": (wrappedValue: langId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "avail": (wrappedValue: avail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "status": (wrappedValue: status?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "date_start_from": (wrappedValue: dateStartFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "date_start_to": (wrappedValue: dateStartTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "date_end_from": (wrappedValue: dateEndFrom?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),

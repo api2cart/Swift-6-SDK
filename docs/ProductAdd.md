@@ -55,6 +55,7 @@ Name | Type | Description | Notes
 **mpn** | **String** | Manufacturer Part Number. A MPN is an identifier of a particular part design or material used. | [optional] 
 **asin** | **String** | Amazon Standard Identification Number. | [optional] 
 **productReference** | **String** | Groups all variations, that you want to combine into one product. | [optional] 
+**externalProductLink** | **String** | External product link | [optional] 
 **harmonizedSystemCode** | **String** | Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes | [optional] 
 **countryOfOrigin** | **String** | The country where the inventory item was made | [optional] 
 **manufacturer** | **String** | Defines product&#39;s manufacturer | [optional] 

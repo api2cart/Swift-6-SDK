@@ -58,8 +58,10 @@ public struct CartCouponAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var storeId: String?
     /** Defines whether the coupon provides free cash on delivery */
     public var freeCashOnDelivery: Bool?
+    /** Retrieves orders specified by customer id */
+    public var customerId: String?
 
-    public init(code: String, actionType: ActionType, actionApplyTo: ActionApplyTo, actionScope: ActionScope, actionAmount: Double, codes: [String]? = nil, name: String? = nil, dateStart: String? = "now", dateEnd: String? = nil, usageLimit: Int? = nil, usageLimitPerCustomer: Int? = nil, actionConditionEntity: String? = nil, actionConditionKey: String? = nil, actionConditionOperator: String? = nil, actionConditionValue: String? = nil, includeTax: Bool? = false, storeId: String? = nil, freeCashOnDelivery: Bool? = nil) {
+    public init(code: String, actionType: ActionType, actionApplyTo: ActionApplyTo, actionScope: ActionScope, actionAmount: Double, codes: [String]? = nil, name: String? = nil, dateStart: String? = "now", dateEnd: String? = nil, usageLimit: Int? = nil, usageLimitPerCustomer: Int? = nil, actionConditionEntity: String? = nil, actionConditionKey: String? = nil, actionConditionOperator: String? = nil, actionConditionValue: String? = nil, includeTax: Bool? = false, storeId: String? = nil, freeCashOnDelivery: Bool? = nil, customerId: String? = nil) {
         self.code = code
         self.actionType = actionType
         self.actionApplyTo = actionApplyTo
@@ -78,6 +80,7 @@ public struct CartCouponAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.includeTax = includeTax
         self.storeId = storeId
         self.freeCashOnDelivery = freeCashOnDelivery
+        self.customerId = customerId
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -99,6 +102,7 @@ public struct CartCouponAdd: Sendable, Codable, JSONEncodable, Hashable {
         case includeTax = "include_tax"
         case storeId = "store_id"
         case freeCashOnDelivery = "free_cash_on_delivery"
+        case customerId = "customer_id"
     }
 
     // Encodable protocol methods
@@ -123,6 +127,7 @@ public struct CartCouponAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(includeTax, forKey: .includeTax)
         try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(freeCashOnDelivery, forKey: .freeCashOnDelivery)
+        try container.encodeIfPresent(customerId, forKey: .customerId)
     }
 }
 

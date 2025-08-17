@@ -151,7 +151,7 @@ Use this method to create a coupon with specified conditions.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let cartCouponAdd = CartCouponAdd(code: "code_example", actionType: "actionType_example", actionApplyTo: "actionApplyTo_example", actionScope: "actionScope_example", actionAmount: 123, codes: ["codes_example"], name: "name_example", dateStart: "dateStart_example", dateEnd: "dateEnd_example", usageLimit: 123, usageLimitPerCustomer: 123, actionConditionEntity: "actionConditionEntity_example", actionConditionKey: "actionConditionKey_example", actionConditionOperator: "actionConditionOperator_example", actionConditionValue: "actionConditionValue_example", includeTax: true, storeId: "storeId_example", freeCashOnDelivery: true) // CartCouponAdd | 
+let cartCouponAdd = CartCouponAdd(code: "code_example", actionType: "actionType_example", actionApplyTo: "actionApplyTo_example", actionScope: "actionScope_example", actionAmount: 123, codes: ["codes_example"], name: "name_example", dateStart: "dateStart_example", dateEnd: "dateEnd_example", usageLimit: 123, usageLimitPerCustomer: 123, actionConditionEntity: "actionConditionEntity_example", actionConditionKey: "actionConditionKey_example", actionConditionOperator: "actionConditionOperator_example", actionConditionValue: "actionConditionValue_example", includeTax: true, storeId: "storeId_example", freeCashOnDelivery: true, customerId: "customerId_example") // CartCouponAdd | 
 
 // cart.coupon.add
 CartAPI.cartCouponAdd(cartCouponAdd: cartCouponAdd) { (response, error) in
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 # **cartCouponList**
 ```swift
-    open class func cartCouponList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, couponsIds: String? = nil, storeId: String? = nil, langId: String? = nil, avail: Bool? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartCouponList?, _ error: Error?) -> Void)
+    open class func cartCouponList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, couponsIds: String? = nil, storeId: String? = nil, langId: String? = nil, avail: Bool? = nil, status: String? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartCouponList?, _ error: Error?) -> Void)
 ```
 
 cart.coupon.list
@@ -386,6 +386,7 @@ let couponsIds = "couponsIds_example" // String | Filter coupons by ids (optiona
 let storeId = "storeId_example" // String | Filter coupons by store id (optional)
 let langId = "langId_example" // String | Language id (optional)
 let avail = false // Bool | Filter coupons by avail status (optional)
+let status = "status_example" // String | Defines coupon's status (optional)
 let dateStartFrom = "dateStartFrom_example" // String | Filter entity by date_start (greater or equal) (optional)
 let dateStartTo = "dateStartTo_example" // String | Filter entity by date_start (less or equal) (optional)
 let dateEndFrom = "dateEndFrom_example" // String | Filter entity by date_end (greater or equal) (optional)
@@ -395,7 +396,7 @@ let params = "params_example" // String | Set this parameter in order to choose 
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // cart.coupon.list
-CartAPI.cartCouponList(start: start, count: count, pageCursor: pageCursor, couponsIds: couponsIds, storeId: storeId, langId: langId, avail: avail, dateStartFrom: dateStartFrom, dateStartTo: dateStartTo, dateEndFrom: dateEndFrom, dateEndTo: dateEndTo, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
+CartAPI.cartCouponList(start: start, count: count, pageCursor: pageCursor, couponsIds: couponsIds, storeId: storeId, langId: langId, avail: avail, status: status, dateStartFrom: dateStartFrom, dateStartTo: dateStartTo, dateEndFrom: dateEndFrom, dateEndTo: dateEndTo, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -418,6 +419,7 @@ Name | Type | Description  | Notes
  **storeId** | **String** | Filter coupons by store id | [optional] 
  **langId** | **String** | Language id | [optional] 
  **avail** | **Bool** | Filter coupons by avail status | [optional] 
+ **status** | **String** | Defines coupon&#39;s status | [optional] 
  **dateStartFrom** | **String** | Filter entity by date_start (greater or equal) | [optional] 
  **dateStartTo** | **String** | Filter entity by date_start (less or equal) | [optional] 
  **dateEndFrom** | **String** | Filter entity by date_end (greater or equal) | [optional] 
