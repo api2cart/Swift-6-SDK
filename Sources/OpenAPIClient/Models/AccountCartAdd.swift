@@ -27,6 +27,7 @@ public struct AccountCartAdd: Sendable, Codable, JSONEncodable, Hashable {
         case ebay = "EBay"
         case ecwid = "Ecwid"
         case etsyAPIv3 = "EtsyAPIv3"
+        case facebook = "Facebook"
         case flipkart = "Flipkart"
         case gambio = "Gambio"
         case hybris = "Hybris"

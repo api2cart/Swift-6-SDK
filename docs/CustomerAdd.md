@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **lastName** | **String** | Defines customer&#39;s last name | [optional] 
 **password** | **String** | Defines customer&#39;s unique password | [optional] 
 **group** | **String** | Defines the group where the customer | [optional] 
+**groupId** | **String** | Customer group_id | [optional] 
 **groupIds** | **String** | Groups that will be assigned to a customer | [optional] 
 **status** | **String** | Defines customer&#39;s status | [optional] [default to "enabled"]
 **createdTime** | **String** | Entity&#39;s date creation | [optional] 

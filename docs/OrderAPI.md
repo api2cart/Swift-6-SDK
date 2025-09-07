@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**orderAbandonedList**](OrderAPI.md#orderabandonedlist) | **GET** /order.abandoned.list.json | order.abandoned.list
 [**orderAdd**](OrderAPI.md#orderadd) | **POST** /order.add.json | order.add
+[**orderCalculate**](OrderAPI.md#ordercalculate) | **POST** /order.calculate.json | order.calculate
 [**orderCount**](OrderAPI.md#ordercount) | **GET** /order.count.json | order.count
 [**orderFinancialStatusList**](OrderAPI.md#orderfinancialstatuslist) | **GET** /order.financial_status.list.json | order.financial_status.list
 [**orderFulfillmentStatusList**](OrderAPI.md#orderfulfillmentstatuslist) | **GET** /order.fulfillment_status.list.json | order.fulfillment_status.list
@@ -142,6 +143,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OrderAdd200Response**](OrderAdd200Response.md)
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orderCalculate**
+```swift
+    open class func orderCalculate(orderCalculate: OrderCalculate, completion: @escaping (_ data: OrderCalculate200Response?, _ error: Error?) -> Void)
+```
+
+order.calculate
+
+<p>Calculates the total cost of an order for a given customer and a set of products, as well as the available shipping methods based on the specified address. The calculation takes into account store product prices, discounts, taxes, shipping costs, and other store settings. The result includes a detailed breakdown of the final order cost by its components.</p> <p>Note that the final totals, taxes, and other amounts must include the corresponding values for the selected shipping method.</p><p>The result of this method can be used when creating an order using the <strong>order.add</strong> method.</p>
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let orderCalculate = OrderCalculate(customerEmail: "customerEmail_example", currencyId: "currencyId_example", storeId: "storeId_example", coupons: ["coupons_example"], shippFirstName: "shippFirstName_example", shippLastName: "shippLastName_example", shippAddress1: "shippAddress1_example", shippAddress2: "shippAddress2_example", shippCity: "shippCity_example", shippPostcode: "shippPostcode_example", shippState: "shippState_example", shippCountry: "shippCountry_example", shippCompany: "shippCompany_example", shippPhone: "shippPhone_example", billFirstName: "billFirstName_example", billLastName: "billLastName_example", billAddress1: "billAddress1_example", billAddress2: "billAddress2_example", billCity: "billCity_example", billPostcode: "billPostcode_example", billState: "billState_example", billCountry: "billCountry_example", billCompany: "billCompany_example", billPhone: "billPhone_example", responseFields: "responseFields_example", orderItem: [OrderCalculate_order_item_inner(orderItemId: "orderItemId_example", orderItemQuantity: 123, orderItemVariantId: "orderItemVariantId_example", orderItemOption: [OrderCalculate_order_item_inner_order_item_option_inner(orderItemOptionName: "orderItemOptionName_example", orderItemOptionValue: "orderItemOptionValue_example")])]) // OrderCalculate | 
+
+// order.calculate
+OrderAPI.orderCalculate(orderCalculate: orderCalculate) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderCalculate** | [**OrderCalculate**](OrderCalculate.md) |  | 
+
+### Return type
+
+[**OrderCalculate200Response**](OrderCalculate200Response.md)
 
 ### Authorization
 

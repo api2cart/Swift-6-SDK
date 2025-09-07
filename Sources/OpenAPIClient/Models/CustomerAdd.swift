@@ -20,6 +20,8 @@ public struct CustomerAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var password: String?
     /** Defines the group where the customer */
     public var group: String?
+    /** Customer group_id */
+    public var groupId: String?
     /** Groups that will be assigned to a customer */
     public var groupIds: String?
     /** Defines customer's status */
@@ -56,12 +58,13 @@ public struct CustomerAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var storeId: String?
     public var address: [CustomerAddAddressInner]?
 
-    public init(email: String, firstName: String? = nil, lastName: String? = nil, password: String? = nil, group: String? = nil, groupIds: String? = nil, status: String? = "enabled", createdTime: String? = nil, modifiedTime: String? = nil, login: String? = nil, lastLogin: String? = nil, birthDay: String? = nil, newsLetterSubscription: Bool? = nil, consents: [CustomerAddConsentsInner]? = nil, gender: String? = nil, website: String? = nil, fax: String? = nil, company: String? = nil, phone: String? = nil, note: String? = nil, country: String? = nil, storeId: String? = nil, address: [CustomerAddAddressInner]? = nil) {
+    public init(email: String, firstName: String? = nil, lastName: String? = nil, password: String? = nil, group: String? = nil, groupId: String? = nil, groupIds: String? = nil, status: String? = "enabled", createdTime: String? = nil, modifiedTime: String? = nil, login: String? = nil, lastLogin: String? = nil, birthDay: String? = nil, newsLetterSubscription: Bool? = nil, consents: [CustomerAddConsentsInner]? = nil, gender: String? = nil, website: String? = nil, fax: String? = nil, company: String? = nil, phone: String? = nil, note: String? = nil, country: String? = nil, storeId: String? = nil, address: [CustomerAddAddressInner]? = nil) {
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
         self.password = password
         self.group = group
+        self.groupId = groupId
         self.groupIds = groupIds
         self.status = status
         self.createdTime = createdTime
@@ -88,6 +91,7 @@ public struct CustomerAdd: Sendable, Codable, JSONEncodable, Hashable {
         case lastName = "last_name"
         case password
         case group
+        case groupId = "group_id"
         case groupIds = "group_ids"
         case status
         case createdTime = "created_time"
@@ -117,6 +121,7 @@ public struct CustomerAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(lastName, forKey: .lastName)
         try container.encodeIfPresent(password, forKey: .password)
         try container.encodeIfPresent(group, forKey: .group)
+        try container.encodeIfPresent(groupId, forKey: .groupId)
         try container.encodeIfPresent(groupIds, forKey: .groupIds)
         try container.encodeIfPresent(status, forKey: .status)
         try container.encodeIfPresent(createdTime, forKey: .createdTime)

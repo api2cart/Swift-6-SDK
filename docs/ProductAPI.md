@@ -118,7 +118,7 @@ Add new products to the store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productAddBatch = ProductAddBatch(nestedItemsUpdateBehaviour: "nestedItemsUpdateBehaviour_example", clearCache: false, reindex: false, payload: [ProductAddBatch_payload_inner(name: "name_example", description: "description_example", shortDescription: "shortDescription_example", sku: "sku_example", model: "model_example", asin: "asin_example", upc: "upc_example", ean: "ean_example", gtin: "gtin_example", mpn: "mpn_example", barcode: "barcode_example", price: 123, oldPrice: 123, costPrice: 123, specialPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", advancedPrices: [ProductAddBatch_payload_inner_advanced_prices_inner(value: 123, groupId: 123, quantity: 123, startTime: "startTime_example", expireTime: "expireTime_example")], fixedCostShippingPrice: 123, quantity: 123, manageStock: false, productType: "productType_example", marketplaceItemProperties: 123, isFreeShipping: false, taxable: false, status: "status_example", condition: "condition_example", visible: "visible_example", availableForView: false, availableForSale: false, isVirtual: false, inStock: false, type: "type_example", downloadable: false, weight: 123, length: 123, width: 123, height: 123, weightUnit: "weightUnit_example", dimensionsUnit: "dimensionsUnit_example", storeId: "storeId_example", langId: "langId_example", categoryId: "categoryId_example", warehouseId: "warehouseId_example", categoriesIds: ["categoriesIds_example"], relatedProductsIds: ["relatedProductsIds_example"], upSellProductsIds: ["upSellProductsIds_example"], crossSellProductsIds: ["crossSellProductsIds_example"], storesIds: ["storesIds_example"], taxClassId: "taxClassId_example", metaTitle: "metaTitle_example", metaDescription: "metaDescription_example", metaKeywords: ["metaKeywords_example"], searchKeywords: ["searchKeywords_example"], harmonizedSystemCode: "harmonizedSystemCode_example", url: "url_example", seoUrl: "seoUrl_example", manufacturer: "manufacturer_example", manufacturerId: "manufacturerId_example", backorderStatus: "backorderStatus_example", images: [ProductAddBatch_payload_inner_images_inner(type: "type_example", url: "url_example", label: "label_example", name: "name_example", position: 123)], tags: ["tags_example"], files: [ProductAdd_files_inner(name: "name_example", url: "url_example")])]) // ProductAddBatch | 
+let productAddBatch = ProductAddBatch(nestedItemsUpdateBehaviour: "nestedItemsUpdateBehaviour_example", clearCache: false, reindex: false, payload: [ProductAddBatch_payload_inner(name: "name_example", description: "description_example", shortDescription: "shortDescription_example", sku: "sku_example", model: "model_example", asin: "asin_example", upc: "upc_example", ean: "ean_example", gtin: "gtin_example", mpn: "mpn_example", barcode: "barcode_example", price: 123, oldPrice: 123, costPrice: 123, specialPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", advancedPrices: [ProductAddBatch_payload_inner_advanced_prices_inner(value: 123, groupId: 123, quantity: 123, startTime: "startTime_example", expireTime: "expireTime_example")], fixedCostShippingPrice: 123, quantity: 123, manageStock: false, productType: "productType_example", marketplaceItemProperties: 123, specifics: 123, isFreeShipping: false, taxable: false, status: "status_example", condition: "condition_example", visible: "visible_example", availableForView: false, availableForSale: false, isVirtual: false, inStock: false, type: "type_example", downloadable: false, weight: 123, length: 123, width: 123, height: 123, weightUnit: "weightUnit_example", dimensionsUnit: "dimensionsUnit_example", storeId: "storeId_example", langId: "langId_example", categoryId: "categoryId_example", warehouseId: "warehouseId_example", categoriesIds: ["categoriesIds_example"], relatedProductsIds: ["relatedProductsIds_example"], upSellProductsIds: ["upSellProductsIds_example"], crossSellProductsIds: ["crossSellProductsIds_example"], storesIds: ["storesIds_example"], taxClassId: "taxClassId_example", metaTitle: "metaTitle_example", metaDescription: "metaDescription_example", metaKeywords: ["metaKeywords_example"], searchKeywords: ["searchKeywords_example"], harmonizedSystemCode: "harmonizedSystemCode_example", url: "url_example", seoUrl: "seoUrl_example", externalProductLink: "externalProductLink_example", manufacturer: "manufacturer_example", manufacturerId: "manufacturerId_example", backorderStatus: "backorderStatus_example", images: [ProductAddBatch_payload_inner_images_inner(type: "type_example", url: "url_example", label: "label_example", name: "name_example", position: 123)], tags: ["tags_example"], files: [ProductAdd_files_inner(name: "name_example", url: "url_example")])]) // ProductAddBatch | 
 
 // product.add.batch
 ProductAPI.productAddBatch(productAddBatch: productAddBatch) { (response, error) in
@@ -1396,7 +1396,7 @@ Name | Type | Description  | Notes
 
 # **productManufacturerAdd**
 ```swift
-    open class func productManufacturerAdd(productId: String, manufacturer: String, storeId: String? = nil, completion: @escaping (_ data: ProductManufacturerAdd200Response?, _ error: Error?) -> Void)
+    open class func productManufacturerAdd(productId: String, manufacturer: String, storeId: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, searchKeywords: String? = nil, imageUrl: String? = nil, seoUrl: String? = nil, completion: @escaping (_ data: ProductManufacturerAdd200Response?, _ error: Error?) -> Void)
 ```
 
 product.manufacturer.add
@@ -1411,9 +1411,15 @@ import OpenAPIClient
 let productId = "productId_example" // String | Defines products specified by product id
 let manufacturer = "manufacturer_example" // String | Defines product’s manufacturer's name
 let storeId = "storeId_example" // String | Store Id (optional)
+let metaTitle = "metaTitle_example" // String | Defines unique meta title for each entity (optional)
+let metaKeywords = "metaKeywords_example" // String | Defines unique meta keywords for each entity (optional)
+let metaDescription = "metaDescription_example" // String | Defines unique meta description of a entity (optional)
+let searchKeywords = "searchKeywords_example" // String | Defines unique search keywords (optional)
+let imageUrl = "imageUrl_example" // String | Image Url (optional)
+let seoUrl = "seoUrl_example" // String | Defines unique URL for SEO (optional)
 
 // product.manufacturer.add
-ProductAPI.productManufacturerAdd(productId: productId, manufacturer: manufacturer, storeId: storeId) { (response, error) in
+ProductAPI.productManufacturerAdd(productId: productId, manufacturer: manufacturer, storeId: storeId, metaTitle: metaTitle, metaKeywords: metaKeywords, metaDescription: metaDescription, searchKeywords: searchKeywords, imageUrl: imageUrl, seoUrl: seoUrl) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1432,6 +1438,12 @@ Name | Type | Description  | Notes
  **productId** | **String** | Defines products specified by product id | 
  **manufacturer** | **String** | Defines product’s manufacturer&#39;s name | 
  **storeId** | **String** | Store Id | [optional] 
+ **metaTitle** | **String** | Defines unique meta title for each entity | [optional] 
+ **metaKeywords** | **String** | Defines unique meta keywords for each entity | [optional] 
+ **metaDescription** | **String** | Defines unique meta description of a entity | [optional] 
+ **searchKeywords** | **String** | Defines unique search keywords | [optional] 
+ **imageUrl** | **String** | Image Url | [optional] 
+ **seoUrl** | **String** | Defines unique URL for SEO | [optional] 
 
 ### Return type
 
@@ -2068,7 +2080,7 @@ Name | Type | Description  | Notes
 
 # **productReviewList**
 ```swift
-    open class func productReviewList(productId: String, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, storeId: String? = nil, status: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseProductReviewList?, _ error: Error?) -> Void)
+    open class func productReviewList(productId: String, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, storeId: String? = nil, langId: String? = nil, status: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, customerId: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseProductReviewList?, _ error: Error?) -> Void)
 ```
 
 product.review.list
@@ -2086,13 +2098,19 @@ let count = 987 // Int | This parameter sets the entity amount that has to be re
 let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let ids = "ids_example" // String | Retrieves reviews specified by ids (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
+let langId = "langId_example" // String | Language id (optional)
 let status = "status_example" // String | Defines status (optional)
+let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
+let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
+let customerId = "customerId_example" // String | Retrieves orders specified by customer id (optional)
+let sortBy = "sortBy_example" // String | Set field to sort by (optional) (default to "id")
+let sortDirection = "sortDirection_example" // String | Set sorting direction (optional) (default to "asc")
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,customer_id,email,message,status,product_id,nick_name,summary,rating,ratings,status,created_time")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // product.review.list
-ProductAPI.productReviewList(productId: productId, start: start, count: count, pageCursor: pageCursor, ids: ids, storeId: storeId, status: status, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
+ProductAPI.productReviewList(productId: productId, start: start, count: count, pageCursor: pageCursor, ids: ids, storeId: storeId, langId: langId, status: status, createdFrom: createdFrom, createdTo: createdTo, customerId: customerId, sortBy: sortBy, sortDirection: sortDirection, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2114,7 +2132,13 @@ Name | Type | Description  | Notes
  **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **ids** | **String** | Retrieves reviews specified by ids | [optional] 
  **storeId** | **String** | Store Id | [optional] 
+ **langId** | **String** | Language id | [optional] 
  **status** | **String** | Defines status | [optional] 
+ **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
+ **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
+ **customerId** | **String** | Retrieves orders specified by customer id | [optional] 
+ **sortBy** | **String** | Set field to sort by | [optional] [default to &quot;id&quot;]
+ **sortDirection** | **String** | Set sorting direction | [optional] [default to &quot;asc&quot;]
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,customer_id,email,message,status,product_id,nick_name,summary,rating,ratings,status,created_time&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 

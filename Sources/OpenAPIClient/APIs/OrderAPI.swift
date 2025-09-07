@@ -140,6 +140,50 @@ open class OrderAPI {
     }
 
     /**
+     order.calculate
+     
+     - parameter orderCalculate: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: OrderCalculate200Response
+     */
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open class func orderCalculate(orderCalculate: OrderCalculate, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderCalculate200Response {
+        return try await orderCalculateWithRequestBuilder(orderCalculate: orderCalculate, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     order.calculate
+     - POST /order.calculate.json
+     - <p>Calculates the total cost of an order for a given customer and a set of products, as well as the available shipping methods based on the specified address. The calculation takes into account store product prices, discounts, taxes, shipping costs, and other store settings. The result includes a detailed breakdown of the final order cost by its components.</p> <p>Note that the final totals, taxes, and other amounts must include the corresponding values for the selected shipping method.</p><p>The result of this method can be used when creating an order using the <strong>order.add</strong> method.</p>
+     - API Key:
+       - type: apiKey x-store-key (HEADER)
+       - name: StoreKeyAuth
+     - API Key:
+       - type: apiKey x-api-key (HEADER)
+       - name: ApiKeyAuth
+     - parameter orderCalculate: (body)  
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<OrderCalculate200Response> 
+     */
+    open class func orderCalculateWithRequestBuilder(orderCalculate: OrderCalculate, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderCalculate200Response> {
+        let localVariablePath = "/order.calculate.json"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: orderCalculate, codableHelper: apiConfiguration.codableHelper)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<OrderCalculate200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      order.count
      
      - parameter orderIds: (query) Counts orders specified by order ids (optional)
