@@ -38,6 +38,7 @@ public struct ProductUpdateBatchPayloadInner: Sendable, Codable, JSONEncodable, 
     public var status: String?
     public var type: String?
     public var condition: String?
+    public var conditionDescription: String?
     public var visible: String?
     public var availableForView: Bool?
     public var availableForSale: Bool?
@@ -83,7 +84,7 @@ public struct ProductUpdateBatchPayloadInner: Sendable, Codable, JSONEncodable, 
     public var searchKeywords: [String]?
     public var harmonizedSystemCode: String?
 
-    public init(id: String, name: String? = nil, description: String? = nil, shortDescription: String? = nil, sku: String? = nil, model: String? = nil, price: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, costPrice: Double? = nil, oldPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, advancedPrices: [ProductUpdateBatchPayloadInnerAdvancedPricesInner]? = nil, quantity: Double? = nil, increaseQuantity: Double? = nil, reduceQuantity: Double? = nil, reserveQuantity: Double? = nil, storeId: String? = nil, langId: String? = nil, status: String? = nil, type: String? = nil, condition: String? = nil, visible: String? = nil, availableForView: Bool? = nil, availableForSale: Bool? = nil, availFrom: String? = nil, weight: Double? = nil, length: Double? = nil, width: Double? = nil, height: Double? = nil, dimensionsUnit: String? = nil, weightUnit: String? = nil, manageStock: Bool? = nil, inStock: Bool? = nil, backorderStatus: String? = nil, isFreeShipping: Bool? = nil, isVirtual: Bool? = nil, taxable: Bool? = nil, downloadable: Bool? = nil, warehouseId: String? = nil, taxClassId: String? = nil, categoriesIds: [String]? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: [String]? = nil, url: String? = nil, seoUrl: String? = nil, manufacturer: String? = nil, manufacturerId: String? = nil, mpn: String? = nil, gtin: String? = nil, upc: String? = nil, isbn: String? = nil, ean: String? = nil, barcode: String? = nil, images: [ProductUpdateBatchPayloadInnerImagesInner]? = nil, relatedProductsIds: [String]? = nil, upSellProductsIds: [String]? = nil, crossSellProductsIds: [String]? = nil, tags: [String]? = nil, searchKeywords: [String]? = nil, harmonizedSystemCode: String? = nil) {
+    public init(id: String, name: String? = nil, description: String? = nil, shortDescription: String? = nil, sku: String? = nil, model: String? = nil, price: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, costPrice: Double? = nil, oldPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, advancedPrices: [ProductUpdateBatchPayloadInnerAdvancedPricesInner]? = nil, quantity: Double? = nil, increaseQuantity: Double? = nil, reduceQuantity: Double? = nil, reserveQuantity: Double? = nil, storeId: String? = nil, langId: String? = nil, status: String? = nil, type: String? = nil, condition: String? = nil, conditionDescription: String? = nil, visible: String? = nil, availableForView: Bool? = nil, availableForSale: Bool? = nil, availFrom: String? = nil, weight: Double? = nil, length: Double? = nil, width: Double? = nil, height: Double? = nil, dimensionsUnit: String? = nil, weightUnit: String? = nil, manageStock: Bool? = nil, inStock: Bool? = nil, backorderStatus: String? = nil, isFreeShipping: Bool? = nil, isVirtual: Bool? = nil, taxable: Bool? = nil, downloadable: Bool? = nil, warehouseId: String? = nil, taxClassId: String? = nil, categoriesIds: [String]? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: [String]? = nil, url: String? = nil, seoUrl: String? = nil, manufacturer: String? = nil, manufacturerId: String? = nil, mpn: String? = nil, gtin: String? = nil, upc: String? = nil, isbn: String? = nil, ean: String? = nil, barcode: String? = nil, images: [ProductUpdateBatchPayloadInnerImagesInner]? = nil, relatedProductsIds: [String]? = nil, upSellProductsIds: [String]? = nil, crossSellProductsIds: [String]? = nil, tags: [String]? = nil, searchKeywords: [String]? = nil, harmonizedSystemCode: String? = nil) {
         self.id = id
         self.name = name
         self.description = description
@@ -107,6 +108,7 @@ public struct ProductUpdateBatchPayloadInner: Sendable, Codable, JSONEncodable, 
         self.status = status
         self.type = type
         self.condition = condition
+        self.conditionDescription = conditionDescription
         self.visible = visible
         self.availableForView = availableForView
         self.availableForSale = availableForSale
@@ -173,6 +175,7 @@ public struct ProductUpdateBatchPayloadInner: Sendable, Codable, JSONEncodable, 
         case status
         case type
         case condition
+        case conditionDescription = "condition_description"
         case visible
         case availableForView = "available_for_view"
         case availableForSale = "available_for_sale"
@@ -242,6 +245,7 @@ public struct ProductUpdateBatchPayloadInner: Sendable, Codable, JSONEncodable, 
         try container.encodeIfPresent(status, forKey: .status)
         try container.encodeIfPresent(type, forKey: .type)
         try container.encodeIfPresent(condition, forKey: .condition)
+        try container.encodeIfPresent(conditionDescription, forKey: .conditionDescription)
         try container.encodeIfPresent(visible, forKey: .visible)
         try container.encodeIfPresent(availableForView, forKey: .availableForView)
         try container.encodeIfPresent(availableForSale, forKey: .availableForSale)
