@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **avail** | **Bool** | Defines category&#39;s visibility status | [optional] [default to true]
 **isDefault** | **Bool** | Defines as a default variant | [optional] 
 **isFreeShipping** | **Bool** | Specifies variant&#39;s free shipping flag that has to be added | [optional] 
-**taxable** | **Bool** | Specifies whether a tax is charged | [optional] [default to true]
+**taxable** | **Bool** | Specifies whether a tax is charged | [optional] 
 **taxClassId** | **String** | Defines tax classes where entity has to be added | [optional] 
 **isVirtual** | **Bool** | Defines whether the product is virtual | [optional] [default to false]
 **manageStock** | **Bool** | Defines inventory tracking for product variant | [optional] 
@@ -55,6 +55,7 @@ Name | Type | Description | Notes
 **metaTitle** | **String** | Defines unique meta title for each entity | [optional] 
 **metaDescription** | **String** | Defines unique meta description of a entity | [optional] 
 **metaKeywords** | **String** | Defines unique meta keywords for each entity | [optional] 
+**manufacturer** | **String** | Specifies the product variant&#39;s manufacturer | [optional] 
 **reindex** | **Bool** | Is reindex required | [optional] [default to true]
 **clearCache** | **Bool** | Is cache clear required | [optional] [default to true]
 

@@ -46,7 +46,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
     /** Specifies variant's free shipping flag that has to be added */
     public var isFreeShipping: Bool?
     /** Specifies whether a tax is charged */
-    public var taxable: Bool? = true
+    public var taxable: Bool?
     /** Defines tax classes where entity has to be added */
     public var taxClassId: String?
     /** Defines whether the product is virtual */
@@ -113,12 +113,14 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var metaDescription: String?
     /** Defines unique meta keywords for each entity */
     public var metaKeywords: String?
+    /** Specifies the product variant's manufacturer */
+    public var manufacturer: String?
     /** Is reindex required */
     public var reindex: Bool? = true
     /** Is cache clear required */
     public var clearCache: Bool? = true
 
-    public init(id: String? = nil, productId: String? = nil, storeId: String? = nil, langId: String? = nil, options: [ProductVariantUpdateOptionsInner]? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, model: String? = nil, sku: String? = nil, visible: String? = nil, status: String? = nil, backorderStatus: String? = nil, lowStockThreshold: Double? = nil, availableForSale: Bool? = true, avail: Bool? = true, isDefault: Bool? = nil, isFreeShipping: Bool? = nil, taxable: Bool? = true, taxClassId: String? = nil, isVirtual: Bool? = false, manageStock: Bool? = nil, inStock: Bool? = nil, warehouseId: String? = nil, reserveQuantity: Double? = nil, quantity: Double? = nil, increaseQuantity: Double? = 0, reduceQuantity: Double? = 0, price: Double? = nil, specialPrice: Double? = nil, retailPrice: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, weight: Double? = 0, barcode: String? = nil, width: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, reindex: Bool? = true, clearCache: Bool? = true) {
+    public init(id: String? = nil, productId: String? = nil, storeId: String? = nil, langId: String? = nil, options: [ProductVariantUpdateOptionsInner]? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, model: String? = nil, sku: String? = nil, visible: String? = nil, status: String? = nil, backorderStatus: String? = nil, lowStockThreshold: Double? = nil, availableForSale: Bool? = true, avail: Bool? = true, isDefault: Bool? = nil, isFreeShipping: Bool? = nil, taxable: Bool? = nil, taxClassId: String? = nil, isVirtual: Bool? = false, manageStock: Bool? = nil, inStock: Bool? = nil, warehouseId: String? = nil, reserveQuantity: Double? = nil, quantity: Double? = nil, increaseQuantity: Double? = 0, reduceQuantity: Double? = 0, price: Double? = nil, specialPrice: Double? = nil, retailPrice: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, weight: Double? = 0, barcode: String? = nil, width: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, manufacturer: String? = nil, reindex: Bool? = true, clearCache: Bool? = true) {
         self.id = id
         self.productId = productId
         self.storeId = storeId
@@ -171,6 +173,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.metaTitle = metaTitle
         self.metaDescription = metaDescription
         self.metaKeywords = metaKeywords
+        self.manufacturer = manufacturer
         self.reindex = reindex
         self.clearCache = clearCache
     }
@@ -228,6 +231,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case metaTitle = "meta_title"
         case metaDescription = "meta_description"
         case metaKeywords = "meta_keywords"
+        case manufacturer
         case reindex
         case clearCache = "clear_cache"
     }
@@ -288,6 +292,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(metaTitle, forKey: .metaTitle)
         try container.encodeIfPresent(metaDescription, forKey: .metaDescription)
         try container.encodeIfPresent(metaKeywords, forKey: .metaKeywords)
+        try container.encodeIfPresent(manufacturer, forKey: .manufacturer)
         try container.encodeIfPresent(reindex, forKey: .reindex)
         try container.encodeIfPresent(clearCache, forKey: .clearCache)
     }

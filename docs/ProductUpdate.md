@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **tierPrices** | [ProductAddTierPricesInner] | Defines product&#39;s tier prices | [optional] 
 **reservePrice** | **Double** | Defines reserve price value | [optional] 
 **buyitnowPrice** | **Double** | Defines buy it now value | [optional] 
-**taxable** | **Bool** | Specifies whether a tax is charged | [optional] [default to true]
+**taxable** | **Bool** | Specifies whether a tax is charged | [optional] 
 **taxClassId** | **String** | Defines tax classes where entity has to be added | [optional] 
 **type** | **String** | Defines product&#39;s type | [optional] 
 **status** | **String** | Defines product&#39;s status | [optional] 
