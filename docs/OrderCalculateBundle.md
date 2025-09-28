@@ -1,4 +1,4 @@
-# OrderCalculateItem
+# OrderCalculateBundle
 
 ## Properties
 Name | Type | Description | Notes
@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **weightUnit** | **String** |  | [optional] 
 **barcode** | **String** |  | [optional] 
 **variantId** | **String** |  | [optional] 
-**bundleProductId** | **String** |  | [optional] 
 **options** | [OrderItemOption] |  | [optional] 
 **additionalFields** | **JSONValue** |  | [optional] 
 **customFields** | **JSONValue** |  | [optional] 

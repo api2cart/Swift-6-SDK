@@ -222,6 +222,7 @@ Sources/OpenAPIClient/Models/OrderAddOrderItemInnerOrderItemOptionInner.swift
 Sources/OpenAPIClient/Models/OrderAddOrderItemInnerOrderItemPropertyInner.swift
 Sources/OpenAPIClient/Models/OrderCalculate.swift
 Sources/OpenAPIClient/Models/OrderCalculate200Response.swift
+Sources/OpenAPIClient/Models/OrderCalculateBundle.swift
 Sources/OpenAPIClient/Models/OrderCalculateDiscount.swift
 Sources/OpenAPIClient/Models/OrderCalculateItem.swift
 Sources/OpenAPIClient/Models/OrderCalculateOrderItemInner.swift
@@ -290,6 +291,7 @@ Sources/OpenAPIClient/Models/ProductAddBatch.swift
 Sources/OpenAPIClient/Models/ProductAddBatchPayloadInner.swift
 Sources/OpenAPIClient/Models/ProductAddBatchPayloadInnerAdvancedPricesInner.swift
 Sources/OpenAPIClient/Models/ProductAddBatchPayloadInnerImagesInner.swift
+Sources/OpenAPIClient/Models/ProductAddBatchPayloadInnerSalesTax.swift
 Sources/OpenAPIClient/Models/ProductAddBestOffer.swift
 Sources/OpenAPIClient/Models/ProductAddCertificationsInner.swift
 Sources/OpenAPIClient/Models/ProductAddCertificationsInnerFilesInner.swift
@@ -660,6 +662,7 @@ docs/OrderAddOrderItemInnerOrderItemOptionInner.md
 docs/OrderAddOrderItemInnerOrderItemPropertyInner.md
 docs/OrderCalculate.md
 docs/OrderCalculate200Response.md
+docs/OrderCalculateBundle.md
 docs/OrderCalculateDiscount.md
 docs/OrderCalculateItem.md
 docs/OrderCalculateOrderItemInner.md
@@ -729,6 +732,7 @@ docs/ProductAddBatch.md
 docs/ProductAddBatchPayloadInner.md
 docs/ProductAddBatchPayloadInnerAdvancedPricesInner.md
 docs/ProductAddBatchPayloadInnerImagesInner.md
+docs/ProductAddBatchPayloadInnerSalesTax.md
 docs/ProductAddBestOffer.md
 docs/ProductAddCertificationsInner.md
 docs/ProductAddCertificationsInnerFilesInner.md
