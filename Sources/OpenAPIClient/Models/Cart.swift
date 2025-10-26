@@ -13,6 +13,7 @@ public struct Cart: Sendable, Codable, JSONEncodable, Hashable {
     public var url: String?
     public var version: String?
     public var bridgeVersion: String?
+    public var defaultRoundingPrecision: Int?
     public var dbPrefix: String?
     public var storesInfo: [CartStoreInfo]?
     public var warehouses: [CartWarehouse]?
@@ -20,11 +21,12 @@ public struct Cart: Sendable, Codable, JSONEncodable, Hashable {
     public var additionalFields: JSONValue?
     public var customFields: JSONValue?
 
-    public init(name: String? = nil, url: String? = nil, version: String? = nil, bridgeVersion: String? = nil, dbPrefix: String? = nil, storesInfo: [CartStoreInfo]? = nil, warehouses: [CartWarehouse]? = nil, shippingZones: [CartShippingZone]? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
+    public init(name: String? = nil, url: String? = nil, version: String? = nil, bridgeVersion: String? = nil, defaultRoundingPrecision: Int? = nil, dbPrefix: String? = nil, storesInfo: [CartStoreInfo]? = nil, warehouses: [CartWarehouse]? = nil, shippingZones: [CartShippingZone]? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
         self.name = name
         self.url = url
         self.version = version
         self.bridgeVersion = bridgeVersion
+        self.defaultRoundingPrecision = defaultRoundingPrecision
         self.dbPrefix = dbPrefix
         self.storesInfo = storesInfo
         self.warehouses = warehouses
@@ -38,6 +40,7 @@ public struct Cart: Sendable, Codable, JSONEncodable, Hashable {
         case url
         case version
         case bridgeVersion = "bridge_version"
+        case defaultRoundingPrecision = "default_rounding_precision"
         case dbPrefix = "db_prefix"
         case storesInfo = "stores_info"
         case warehouses
@@ -54,6 +57,7 @@ public struct Cart: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(url, forKey: .url)
         try container.encodeIfPresent(version, forKey: .version)
         try container.encodeIfPresent(bridgeVersion, forKey: .bridgeVersion)
+        try container.encodeIfPresent(defaultRoundingPrecision, forKey: .defaultRoundingPrecision)
         try container.encodeIfPresent(dbPrefix, forKey: .dbPrefix)
         try container.encodeIfPresent(storesInfo, forKey: .storesInfo)
         try container.encodeIfPresent(warehouses, forKey: .warehouses)

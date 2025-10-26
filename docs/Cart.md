@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **url** | **String** |  | [optional] 
 **version** | **String** |  | [optional] 
 **bridgeVersion** | **String** |  | [optional] 
+**defaultRoundingPrecision** | **Int** |  | [optional] 
 **dbPrefix** | **String** |  | [optional] 
 **storesInfo** | [CartStoreInfo] |  | [optional] 
 **warehouses** | [CartWarehouse] |  | [optional] 

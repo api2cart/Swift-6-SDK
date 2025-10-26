@@ -150,6 +150,8 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var harmonizedSystemCode: String?
     /** The numeric ID of the shipping template associated with the products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field shipping_zones[]->id. */
     public var shippingTemplateId: Int? = 0
+    /** The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field processing_profiles[]->readiness_state_id. */
+    public var processingProfileId: Int?
     /** An enumerated string for the era in which the maker made the product. */
     public var whenMade: String? = "made_to_order"
     /** If true, it indicates the product as a supply, otherwise it indicates that it is a finished product. */
@@ -187,7 +189,7 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
     /** The minimum quantity an order must contain, to be eligible to purchase this product. */
     public var minOrderQuantity: Double?
 
-    public init(id: String? = nil, model: String? = nil, sku: String? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, price: Double? = nil, oldPrice: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, retailPrice: Double? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, reservePrice: Double? = nil, buyitnowPrice: Double? = nil, taxable: Bool? = nil, taxClassId: String? = nil, type: String? = nil, status: String? = nil, condition: String? = nil, visible: String? = nil, inStock: Bool? = nil, avail: Bool? = true, availFrom: String? = nil, productClass: String? = nil, brandName: String? = nil, availableForView: Bool? = nil, storesIds: String? = nil, storeId: String? = nil, langId: String? = nil, quantity: Double? = nil, reserveQuantity: Double? = nil, manageStock: Bool? = nil, backorderStatus: String? = nil, increaseQuantity: Double? = nil, reduceQuantity: Double? = nil, lowStockThreshold: Double? = nil, warehouseId: String? = nil, weight: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, width: Double? = nil, dimensionsUnit: String? = nil, isVirtual: Bool? = false, isFreeShipping: Bool? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, barcode: String? = nil, manufacturer: String? = nil, manufacturerId: String? = nil, categoriesIds: String? = nil, relatedProductsIds: String? = nil, upSellProductsIds: String? = nil, crossSellProductsIds: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, seoUrl: String? = nil, searchKeywords: String? = nil, tags: String? = nil, deliveryCode: String? = nil, packageDetails: ProductAddPackageDetails? = nil, countryOfOrigin: String? = nil, harmonizedSystemCode: String? = nil, shippingTemplateId: Int? = 0, whenMade: String? = "made_to_order", isSupply: Bool? = true, downloadable: Bool? = false, materials: [String]? = nil, autoRenew: Bool? = false, onSale: Bool? = false, productionPartnerIds: String? = nil, manufacturerInfo: ProductAddManufacturerInfo? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = false, reindex: Bool? = true, clearCache: Bool? = true, checkProcessStatus: Bool? = false, specifics: [ProductAddSpecificsInner]? = nil, shopSectionId: Int? = nil, personalizationDetails: ProductAddPersonalizationDetails? = nil, externalProductLink: String? = nil, marketplaceItemProperties: String? = nil, minOrderQuantity: Double? = nil) {
+    public init(id: String? = nil, model: String? = nil, sku: String? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, price: Double? = nil, oldPrice: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, retailPrice: Double? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, reservePrice: Double? = nil, buyitnowPrice: Double? = nil, taxable: Bool? = nil, taxClassId: String? = nil, type: String? = nil, status: String? = nil, condition: String? = nil, visible: String? = nil, inStock: Bool? = nil, avail: Bool? = true, availFrom: String? = nil, productClass: String? = nil, brandName: String? = nil, availableForView: Bool? = nil, storesIds: String? = nil, storeId: String? = nil, langId: String? = nil, quantity: Double? = nil, reserveQuantity: Double? = nil, manageStock: Bool? = nil, backorderStatus: String? = nil, increaseQuantity: Double? = nil, reduceQuantity: Double? = nil, lowStockThreshold: Double? = nil, warehouseId: String? = nil, weight: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, width: Double? = nil, dimensionsUnit: String? = nil, isVirtual: Bool? = false, isFreeShipping: Bool? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, barcode: String? = nil, manufacturer: String? = nil, manufacturerId: String? = nil, categoriesIds: String? = nil, relatedProductsIds: String? = nil, upSellProductsIds: String? = nil, crossSellProductsIds: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, seoUrl: String? = nil, searchKeywords: String? = nil, tags: String? = nil, deliveryCode: String? = nil, packageDetails: ProductAddPackageDetails? = nil, countryOfOrigin: String? = nil, harmonizedSystemCode: String? = nil, shippingTemplateId: Int? = 0, processingProfileId: Int? = nil, whenMade: String? = "made_to_order", isSupply: Bool? = true, downloadable: Bool? = false, materials: [String]? = nil, autoRenew: Bool? = false, onSale: Bool? = false, productionPartnerIds: String? = nil, manufacturerInfo: ProductAddManufacturerInfo? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = false, reindex: Bool? = true, clearCache: Bool? = true, checkProcessStatus: Bool? = false, specifics: [ProductAddSpecificsInner]? = nil, shopSectionId: Int? = nil, personalizationDetails: ProductAddPersonalizationDetails? = nil, externalProductLink: String? = nil, marketplaceItemProperties: String? = nil, minOrderQuantity: Double? = nil) {
         self.id = id
         self.model = model
         self.sku = sku
@@ -259,6 +261,7 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.countryOfOrigin = countryOfOrigin
         self.harmonizedSystemCode = harmonizedSystemCode
         self.shippingTemplateId = shippingTemplateId
+        self.processingProfileId = processingProfileId
         self.whenMade = whenMade
         self.isSupply = isSupply
         self.downloadable = downloadable
@@ -352,6 +355,7 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case countryOfOrigin = "country_of_origin"
         case harmonizedSystemCode = "harmonized_system_code"
         case shippingTemplateId = "shipping_template_id"
+        case processingProfileId = "processing_profile_id"
         case whenMade = "when_made"
         case isSupply = "is_supply"
         case downloadable
@@ -448,6 +452,7 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(countryOfOrigin, forKey: .countryOfOrigin)
         try container.encodeIfPresent(harmonizedSystemCode, forKey: .harmonizedSystemCode)
         try container.encodeIfPresent(shippingTemplateId, forKey: .shippingTemplateId)
+        try container.encodeIfPresent(processingProfileId, forKey: .processingProfileId)
         try container.encodeIfPresent(whenMade, forKey: .whenMade)
         try container.encodeIfPresent(isSupply, forKey: .isSupply)
         try container.encodeIfPresent(downloadable, forKey: .downloadable)
