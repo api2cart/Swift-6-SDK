@@ -72,6 +72,7 @@ Name | Type | Description | Notes
 **noteAttributes** | [OrderAddNoteAttributesInner] | Defines note attributes | [optional] 
 **clearCache** | **Bool** | Is cache clear required | [optional] [default to true]
 **origin** | **String** | The source of the order | [optional] 
+**feePrice** | **Double** | Specifies refund&#39;s fee price | [optional] 
 **orderItem** | [OrderAddOrderItemInner] |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

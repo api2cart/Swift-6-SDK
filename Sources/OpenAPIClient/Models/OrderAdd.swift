@@ -148,9 +148,11 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var clearCache: Bool? = true
     /** The source of the order */
     public var origin: String?
+    /** Specifies refund's fee price */
+    public var feePrice: Double?
     public var orderItem: [OrderAddOrderItemInner]
 
-    public init(id: String? = nil, orderId: String? = nil, storeId: String? = nil, channelId: String? = nil, orderStatus: String, fulfillmentStatus: String? = nil, financialStatus: String? = nil, customerEmail: String, customerFirstName: String? = nil, customerLastName: String? = nil, customerPhone: String? = nil, customerCountry: String? = nil, customerBirthday: String? = nil, customerFax: String? = nil, orderPaymentMethod: String? = nil, transactionId: String? = nil, currency: String? = nil, date: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, billFirstName: String, billLastName: String, billAddress1: String, billAddress2: String? = nil, billCity: String, billPostcode: String, billState: String, billCountry: String, billCompany: String? = nil, billPhone: String? = nil, billFax: String? = nil, shippFirstName: String? = nil, shippLastName: String? = nil, shippAddress1: String? = nil, shippAddress2: String? = nil, shippCity: String? = nil, shippPostcode: String? = nil, shippState: String? = nil, shippCountry: String? = nil, shippCompany: String? = nil, shippPhone: String? = nil, shippFax: String? = nil, subtotalPrice: Double? = nil, taxPrice: Double? = 0, totalPrice: Double? = nil, totalPaid: Double? = nil, totalWeight: Int? = nil, pricesIncTax: Bool? = false, shippingPrice: Double? = 0, shippingTax: Double? = nil, discount: Double? = nil, couponDiscount: Double? = nil, giftCertificateDiscount: Double? = nil, orderShippingMethod: String? = nil, carrierId: String? = nil, warehouseId: String? = nil, coupons: [String]? = nil, tags: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, sendNotifications: Bool? = false, sendAdminNotifications: Bool? = false, externalSource: String? = nil, inventoryBehaviour: String? = "bypass", createInvoice: Bool? = false, noteAttributes: [OrderAddNoteAttributesInner]? = nil, clearCache: Bool? = true, origin: String? = nil, orderItem: [OrderAddOrderItemInner]) {
+    public init(id: String? = nil, orderId: String? = nil, storeId: String? = nil, channelId: String? = nil, orderStatus: String, fulfillmentStatus: String? = nil, financialStatus: String? = nil, customerEmail: String, customerFirstName: String? = nil, customerLastName: String? = nil, customerPhone: String? = nil, customerCountry: String? = nil, customerBirthday: String? = nil, customerFax: String? = nil, orderPaymentMethod: String? = nil, transactionId: String? = nil, currency: String? = nil, date: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, billFirstName: String, billLastName: String, billAddress1: String, billAddress2: String? = nil, billCity: String, billPostcode: String, billState: String, billCountry: String, billCompany: String? = nil, billPhone: String? = nil, billFax: String? = nil, shippFirstName: String? = nil, shippLastName: String? = nil, shippAddress1: String? = nil, shippAddress2: String? = nil, shippCity: String? = nil, shippPostcode: String? = nil, shippState: String? = nil, shippCountry: String? = nil, shippCompany: String? = nil, shippPhone: String? = nil, shippFax: String? = nil, subtotalPrice: Double? = nil, taxPrice: Double? = 0, totalPrice: Double? = nil, totalPaid: Double? = nil, totalWeight: Int? = nil, pricesIncTax: Bool? = false, shippingPrice: Double? = 0, shippingTax: Double? = nil, discount: Double? = nil, couponDiscount: Double? = nil, giftCertificateDiscount: Double? = nil, orderShippingMethod: String? = nil, carrierId: String? = nil, warehouseId: String? = nil, coupons: [String]? = nil, tags: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, sendNotifications: Bool? = false, sendAdminNotifications: Bool? = false, externalSource: String? = nil, inventoryBehaviour: String? = "bypass", createInvoice: Bool? = false, noteAttributes: [OrderAddNoteAttributesInner]? = nil, clearCache: Bool? = true, origin: String? = nil, feePrice: Double? = nil, orderItem: [OrderAddOrderItemInner]) {
         self.id = id
         self.orderId = orderId
         self.storeId = storeId
@@ -220,6 +222,7 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.noteAttributes = noteAttributes
         self.clearCache = clearCache
         self.origin = origin
+        self.feePrice = feePrice
         self.orderItem = orderItem
     }
 
@@ -293,6 +296,7 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
         case noteAttributes = "note_attributes"
         case clearCache = "clear_cache"
         case origin
+        case feePrice = "fee_price"
         case orderItem = "order_item"
     }
 
@@ -369,6 +373,7 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(noteAttributes, forKey: .noteAttributes)
         try container.encodeIfPresent(clearCache, forKey: .clearCache)
         try container.encodeIfPresent(origin, forKey: .origin)
+        try container.encodeIfPresent(feePrice, forKey: .feePrice)
         try container.encode(orderItem, forKey: .orderItem)
     }
 }
