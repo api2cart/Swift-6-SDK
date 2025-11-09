@@ -12,17 +12,20 @@ public struct ProductPriceUpdateGroupPricesInner: Sendable, Codable, JSONEncodab
     public var id: Int?
     public var groupId: String?
     public var price: Double?
+    public var qty: Int?
 
-    public init(id: Int? = nil, groupId: String? = nil, price: Double? = nil) {
+    public init(id: Int? = nil, groupId: String? = nil, price: Double? = nil, qty: Int? = nil) {
         self.id = id
         self.groupId = groupId
         self.price = price
+        self.qty = qty
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case groupId = "group_id"
         case price
+        case qty
     }
 
     // Encodable protocol methods
@@ -32,6 +35,7 @@ public struct ProductPriceUpdateGroupPricesInner: Sendable, Codable, JSONEncodab
         try container.encodeIfPresent(id, forKey: .id)
         try container.encodeIfPresent(groupId, forKey: .groupId)
         try container.encodeIfPresent(price, forKey: .price)
+        try container.encodeIfPresent(qty, forKey: .qty)
     }
 }
 

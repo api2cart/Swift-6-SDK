@@ -18,6 +18,8 @@ public struct OrderCalculate: Sendable, Codable, JSONEncodable, Hashable {
     public var storeId: String?
     /** Coupons that will be applied to order. If the order isn't eligible for any given discount code or there is no discount with such a code it will be skipped during calculation */
     public var coupons: [String]?
+    /** <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p> */
+    public var roundingPrecision: Int?
     /** Specifies shipping first name */
     public var shippFirstName: String
     /** Specifies shipping last name */
@@ -62,11 +64,12 @@ public struct OrderCalculate: Sendable, Codable, JSONEncodable, Hashable {
     public var responseFields: String?
     public var orderItem: [OrderCalculateOrderItemInner]
 
-    public init(customerEmail: String, currencyId: String? = nil, storeId: String? = nil, coupons: [String]? = nil, shippFirstName: String, shippLastName: String, shippAddress1: String, shippAddress2: String? = nil, shippCity: String, shippPostcode: String, shippState: String? = nil, shippCountry: String, shippCompany: String? = nil, shippPhone: String? = nil, billFirstName: String? = nil, billLastName: String? = nil, billAddress1: String? = nil, billAddress2: String? = nil, billCity: String? = nil, billPostcode: String? = nil, billState: String? = nil, billCountry: String? = nil, billCompany: String? = nil, billPhone: String? = nil, responseFields: String? = nil, orderItem: [OrderCalculateOrderItemInner]) {
+    public init(customerEmail: String, currencyId: String? = nil, storeId: String? = nil, coupons: [String]? = nil, roundingPrecision: Int? = nil, shippFirstName: String, shippLastName: String, shippAddress1: String, shippAddress2: String? = nil, shippCity: String, shippPostcode: String, shippState: String? = nil, shippCountry: String, shippCompany: String? = nil, shippPhone: String? = nil, billFirstName: String? = nil, billLastName: String? = nil, billAddress1: String? = nil, billAddress2: String? = nil, billCity: String? = nil, billPostcode: String? = nil, billState: String? = nil, billCountry: String? = nil, billCompany: String? = nil, billPhone: String? = nil, responseFields: String? = nil, orderItem: [OrderCalculateOrderItemInner]) {
         self.customerEmail = customerEmail
         self.currencyId = currencyId
         self.storeId = storeId
         self.coupons = coupons
+        self.roundingPrecision = roundingPrecision
         self.shippFirstName = shippFirstName
         self.shippLastName = shippLastName
         self.shippAddress1 = shippAddress1
@@ -96,6 +99,7 @@ public struct OrderCalculate: Sendable, Codable, JSONEncodable, Hashable {
         case currencyId = "currency_id"
         case storeId = "store_id"
         case coupons
+        case roundingPrecision = "rounding_precision"
         case shippFirstName = "shipp_first_name"
         case shippLastName = "shipp_last_name"
         case shippAddress1 = "shipp_address_1"
@@ -128,6 +132,7 @@ public struct OrderCalculate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(currencyId, forKey: .currencyId)
         try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(coupons, forKey: .coupons)
+        try container.encodeIfPresent(roundingPrecision, forKey: .roundingPrecision)
         try container.encode(shippFirstName, forKey: .shippFirstName)
         try container.encode(shippLastName, forKey: .shippLastName)
         try container.encode(shippAddress1, forKey: .shippAddress1)
