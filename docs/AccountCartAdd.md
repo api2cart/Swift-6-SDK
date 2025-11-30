@@ -173,6 +173,11 @@ Name | Type | Description | Notes
 **temuAppSecret** | **String** | Temu App Secret | [optional] 
 **temuAccessToken** | **String** | Temu Access Token | [optional] 
 **temuRegion** | **String** | Temu API endpoint Region. | [optional] 
+**scapiClientId** | **String** | Salesforce Commerce API Client ID | [optional] 
+**scapiClientSecret** | **String** | Salesforce Commerce API Client Secret | [optional] 
+**scapiOrganizationId** | **String** | Salesforce Commerce Organization ID | [optional] 
+**scapiShortCode** | **String** | Salesforce Commerce Short Code | [optional] 
+**scapiScopes** | **String** | Salesforce Commerce API Scopes | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

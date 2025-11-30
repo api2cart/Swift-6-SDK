@@ -38,6 +38,8 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var customerBirthday: String?
     /** Specifies customer’s fax */
     public var customerFax: String?
+    /** Indicates whether the customer is a guest customer */
+    public var isGuest: Bool? = false
     /** Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to 'paid' */
     public var orderPaymentMethod: String?
     /** Payment transaction id */
@@ -152,7 +154,7 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var feePrice: Double?
     public var orderItem: [OrderAddOrderItemInner]
 
-    public init(id: String? = nil, orderId: String? = nil, storeId: String? = nil, channelId: String? = nil, orderStatus: String, fulfillmentStatus: String? = nil, financialStatus: String? = nil, customerEmail: String, customerFirstName: String? = nil, customerLastName: String? = nil, customerPhone: String? = nil, customerCountry: String? = nil, customerBirthday: String? = nil, customerFax: String? = nil, orderPaymentMethod: String? = nil, transactionId: String? = nil, currency: String? = nil, date: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, billFirstName: String, billLastName: String, billAddress1: String, billAddress2: String? = nil, billCity: String, billPostcode: String, billState: String, billCountry: String, billCompany: String? = nil, billPhone: String? = nil, billFax: String? = nil, shippFirstName: String? = nil, shippLastName: String? = nil, shippAddress1: String? = nil, shippAddress2: String? = nil, shippCity: String? = nil, shippPostcode: String? = nil, shippState: String? = nil, shippCountry: String? = nil, shippCompany: String? = nil, shippPhone: String? = nil, shippFax: String? = nil, subtotalPrice: Double? = nil, taxPrice: Double? = 0, totalPrice: Double? = nil, totalPaid: Double? = nil, totalWeight: Int? = nil, pricesIncTax: Bool? = false, shippingPrice: Double? = 0, shippingTax: Double? = nil, discount: Double? = nil, couponDiscount: Double? = nil, giftCertificateDiscount: Double? = nil, orderShippingMethod: String? = nil, carrierId: String? = nil, warehouseId: String? = nil, coupons: [String]? = nil, tags: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, sendNotifications: Bool? = false, sendAdminNotifications: Bool? = false, externalSource: String? = nil, inventoryBehaviour: String? = "bypass", createInvoice: Bool? = false, noteAttributes: [OrderAddNoteAttributesInner]? = nil, clearCache: Bool? = true, origin: String? = nil, feePrice: Double? = nil, orderItem: [OrderAddOrderItemInner]) {
+    public init(id: String? = nil, orderId: String? = nil, storeId: String? = nil, channelId: String? = nil, orderStatus: String, fulfillmentStatus: String? = nil, financialStatus: String? = nil, customerEmail: String, customerFirstName: String? = nil, customerLastName: String? = nil, customerPhone: String? = nil, customerCountry: String? = nil, customerBirthday: String? = nil, customerFax: String? = nil, isGuest: Bool? = false, orderPaymentMethod: String? = nil, transactionId: String? = nil, currency: String? = nil, date: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, billFirstName: String, billLastName: String, billAddress1: String, billAddress2: String? = nil, billCity: String, billPostcode: String, billState: String, billCountry: String, billCompany: String? = nil, billPhone: String? = nil, billFax: String? = nil, shippFirstName: String? = nil, shippLastName: String? = nil, shippAddress1: String? = nil, shippAddress2: String? = nil, shippCity: String? = nil, shippPostcode: String? = nil, shippState: String? = nil, shippCountry: String? = nil, shippCompany: String? = nil, shippPhone: String? = nil, shippFax: String? = nil, subtotalPrice: Double? = nil, taxPrice: Double? = 0, totalPrice: Double? = nil, totalPaid: Double? = nil, totalWeight: Int? = nil, pricesIncTax: Bool? = false, shippingPrice: Double? = 0, shippingTax: Double? = nil, discount: Double? = nil, couponDiscount: Double? = nil, giftCertificateDiscount: Double? = nil, orderShippingMethod: String? = nil, carrierId: String? = nil, warehouseId: String? = nil, coupons: [String]? = nil, tags: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, sendNotifications: Bool? = false, sendAdminNotifications: Bool? = false, externalSource: String? = nil, inventoryBehaviour: String? = "bypass", createInvoice: Bool? = false, noteAttributes: [OrderAddNoteAttributesInner]? = nil, clearCache: Bool? = true, origin: String? = nil, feePrice: Double? = nil, orderItem: [OrderAddOrderItemInner]) {
         self.id = id
         self.orderId = orderId
         self.storeId = storeId
@@ -167,6 +169,7 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.customerCountry = customerCountry
         self.customerBirthday = customerBirthday
         self.customerFax = customerFax
+        self.isGuest = isGuest
         self.orderPaymentMethod = orderPaymentMethod
         self.transactionId = transactionId
         self.currency = currency
@@ -241,6 +244,7 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
         case customerCountry = "customer_country"
         case customerBirthday = "customer_birthday"
         case customerFax = "customer_fax"
+        case isGuest = "is_guest"
         case orderPaymentMethod = "order_payment_method"
         case transactionId = "transaction_id"
         case currency
@@ -318,6 +322,7 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(customerCountry, forKey: .customerCountry)
         try container.encodeIfPresent(customerBirthday, forKey: .customerBirthday)
         try container.encodeIfPresent(customerFax, forKey: .customerFax)
+        try container.encodeIfPresent(isGuest, forKey: .isGuest)
         try container.encodeIfPresent(orderPaymentMethod, forKey: .orderPaymentMethod)
         try container.encodeIfPresent(transactionId, forKey: .transactionId)
         try container.encodeIfPresent(currency, forKey: .currency)
