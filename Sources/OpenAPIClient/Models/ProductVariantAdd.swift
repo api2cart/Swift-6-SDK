@@ -115,12 +115,14 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var countryOfOrigin: String?
     /** Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes */
     public var harmonizedSystemCode: String?
+    /** The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field processing_profiles[]->readiness_state_id. */
+    public var processingProfileId: Int?
     /** String containing the JSON representation of the supplied data */
     public var marketplaceItemProperties: String?
     /** Is cache clear required */
     public var clearCache: Bool? = true
 
-    public init(productId: String? = nil, attributes: [ProductVariantAddAttributesInner]? = nil, name: String? = nil, model: String, description: String? = nil, shortDescription: String? = nil, availableForView: Bool? = true, availableForSale: Bool? = true, status: String? = nil, isVirtual: Bool? = false, isDefault: Bool? = nil, storeId: String? = nil, storesIds: String? = nil, langId: String? = nil, price: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceModified: String? = nil, spriceExpire: String? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, quantity: Double? = 0, warehouseId: String? = nil, inStock: Bool? = nil, backorderStatus: String? = nil, manageStock: Bool? = nil, lowStockThreshold: Double? = nil, weight: Double? = 0, width: Double? = nil, height: Double? = nil, length: Double? = nil, weightUnit: String? = nil, sku: String? = nil, barcode: String? = nil, gtin: String? = nil, upc: String? = nil, ean: String? = nil, mpn: String? = nil, isbn: String? = nil, seoUrl: String? = nil, manufacturer: String? = nil, createdAt: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, url: String? = nil, taxClassId: String? = nil, taxable: Bool? = true, fixedCostShippingPrice: Double? = nil, isFreeShipping: Bool? = nil, countryOfOrigin: String? = nil, harmonizedSystemCode: String? = nil, marketplaceItemProperties: String? = nil, clearCache: Bool? = true) {
+    public init(productId: String? = nil, attributes: [ProductVariantAddAttributesInner]? = nil, name: String? = nil, model: String, description: String? = nil, shortDescription: String? = nil, availableForView: Bool? = true, availableForSale: Bool? = true, status: String? = nil, isVirtual: Bool? = false, isDefault: Bool? = nil, storeId: String? = nil, storesIds: String? = nil, langId: String? = nil, price: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceModified: String? = nil, spriceExpire: String? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, quantity: Double? = 0, warehouseId: String? = nil, inStock: Bool? = nil, backorderStatus: String? = nil, manageStock: Bool? = nil, lowStockThreshold: Double? = nil, weight: Double? = 0, width: Double? = nil, height: Double? = nil, length: Double? = nil, weightUnit: String? = nil, sku: String? = nil, barcode: String? = nil, gtin: String? = nil, upc: String? = nil, ean: String? = nil, mpn: String? = nil, isbn: String? = nil, seoUrl: String? = nil, manufacturer: String? = nil, createdAt: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, url: String? = nil, taxClassId: String? = nil, taxable: Bool? = true, fixedCostShippingPrice: Double? = nil, isFreeShipping: Bool? = nil, countryOfOrigin: String? = nil, harmonizedSystemCode: String? = nil, processingProfileId: Int? = nil, marketplaceItemProperties: String? = nil, clearCache: Bool? = true) {
         self.productId = productId
         self.attributes = attributes
         self.name = name
@@ -174,6 +176,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.isFreeShipping = isFreeShipping
         self.countryOfOrigin = countryOfOrigin
         self.harmonizedSystemCode = harmonizedSystemCode
+        self.processingProfileId = processingProfileId
         self.marketplaceItemProperties = marketplaceItemProperties
         self.clearCache = clearCache
     }
@@ -232,6 +235,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
         case isFreeShipping = "is_free_shipping"
         case countryOfOrigin = "country_of_origin"
         case harmonizedSystemCode = "harmonized_system_code"
+        case processingProfileId = "processing_profile_id"
         case marketplaceItemProperties = "marketplace_item_properties"
         case clearCache = "clear_cache"
     }
@@ -293,6 +297,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(isFreeShipping, forKey: .isFreeShipping)
         try container.encodeIfPresent(countryOfOrigin, forKey: .countryOfOrigin)
         try container.encodeIfPresent(harmonizedSystemCode, forKey: .harmonizedSystemCode)
+        try container.encodeIfPresent(processingProfileId, forKey: .processingProfileId)
         try container.encodeIfPresent(marketplaceItemProperties, forKey: .marketplaceItemProperties)
         try container.encodeIfPresent(clearCache, forKey: .clearCache)
     }

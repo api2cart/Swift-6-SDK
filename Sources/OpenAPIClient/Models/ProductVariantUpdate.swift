@@ -119,8 +119,10 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var reindex: Bool? = true
     /** Is cache clear required */
     public var clearCache: Bool? = true
+    /** The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field processing_profiles[]->readiness_state_id. */
+    public var processingProfileId: Int?
 
-    public init(id: String? = nil, productId: String? = nil, storeId: String? = nil, langId: String? = nil, options: [ProductVariantUpdateOptionsInner]? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, model: String? = nil, sku: String? = nil, visible: String? = nil, status: String? = nil, backorderStatus: String? = nil, lowStockThreshold: Double? = nil, availableForSale: Bool? = true, avail: Bool? = true, isDefault: Bool? = nil, isFreeShipping: Bool? = nil, taxable: Bool? = nil, taxClassId: String? = nil, isVirtual: Bool? = false, manageStock: Bool? = nil, inStock: Bool? = nil, warehouseId: String? = nil, reserveQuantity: Double? = nil, quantity: Double? = nil, increaseQuantity: Double? = 0, reduceQuantity: Double? = 0, price: Double? = nil, specialPrice: Double? = nil, retailPrice: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, weight: Double? = 0, barcode: String? = nil, width: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, manufacturer: String? = nil, reindex: Bool? = true, clearCache: Bool? = true) {
+    public init(id: String? = nil, productId: String? = nil, storeId: String? = nil, langId: String? = nil, options: [ProductVariantUpdateOptionsInner]? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, model: String? = nil, sku: String? = nil, visible: String? = nil, status: String? = nil, backorderStatus: String? = nil, lowStockThreshold: Double? = nil, availableForSale: Bool? = true, avail: Bool? = true, isDefault: Bool? = nil, isFreeShipping: Bool? = nil, taxable: Bool? = nil, taxClassId: String? = nil, isVirtual: Bool? = false, manageStock: Bool? = nil, inStock: Bool? = nil, warehouseId: String? = nil, reserveQuantity: Double? = nil, quantity: Double? = nil, increaseQuantity: Double? = 0, reduceQuantity: Double? = 0, price: Double? = nil, specialPrice: Double? = nil, retailPrice: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, weight: Double? = 0, barcode: String? = nil, width: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, manufacturer: String? = nil, reindex: Bool? = true, clearCache: Bool? = true, processingProfileId: Int? = nil) {
         self.id = id
         self.productId = productId
         self.storeId = storeId
@@ -176,6 +178,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.manufacturer = manufacturer
         self.reindex = reindex
         self.clearCache = clearCache
+        self.processingProfileId = processingProfileId
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -234,6 +237,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case manufacturer
         case reindex
         case clearCache = "clear_cache"
+        case processingProfileId = "processing_profile_id"
     }
 
     // Encodable protocol methods
@@ -295,6 +299,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(manufacturer, forKey: .manufacturer)
         try container.encodeIfPresent(reindex, forKey: .reindex)
         try container.encodeIfPresent(clearCache, forKey: .clearCache)
+        try container.encodeIfPresent(processingProfileId, forKey: .processingProfileId)
     }
 }
 
