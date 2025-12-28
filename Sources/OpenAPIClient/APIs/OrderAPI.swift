@@ -388,12 +388,13 @@ open class OrderAPI {
      - parameter enableCache: (query) If the value is &#39;true&#39; and order exist in our cache, we will return order.info response from cache (optional, default to false)
      - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter roundingPrecision: (query) &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt; (optional)
+     - parameter allowUserDefinedOrderStatuses: (query) Indicates whether custom (user-defined) order statuses should be included in the response. (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrderInfo200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func orderInfo(id: String? = nil, orderId: String? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, roundingPrecision: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderInfo200Response {
-        return try await orderInfoWithRequestBuilder(id: id, orderId: orderId, storeId: storeId, params: params, responseFields: responseFields, exclude: exclude, enableCache: enableCache, useLatestApiVersion: useLatestApiVersion, roundingPrecision: roundingPrecision, apiConfiguration: apiConfiguration).execute().body
+    open class func orderInfo(id: String? = nil, orderId: String? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, roundingPrecision: Int? = nil, allowUserDefinedOrderStatuses: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderInfo200Response {
+        return try await orderInfoWithRequestBuilder(id: id, orderId: orderId, storeId: storeId, params: params, responseFields: responseFields, exclude: exclude, enableCache: enableCache, useLatestApiVersion: useLatestApiVersion, roundingPrecision: roundingPrecision, allowUserDefinedOrderStatuses: allowUserDefinedOrderStatuses, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -415,10 +416,11 @@ open class OrderAPI {
      - parameter enableCache: (query) If the value is &#39;true&#39; and order exist in our cache, we will return order.info response from cache (optional, default to false)
      - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter roundingPrecision: (query) &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt; (optional)
+     - parameter allowUserDefinedOrderStatuses: (query) Indicates whether custom (user-defined) order statuses should be included in the response. (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrderInfo200Response> 
      */
-    open class func orderInfoWithRequestBuilder(id: String? = nil, orderId: String? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, roundingPrecision: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderInfo200Response> {
+    open class func orderInfoWithRequestBuilder(id: String? = nil, orderId: String? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, roundingPrecision: Int? = nil, allowUserDefinedOrderStatuses: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderInfo200Response> {
         let localVariablePath = "/order.info.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -434,6 +436,7 @@ open class OrderAPI {
             "enable_cache": (wrappedValue: enableCache?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "use_latest_api_version": (wrappedValue: useLatestApiVersion?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "rounding_precision": (wrappedValue: roundingPrecision?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "allow_user_defined_order_statuses": (wrappedValue: allowUserDefinedOrderStatuses?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -489,12 +492,13 @@ open class OrderAPI {
      - parameter enableCache: (query) If the value is &#39;true&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add) (optional, default to false)
      - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter roundingPrecision: (query) &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt; (optional)
+     - parameter allowUserDefinedOrderStatuses: (query) Indicates whether custom (user-defined) order statuses should be included in the response. (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseOrderList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func orderList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, orderIds: String? = nil, sinceId: String? = nil, storeId: String? = nil, customerId: String? = nil, customerEmail: String? = nil, basketId: String? = nil, currencyId: String? = nil, phone: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentStatus: String? = nil, returnStatus: String? = nil, fulfillmentChannel: String? = nil, shippingMethod: String? = nil, skipOrderIds: String? = nil, isDeleted: Bool? = nil, shippingCountryIso3: String? = nil, deliveryMethod: String? = nil, shipNodeType: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, tags: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, roundingPrecision: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseOrderList {
-        return try await orderListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, ids: ids, orderIds: orderIds, sinceId: sinceId, storeId: storeId, customerId: customerId, customerEmail: customerEmail, basketId: basketId, currencyId: currencyId, phone: phone, orderStatus: orderStatus, orderStatusIds: orderStatusIds, ebayOrderStatus: ebayOrderStatus, financialStatus: financialStatus, financialStatusIds: financialStatusIds, fulfillmentStatus: fulfillmentStatus, returnStatus: returnStatus, fulfillmentChannel: fulfillmentChannel, shippingMethod: shippingMethod, skipOrderIds: skipOrderIds, isDeleted: isDeleted, shippingCountryIso3: shippingCountryIso3, deliveryMethod: deliveryMethod, shipNodeType: shipNodeType, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, tags: tags, sortBy: sortBy, sortDirection: sortDirection, params: params, responseFields: responseFields, exclude: exclude, enableCache: enableCache, useLatestApiVersion: useLatestApiVersion, roundingPrecision: roundingPrecision, apiConfiguration: apiConfiguration).execute().body
+    open class func orderList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, orderIds: String? = nil, sinceId: String? = nil, storeId: String? = nil, customerId: String? = nil, customerEmail: String? = nil, basketId: String? = nil, currencyId: String? = nil, phone: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentStatus: String? = nil, returnStatus: String? = nil, fulfillmentChannel: String? = nil, shippingMethod: String? = nil, skipOrderIds: String? = nil, isDeleted: Bool? = nil, shippingCountryIso3: String? = nil, deliveryMethod: String? = nil, shipNodeType: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, tags: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, roundingPrecision: Int? = nil, allowUserDefinedOrderStatuses: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseOrderList {
+        return try await orderListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, ids: ids, orderIds: orderIds, sinceId: sinceId, storeId: storeId, customerId: customerId, customerEmail: customerEmail, basketId: basketId, currencyId: currencyId, phone: phone, orderStatus: orderStatus, orderStatusIds: orderStatusIds, ebayOrderStatus: ebayOrderStatus, financialStatus: financialStatus, financialStatusIds: financialStatusIds, fulfillmentStatus: fulfillmentStatus, returnStatus: returnStatus, fulfillmentChannel: fulfillmentChannel, shippingMethod: shippingMethod, skipOrderIds: skipOrderIds, isDeleted: isDeleted, shippingCountryIso3: shippingCountryIso3, deliveryMethod: deliveryMethod, shipNodeType: shipNodeType, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, tags: tags, sortBy: sortBy, sortDirection: sortDirection, params: params, responseFields: responseFields, exclude: exclude, enableCache: enableCache, useLatestApiVersion: useLatestApiVersion, roundingPrecision: roundingPrecision, allowUserDefinedOrderStatuses: allowUserDefinedOrderStatuses, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -546,10 +550,11 @@ open class OrderAPI {
      - parameter enableCache: (query) If the value is &#39;true&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add) (optional, default to false)
      - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter roundingPrecision: (query) &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt; (optional)
+     - parameter allowUserDefinedOrderStatuses: (query) Indicates whether custom (user-defined) order statuses should be included in the response. (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseOrderList> 
      */
-    open class func orderListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, orderIds: String? = nil, sinceId: String? = nil, storeId: String? = nil, customerId: String? = nil, customerEmail: String? = nil, basketId: String? = nil, currencyId: String? = nil, phone: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentStatus: String? = nil, returnStatus: String? = nil, fulfillmentChannel: String? = nil, shippingMethod: String? = nil, skipOrderIds: String? = nil, isDeleted: Bool? = nil, shippingCountryIso3: String? = nil, deliveryMethod: String? = nil, shipNodeType: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, tags: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, roundingPrecision: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseOrderList> {
+    open class func orderListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, orderIds: String? = nil, sinceId: String? = nil, storeId: String? = nil, customerId: String? = nil, customerEmail: String? = nil, basketId: String? = nil, currencyId: String? = nil, phone: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentStatus: String? = nil, returnStatus: String? = nil, fulfillmentChannel: String? = nil, shippingMethod: String? = nil, skipOrderIds: String? = nil, isDeleted: Bool? = nil, shippingCountryIso3: String? = nil, deliveryMethod: String? = nil, shipNodeType: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, tags: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, roundingPrecision: Int? = nil, allowUserDefinedOrderStatuses: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseOrderList> {
         let localVariablePath = "/order.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -595,6 +600,7 @@ open class OrderAPI {
             "enable_cache": (wrappedValue: enableCache?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "use_latest_api_version": (wrappedValue: useLatestApiVersion?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "rounding_precision": (wrappedValue: roundingPrecision?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "allow_user_defined_order_statuses": (wrappedValue: allowUserDefinedOrderStatuses?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -1216,13 +1222,14 @@ open class OrderAPI {
      
      - parameter storeId: (query) Store Id (optional)
      - parameter action: (query) Available statuses for the specified action. (optional)
+     - parameter allowUserDefinedOrderStatuses: (query) Indicates whether custom (user-defined) order statuses should be included in the response. (optional, default to false)
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseOrderStatusList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func orderStatusList(storeId: String? = nil, action: String? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseOrderStatusList {
-        return try await orderStatusListWithRequestBuilder(storeId: storeId, action: action, responseFields: responseFields, apiConfiguration: apiConfiguration).execute().body
+    open class func orderStatusList(storeId: String? = nil, action: String? = nil, allowUserDefinedOrderStatuses: Bool? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseOrderStatusList {
+        return try await orderStatusListWithRequestBuilder(storeId: storeId, action: action, allowUserDefinedOrderStatuses: allowUserDefinedOrderStatuses, responseFields: responseFields, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1237,11 +1244,12 @@ open class OrderAPI {
        - name: ApiKeyAuth
      - parameter storeId: (query) Store Id (optional)
      - parameter action: (query) Available statuses for the specified action. (optional)
+     - parameter allowUserDefinedOrderStatuses: (query) Indicates whether custom (user-defined) order statuses should be included in the response. (optional, default to false)
      - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseOrderStatusList> 
      */
-    open class func orderStatusListWithRequestBuilder(storeId: String? = nil, action: String? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseOrderStatusList> {
+    open class func orderStatusListWithRequestBuilder(storeId: String? = nil, action: String? = nil, allowUserDefinedOrderStatuses: Bool? = nil, responseFields: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseOrderStatusList> {
         let localVariablePath = "/order.status.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1250,6 +1258,7 @@ open class OrderAPI {
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "action": (wrappedValue: action?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "allow_user_defined_order_statuses": (wrappedValue: allowUserDefinedOrderStatuses?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 

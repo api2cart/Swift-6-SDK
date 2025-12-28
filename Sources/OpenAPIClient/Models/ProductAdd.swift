@@ -55,7 +55,7 @@ public struct ProductAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var oldPrice: Double?
     /** Defines product's model that has to be added */
     public var specialPrice: Double?
-    /** Defines product's sale price */
+    /** This parameter is deprecated. Please use the <strong>old_price</strong> parameter instead. */
     public var wholesalePrice: Double?
     /** Defines new product's cost price */
     public var costPrice: Double?

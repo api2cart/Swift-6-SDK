@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 
 # **orderInfo**
 ```swift
-    open class func orderInfo(id: String? = nil, orderId: String? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, roundingPrecision: Int? = nil, completion: @escaping (_ data: OrderInfo200Response?, _ error: Error?) -> Void)
+    open class func orderInfo(id: String? = nil, orderId: String? = nil, storeId: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, roundingPrecision: Int? = nil, allowUserDefinedOrderStatuses: Bool? = nil, completion: @escaping (_ data: OrderInfo200Response?, _ error: Error?) -> Void)
 ```
 
 order.info
@@ -412,9 +412,10 @@ let exclude = "exclude_example" // String | Set this parameter in order to choos
 let enableCache = true // Bool | If the value is 'true' and order exist in our cache, we will return order.info response from cache (optional) (default to false)
 let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
 let roundingPrecision = 987 // Int | <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p> (optional)
+let allowUserDefinedOrderStatuses = true // Bool | Indicates whether custom (user-defined) order statuses should be included in the response. (optional) (default to false)
 
 // order.info
-OrderAPI.orderInfo(id: id, orderId: orderId, storeId: storeId, params: params, responseFields: responseFields, exclude: exclude, enableCache: enableCache, useLatestApiVersion: useLatestApiVersion, roundingPrecision: roundingPrecision) { (response, error) in
+OrderAPI.orderInfo(id: id, orderId: orderId, storeId: storeId, params: params, responseFields: responseFields, exclude: exclude, enableCache: enableCache, useLatestApiVersion: useLatestApiVersion, roundingPrecision: roundingPrecision, allowUserDefinedOrderStatuses: allowUserDefinedOrderStatuses) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -439,6 +440,7 @@ Name | Type | Description  | Notes
  **enableCache** | **Bool** | If the value is &#39;true&#39; and order exist in our cache, we will return order.info response from cache | [optional] [default to false]
  **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
  **roundingPrecision** | **Int** | &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt; | [optional] 
+ **allowUserDefinedOrderStatuses** | **Bool** | Indicates whether custom (user-defined) order statuses should be included in the response. | [optional] [default to false]
 
 ### Return type
 
@@ -457,7 +459,7 @@ Name | Type | Description  | Notes
 
 # **orderList**
 ```swift
-    open class func orderList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, orderIds: String? = nil, sinceId: String? = nil, storeId: String? = nil, customerId: String? = nil, customerEmail: String? = nil, basketId: String? = nil, currencyId: String? = nil, phone: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentStatus: String? = nil, returnStatus: String? = nil, fulfillmentChannel: String? = nil, shippingMethod: String? = nil, skipOrderIds: String? = nil, isDeleted: Bool? = nil, shippingCountryIso3: String? = nil, deliveryMethod: String? = nil, shipNodeType: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, tags: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, roundingPrecision: Int? = nil, completion: @escaping (_ data: ModelResponseOrderList?, _ error: Error?) -> Void)
+    open class func orderList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, orderIds: String? = nil, sinceId: String? = nil, storeId: String? = nil, customerId: String? = nil, customerEmail: String? = nil, basketId: String? = nil, currencyId: String? = nil, phone: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentStatus: String? = nil, returnStatus: String? = nil, fulfillmentChannel: String? = nil, shippingMethod: String? = nil, skipOrderIds: String? = nil, isDeleted: Bool? = nil, shippingCountryIso3: String? = nil, deliveryMethod: String? = nil, shipNodeType: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, tags: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, roundingPrecision: Int? = nil, allowUserDefinedOrderStatuses: Bool? = nil, completion: @escaping (_ data: ModelResponseOrderList?, _ error: Error?) -> Void)
 ```
 
 order.list
@@ -508,9 +510,10 @@ let exclude = "exclude_example" // String | Set this parameter in order to choos
 let enableCache = true // Bool | If the value is 'true', we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add) (optional) (default to false)
 let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
 let roundingPrecision = 987 // Int | <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p> (optional)
+let allowUserDefinedOrderStatuses = true // Bool | Indicates whether custom (user-defined) order statuses should be included in the response. (optional) (default to false)
 
 // order.list
-OrderAPI.orderList(start: start, count: count, pageCursor: pageCursor, ids: ids, orderIds: orderIds, sinceId: sinceId, storeId: storeId, customerId: customerId, customerEmail: customerEmail, basketId: basketId, currencyId: currencyId, phone: phone, orderStatus: orderStatus, orderStatusIds: orderStatusIds, ebayOrderStatus: ebayOrderStatus, financialStatus: financialStatus, financialStatusIds: financialStatusIds, fulfillmentStatus: fulfillmentStatus, returnStatus: returnStatus, fulfillmentChannel: fulfillmentChannel, shippingMethod: shippingMethod, skipOrderIds: skipOrderIds, isDeleted: isDeleted, shippingCountryIso3: shippingCountryIso3, deliveryMethod: deliveryMethod, shipNodeType: shipNodeType, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, tags: tags, sortBy: sortBy, sortDirection: sortDirection, params: params, responseFields: responseFields, exclude: exclude, enableCache: enableCache, useLatestApiVersion: useLatestApiVersion, roundingPrecision: roundingPrecision) { (response, error) in
+OrderAPI.orderList(start: start, count: count, pageCursor: pageCursor, ids: ids, orderIds: orderIds, sinceId: sinceId, storeId: storeId, customerId: customerId, customerEmail: customerEmail, basketId: basketId, currencyId: currencyId, phone: phone, orderStatus: orderStatus, orderStatusIds: orderStatusIds, ebayOrderStatus: ebayOrderStatus, financialStatus: financialStatus, financialStatusIds: financialStatusIds, fulfillmentStatus: fulfillmentStatus, returnStatus: returnStatus, fulfillmentChannel: fulfillmentChannel, shippingMethod: shippingMethod, skipOrderIds: skipOrderIds, isDeleted: isDeleted, shippingCountryIso3: shippingCountryIso3, deliveryMethod: deliveryMethod, shipNodeType: shipNodeType, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, tags: tags, sortBy: sortBy, sortDirection: sortDirection, params: params, responseFields: responseFields, exclude: exclude, enableCache: enableCache, useLatestApiVersion: useLatestApiVersion, roundingPrecision: roundingPrecision, allowUserDefinedOrderStatuses: allowUserDefinedOrderStatuses) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -565,6 +568,7 @@ Name | Type | Description  | Notes
  **enableCache** | **Bool** | If the value is &#39;true&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add) | [optional] [default to false]
  **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
  **roundingPrecision** | **Int** | &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt; | [optional] 
+ **allowUserDefinedOrderStatuses** | **Bool** | Indicates whether custom (user-defined) order statuses should be included in the response. | [optional] [default to false]
 
 ### Return type
 
@@ -1225,7 +1229,7 @@ Name | Type | Description  | Notes
 
 # **orderStatusList**
 ```swift
-    open class func orderStatusList(storeId: String? = nil, action: String? = nil, responseFields: String? = nil, completion: @escaping (_ data: ModelResponseOrderStatusList?, _ error: Error?) -> Void)
+    open class func orderStatusList(storeId: String? = nil, action: String? = nil, allowUserDefinedOrderStatuses: Bool? = nil, responseFields: String? = nil, completion: @escaping (_ data: ModelResponseOrderStatusList?, _ error: Error?) -> Void)
 ```
 
 order.status.list
@@ -1239,10 +1243,11 @@ import OpenAPIClient
 
 let storeId = "storeId_example" // String | Store Id (optional)
 let action = "action_example" // String | Available statuses for the specified action. (optional)
+let allowUserDefinedOrderStatuses = true // Bool | Indicates whether custom (user-defined) order statuses should be included in the response. (optional) (default to false)
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 
 // order.status.list
-OrderAPI.orderStatusList(storeId: storeId, action: action, responseFields: responseFields) { (response, error) in
+OrderAPI.orderStatusList(storeId: storeId, action: action, allowUserDefinedOrderStatuses: allowUserDefinedOrderStatuses, responseFields: responseFields) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1260,6 +1265,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storeId** | **String** | Store Id | [optional] 
  **action** | **String** | Available statuses for the specified action. | [optional] 
+ **allowUserDefinedOrderStatuses** | **Bool** | Indicates whether custom (user-defined) order statuses should be included in the response. | [optional] [default to false]
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
 
 ### Return type
