@@ -29,6 +29,8 @@ public struct Child: Sendable, Codable, JSONEncodable, Hashable {
     public var combination: [ProductChildItemCombination]?
     public var defaultPrice: Double?
     public var costPrice: Double?
+    public var unitPrice: Double?
+    public var measureUnit: String?
     public var listPrice: Double?
     public var wholesalePrice: Double?
     public var advancedPrice: [ProductAdvancedPrice]?
@@ -58,7 +60,7 @@ public struct Child: Sendable, Codable, JSONEncodable, Hashable {
     public var additionalFields: JSONValue?
     public var customFields: JSONValue?
 
-    public init(id: String? = nil, parentId: String? = nil, sku: String? = nil, upc: String? = nil, ean: String? = nil, mpn: String? = nil, gtin: String? = nil, isbn: String? = nil, url: String? = nil, seoUrl: String? = nil, sortOrder: Int? = nil, createdTime: A2CDateTime? = nil, modifiedTime: A2CDateTime? = nil, name: String? = nil, shortDescription: String? = nil, fullDescription: String? = nil, images: [Image]? = nil, combination: [ProductChildItemCombination]? = nil, defaultPrice: Double? = nil, costPrice: Double? = nil, listPrice: Double? = nil, wholesalePrice: Double? = nil, advancedPrice: [ProductAdvancedPrice]? = nil, taxClassId: String? = nil, availForSale: Bool? = nil, allowBackorders: Bool? = nil, inStock: Bool? = nil, onSale: Bool? = nil, manageStock: Bool? = nil, inventoryLevel: Double? = nil, inventory: [ProductInventory]? = nil, minQuantity: Double? = nil, lowStockThreshold: Double? = nil, defaultQtyInPack: Double? = nil, isQtyInPackFixed: Bool? = nil, weightUnit: String? = nil, weight: Double? = nil, dimensionsUnit: String? = nil, width: Double? = nil, height: Double? = nil, length: Double? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, discounts: [Discount]? = nil, isVirtual: Bool? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
+    public init(id: String? = nil, parentId: String? = nil, sku: String? = nil, upc: String? = nil, ean: String? = nil, mpn: String? = nil, gtin: String? = nil, isbn: String? = nil, url: String? = nil, seoUrl: String? = nil, sortOrder: Int? = nil, createdTime: A2CDateTime? = nil, modifiedTime: A2CDateTime? = nil, name: String? = nil, shortDescription: String? = nil, fullDescription: String? = nil, images: [Image]? = nil, combination: [ProductChildItemCombination]? = nil, defaultPrice: Double? = nil, costPrice: Double? = nil, unitPrice: Double? = nil, measureUnit: String? = nil, listPrice: Double? = nil, wholesalePrice: Double? = nil, advancedPrice: [ProductAdvancedPrice]? = nil, taxClassId: String? = nil, availForSale: Bool? = nil, allowBackorders: Bool? = nil, inStock: Bool? = nil, onSale: Bool? = nil, manageStock: Bool? = nil, inventoryLevel: Double? = nil, inventory: [ProductInventory]? = nil, minQuantity: Double? = nil, lowStockThreshold: Double? = nil, defaultQtyInPack: Double? = nil, isQtyInPackFixed: Bool? = nil, weightUnit: String? = nil, weight: Double? = nil, dimensionsUnit: String? = nil, width: Double? = nil, height: Double? = nil, length: Double? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, discounts: [Discount]? = nil, isVirtual: Bool? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
         self.id = id
         self.parentId = parentId
         self.sku = sku
@@ -79,6 +81,8 @@ public struct Child: Sendable, Codable, JSONEncodable, Hashable {
         self.combination = combination
         self.defaultPrice = defaultPrice
         self.costPrice = costPrice
+        self.unitPrice = unitPrice
+        self.measureUnit = measureUnit
         self.listPrice = listPrice
         self.wholesalePrice = wholesalePrice
         self.advancedPrice = advancedPrice
@@ -130,6 +134,8 @@ public struct Child: Sendable, Codable, JSONEncodable, Hashable {
         case combination
         case defaultPrice = "default_price"
         case costPrice = "cost_price"
+        case unitPrice = "unit_price"
+        case measureUnit = "measure_unit"
         case listPrice = "list_price"
         case wholesalePrice = "wholesale_price"
         case advancedPrice = "advanced_price"
@@ -184,6 +190,8 @@ public struct Child: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(combination, forKey: .combination)
         try container.encodeIfPresent(defaultPrice, forKey: .defaultPrice)
         try container.encodeIfPresent(costPrice, forKey: .costPrice)
+        try container.encodeIfPresent(unitPrice, forKey: .unitPrice)
+        try container.encodeIfPresent(measureUnit, forKey: .measureUnit)
         try container.encodeIfPresent(listPrice, forKey: .listPrice)
         try container.encodeIfPresent(wholesalePrice, forKey: .wholesalePrice)
         try container.encodeIfPresent(advancedPrice, forKey: .advancedPrice)

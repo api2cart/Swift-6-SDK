@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **price** | **Double** |  | [optional] 
 **advancedPrice** | [ProductAdvancedPrice] |  | [optional] 
 **costPrice** | **Double** |  | [optional] 
+**unitPrice** | **Double** |  | [optional] 
+**measureUnit** | **String** |  | [optional] 
 **quantity** | **Double** |  | [optional] 
 **inventory** | [ProductInventory] |  | [optional] 
 **groupItems** | [ProductGroupItem] |  | [optional] 

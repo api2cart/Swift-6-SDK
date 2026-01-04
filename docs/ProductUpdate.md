@@ -32,6 +32,8 @@ Name | Type | Description | Notes
 **productClass** | **String** | A categorization for the product | [optional] 
 **brandName** | **String** | Retrieves brands specified by brand name | [optional] 
 **availableForView** | **Bool** | Specifies the set of visible/invisible products for users | [optional] 
+**measureUnit** | **String** | Unit for the price per unit. Must be in allowed list | [optional] 
+**unitPrice** | **Double** | Defines new product&#39;s unit price | [optional] 
 **storesIds** | **String** | Assign product to the stores that is specified by comma-separated stores&#39; id | [optional] 
 **storeId** | **String** | Defines store id where the product should be found | [optional] 
 **langId** | **String** | Language id | [optional] 

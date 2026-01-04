@@ -81,6 +81,10 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var spriceCreate: String?
     /** Defines the term of special price offer duration */
     public var spriceExpire: String?
+    /** Unit for the price per unit. Must be in allowed list */
+    public var measureUnit: String?
+    /** Defines new product's unit price */
+    public var unitPrice: Double?
     /** Weight */
     public var weight: Double? = 0
     /** A barcode is a unique code composed of numbers used as a product identifier. */
@@ -122,7 +126,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
     /** The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field processing_profiles[]->readiness_state_id. */
     public var processingProfileId: Int?
 
-    public init(id: String? = nil, productId: String? = nil, storeId: String? = nil, langId: String? = nil, options: [ProductVariantUpdateOptionsInner]? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, model: String? = nil, sku: String? = nil, visible: String? = nil, status: String? = nil, backorderStatus: String? = nil, lowStockThreshold: Double? = nil, availableForSale: Bool? = true, avail: Bool? = true, isDefault: Bool? = nil, isFreeShipping: Bool? = nil, taxable: Bool? = nil, taxClassId: String? = nil, isVirtual: Bool? = false, manageStock: Bool? = nil, inStock: Bool? = nil, warehouseId: String? = nil, reserveQuantity: Double? = nil, quantity: Double? = nil, increaseQuantity: Double? = 0, reduceQuantity: Double? = 0, price: Double? = nil, specialPrice: Double? = nil, retailPrice: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, weight: Double? = 0, barcode: String? = nil, width: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, manufacturer: String? = nil, reindex: Bool? = true, clearCache: Bool? = true, processingProfileId: Int? = nil) {
+    public init(id: String? = nil, productId: String? = nil, storeId: String? = nil, langId: String? = nil, options: [ProductVariantUpdateOptionsInner]? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, model: String? = nil, sku: String? = nil, visible: String? = nil, status: String? = nil, backorderStatus: String? = nil, lowStockThreshold: Double? = nil, availableForSale: Bool? = true, avail: Bool? = true, isDefault: Bool? = nil, isFreeShipping: Bool? = nil, taxable: Bool? = nil, taxClassId: String? = nil, isVirtual: Bool? = false, manageStock: Bool? = nil, inStock: Bool? = nil, warehouseId: String? = nil, reserveQuantity: Double? = nil, quantity: Double? = nil, increaseQuantity: Double? = 0, reduceQuantity: Double? = 0, price: Double? = nil, specialPrice: Double? = nil, retailPrice: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, measureUnit: String? = nil, unitPrice: Double? = nil, weight: Double? = 0, barcode: String? = nil, width: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, manufacturer: String? = nil, reindex: Bool? = true, clearCache: Bool? = true, processingProfileId: Int? = nil) {
         self.id = id
         self.productId = productId
         self.storeId = storeId
@@ -159,6 +163,8 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.fixedCostShippingPrice = fixedCostShippingPrice
         self.spriceCreate = spriceCreate
         self.spriceExpire = spriceExpire
+        self.measureUnit = measureUnit
+        self.unitPrice = unitPrice
         self.weight = weight
         self.barcode = barcode
         self.width = width
@@ -218,6 +224,8 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case fixedCostShippingPrice = "fixed_cost_shipping_price"
         case spriceCreate = "sprice_create"
         case spriceExpire = "sprice_expire"
+        case measureUnit = "measure_unit"
+        case unitPrice = "unit_price"
         case weight
         case barcode
         case width
@@ -280,6 +288,8 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(fixedCostShippingPrice, forKey: .fixedCostShippingPrice)
         try container.encodeIfPresent(spriceCreate, forKey: .spriceCreate)
         try container.encodeIfPresent(spriceExpire, forKey: .spriceExpire)
+        try container.encodeIfPresent(measureUnit, forKey: .measureUnit)
+        try container.encodeIfPresent(unitPrice, forKey: .unitPrice)
         try container.encodeIfPresent(weight, forKey: .weight)
         try container.encodeIfPresent(barcode, forKey: .barcode)
         try container.encodeIfPresent(width, forKey: .width)

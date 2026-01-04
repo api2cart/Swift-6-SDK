@@ -23,6 +23,8 @@ Name | Type | Description | Notes
 **combination** | [ProductChildItemCombination] |  | [optional] 
 **defaultPrice** | **Double** |  | [optional] 
 **costPrice** | **Double** |  | [optional] 
+**unitPrice** | **Double** |  | [optional] 
+**measureUnit** | **String** |  | [optional] 
 **listPrice** | **Double** |  | [optional] 
 **wholesalePrice** | **Double** |  | [optional] 
 **advancedPrice** | [ProductAdvancedPrice] |  | [optional] 
