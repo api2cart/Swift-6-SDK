@@ -27,9 +27,11 @@ public struct OrderReturnUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var sendNotifications: Bool? = false
     /** Defines return reject reason */
     public var rejectReason: String?
+    /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+    public var idempotencyKey: String?
     public var orderProducts: [OrderReturnUpdateOrderProductsInner]
 
-    public init(returnId: String, orderId: String? = nil, storeId: String? = nil, itemRestock: Bool? = false, returnStatusId: String? = nil, staffNote: String? = nil, comment: String? = nil, sendNotifications: Bool? = false, rejectReason: String? = nil, orderProducts: [OrderReturnUpdateOrderProductsInner]) {
+    public init(returnId: String, orderId: String? = nil, storeId: String? = nil, itemRestock: Bool? = false, returnStatusId: String? = nil, staffNote: String? = nil, comment: String? = nil, sendNotifications: Bool? = false, rejectReason: String? = nil, idempotencyKey: String? = nil, orderProducts: [OrderReturnUpdateOrderProductsInner]) {
         self.returnId = returnId
         self.orderId = orderId
         self.storeId = storeId
@@ -39,6 +41,7 @@ public struct OrderReturnUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.comment = comment
         self.sendNotifications = sendNotifications
         self.rejectReason = rejectReason
+        self.idempotencyKey = idempotencyKey
         self.orderProducts = orderProducts
     }
 
@@ -52,6 +55,7 @@ public struct OrderReturnUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case comment
         case sendNotifications = "send_notifications"
         case rejectReason = "reject_reason"
+        case idempotencyKey = "idempotency_key"
         case orderProducts = "order_products"
     }
 
@@ -68,6 +72,7 @@ public struct OrderReturnUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(comment, forKey: .comment)
         try container.encodeIfPresent(sendNotifications, forKey: .sendNotifications)
         try container.encodeIfPresent(rejectReason, forKey: .rejectReason)
+        try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
         try container.encode(orderProducts, forKey: .orderProducts)
     }
 }

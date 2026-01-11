@@ -197,12 +197,13 @@ open class ProductAPI {
      - parameter valueId: (query) Define attribute value id (optional)
      - parameter langId: (query) Language id (optional)
      - parameter storeId: (query) Store Id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProductAttributeValueSet200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func productAttributeValueSet(productId: String, attributeId: String? = nil, attributeGroupId: String? = nil, attributeName: String? = nil, value: String? = nil, valueId: Int? = nil, langId: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductAttributeValueSet200Response {
-        return try await productAttributeValueSetWithRequestBuilder(productId: productId, attributeId: attributeId, attributeGroupId: attributeGroupId, attributeName: attributeName, value: value, valueId: valueId, langId: langId, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
+    open class func productAttributeValueSet(productId: String, attributeId: String? = nil, attributeGroupId: String? = nil, attributeName: String? = nil, value: String? = nil, valueId: Int? = nil, langId: String? = nil, storeId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductAttributeValueSet200Response {
+        return try await productAttributeValueSetWithRequestBuilder(productId: productId, attributeId: attributeId, attributeGroupId: attributeGroupId, attributeName: attributeName, value: value, valueId: valueId, langId: langId, storeId: storeId, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -223,10 +224,11 @@ open class ProductAPI {
      - parameter valueId: (query) Define attribute value id (optional)
      - parameter langId: (query) Language id (optional)
      - parameter storeId: (query) Store Id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProductAttributeValueSet200Response> 
      */
-    open class func productAttributeValueSetWithRequestBuilder(productId: String, attributeId: String? = nil, attributeGroupId: String? = nil, attributeName: String? = nil, value: String? = nil, valueId: Int? = nil, langId: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductAttributeValueSet200Response> {
+    open class func productAttributeValueSetWithRequestBuilder(productId: String, attributeId: String? = nil, attributeGroupId: String? = nil, attributeName: String? = nil, value: String? = nil, valueId: Int? = nil, langId: String? = nil, storeId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductAttributeValueSet200Response> {
         let localVariablePath = "/product.attribute.value.set.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -241,6 +243,7 @@ open class ProductAPI {
             "value_id": (wrappedValue: valueId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "lang_id": (wrappedValue: langId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -263,12 +266,13 @@ open class ProductAPI {
      - parameter includeDefault: (query) Boolean, whether or not to unset default value of the attribute, if applicable (optional, default to false)
      - parameter reindex: (query) Is reindex required (optional, default to true)
      - parameter clearCache: (query) Is cache clear required (optional, default to true)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProductAttributeValueUnset200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func productAttributeValueUnset(productId: String, attributeId: String, storeId: String? = nil, includeDefault: Bool? = nil, reindex: Bool? = nil, clearCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductAttributeValueUnset200Response {
-        return try await productAttributeValueUnsetWithRequestBuilder(productId: productId, attributeId: attributeId, storeId: storeId, includeDefault: includeDefault, reindex: reindex, clearCache: clearCache, apiConfiguration: apiConfiguration).execute().body
+    open class func productAttributeValueUnset(productId: String, attributeId: String, storeId: String? = nil, includeDefault: Bool? = nil, reindex: Bool? = nil, clearCache: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductAttributeValueUnset200Response {
+        return try await productAttributeValueUnsetWithRequestBuilder(productId: productId, attributeId: attributeId, storeId: storeId, includeDefault: includeDefault, reindex: reindex, clearCache: clearCache, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -287,10 +291,11 @@ open class ProductAPI {
      - parameter includeDefault: (query) Boolean, whether or not to unset default value of the attribute, if applicable (optional, default to false)
      - parameter reindex: (query) Is reindex required (optional, default to true)
      - parameter clearCache: (query) Is cache clear required (optional, default to true)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProductAttributeValueUnset200Response> 
      */
-    open class func productAttributeValueUnsetWithRequestBuilder(productId: String, attributeId: String, storeId: String? = nil, includeDefault: Bool? = nil, reindex: Bool? = nil, clearCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductAttributeValueUnset200Response> {
+    open class func productAttributeValueUnsetWithRequestBuilder(productId: String, attributeId: String, storeId: String? = nil, includeDefault: Bool? = nil, reindex: Bool? = nil, clearCache: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductAttributeValueUnset200Response> {
         let localVariablePath = "/product.attribute.value.unset.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -303,6 +308,7 @@ open class ProductAPI {
             "include_default": (wrappedValue: includeDefault?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "reindex": (wrappedValue: reindex?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "clear_cache": (wrappedValue: clearCache?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -780,12 +786,13 @@ open class ProductAPI {
      - parameter symbolLeft: (query) Defines the symbol that is located before the currency (optional)
      - parameter symbolRight: (query) Defines the symbol that is located after the currency (optional)
      - parameter _default: (query) Specifies currency&#39;s default meaning (optional, default to false)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProductCurrencyAdd200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func productCurrencyAdd(iso3: String, rate: Double, name: String? = nil, avail: Bool? = nil, symbolLeft: String? = nil, symbolRight: String? = nil, _default: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductCurrencyAdd200Response {
-        return try await productCurrencyAddWithRequestBuilder(iso3: iso3, rate: rate, name: name, avail: avail, symbolLeft: symbolLeft, symbolRight: symbolRight, _default: _default, apiConfiguration: apiConfiguration).execute().body
+    open class func productCurrencyAdd(iso3: String, rate: Double, name: String? = nil, avail: Bool? = nil, symbolLeft: String? = nil, symbolRight: String? = nil, _default: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductCurrencyAdd200Response {
+        return try await productCurrencyAddWithRequestBuilder(iso3: iso3, rate: rate, name: name, avail: avail, symbolLeft: symbolLeft, symbolRight: symbolRight, _default: _default, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -805,10 +812,11 @@ open class ProductAPI {
      - parameter symbolLeft: (query) Defines the symbol that is located before the currency (optional)
      - parameter symbolRight: (query) Defines the symbol that is located after the currency (optional)
      - parameter _default: (query) Specifies currency&#39;s default meaning (optional, default to false)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProductCurrencyAdd200Response> 
      */
-    open class func productCurrencyAddWithRequestBuilder(iso3: String, rate: Double, name: String? = nil, avail: Bool? = nil, symbolLeft: String? = nil, symbolRight: String? = nil, _default: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductCurrencyAdd200Response> {
+    open class func productCurrencyAddWithRequestBuilder(iso3: String, rate: Double, name: String? = nil, avail: Bool? = nil, symbolLeft: String? = nil, symbolRight: String? = nil, _default: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductCurrencyAdd200Response> {
         let localVariablePath = "/product.currency.add.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -822,6 +830,7 @@ open class ProductAPI {
             "symbol_left": (wrappedValue: symbolLeft?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "symbol_right": (wrappedValue: symbolRight?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "default": (wrappedValue: _default?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -1169,12 +1178,13 @@ open class ProductAPI {
      - parameter label: (query) Defines alternative text that has to be attached to the picture (optional)
      - parameter position: (query) Defines image’s position in the list (optional)
      - parameter hidden: (query) Define is hide image (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProductImageUpdate200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func productImageUpdate(productId: String, id: String, variantIds: String? = nil, storeId: String? = nil, langId: String? = nil, imageName: String? = nil, type: String? = nil, label: String? = nil, position: Int? = nil, hidden: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductImageUpdate200Response {
-        return try await productImageUpdateWithRequestBuilder(productId: productId, id: id, variantIds: variantIds, storeId: storeId, langId: langId, imageName: imageName, type: type, label: label, position: position, hidden: hidden, apiConfiguration: apiConfiguration).execute().body
+    open class func productImageUpdate(productId: String, id: String, variantIds: String? = nil, storeId: String? = nil, langId: String? = nil, imageName: String? = nil, type: String? = nil, label: String? = nil, position: Int? = nil, hidden: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductImageUpdate200Response {
+        return try await productImageUpdateWithRequestBuilder(productId: productId, id: id, variantIds: variantIds, storeId: storeId, langId: langId, imageName: imageName, type: type, label: label, position: position, hidden: hidden, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1197,10 +1207,11 @@ open class ProductAPI {
      - parameter label: (query) Defines alternative text that has to be attached to the picture (optional)
      - parameter position: (query) Defines image’s position in the list (optional)
      - parameter hidden: (query) Define is hide image (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProductImageUpdate200Response> 
      */
-    open class func productImageUpdateWithRequestBuilder(productId: String, id: String, variantIds: String? = nil, storeId: String? = nil, langId: String? = nil, imageName: String? = nil, type: String? = nil, label: String? = nil, position: Int? = nil, hidden: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductImageUpdate200Response> {
+    open class func productImageUpdateWithRequestBuilder(productId: String, id: String, variantIds: String? = nil, storeId: String? = nil, langId: String? = nil, imageName: String? = nil, type: String? = nil, label: String? = nil, position: Int? = nil, hidden: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductImageUpdate200Response> {
         let localVariablePath = "/product.image.update.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1217,6 +1228,7 @@ open class ProductAPI {
             "label": (wrappedValue: label?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "position": (wrappedValue: position?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "hidden": (wrappedValue: hidden?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -1468,12 +1480,13 @@ open class ProductAPI {
      - parameter searchKeywords: (query) Defines unique search keywords (optional)
      - parameter imageUrl: (query) Image Url (optional)
      - parameter seoUrl: (query) Defines unique URL for SEO (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProductManufacturerAdd200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func productManufacturerAdd(productId: String, manufacturer: String, storeId: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, searchKeywords: String? = nil, imageUrl: String? = nil, seoUrl: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductManufacturerAdd200Response {
-        return try await productManufacturerAddWithRequestBuilder(productId: productId, manufacturer: manufacturer, storeId: storeId, metaTitle: metaTitle, metaKeywords: metaKeywords, metaDescription: metaDescription, searchKeywords: searchKeywords, imageUrl: imageUrl, seoUrl: seoUrl, apiConfiguration: apiConfiguration).execute().body
+    open class func productManufacturerAdd(productId: String, manufacturer: String, storeId: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, searchKeywords: String? = nil, imageUrl: String? = nil, seoUrl: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductManufacturerAdd200Response {
+        return try await productManufacturerAddWithRequestBuilder(productId: productId, manufacturer: manufacturer, storeId: storeId, metaTitle: metaTitle, metaKeywords: metaKeywords, metaDescription: metaDescription, searchKeywords: searchKeywords, imageUrl: imageUrl, seoUrl: seoUrl, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1495,10 +1508,11 @@ open class ProductAPI {
      - parameter searchKeywords: (query) Defines unique search keywords (optional)
      - parameter imageUrl: (query) Image Url (optional)
      - parameter seoUrl: (query) Defines unique URL for SEO (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProductManufacturerAdd200Response> 
      */
-    open class func productManufacturerAddWithRequestBuilder(productId: String, manufacturer: String, storeId: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, searchKeywords: String? = nil, imageUrl: String? = nil, seoUrl: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductManufacturerAdd200Response> {
+    open class func productManufacturerAddWithRequestBuilder(productId: String, manufacturer: String, storeId: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, searchKeywords: String? = nil, imageUrl: String? = nil, seoUrl: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductManufacturerAdd200Response> {
         let localVariablePath = "/product.manufacturer.add.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1514,6 +1528,7 @@ open class ProductAPI {
             "search_keywords": (wrappedValue: searchKeywords?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "image_url": (wrappedValue: imageUrl?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "seo_url": (wrappedValue: seoUrl?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -1580,12 +1595,13 @@ open class ProductAPI {
      - parameter sortOrder: (query) Sort number in the list (optional, default to 0)
      - parameter optionValues: (query) Defines option values that has to be assigned (optional)
      - parameter clearCache: (query) Is cache clear required (optional, default to true)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProductOptionAssign200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func productOptionAssign(productId: String, optionId: String, _required: Bool? = nil, sortOrder: Int? = nil, optionValues: String? = nil, clearCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductOptionAssign200Response {
-        return try await productOptionAssignWithRequestBuilder(productId: productId, optionId: optionId, _required: _required, sortOrder: sortOrder, optionValues: optionValues, clearCache: clearCache, apiConfiguration: apiConfiguration).execute().body
+    open class func productOptionAssign(productId: String, optionId: String, _required: Bool? = nil, sortOrder: Int? = nil, optionValues: String? = nil, clearCache: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductOptionAssign200Response {
+        return try await productOptionAssignWithRequestBuilder(productId: productId, optionId: optionId, _required: _required, sortOrder: sortOrder, optionValues: optionValues, clearCache: clearCache, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1604,10 +1620,11 @@ open class ProductAPI {
      - parameter sortOrder: (query) Sort number in the list (optional, default to 0)
      - parameter optionValues: (query) Defines option values that has to be assigned (optional)
      - parameter clearCache: (query) Is cache clear required (optional, default to true)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProductOptionAssign200Response> 
      */
-    open class func productOptionAssignWithRequestBuilder(productId: String, optionId: String, _required: Bool? = nil, sortOrder: Int? = nil, optionValues: String? = nil, clearCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductOptionAssign200Response> {
+    open class func productOptionAssignWithRequestBuilder(productId: String, optionId: String, _required: Bool? = nil, sortOrder: Int? = nil, optionValues: String? = nil, clearCache: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductOptionAssign200Response> {
         let localVariablePath = "/product.option.assign.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1620,6 +1637,7 @@ open class ProductAPI {
             "sort_order": (wrappedValue: sortOrder?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "option_values": (wrappedValue: optionValues?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "clear_cache": (wrappedValue: clearCache?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -1764,12 +1782,13 @@ open class ProductAPI {
      - parameter displayValue: (query) Defines the value that will be displayed for the option value (optional)
      - parameter isDefault: (query) Defines as a default (optional)
      - parameter clearCache: (query) Is cache clear required (optional, default to true)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProductOptionValueAdd200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func productOptionValueAdd(productId: String, optionId: String, optionValue: String? = nil, sortOrder: Int? = nil, displayValue: String? = nil, isDefault: Bool? = nil, clearCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductOptionValueAdd200Response {
-        return try await productOptionValueAddWithRequestBuilder(productId: productId, optionId: optionId, optionValue: optionValue, sortOrder: sortOrder, displayValue: displayValue, isDefault: isDefault, clearCache: clearCache, apiConfiguration: apiConfiguration).execute().body
+    open class func productOptionValueAdd(productId: String, optionId: String, optionValue: String? = nil, sortOrder: Int? = nil, displayValue: String? = nil, isDefault: Bool? = nil, clearCache: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductOptionValueAdd200Response {
+        return try await productOptionValueAddWithRequestBuilder(productId: productId, optionId: optionId, optionValue: optionValue, sortOrder: sortOrder, displayValue: displayValue, isDefault: isDefault, clearCache: clearCache, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1789,10 +1808,11 @@ open class ProductAPI {
      - parameter displayValue: (query) Defines the value that will be displayed for the option value (optional)
      - parameter isDefault: (query) Defines as a default (optional)
      - parameter clearCache: (query) Is cache clear required (optional, default to true)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProductOptionValueAdd200Response> 
      */
-    open class func productOptionValueAddWithRequestBuilder(productId: String, optionId: String, optionValue: String? = nil, sortOrder: Int? = nil, displayValue: String? = nil, isDefault: Bool? = nil, clearCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductOptionValueAdd200Response> {
+    open class func productOptionValueAddWithRequestBuilder(productId: String, optionId: String, optionValue: String? = nil, sortOrder: Int? = nil, displayValue: String? = nil, isDefault: Bool? = nil, clearCache: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductOptionValueAdd200Response> {
         let localVariablePath = "/product.option.value.add.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1806,6 +1826,7 @@ open class ProductAPI {
             "display_value": (wrappedValue: displayValue?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "is_default": (wrappedValue: isDefault?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "clear_cache": (wrappedValue: clearCache?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -1825,12 +1846,13 @@ open class ProductAPI {
      - parameter productOptionId: (query) Defines product&#39;s option id where the value has to be assigned 
      - parameter optionValueId: (query) Defines value id that has to be assigned 
      - parameter clearCache: (query) Is cache clear required (optional, default to true)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProductOptionValueAssign200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func productOptionValueAssign(productOptionId: Int, optionValueId: String, clearCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductOptionValueAssign200Response {
-        return try await productOptionValueAssignWithRequestBuilder(productOptionId: productOptionId, optionValueId: optionValueId, clearCache: clearCache, apiConfiguration: apiConfiguration).execute().body
+    open class func productOptionValueAssign(productOptionId: Int, optionValueId: String, clearCache: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductOptionValueAssign200Response {
+        return try await productOptionValueAssignWithRequestBuilder(productOptionId: productOptionId, optionValueId: optionValueId, clearCache: clearCache, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1846,10 +1868,11 @@ open class ProductAPI {
      - parameter productOptionId: (query) Defines product&#39;s option id where the value has to be assigned 
      - parameter optionValueId: (query) Defines value id that has to be assigned 
      - parameter clearCache: (query) Is cache clear required (optional, default to true)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProductOptionValueAssign200Response> 
      */
-    open class func productOptionValueAssignWithRequestBuilder(productOptionId: Int, optionValueId: String, clearCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductOptionValueAssign200Response> {
+    open class func productOptionValueAssignWithRequestBuilder(productOptionId: Int, optionValueId: String, clearCache: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductOptionValueAssign200Response> {
         let localVariablePath = "/product.option.value.assign.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1859,6 +1882,7 @@ open class ProductAPI {
             "product_option_id": (wrappedValue: productOptionId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "option_value_id": (wrappedValue: optionValueId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "clear_cache": (wrappedValue: clearCache?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -1939,12 +1963,13 @@ open class ProductAPI {
      - parameter quantity: (query) Defines new products&#39; options quantity (optional)
      - parameter displayValue: (query) Defines the value that will be displayed for the option value (optional)
      - parameter clearCache: (query) Is cache clear required (optional, default to true)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AccountConfigUpdate200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func productOptionValueUpdate(productId: String, optionId: String, optionValueId: String, optionValue: String? = nil, price: Double? = nil, quantity: Double? = nil, displayValue: String? = nil, clearCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AccountConfigUpdate200Response {
-        return try await productOptionValueUpdateWithRequestBuilder(productId: productId, optionId: optionId, optionValueId: optionValueId, optionValue: optionValue, price: price, quantity: quantity, displayValue: displayValue, clearCache: clearCache, apiConfiguration: apiConfiguration).execute().body
+    open class func productOptionValueUpdate(productId: String, optionId: String, optionValueId: String, optionValue: String? = nil, price: Double? = nil, quantity: Double? = nil, displayValue: String? = nil, clearCache: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AccountConfigUpdate200Response {
+        return try await productOptionValueUpdateWithRequestBuilder(productId: productId, optionId: optionId, optionValueId: optionValueId, optionValue: optionValue, price: price, quantity: quantity, displayValue: displayValue, clearCache: clearCache, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1965,10 +1990,11 @@ open class ProductAPI {
      - parameter quantity: (query) Defines new products&#39; options quantity (optional)
      - parameter displayValue: (query) Defines the value that will be displayed for the option value (optional)
      - parameter clearCache: (query) Is cache clear required (optional, default to true)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AccountConfigUpdate200Response> 
      */
-    open class func productOptionValueUpdateWithRequestBuilder(productId: String, optionId: String, optionValueId: String, optionValue: String? = nil, price: Double? = nil, quantity: Double? = nil, displayValue: String? = nil, clearCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AccountConfigUpdate200Response> {
+    open class func productOptionValueUpdateWithRequestBuilder(productId: String, optionId: String, optionValueId: String, optionValue: String? = nil, price: Double? = nil, quantity: Double? = nil, displayValue: String? = nil, clearCache: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AccountConfigUpdate200Response> {
         let localVariablePath = "/product.option.value.update.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1983,6 +2009,7 @@ open class ProductAPI {
             "quantity": (wrappedValue: quantity?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "display_value": (wrappedValue: displayValue?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "clear_cache": (wrappedValue: clearCache?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -2234,12 +2261,13 @@ open class ProductAPI {
      
      - parameter productId: (query) Defines id of the product which should be assigned to a store 
      - parameter storeId: (query) Defines id of the store product should be assigned to 
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AccountConfigUpdate200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func productStoreAssign(productId: String, storeId: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AccountConfigUpdate200Response {
-        return try await productStoreAssignWithRequestBuilder(productId: productId, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
+    open class func productStoreAssign(productId: String, storeId: String, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AccountConfigUpdate200Response {
+        return try await productStoreAssignWithRequestBuilder(productId: productId, storeId: storeId, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -2254,10 +2282,11 @@ open class ProductAPI {
        - name: ApiKeyAuth
      - parameter productId: (query) Defines id of the product which should be assigned to a store 
      - parameter storeId: (query) Defines id of the store product should be assigned to 
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AccountConfigUpdate200Response> 
      */
-    open class func productStoreAssignWithRequestBuilder(productId: String, storeId: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AccountConfigUpdate200Response> {
+    open class func productStoreAssignWithRequestBuilder(productId: String, storeId: String, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AccountConfigUpdate200Response> {
         let localVariablePath = "/product.store.assign.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -2266,6 +2295,7 @@ open class ProductAPI {
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "product_id": (wrappedValue: productId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [

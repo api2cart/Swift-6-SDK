@@ -32,7 +32,7 @@ Add customer into store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let customerAdd = CustomerAdd(email: "email_example", firstName: "firstName_example", lastName: "lastName_example", password: "password_example", group: "group_example", groupId: "groupId_example", groupIds: "groupIds_example", status: "status_example", createdTime: "createdTime_example", modifiedTime: "modifiedTime_example", login: "login_example", lastLogin: "lastLogin_example", birthDay: "birthDay_example", newsLetterSubscription: true, consents: [CustomerAdd_consents_inner(type: "type_example", status: "status_example", optInLevel: "optInLevel_example")], gender: "gender_example", website: "website_example", fax: "fax_example", company: "company_example", phone: "phone_example", note: "note_example", country: "country_example", storeId: "storeId_example", address: [CustomerAdd_address_inner(addressBookType: "addressBookType_example", addressBookFirstName: "addressBookFirstName_example", addressBookLastName: "addressBookLastName_example", addressBookCompany: "addressBookCompany_example", addressBookFax: "addressBookFax_example", addressBookPhone: "addressBookPhone_example", addressBookPhoneMobile: "addressBookPhoneMobile_example", addressBookWebsite: "addressBookWebsite_example", addressBookAddress1: "addressBookAddress1_example", addressBookAddress2: "addressBookAddress2_example", addressBookCity: "addressBookCity_example", addressBookCountry: "addressBookCountry_example", addressBookState: "addressBookState_example", addressBookPostcode: "addressBookPostcode_example", addressBookGender: "addressBookGender_example", addressBookRegion: "addressBookRegion_example", addressBookDefault: true, addressBookTaxId: "addressBookTaxId_example", addressBookIdentificationNumber: "addressBookIdentificationNumber_example", addressBookAlias: "addressBookAlias_example")]) // CustomerAdd | 
+let customerAdd = CustomerAdd(email: "email_example", firstName: "firstName_example", lastName: "lastName_example", password: "password_example", group: "group_example", groupId: "groupId_example", groupIds: "groupIds_example", status: "status_example", createdTime: "createdTime_example", modifiedTime: "modifiedTime_example", login: "login_example", lastLogin: "lastLogin_example", birthDay: "birthDay_example", newsLetterSubscription: true, consents: [CustomerAdd_consents_inner(type: "type_example", status: "status_example", optInLevel: "optInLevel_example")], gender: "gender_example", website: "website_example", fax: "fax_example", company: "company_example", phone: "phone_example", note: "note_example", country: "country_example", storeId: "storeId_example", idempotencyKey: "idempotencyKey_example", address: [CustomerAdd_address_inner(addressBookType: "addressBookType_example", addressBookFirstName: "addressBookFirstName_example", addressBookLastName: "addressBookLastName_example", addressBookCompany: "addressBookCompany_example", addressBookFax: "addressBookFax_example", addressBookPhone: "addressBookPhone_example", addressBookPhoneMobile: "addressBookPhoneMobile_example", addressBookWebsite: "addressBookWebsite_example", addressBookAddress1: "addressBookAddress1_example", addressBookAddress2: "addressBookAddress2_example", addressBookCity: "addressBookCity_example", addressBookCountry: "addressBookCountry_example", addressBookState: "addressBookState_example", addressBookPostcode: "addressBookPostcode_example", addressBookGender: "addressBookGender_example", addressBookRegion: "addressBookRegion_example", addressBookDefault: true, addressBookTaxId: "addressBookTaxId_example", addressBookIdentificationNumber: "addressBookIdentificationNumber_example", addressBookAlias: "addressBookAlias_example")]) // CustomerAdd | 
 
 // customer.add
 CustomerAPI.customerAdd(customerAdd: customerAdd) { (response, error) in
@@ -82,7 +82,7 @@ Add customer address.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let customerAddressAdd = CustomerAddressAdd(customerId: "customerId_example", storeId: "storeId_example", firstName: "firstName_example", lastName: "lastName_example", company: "company_example", address1: "address1_example", address2: "address2_example", city: "city_example", country: "country_example", state: "state_example", postcode: "postcode_example", identificationNumber: "identificationNumber_example", types: ["types_example"], _default: true, phone: "phone_example", phoneMobile: "phoneMobile_example", fax: "fax_example", website: "website_example", gender: "gender_example", taxId: "taxId_example", alias: "alias_example") // CustomerAddressAdd | 
+let customerAddressAdd = CustomerAddressAdd(customerId: "customerId_example", storeId: "storeId_example", firstName: "firstName_example", lastName: "lastName_example", company: "company_example", address1: "address1_example", address2: "address2_example", city: "city_example", country: "country_example", state: "state_example", postcode: "postcode_example", identificationNumber: "identificationNumber_example", types: ["types_example"], _default: true, phone: "phone_example", phoneMobile: "phoneMobile_example", fax: "fax_example", website: "website_example", gender: "gender_example", taxId: "taxId_example", alias: "alias_example", idempotencyKey: "idempotencyKey_example") // CustomerAddressAdd | 
 
 // customer.address.add
 CustomerAPI.customerAddressAdd(customerAddressAdd: customerAddressAdd) { (response, error) in
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 # **customerDelete**
 ```swift
-    open class func customerDelete(id: String, completion: @escaping (_ data: CustomerDelete200Response?, _ error: Error?) -> Void)
+    open class func customerDelete(id: String, storeId: String? = nil, completion: @escaping (_ data: CustomerDelete200Response?, _ error: Error?) -> Void)
 ```
 
 customer.delete
@@ -271,9 +271,10 @@ Delete customer from store.
 import OpenAPIClient
 
 let id = "id_example" // String | Identifies customer specified by the id
+let storeId = "storeId_example" // String | Store Id (optional)
 
 // customer.delete
-CustomerAPI.customerDelete(id: id) { (response, error) in
+CustomerAPI.customerDelete(id: id, storeId: storeId) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -290,6 +291,7 @@ CustomerAPI.customerDelete(id: id) { (response, error) in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String** | Identifies customer specified by the id | 
+ **storeId** | **String** | Store Id | [optional] 
 
 ### Return type
 
@@ -366,7 +368,7 @@ Name | Type | Description  | Notes
 
 # **customerGroupAdd**
 ```swift
-    open class func customerGroupAdd(name: String, storeId: String? = nil, storesIds: String? = nil, completion: @escaping (_ data: CustomerGroupAdd200Response?, _ error: Error?) -> Void)
+    open class func customerGroupAdd(name: String, storeId: String? = nil, storesIds: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: CustomerGroupAdd200Response?, _ error: Error?) -> Void)
 ```
 
 customer.group.add
@@ -381,9 +383,10 @@ import OpenAPIClient
 let name = "name_example" // String | Customer group name
 let storeId = "storeId_example" // String | Store Id (optional)
 let storesIds = "storesIds_example" // String | Assign customer group to the stores that is specified by comma-separated stores' id (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // customer.group.add
-CustomerAPI.customerGroupAdd(name: name, storeId: storeId, storesIds: storesIds) { (response, error) in
+CustomerAPI.customerGroupAdd(name: name, storeId: storeId, storesIds: storesIds, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -402,6 +405,7 @@ Name | Type | Description  | Notes
  **name** | **String** | Customer group name | 
  **storeId** | **String** | Store Id | [optional] 
  **storesIds** | **String** | Assign customer group to the stores that is specified by comma-separated stores&#39; id | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -648,7 +652,7 @@ Update information of customer in store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let customerUpdate = CustomerUpdate(id: "id_example", groupId: "groupId_example", groupIds: "groupIds_example", group: "group_example", email: "email_example", phone: "phone_example", firstName: "firstName_example", lastName: "lastName_example", birthDay: "birthDay_example", newsLetterSubscription: true, consents: [CustomerAdd_consents_inner(type: "type_example", status: "status_example", optInLevel: "optInLevel_example")], tags: "tags_example", gender: "gender_example", note: "note_example", status: "status_example", storeId: "storeId_example", address: [CustomerUpdate_address_inner(addressBookId: "addressBookId_example", addressBookFirstName: "addressBookFirstName_example", addressBookLastName: "addressBookLastName_example", addressBookCompany: "addressBookCompany_example", addressBookFax: "addressBookFax_example", addressBookPhone: "addressBookPhone_example", addressBookPhoneMobile: "addressBookPhoneMobile_example", addressBookAddress1: "addressBookAddress1_example", addressBookAddress2: "addressBookAddress2_example", addressBookCity: "addressBookCity_example", addressBookCountry: "addressBookCountry_example", addressBookState: "addressBookState_example", addressBookPostcode: "addressBookPostcode_example", addressBookTaxId: "addressBookTaxId_example", addressBookIdentificationNumber: "addressBookIdentificationNumber_example", addressBookGender: "addressBookGender_example", addressBookAlias: "addressBookAlias_example", addressBookType: "addressBookType_example", addressBookDefault: true)]) // CustomerUpdate | 
+let customerUpdate = CustomerUpdate(id: "id_example", groupId: "groupId_example", groupIds: "groupIds_example", group: "group_example", email: "email_example", phone: "phone_example", firstName: "firstName_example", lastName: "lastName_example", birthDay: "birthDay_example", newsLetterSubscription: true, consents: [CustomerAdd_consents_inner(type: "type_example", status: "status_example", optInLevel: "optInLevel_example")], tags: "tags_example", gender: "gender_example", note: "note_example", status: "status_example", storeId: "storeId_example", idempotencyKey: "idempotencyKey_example", address: [CustomerUpdate_address_inner(addressBookId: "addressBookId_example", addressBookFirstName: "addressBookFirstName_example", addressBookLastName: "addressBookLastName_example", addressBookCompany: "addressBookCompany_example", addressBookFax: "addressBookFax_example", addressBookPhone: "addressBookPhone_example", addressBookPhoneMobile: "addressBookPhoneMobile_example", addressBookAddress1: "addressBookAddress1_example", addressBookAddress2: "addressBookAddress2_example", addressBookCity: "addressBookCity_example", addressBookCountry: "addressBookCountry_example", addressBookState: "addressBookState_example", addressBookPostcode: "addressBookPostcode_example", addressBookTaxId: "addressBookTaxId_example", addressBookIdentificationNumber: "addressBookIdentificationNumber_example", addressBookGender: "addressBookGender_example", addressBookAlias: "addressBookAlias_example", addressBookType: "addressBookType_example", addressBookDefault: true)]) // CustomerUpdate | 
 
 // customer.update
 CustomerAPI.customerUpdate(customerUpdate: customerUpdate) { (response, error) in

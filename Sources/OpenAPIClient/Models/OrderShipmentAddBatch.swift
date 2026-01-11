@@ -12,13 +12,17 @@ public struct OrderShipmentAddBatch: Sendable, Codable, JSONEncodable, Hashable 
     public static let payloadRule = ArrayRule(minItems: 1, maxItems: 250, uniqueItems: false)
     /** Contains an array of order shipment objects. The list of properties may vary depending on the specific platform. */
     public var payload: [OrderShipmentAddBatchPayloadInner]
+    /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+    public var idempotencyKey: String?
 
-    public init(payload: [OrderShipmentAddBatchPayloadInner]) {
+    public init(payload: [OrderShipmentAddBatchPayloadInner], idempotencyKey: String? = nil) {
         self.payload = payload
+        self.idempotencyKey = idempotencyKey
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case payload
+        case idempotencyKey = "idempotency_key"
     }
 
     // Encodable protocol methods
@@ -26,6 +30,7 @@ public struct OrderShipmentAddBatch: Sendable, Codable, JSONEncodable, Hashable 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(payload, forKey: .payload)
+        try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
     }
 }
 

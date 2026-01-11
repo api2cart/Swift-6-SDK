@@ -51,6 +51,7 @@ public struct AccountCartAdd: Sendable, Codable, JSONEncodable, Hashable {
         case prestashopApi = "PrestashopApi"
         case sspremium = "SSPremium"
         case salla = "Salla"
+        case scapi = "SCAPI"
         case shopify = "Shopify"
         case shopee = "Shopee"
         case shoplazza = "Shoplazza"

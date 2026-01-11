@@ -37,8 +37,10 @@ public struct ProductVariantImageAdd: Sendable, Codable, JSONEncodable, Hashable
     public var position: Int? = 0
     /** Defines option id of the product variant for which the image will be added */
     public var optionId: String?
+    /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+    public var idempotencyKey: String?
 
-    public init(productId: String? = nil, productVariantId: String, storeId: String? = nil, imageName: String, type: ModelType = .base, url: String? = nil, content: String? = nil, label: String? = nil, mime: String? = nil, position: Int? = 0, optionId: String? = nil) {
+    public init(productId: String? = nil, productVariantId: String, storeId: String? = nil, imageName: String, type: ModelType = .base, url: String? = nil, content: String? = nil, label: String? = nil, mime: String? = nil, position: Int? = 0, optionId: String? = nil, idempotencyKey: String? = nil) {
         self.productId = productId
         self.productVariantId = productVariantId
         self.storeId = storeId
@@ -50,6 +52,7 @@ public struct ProductVariantImageAdd: Sendable, Codable, JSONEncodable, Hashable
         self.mime = mime
         self.position = position
         self.optionId = optionId
+        self.idempotencyKey = idempotencyKey
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -64,6 +67,7 @@ public struct ProductVariantImageAdd: Sendable, Codable, JSONEncodable, Hashable
         case mime
         case position
         case optionId = "option_id"
+        case idempotencyKey = "idempotency_key"
     }
 
     // Encodable protocol methods
@@ -81,6 +85,7 @@ public struct ProductVariantImageAdd: Sendable, Codable, JSONEncodable, Hashable
         try container.encodeIfPresent(mime, forKey: .mime)
         try container.encodeIfPresent(position, forKey: .position)
         try container.encodeIfPresent(optionId, forKey: .optionId)
+        try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
     }
 }
 

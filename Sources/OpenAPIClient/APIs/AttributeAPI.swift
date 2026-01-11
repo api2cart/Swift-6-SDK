@@ -46,12 +46,13 @@ open class AttributeAPI {
      - parameter usedInProductListing: (query) Used in Product Listing (optional, default to false)
      - parameter usedForSortBy: (query) Used for Sorting in Product Listing (optional, default to false)
      - parameter applyTo: (query) Types of products which can have this attribute (optional, default to "all_types")
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AttributeAdd200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func attributeAdd(type: ModelType_attributeAdd, name: String, code: String? = nil, storeId: String? = nil, langId: String? = nil, visible: Bool? = nil, _required: Bool? = nil, position: Int? = nil, attributeGroupId: String? = nil, isGlobal: String? = nil, isSearchable: Bool? = nil, isFilterable: String? = nil, isComparable: Bool? = nil, isHtmlAllowedOnFront: Bool? = nil, isFilterableInSearch: Bool? = nil, isConfigurable: Bool? = nil, isVisibleInAdvancedSearch: Bool? = nil, isUsedForPromoRules: Bool? = nil, usedInProductListing: Bool? = nil, usedForSortBy: Bool? = nil, applyTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeAdd200Response {
-        return try await attributeAddWithRequestBuilder(type: type, name: name, code: code, storeId: storeId, langId: langId, visible: visible, _required: _required, position: position, attributeGroupId: attributeGroupId, isGlobal: isGlobal, isSearchable: isSearchable, isFilterable: isFilterable, isComparable: isComparable, isHtmlAllowedOnFront: isHtmlAllowedOnFront, isFilterableInSearch: isFilterableInSearch, isConfigurable: isConfigurable, isVisibleInAdvancedSearch: isVisibleInAdvancedSearch, isUsedForPromoRules: isUsedForPromoRules, usedInProductListing: usedInProductListing, usedForSortBy: usedForSortBy, applyTo: applyTo, apiConfiguration: apiConfiguration).execute().body
+    open class func attributeAdd(type: ModelType_attributeAdd, name: String, code: String? = nil, storeId: String? = nil, langId: String? = nil, visible: Bool? = nil, _required: Bool? = nil, position: Int? = nil, attributeGroupId: String? = nil, isGlobal: String? = nil, isSearchable: Bool? = nil, isFilterable: String? = nil, isComparable: Bool? = nil, isHtmlAllowedOnFront: Bool? = nil, isFilterableInSearch: Bool? = nil, isConfigurable: Bool? = nil, isVisibleInAdvancedSearch: Bool? = nil, isUsedForPromoRules: Bool? = nil, usedInProductListing: Bool? = nil, usedForSortBy: Bool? = nil, applyTo: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeAdd200Response {
+        return try await attributeAddWithRequestBuilder(type: type, name: name, code: code, storeId: storeId, langId: langId, visible: visible, _required: _required, position: position, attributeGroupId: attributeGroupId, isGlobal: isGlobal, isSearchable: isSearchable, isFilterable: isFilterable, isComparable: isComparable, isHtmlAllowedOnFront: isHtmlAllowedOnFront, isFilterableInSearch: isFilterableInSearch, isConfigurable: isConfigurable, isVisibleInAdvancedSearch: isVisibleInAdvancedSearch, isUsedForPromoRules: isUsedForPromoRules, usedInProductListing: usedInProductListing, usedForSortBy: usedForSortBy, applyTo: applyTo, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -85,10 +86,11 @@ open class AttributeAPI {
      - parameter usedInProductListing: (query) Used in Product Listing (optional, default to false)
      - parameter usedForSortBy: (query) Used for Sorting in Product Listing (optional, default to false)
      - parameter applyTo: (query) Types of products which can have this attribute (optional, default to "all_types")
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AttributeAdd200Response> 
      */
-    open class func attributeAddWithRequestBuilder(type: ModelType_attributeAdd, name: String, code: String? = nil, storeId: String? = nil, langId: String? = nil, visible: Bool? = nil, _required: Bool? = nil, position: Int? = nil, attributeGroupId: String? = nil, isGlobal: String? = nil, isSearchable: Bool? = nil, isFilterable: String? = nil, isComparable: Bool? = nil, isHtmlAllowedOnFront: Bool? = nil, isFilterableInSearch: Bool? = nil, isConfigurable: Bool? = nil, isVisibleInAdvancedSearch: Bool? = nil, isUsedForPromoRules: Bool? = nil, usedInProductListing: Bool? = nil, usedForSortBy: Bool? = nil, applyTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeAdd200Response> {
+    open class func attributeAddWithRequestBuilder(type: ModelType_attributeAdd, name: String, code: String? = nil, storeId: String? = nil, langId: String? = nil, visible: Bool? = nil, _required: Bool? = nil, position: Int? = nil, attributeGroupId: String? = nil, isGlobal: String? = nil, isSearchable: Bool? = nil, isFilterable: String? = nil, isComparable: Bool? = nil, isHtmlAllowedOnFront: Bool? = nil, isFilterableInSearch: Bool? = nil, isConfigurable: Bool? = nil, isVisibleInAdvancedSearch: Bool? = nil, isUsedForPromoRules: Bool? = nil, usedInProductListing: Bool? = nil, usedForSortBy: Bool? = nil, applyTo: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeAdd200Response> {
         let localVariablePath = "/attribute.add.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -116,6 +118,7 @@ open class AttributeAPI {
             "used_in_product_listing": (wrappedValue: usedInProductListing?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "used_for_sort_by": (wrappedValue: usedForSortBy?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "apply_to": (wrappedValue: applyTo?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -135,12 +138,13 @@ open class AttributeAPI {
      - parameter id: (query) Entity id 
      - parameter groupId: (query) Attribute group_id 
      - parameter attributeSetId: (query) Attribute set id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AttributeAssignGroup200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func attributeAssignGroup(id: String, groupId: String, attributeSetId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeAssignGroup200Response {
-        return try await attributeAssignGroupWithRequestBuilder(id: id, groupId: groupId, attributeSetId: attributeSetId, apiConfiguration: apiConfiguration).execute().body
+    open class func attributeAssignGroup(id: String, groupId: String, attributeSetId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeAssignGroup200Response {
+        return try await attributeAssignGroupWithRequestBuilder(id: id, groupId: groupId, attributeSetId: attributeSetId, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -156,10 +160,11 @@ open class AttributeAPI {
      - parameter id: (query) Entity id 
      - parameter groupId: (query) Attribute group_id 
      - parameter attributeSetId: (query) Attribute set id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AttributeAssignGroup200Response> 
      */
-    open class func attributeAssignGroupWithRequestBuilder(id: String, groupId: String, attributeSetId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeAssignGroup200Response> {
+    open class func attributeAssignGroupWithRequestBuilder(id: String, groupId: String, attributeSetId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeAssignGroup200Response> {
         let localVariablePath = "/attribute.assign.group.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -169,6 +174,7 @@ open class AttributeAPI {
             "id": (wrappedValue: id.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "group_id": (wrappedValue: groupId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "attribute_set_id": (wrappedValue: attributeSetId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -188,12 +194,13 @@ open class AttributeAPI {
      - parameter id: (query) Entity id 
      - parameter attributeSetId: (query) Attribute set id 
      - parameter groupId: (query) Attribute group_id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AttributeAssignGroup200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func attributeAssignSet(id: String, attributeSetId: String, groupId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeAssignGroup200Response {
-        return try await attributeAssignSetWithRequestBuilder(id: id, attributeSetId: attributeSetId, groupId: groupId, apiConfiguration: apiConfiguration).execute().body
+    open class func attributeAssignSet(id: String, attributeSetId: String, groupId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeAssignGroup200Response {
+        return try await attributeAssignSetWithRequestBuilder(id: id, attributeSetId: attributeSetId, groupId: groupId, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -209,10 +216,11 @@ open class AttributeAPI {
      - parameter id: (query) Entity id 
      - parameter attributeSetId: (query) Attribute set id 
      - parameter groupId: (query) Attribute group_id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AttributeAssignGroup200Response> 
      */
-    open class func attributeAssignSetWithRequestBuilder(id: String, attributeSetId: String, groupId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeAssignGroup200Response> {
+    open class func attributeAssignSetWithRequestBuilder(id: String, attributeSetId: String, groupId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeAssignGroup200Response> {
         let localVariablePath = "/attribute.assign.set.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -222,6 +230,7 @@ open class AttributeAPI {
             "id": (wrappedValue: id.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "group_id": (wrappedValue: groupId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "attribute_set_id": (wrappedValue: attributeSetId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -669,12 +678,13 @@ open class AttributeAPI {
      
      - parameter id: (query) Entity id 
      - parameter groupId: (query) Customer group_id 
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AttributeUnassignGroup200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func attributeUnassignGroup(id: String, groupId: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeUnassignGroup200Response {
-        return try await attributeUnassignGroupWithRequestBuilder(id: id, groupId: groupId, apiConfiguration: apiConfiguration).execute().body
+    open class func attributeUnassignGroup(id: String, groupId: String, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeUnassignGroup200Response {
+        return try await attributeUnassignGroupWithRequestBuilder(id: id, groupId: groupId, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -689,10 +699,11 @@ open class AttributeAPI {
        - name: ApiKeyAuth
      - parameter id: (query) Entity id 
      - parameter groupId: (query) Customer group_id 
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AttributeUnassignGroup200Response> 
      */
-    open class func attributeUnassignGroupWithRequestBuilder(id: String, groupId: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeUnassignGroup200Response> {
+    open class func attributeUnassignGroupWithRequestBuilder(id: String, groupId: String, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeUnassignGroup200Response> {
         let localVariablePath = "/attribute.unassign.group.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -701,6 +712,7 @@ open class AttributeAPI {
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "id": (wrappedValue: id.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "group_id": (wrappedValue: groupId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -719,12 +731,13 @@ open class AttributeAPI {
      
      - parameter id: (query) Entity id 
      - parameter attributeSetId: (query) Attribute set id 
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AttributeUnassignGroup200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func attributeUnassignSet(id: String, attributeSetId: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeUnassignGroup200Response {
-        return try await attributeUnassignSetWithRequestBuilder(id: id, attributeSetId: attributeSetId, apiConfiguration: apiConfiguration).execute().body
+    open class func attributeUnassignSet(id: String, attributeSetId: String, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeUnassignGroup200Response {
+        return try await attributeUnassignSetWithRequestBuilder(id: id, attributeSetId: attributeSetId, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -739,10 +752,11 @@ open class AttributeAPI {
        - name: ApiKeyAuth
      - parameter id: (query) Entity id 
      - parameter attributeSetId: (query) Attribute set id 
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AttributeUnassignGroup200Response> 
      */
-    open class func attributeUnassignSetWithRequestBuilder(id: String, attributeSetId: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeUnassignGroup200Response> {
+    open class func attributeUnassignSetWithRequestBuilder(id: String, attributeSetId: String, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeUnassignGroup200Response> {
         let localVariablePath = "/attribute.unassign.set.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -751,6 +765,7 @@ open class AttributeAPI {
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "id": (wrappedValue: id.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "attribute_set_id": (wrappedValue: attributeSetId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -771,12 +786,13 @@ open class AttributeAPI {
      - parameter name: (query) Defines new attributes&#39;s name 
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AttributeUpdate200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func attributeUpdate(id: String, name: String, storeId: String? = nil, langId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeUpdate200Response {
-        return try await attributeUpdateWithRequestBuilder(id: id, name: name, storeId: storeId, langId: langId, apiConfiguration: apiConfiguration).execute().body
+    open class func attributeUpdate(id: String, name: String, storeId: String? = nil, langId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeUpdate200Response {
+        return try await attributeUpdateWithRequestBuilder(id: id, name: name, storeId: storeId, langId: langId, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -793,10 +809,11 @@ open class AttributeAPI {
      - parameter name: (query) Defines new attributes&#39;s name 
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AttributeUpdate200Response> 
      */
-    open class func attributeUpdateWithRequestBuilder(id: String, name: String, storeId: String? = nil, langId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeUpdate200Response> {
+    open class func attributeUpdateWithRequestBuilder(id: String, name: String, storeId: String? = nil, langId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeUpdate200Response> {
         let localVariablePath = "/attribute.update.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -807,6 +824,7 @@ open class AttributeAPI {
             "name": (wrappedValue: name.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "lang_id": (wrappedValue: langId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -829,12 +847,13 @@ open class AttributeAPI {
      - parameter description: (query) Defines attribute value&#39;s description (optional)
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AttributeAdd200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func attributeValueAdd(attributeId: String, name: String, code: String? = nil, description: String? = nil, storeId: String? = nil, langId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeAdd200Response {
-        return try await attributeValueAddWithRequestBuilder(attributeId: attributeId, name: name, code: code, description: description, storeId: storeId, langId: langId, apiConfiguration: apiConfiguration).execute().body
+    open class func attributeValueAdd(attributeId: String, name: String, code: String? = nil, description: String? = nil, storeId: String? = nil, langId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeAdd200Response {
+        return try await attributeValueAddWithRequestBuilder(attributeId: attributeId, name: name, code: code, description: description, storeId: storeId, langId: langId, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -853,10 +872,11 @@ open class AttributeAPI {
      - parameter description: (query) Defines attribute value&#39;s description (optional)
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AttributeAdd200Response> 
      */
-    open class func attributeValueAddWithRequestBuilder(attributeId: String, name: String, code: String? = nil, description: String? = nil, storeId: String? = nil, langId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeAdd200Response> {
+    open class func attributeValueAddWithRequestBuilder(attributeId: String, name: String, code: String? = nil, description: String? = nil, storeId: String? = nil, langId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeAdd200Response> {
         let localVariablePath = "/attribute.value.add.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -869,6 +889,7 @@ open class AttributeAPI {
             "description": (wrappedValue: description?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "lang_id": (wrappedValue: langId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -945,12 +966,13 @@ open class AttributeAPI {
      - parameter code: (query) Entity code (optional)
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AttributeUpdate200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func attributeValueUpdate(id: String, attributeId: String, name: String? = nil, description: String? = nil, code: String? = nil, storeId: String? = nil, langId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeUpdate200Response {
-        return try await attributeValueUpdateWithRequestBuilder(id: id, attributeId: attributeId, name: name, description: description, code: code, storeId: storeId, langId: langId, apiConfiguration: apiConfiguration).execute().body
+    open class func attributeValueUpdate(id: String, attributeId: String, name: String? = nil, description: String? = nil, code: String? = nil, storeId: String? = nil, langId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeUpdate200Response {
+        return try await attributeValueUpdateWithRequestBuilder(id: id, attributeId: attributeId, name: name, description: description, code: code, storeId: storeId, langId: langId, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -970,10 +992,11 @@ open class AttributeAPI {
      - parameter code: (query) Entity code (optional)
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AttributeUpdate200Response> 
      */
-    open class func attributeValueUpdateWithRequestBuilder(id: String, attributeId: String, name: String? = nil, description: String? = nil, code: String? = nil, storeId: String? = nil, langId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeUpdate200Response> {
+    open class func attributeValueUpdateWithRequestBuilder(id: String, attributeId: String, name: String? = nil, description: String? = nil, code: String? = nil, storeId: String? = nil, langId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeUpdate200Response> {
         let localVariablePath = "/attribute.value.update.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -987,6 +1010,7 @@ open class AttributeAPI {
             "code": (wrappedValue: code?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "lang_id": (wrappedValue: langId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [

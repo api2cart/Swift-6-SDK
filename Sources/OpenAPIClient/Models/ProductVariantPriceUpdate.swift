@@ -15,17 +15,21 @@ public struct ProductVariantPriceUpdate: Sendable, Codable, JSONEncodable, Hasha
     public var productId: String?
     /** Defines variants's group prices */
     public var groupPrices: [ProductPriceUpdateGroupPricesInner]
+    /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+    public var idempotencyKey: String?
 
-    public init(id: String? = nil, productId: String? = nil, groupPrices: [ProductPriceUpdateGroupPricesInner]) {
+    public init(id: String? = nil, productId: String? = nil, groupPrices: [ProductPriceUpdateGroupPricesInner], idempotencyKey: String? = nil) {
         self.id = id
         self.productId = productId
         self.groupPrices = groupPrices
+        self.idempotencyKey = idempotencyKey
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case productId = "product_id"
         case groupPrices = "group_prices"
+        case idempotencyKey = "idempotency_key"
     }
 
     // Encodable protocol methods
@@ -35,6 +39,7 @@ public struct ProductVariantPriceUpdate: Sendable, Codable, JSONEncodable, Hasha
         try container.encodeIfPresent(id, forKey: .id)
         try container.encodeIfPresent(productId, forKey: .productId)
         try container.encode(groupPrices, forKey: .groupPrices)
+        try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
     }
 }
 

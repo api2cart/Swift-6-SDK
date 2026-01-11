@@ -31,9 +31,11 @@ public struct OrderPreestimateShippingList: Sendable, Codable, JSONEncodable, Ha
     public var params: String? = "force_all"
     /** Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all */
     public var exclude: String?
+    /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+    public var idempotencyKey: String?
     public var orderItem: [OrderPreestimateShippingListOrderItemInner]
 
-    public init(warehouseId: String? = nil, customerId: String? = nil, customerEmail: String? = nil, storeId: String? = nil, shippAddress1: String? = nil, shippCity: String? = nil, shippPostcode: String? = nil, shippState: String? = nil, shippCountry: String, params: String? = "force_all", exclude: String? = nil, orderItem: [OrderPreestimateShippingListOrderItemInner]) {
+    public init(warehouseId: String? = nil, customerId: String? = nil, customerEmail: String? = nil, storeId: String? = nil, shippAddress1: String? = nil, shippCity: String? = nil, shippPostcode: String? = nil, shippState: String? = nil, shippCountry: String, params: String? = "force_all", exclude: String? = nil, idempotencyKey: String? = nil, orderItem: [OrderPreestimateShippingListOrderItemInner]) {
         self.warehouseId = warehouseId
         self.customerId = customerId
         self.customerEmail = customerEmail
@@ -45,6 +47,7 @@ public struct OrderPreestimateShippingList: Sendable, Codable, JSONEncodable, Ha
         self.shippCountry = shippCountry
         self.params = params
         self.exclude = exclude
+        self.idempotencyKey = idempotencyKey
         self.orderItem = orderItem
     }
 
@@ -60,6 +63,7 @@ public struct OrderPreestimateShippingList: Sendable, Codable, JSONEncodable, Ha
         case shippCountry = "shipp_country"
         case params
         case exclude
+        case idempotencyKey = "idempotency_key"
         case orderItem = "order_item"
     }
 
@@ -78,6 +82,7 @@ public struct OrderPreestimateShippingList: Sendable, Codable, JSONEncodable, Ha
         try container.encode(shippCountry, forKey: .shippCountry)
         try container.encodeIfPresent(params, forKey: .params)
         try container.encodeIfPresent(exclude, forKey: .exclude)
+        try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
         try container.encode(orderItem, forKey: .orderItem)
     }
 }

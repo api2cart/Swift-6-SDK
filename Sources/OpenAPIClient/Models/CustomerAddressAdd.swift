@@ -51,8 +51,10 @@ public struct CustomerAddressAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var taxId: String?
     /** Specifies customer's alias in the address book */
     public var alias: String?
+    /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+    public var idempotencyKey: String?
 
-    public init(customerId: String, storeId: String? = nil, firstName: String? = nil, lastName: String? = nil, company: String? = nil, address1: String, address2: String? = nil, city: String, country: String, state: String? = nil, postcode: String, identificationNumber: String? = nil, types: [String]? = nil, _default: Bool? = nil, phone: String? = nil, phoneMobile: String? = nil, fax: String? = nil, website: String? = nil, gender: String? = nil, taxId: String? = nil, alias: String? = nil) {
+    public init(customerId: String, storeId: String? = nil, firstName: String? = nil, lastName: String? = nil, company: String? = nil, address1: String, address2: String? = nil, city: String, country: String, state: String? = nil, postcode: String, identificationNumber: String? = nil, types: [String]? = nil, _default: Bool? = nil, phone: String? = nil, phoneMobile: String? = nil, fax: String? = nil, website: String? = nil, gender: String? = nil, taxId: String? = nil, alias: String? = nil, idempotencyKey: String? = nil) {
         self.customerId = customerId
         self.storeId = storeId
         self.firstName = firstName
@@ -74,6 +76,7 @@ public struct CustomerAddressAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.gender = gender
         self.taxId = taxId
         self.alias = alias
+        self.idempotencyKey = idempotencyKey
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -98,6 +101,7 @@ public struct CustomerAddressAdd: Sendable, Codable, JSONEncodable, Hashable {
         case gender
         case taxId = "tax_id"
         case alias
+        case idempotencyKey = "idempotency_key"
     }
 
     // Encodable protocol methods
@@ -125,6 +129,7 @@ public struct CustomerAddressAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(gender, forKey: .gender)
         try container.encodeIfPresent(taxId, forKey: .taxId)
         try container.encodeIfPresent(alias, forKey: .alias)
+        try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
     }
 }
 

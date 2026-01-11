@@ -15,17 +15,21 @@ public struct ProductTaxAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var name: String
     /** Defines tax rates of specified tax classes */
     public var taxRates: [ProductTaxAddTaxRatesInner]
+    /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+    public var idempotencyKey: String?
 
-    public init(productId: String? = nil, name: String, taxRates: [ProductTaxAddTaxRatesInner]) {
+    public init(productId: String? = nil, name: String, taxRates: [ProductTaxAddTaxRatesInner], idempotencyKey: String? = nil) {
         self.productId = productId
         self.name = name
         self.taxRates = taxRates
+        self.idempotencyKey = idempotencyKey
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case productId = "product_id"
         case name
         case taxRates = "tax_rates"
+        case idempotencyKey = "idempotency_key"
     }
 
     // Encodable protocol methods
@@ -35,6 +39,7 @@ public struct ProductTaxAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(productId, forKey: .productId)
         try container.encode(name, forKey: .name)
         try container.encode(taxRates, forKey: .taxRates)
+        try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
     }
 }
 

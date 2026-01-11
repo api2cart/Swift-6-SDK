@@ -45,8 +45,10 @@ public struct ProductOptionAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var values: [ProductOptionAddValuesInner]?
     /** Is cache clear required */
     public var clearCache: Bool? = true
+    /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+    public var idempotencyKey: String?
 
-    public init(name: String, type: ModelType, productId: String? = nil, defaultOptionValue: String? = nil, optionValues: String? = nil, description: String? = nil, avail: Bool? = true, sortOrder: Int? = 0, _required: Bool? = false, values: [ProductOptionAddValuesInner]? = nil, clearCache: Bool? = true) {
+    public init(name: String, type: ModelType, productId: String? = nil, defaultOptionValue: String? = nil, optionValues: String? = nil, description: String? = nil, avail: Bool? = true, sortOrder: Int? = 0, _required: Bool? = false, values: [ProductOptionAddValuesInner]? = nil, clearCache: Bool? = true, idempotencyKey: String? = nil) {
         self.name = name
         self.type = type
         self.productId = productId
@@ -58,6 +60,7 @@ public struct ProductOptionAdd: Sendable, Codable, JSONEncodable, Hashable {
         self._required = _required
         self.values = values
         self.clearCache = clearCache
+        self.idempotencyKey = idempotencyKey
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -72,6 +75,7 @@ public struct ProductOptionAdd: Sendable, Codable, JSONEncodable, Hashable {
         case _required = "required"
         case values
         case clearCache = "clear_cache"
+        case idempotencyKey = "idempotency_key"
     }
 
     // Encodable protocol methods
@@ -89,6 +93,7 @@ public struct ProductOptionAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(_required, forKey: ._required)
         try container.encodeIfPresent(values, forKey: .values)
         try container.encodeIfPresent(clearCache, forKey: .clearCache)
+        try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
     }
 }
 

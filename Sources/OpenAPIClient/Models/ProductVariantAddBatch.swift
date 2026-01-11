@@ -14,17 +14,21 @@ public struct ProductVariantAddBatch: Sendable, Codable, JSONEncodable, Hashable
     public var reindex: Bool? = false
     /** Contains an array of product variants objects. The list of properties may vary depending on the specific platform. */
     public var payload: [ProductVariantAddBatchPayloadInner]
+    /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+    public var idempotencyKey: String?
 
-    public init(clearCache: Bool? = false, reindex: Bool? = false, payload: [ProductVariantAddBatchPayloadInner]) {
+    public init(clearCache: Bool? = false, reindex: Bool? = false, payload: [ProductVariantAddBatchPayloadInner], idempotencyKey: String? = nil) {
         self.clearCache = clearCache
         self.reindex = reindex
         self.payload = payload
+        self.idempotencyKey = idempotencyKey
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case clearCache = "clear_cache"
         case reindex
         case payload
+        case idempotencyKey = "idempotency_key"
     }
 
     // Encodable protocol methods
@@ -34,6 +38,7 @@ public struct ProductVariantAddBatch: Sendable, Codable, JSONEncodable, Hashable
         try container.encodeIfPresent(clearCache, forKey: .clearCache)
         try container.encodeIfPresent(reindex, forKey: .reindex)
         try container.encode(payload, forKey: .payload)
+        try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
     }
 }
 

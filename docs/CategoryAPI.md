@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**categoryAssign**](CategoryAPI.md#categoryassign) | **POST** /category.assign.json | category.assign
 [**categoryCount**](CategoryAPI.md#categorycount) | **GET** /category.count.json | category.count
 [**categoryDelete**](CategoryAPI.md#categorydelete) | **DELETE** /category.delete.json | category.delete
+[**categoryDeleteBatch**](CategoryAPI.md#categorydeletebatch) | **POST** /category.delete.batch.json | category.delete.batch
 [**categoryFind**](CategoryAPI.md#categoryfind) | **GET** /category.find.json | category.find
 [**categoryImageAdd**](CategoryAPI.md#categoryimageadd) | **POST** /category.image.add.json | category.image.add
 [**categoryImageDelete**](CategoryAPI.md#categoryimagedelete) | **DELETE** /category.image.delete.json | category.image.delete
@@ -20,7 +21,7 @@ Method | HTTP request | Description
 
 # **categoryAdd**
 ```swift
-    open class func categoryAdd(name: String, description: String? = nil, shortDescription: String? = nil, parentId: String? = nil, avail: Bool? = nil, createdTime: String? = nil, modifiedTime: String? = nil, sortOrder: Int? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, seoUrl: String? = nil, storeId: String? = nil, storesIds: String? = nil, langId: String? = nil, completion: @escaping (_ data: CategoryAdd200Response?, _ error: Error?) -> Void)
+    open class func categoryAdd(name: String, description: String? = nil, shortDescription: String? = nil, parentId: String? = nil, avail: Bool? = nil, createdTime: String? = nil, modifiedTime: String? = nil, sortOrder: Int? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, seoUrl: String? = nil, storeId: String? = nil, storesIds: String? = nil, langId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: CategoryAdd200Response?, _ error: Error?) -> Void)
 ```
 
 category.add
@@ -47,9 +48,10 @@ let seoUrl = "seoUrl_example" // String | Defines unique category's URL for SEO 
 let storeId = "storeId_example" // String | Store Id (optional)
 let storesIds = "storesIds_example" // String | Create category in the stores that is specified by comma-separated stores' id (optional)
 let langId = "langId_example" // String | Language id (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // category.add
-CategoryAPI.categoryAdd(name: name, description: description, shortDescription: shortDescription, parentId: parentId, avail: avail, createdTime: createdTime, modifiedTime: modifiedTime, sortOrder: sortOrder, metaTitle: metaTitle, metaDescription: metaDescription, metaKeywords: metaKeywords, seoUrl: seoUrl, storeId: storeId, storesIds: storesIds, langId: langId) { (response, error) in
+CategoryAPI.categoryAdd(name: name, description: description, shortDescription: shortDescription, parentId: parentId, avail: avail, createdTime: createdTime, modifiedTime: modifiedTime, sortOrder: sortOrder, metaTitle: metaTitle, metaDescription: metaDescription, metaKeywords: metaKeywords, seoUrl: seoUrl, storeId: storeId, storesIds: storesIds, langId: langId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -80,6 +82,7 @@ Name | Type | Description  | Notes
  **storeId** | **String** | Store Id | [optional] 
  **storesIds** | **String** | Create category in the stores that is specified by comma-separated stores&#39; id | [optional] 
  **langId** | **String** | Language id | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -110,7 +113,7 @@ Add new categories to the store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let categoryAddBatch = CategoryAddBatch(payload: [CategoryAddBatch_payload_inner(name: "name_example", avail: false, description: "description_example", metaTitle: "metaTitle_example", metaDescription: "metaDescription_example", metaKeywords: ["metaKeywords_example"], parentId: "parentId_example", sortOrder: 123, seoUrl: "seoUrl_example", storeId: "storeId_example", images: [CategoryAddBatch_payload_inner_images_inner(url: "url_example", imageName: "imageName_example", type: "type_example", label: "label_example")], storesIds: ["storesIds_example"])]) // CategoryAddBatch | 
+let categoryAddBatch = CategoryAddBatch(payload: [CategoryAddBatch_payload_inner(name: "name_example", avail: false, description: "description_example", metaTitle: "metaTitle_example", metaDescription: "metaDescription_example", metaKeywords: ["metaKeywords_example"], parentId: "parentId_example", sortOrder: 123, seoUrl: "seoUrl_example", storeId: "storeId_example", images: [CategoryAddBatch_payload_inner_images_inner(url: "url_example", imageName: "imageName_example", type: "type_example", label: "label_example")], storesIds: ["storesIds_example"])], idempotencyKey: "idempotencyKey_example") // CategoryAddBatch | 
 
 // category.add.batch
 CategoryAPI.categoryAddBatch(categoryAddBatch: categoryAddBatch) { (response, error) in
@@ -148,7 +151,7 @@ Name | Type | Description  | Notes
 
 # **categoryAssign**
 ```swift
-    open class func categoryAssign(categoryId: String, productId: String, storeId: String? = nil, completion: @escaping (_ data: CategoryAssign200Response?, _ error: Error?) -> Void)
+    open class func categoryAssign(categoryId: String, productId: String, storeId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: CategoryAssign200Response?, _ error: Error?) -> Void)
 ```
 
 category.assign
@@ -163,9 +166,10 @@ import OpenAPIClient
 let categoryId = "categoryId_example" // String | Defines category assign, specified by category id
 let productId = "productId_example" // String | Defines category assign to the product, specified by product id
 let storeId = "storeId_example" // String | Store Id (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // category.assign
-CategoryAPI.categoryAssign(categoryId: categoryId, productId: productId, storeId: storeId) { (response, error) in
+CategoryAPI.categoryAssign(categoryId: categoryId, productId: productId, storeId: storeId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -184,6 +188,7 @@ Name | Type | Description  | Notes
  **categoryId** | **String** | Defines category assign, specified by category id | 
  **productId** | **String** | Defines category assign to the product, specified by product id | 
  **storeId** | **String** | Store Id | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -326,6 +331,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **categoryDeleteBatch**
+```swift
+    open class func categoryDeleteBatch(categoryDeleteBatch: CategoryDeleteBatch, completion: @escaping (_ data: CategoryAddBatch200Response?, _ error: Error?) -> Void)
+```
+
+category.delete.batch
+
+Delete categories from the store.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let categoryDeleteBatch = CategoryDeleteBatch(payload: [CategoryDeleteBatch_payload_inner(id: "id_example")]) // CategoryDeleteBatch | 
+
+// category.delete.batch
+CategoryAPI.categoryDeleteBatch(categoryDeleteBatch: categoryDeleteBatch) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **categoryDeleteBatch** | [**CategoryDeleteBatch**](CategoryDeleteBatch.md) |  | 
+
+### Return type
+
+[**CategoryAddBatch200Response**](CategoryAddBatch200Response.md)
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **categoryFind**
 ```swift
     open class func categoryFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, langId: String? = nil, completion: @escaping (_ data: CategoryFind200Response?, _ error: Error?) -> Void)
@@ -386,7 +441,7 @@ Name | Type | Description  | Notes
 
 # **categoryImageAdd**
 ```swift
-    open class func categoryImageAdd(categoryId: String, imageName: String, url: String, type: ModelType_categoryImageAdd, storeId: String? = nil, label: String? = nil, mime: String? = nil, position: Int? = nil, completion: @escaping (_ data: CategoryImageAdd200Response?, _ error: Error?) -> Void)
+    open class func categoryImageAdd(categoryId: String, imageName: String, url: String, type: ModelType_categoryImageAdd, storeId: String? = nil, label: String? = nil, mime: String? = nil, position: Int? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: CategoryImageAdd200Response?, _ error: Error?) -> Void)
 ```
 
 category.image.add
@@ -406,9 +461,10 @@ let storeId = "storeId_example" // String | Store Id (optional)
 let label = "label_example" // String | Defines alternative text that has to be attached to the picture (optional)
 let mime = "mime_example" // String | Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. (optional)
 let position = 987 // Int | Defines image’s position in the list (optional) (default to 0)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // category.image.add
-CategoryAPI.categoryImageAdd(categoryId: categoryId, imageName: imageName, url: url, type: type, storeId: storeId, label: label, mime: mime, position: position) { (response, error) in
+CategoryAPI.categoryImageAdd(categoryId: categoryId, imageName: imageName, url: url, type: type, storeId: storeId, label: label, mime: mime, position: position, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -432,6 +488,7 @@ Name | Type | Description  | Notes
  **label** | **String** | Defines alternative text that has to be attached to the picture | [optional] 
  **mime** | **String** | Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. | [optional] 
  **position** | **Int** | Defines image’s position in the list | [optional] [default to 0]
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -658,7 +715,7 @@ Name | Type | Description  | Notes
 
 # **categoryUnassign**
 ```swift
-    open class func categoryUnassign(categoryId: String, productId: String, storeId: String? = nil, completion: @escaping (_ data: CategoryAssign200Response?, _ error: Error?) -> Void)
+    open class func categoryUnassign(categoryId: String, productId: String, storeId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: CategoryAssign200Response?, _ error: Error?) -> Void)
 ```
 
 category.unassign
@@ -673,9 +730,10 @@ import OpenAPIClient
 let categoryId = "categoryId_example" // String | Defines category unassign, specified by category id
 let productId = "productId_example" // String | Defines category unassign to the product, specified by product id
 let storeId = "storeId_example" // String | Store Id (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // category.unassign
-CategoryAPI.categoryUnassign(categoryId: categoryId, productId: productId, storeId: storeId) { (response, error) in
+CategoryAPI.categoryUnassign(categoryId: categoryId, productId: productId, storeId: storeId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -694,6 +752,7 @@ Name | Type | Description  | Notes
  **categoryId** | **String** | Defines category unassign, specified by category id | 
  **productId** | **String** | Defines category unassign to the product, specified by product id | 
  **storeId** | **String** | Store Id | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -712,7 +771,7 @@ Name | Type | Description  | Notes
 
 # **categoryUpdate**
 ```swift
-    open class func categoryUpdate(id: String, name: String? = nil, description: String? = nil, shortDescription: String? = nil, parentId: String? = nil, avail: Bool? = nil, sortOrder: Int? = nil, modifiedTime: String? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, seoUrl: String? = nil, storeId: String? = nil, storesIds: String? = nil, langId: String? = nil, completion: @escaping (_ data: AccountConfigUpdate200Response?, _ error: Error?) -> Void)
+    open class func categoryUpdate(id: String, name: String? = nil, description: String? = nil, shortDescription: String? = nil, parentId: String? = nil, avail: Bool? = nil, sortOrder: Int? = nil, modifiedTime: String? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, seoUrl: String? = nil, storeId: String? = nil, storesIds: String? = nil, langId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: AccountConfigUpdate200Response?, _ error: Error?) -> Void)
 ```
 
 category.update
@@ -739,9 +798,10 @@ let seoUrl = "seoUrl_example" // String | Defines unique category's URL for SEO 
 let storeId = "storeId_example" // String | Store Id (optional)
 let storesIds = "storesIds_example" // String | Update category in the stores that is specified by comma-separated stores' id (optional)
 let langId = "langId_example" // String | Language id (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // category.update
-CategoryAPI.categoryUpdate(id: id, name: name, description: description, shortDescription: shortDescription, parentId: parentId, avail: avail, sortOrder: sortOrder, modifiedTime: modifiedTime, metaTitle: metaTitle, metaDescription: metaDescription, metaKeywords: metaKeywords, seoUrl: seoUrl, storeId: storeId, storesIds: storesIds, langId: langId) { (response, error) in
+CategoryAPI.categoryUpdate(id: id, name: name, description: description, shortDescription: shortDescription, parentId: parentId, avail: avail, sortOrder: sortOrder, modifiedTime: modifiedTime, metaTitle: metaTitle, metaDescription: metaDescription, metaKeywords: metaKeywords, seoUrl: seoUrl, storeId: storeId, storesIds: storesIds, langId: langId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -772,6 +832,7 @@ Name | Type | Description  | Notes
  **storeId** | **String** | Store Id | [optional] 
  **storesIds** | **String** | Update category in the stores that is specified by comma-separated stores&#39; id | [optional] 
  **langId** | **String** | Language id | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 

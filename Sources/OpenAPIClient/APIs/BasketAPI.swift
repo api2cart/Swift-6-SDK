@@ -76,12 +76,13 @@ open class BasketAPI {
      - parameter variantId: (query) Defines product&#39;s variants specified by variant id (optional)
      - parameter quantity: (query) Defines new items quantity (optional, default to 0)
      - parameter storeId: (query) Store Id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: BasketItemAdd200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func basketItemAdd(customerId: String, productId: String, variantId: String? = nil, quantity: Double? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BasketItemAdd200Response {
-        return try await basketItemAddWithRequestBuilder(customerId: customerId, productId: productId, variantId: variantId, quantity: quantity, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
+    open class func basketItemAdd(customerId: String, productId: String, variantId: String? = nil, quantity: Double? = nil, storeId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BasketItemAdd200Response {
+        return try await basketItemAddWithRequestBuilder(customerId: customerId, productId: productId, variantId: variantId, quantity: quantity, storeId: storeId, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -99,10 +100,11 @@ open class BasketAPI {
      - parameter variantId: (query) Defines product&#39;s variants specified by variant id (optional)
      - parameter quantity: (query) Defines new items quantity (optional, default to 0)
      - parameter storeId: (query) Store Id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<BasketItemAdd200Response> 
      */
-    open class func basketItemAddWithRequestBuilder(customerId: String, productId: String, variantId: String? = nil, quantity: Double? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BasketItemAdd200Response> {
+    open class func basketItemAddWithRequestBuilder(customerId: String, productId: String, variantId: String? = nil, quantity: Double? = nil, storeId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BasketItemAdd200Response> {
         let localVariablePath = "/basket.item.add.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -114,6 +116,7 @@ open class BasketAPI {
             "variant_id": (wrappedValue: variantId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "quantity": (wrappedValue: quantity?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -133,12 +136,13 @@ open class BasketAPI {
      - parameter name: (query) Shipping Service Name 
      - parameter callback: (query) Callback url that returns shipping rates. It should be able to accept POST requests with json data. 
      - parameter storeId: (query) Store Id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: BasketLiveShippingServiceCreate200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func basketLiveShippingServiceCreate(name: String, callback: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BasketLiveShippingServiceCreate200Response {
-        return try await basketLiveShippingServiceCreateWithRequestBuilder(name: name, callback: callback, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
+    open class func basketLiveShippingServiceCreate(name: String, callback: String, storeId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BasketLiveShippingServiceCreate200Response {
+        return try await basketLiveShippingServiceCreateWithRequestBuilder(name: name, callback: callback, storeId: storeId, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -154,10 +158,11 @@ open class BasketAPI {
      - parameter name: (query) Shipping Service Name 
      - parameter callback: (query) Callback url that returns shipping rates. It should be able to accept POST requests with json data. 
      - parameter storeId: (query) Store Id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<BasketLiveShippingServiceCreate200Response> 
      */
-    open class func basketLiveShippingServiceCreateWithRequestBuilder(name: String, callback: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BasketLiveShippingServiceCreate200Response> {
+    open class func basketLiveShippingServiceCreateWithRequestBuilder(name: String, callback: String, storeId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BasketLiveShippingServiceCreate200Response> {
         let localVariablePath = "/basket.live_shipping_service.create.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -167,6 +172,7 @@ open class BasketAPI {
             "name": (wrappedValue: name.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "callback": (wrappedValue: callback.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [

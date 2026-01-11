@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 # **attributeAdd**
 ```swift
-    open class func attributeAdd(type: ModelType_attributeAdd, name: String, code: String? = nil, storeId: String? = nil, langId: String? = nil, visible: Bool? = nil, _required: Bool? = nil, position: Int? = nil, attributeGroupId: String? = nil, isGlobal: String? = nil, isSearchable: Bool? = nil, isFilterable: String? = nil, isComparable: Bool? = nil, isHtmlAllowedOnFront: Bool? = nil, isFilterableInSearch: Bool? = nil, isConfigurable: Bool? = nil, isVisibleInAdvancedSearch: Bool? = nil, isUsedForPromoRules: Bool? = nil, usedInProductListing: Bool? = nil, usedForSortBy: Bool? = nil, applyTo: String? = nil, completion: @escaping (_ data: AttributeAdd200Response?, _ error: Error?) -> Void)
+    open class func attributeAdd(type: ModelType_attributeAdd, name: String, code: String? = nil, storeId: String? = nil, langId: String? = nil, visible: Bool? = nil, _required: Bool? = nil, position: Int? = nil, attributeGroupId: String? = nil, isGlobal: String? = nil, isSearchable: Bool? = nil, isFilterable: String? = nil, isComparable: Bool? = nil, isHtmlAllowedOnFront: Bool? = nil, isFilterableInSearch: Bool? = nil, isConfigurable: Bool? = nil, isVisibleInAdvancedSearch: Bool? = nil, isUsedForPromoRules: Bool? = nil, usedInProductListing: Bool? = nil, usedForSortBy: Bool? = nil, applyTo: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: AttributeAdd200Response?, _ error: Error?) -> Void)
 ```
 
 attribute.add
@@ -57,9 +57,10 @@ let isUsedForPromoRules = true // Bool | Use for Promo Rule Conditions (optional
 let usedInProductListing = true // Bool | Used in Product Listing (optional) (default to false)
 let usedForSortBy = true // Bool | Used for Sorting in Product Listing (optional) (default to false)
 let applyTo = "applyTo_example" // String | Types of products which can have this attribute (optional) (default to "all_types")
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // attribute.add
-AttributeAPI.attributeAdd(type: type, name: name, code: code, storeId: storeId, langId: langId, visible: visible, _required: _required, position: position, attributeGroupId: attributeGroupId, isGlobal: isGlobal, isSearchable: isSearchable, isFilterable: isFilterable, isComparable: isComparable, isHtmlAllowedOnFront: isHtmlAllowedOnFront, isFilterableInSearch: isFilterableInSearch, isConfigurable: isConfigurable, isVisibleInAdvancedSearch: isVisibleInAdvancedSearch, isUsedForPromoRules: isUsedForPromoRules, usedInProductListing: usedInProductListing, usedForSortBy: usedForSortBy, applyTo: applyTo) { (response, error) in
+AttributeAPI.attributeAdd(type: type, name: name, code: code, storeId: storeId, langId: langId, visible: visible, _required: _required, position: position, attributeGroupId: attributeGroupId, isGlobal: isGlobal, isSearchable: isSearchable, isFilterable: isFilterable, isComparable: isComparable, isHtmlAllowedOnFront: isHtmlAllowedOnFront, isFilterableInSearch: isFilterableInSearch, isConfigurable: isConfigurable, isVisibleInAdvancedSearch: isVisibleInAdvancedSearch, isUsedForPromoRules: isUsedForPromoRules, usedInProductListing: usedInProductListing, usedForSortBy: usedForSortBy, applyTo: applyTo, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -96,6 +97,7 @@ Name | Type | Description  | Notes
  **usedInProductListing** | **Bool** | Used in Product Listing | [optional] [default to false]
  **usedForSortBy** | **Bool** | Used for Sorting in Product Listing | [optional] [default to false]
  **applyTo** | **String** | Types of products which can have this attribute | [optional] [default to &quot;all_types&quot;]
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -114,7 +116,7 @@ Name | Type | Description  | Notes
 
 # **attributeAssignGroup**
 ```swift
-    open class func attributeAssignGroup(id: String, groupId: String, attributeSetId: String? = nil, completion: @escaping (_ data: AttributeAssignGroup200Response?, _ error: Error?) -> Void)
+    open class func attributeAssignGroup(id: String, groupId: String, attributeSetId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: AttributeAssignGroup200Response?, _ error: Error?) -> Void)
 ```
 
 attribute.assign.group
@@ -129,9 +131,10 @@ import OpenAPIClient
 let id = "id_example" // String | Entity id
 let groupId = "groupId_example" // String | Attribute group_id
 let attributeSetId = "attributeSetId_example" // String | Attribute set id (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // attribute.assign.group
-AttributeAPI.attributeAssignGroup(id: id, groupId: groupId, attributeSetId: attributeSetId) { (response, error) in
+AttributeAPI.attributeAssignGroup(id: id, groupId: groupId, attributeSetId: attributeSetId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -150,6 +153,7 @@ Name | Type | Description  | Notes
  **id** | **String** | Entity id | 
  **groupId** | **String** | Attribute group_id | 
  **attributeSetId** | **String** | Attribute set id | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -168,7 +172,7 @@ Name | Type | Description  | Notes
 
 # **attributeAssignSet**
 ```swift
-    open class func attributeAssignSet(id: String, attributeSetId: String, groupId: String? = nil, completion: @escaping (_ data: AttributeAssignGroup200Response?, _ error: Error?) -> Void)
+    open class func attributeAssignSet(id: String, attributeSetId: String, groupId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: AttributeAssignGroup200Response?, _ error: Error?) -> Void)
 ```
 
 attribute.assign.set
@@ -183,9 +187,10 @@ import OpenAPIClient
 let id = "id_example" // String | Entity id
 let attributeSetId = "attributeSetId_example" // String | Attribute set id
 let groupId = "groupId_example" // String | Attribute group_id (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // attribute.assign.set
-AttributeAPI.attributeAssignSet(id: id, attributeSetId: attributeSetId, groupId: groupId) { (response, error) in
+AttributeAPI.attributeAssignSet(id: id, attributeSetId: attributeSetId, groupId: groupId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -204,6 +209,7 @@ Name | Type | Description  | Notes
  **id** | **String** | Entity id | 
  **attributeSetId** | **String** | Attribute set id | 
  **groupId** | **String** | Attribute group_id | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -638,7 +644,7 @@ This endpoint does not need any parameter.
 
 # **attributeUnassignGroup**
 ```swift
-    open class func attributeUnassignGroup(id: String, groupId: String, completion: @escaping (_ data: AttributeUnassignGroup200Response?, _ error: Error?) -> Void)
+    open class func attributeUnassignGroup(id: String, groupId: String, idempotencyKey: String? = nil, completion: @escaping (_ data: AttributeUnassignGroup200Response?, _ error: Error?) -> Void)
 ```
 
 attribute.unassign.group
@@ -652,9 +658,10 @@ import OpenAPIClient
 
 let id = "id_example" // String | Entity id
 let groupId = "groupId_example" // String | Customer group_id
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // attribute.unassign.group
-AttributeAPI.attributeUnassignGroup(id: id, groupId: groupId) { (response, error) in
+AttributeAPI.attributeUnassignGroup(id: id, groupId: groupId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -672,6 +679,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String** | Entity id | 
  **groupId** | **String** | Customer group_id | 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -690,7 +698,7 @@ Name | Type | Description  | Notes
 
 # **attributeUnassignSet**
 ```swift
-    open class func attributeUnassignSet(id: String, attributeSetId: String, completion: @escaping (_ data: AttributeUnassignGroup200Response?, _ error: Error?) -> Void)
+    open class func attributeUnassignSet(id: String, attributeSetId: String, idempotencyKey: String? = nil, completion: @escaping (_ data: AttributeUnassignGroup200Response?, _ error: Error?) -> Void)
 ```
 
 attribute.unassign.set
@@ -704,9 +712,10 @@ import OpenAPIClient
 
 let id = "id_example" // String | Entity id
 let attributeSetId = "attributeSetId_example" // String | Attribute set id
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // attribute.unassign.set
-AttributeAPI.attributeUnassignSet(id: id, attributeSetId: attributeSetId) { (response, error) in
+AttributeAPI.attributeUnassignSet(id: id, attributeSetId: attributeSetId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -724,6 +733,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String** | Entity id | 
  **attributeSetId** | **String** | Attribute set id | 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -742,7 +752,7 @@ Name | Type | Description  | Notes
 
 # **attributeUpdate**
 ```swift
-    open class func attributeUpdate(id: String, name: String, storeId: String? = nil, langId: String? = nil, completion: @escaping (_ data: AttributeUpdate200Response?, _ error: Error?) -> Void)
+    open class func attributeUpdate(id: String, name: String, storeId: String? = nil, langId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: AttributeUpdate200Response?, _ error: Error?) -> Void)
 ```
 
 attribute.update
@@ -758,9 +768,10 @@ let id = "id_example" // String | Entity id
 let name = "name_example" // String | Defines new attributes's name
 let storeId = "storeId_example" // String | Store Id (optional)
 let langId = "langId_example" // String | Language id (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // attribute.update
-AttributeAPI.attributeUpdate(id: id, name: name, storeId: storeId, langId: langId) { (response, error) in
+AttributeAPI.attributeUpdate(id: id, name: name, storeId: storeId, langId: langId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -780,6 +791,7 @@ Name | Type | Description  | Notes
  **name** | **String** | Defines new attributes&#39;s name | 
  **storeId** | **String** | Store Id | [optional] 
  **langId** | **String** | Language id | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -798,7 +810,7 @@ Name | Type | Description  | Notes
 
 # **attributeValueAdd**
 ```swift
-    open class func attributeValueAdd(attributeId: String, name: String, code: String? = nil, description: String? = nil, storeId: String? = nil, langId: String? = nil, completion: @escaping (_ data: AttributeAdd200Response?, _ error: Error?) -> Void)
+    open class func attributeValueAdd(attributeId: String, name: String, code: String? = nil, description: String? = nil, storeId: String? = nil, langId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: AttributeAdd200Response?, _ error: Error?) -> Void)
 ```
 
 attribute.value.add
@@ -816,9 +828,10 @@ let code = "code_example" // String | Entity code (optional)
 let description = "description_example" // String | Defines attribute value's description (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
 let langId = "langId_example" // String | Language id (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // attribute.value.add
-AttributeAPI.attributeValueAdd(attributeId: attributeId, name: name, code: code, description: description, storeId: storeId, langId: langId) { (response, error) in
+AttributeAPI.attributeValueAdd(attributeId: attributeId, name: name, code: code, description: description, storeId: storeId, langId: langId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -840,6 +853,7 @@ Name | Type | Description  | Notes
  **description** | **String** | Defines attribute value&#39;s description | [optional] 
  **storeId** | **String** | Store Id | [optional] 
  **langId** | **String** | Language id | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -912,7 +926,7 @@ Name | Type | Description  | Notes
 
 # **attributeValueUpdate**
 ```swift
-    open class func attributeValueUpdate(id: String, attributeId: String, name: String? = nil, description: String? = nil, code: String? = nil, storeId: String? = nil, langId: String? = nil, completion: @escaping (_ data: AttributeUpdate200Response?, _ error: Error?) -> Void)
+    open class func attributeValueUpdate(id: String, attributeId: String, name: String? = nil, description: String? = nil, code: String? = nil, storeId: String? = nil, langId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: AttributeUpdate200Response?, _ error: Error?) -> Void)
 ```
 
 attribute.value.update
@@ -931,9 +945,10 @@ let description = "description_example" // String | Defines new attribute value'
 let code = "code_example" // String | Entity code (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
 let langId = "langId_example" // String | Language id (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // attribute.value.update
-AttributeAPI.attributeValueUpdate(id: id, attributeId: attributeId, name: name, description: description, code: code, storeId: storeId, langId: langId) { (response, error) in
+AttributeAPI.attributeValueUpdate(id: id, attributeId: attributeId, name: name, description: description, code: code, storeId: storeId, langId: langId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -956,6 +971,7 @@ Name | Type | Description  | Notes
  **code** | **String** | Entity code | [optional] 
  **storeId** | **String** | Store Id | [optional] 
  **langId** | **String** | Language id | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 

@@ -56,9 +56,11 @@ public struct CustomerAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var country: String?
     /** Store Id */
     public var storeId: String?
+    /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+    public var idempotencyKey: String?
     public var address: [CustomerAddAddressInner]?
 
-    public init(email: String, firstName: String? = nil, lastName: String? = nil, password: String? = nil, group: String? = nil, groupId: String? = nil, groupIds: String? = nil, status: String? = "enabled", createdTime: String? = nil, modifiedTime: String? = nil, login: String? = nil, lastLogin: String? = nil, birthDay: String? = nil, newsLetterSubscription: Bool? = nil, consents: [CustomerAddConsentsInner]? = nil, gender: String? = nil, website: String? = nil, fax: String? = nil, company: String? = nil, phone: String? = nil, note: String? = nil, country: String? = nil, storeId: String? = nil, address: [CustomerAddAddressInner]? = nil) {
+    public init(email: String, firstName: String? = nil, lastName: String? = nil, password: String? = nil, group: String? = nil, groupId: String? = nil, groupIds: String? = nil, status: String? = "enabled", createdTime: String? = nil, modifiedTime: String? = nil, login: String? = nil, lastLogin: String? = nil, birthDay: String? = nil, newsLetterSubscription: Bool? = nil, consents: [CustomerAddConsentsInner]? = nil, gender: String? = nil, website: String? = nil, fax: String? = nil, company: String? = nil, phone: String? = nil, note: String? = nil, country: String? = nil, storeId: String? = nil, idempotencyKey: String? = nil, address: [CustomerAddAddressInner]? = nil) {
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
@@ -82,6 +84,7 @@ public struct CustomerAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.note = note
         self.country = country
         self.storeId = storeId
+        self.idempotencyKey = idempotencyKey
         self.address = address
     }
 
@@ -109,6 +112,7 @@ public struct CustomerAdd: Sendable, Codable, JSONEncodable, Hashable {
         case note
         case country
         case storeId = "store_id"
+        case idempotencyKey = "idempotency_key"
         case address
     }
 
@@ -139,6 +143,7 @@ public struct CustomerAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(note, forKey: .note)
         try container.encodeIfPresent(country, forKey: .country)
         try container.encodeIfPresent(storeId, forKey: .storeId)
+        try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
         try container.encodeIfPresent(address, forKey: .address)
     }
 }

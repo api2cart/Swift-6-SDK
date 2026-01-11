@@ -132,6 +132,8 @@ Sources/OpenAPIClient/Models/CategoryCount200Response.swift
 Sources/OpenAPIClient/Models/CategoryCount200ResponseResult.swift
 Sources/OpenAPIClient/Models/CategoryDelete200Response.swift
 Sources/OpenAPIClient/Models/CategoryDelete200ResponseResult.swift
+Sources/OpenAPIClient/Models/CategoryDeleteBatch.swift
+Sources/OpenAPIClient/Models/CategoryDeleteBatchPayloadInner.swift
 Sources/OpenAPIClient/Models/CategoryFind200Response.swift
 Sources/OpenAPIClient/Models/CategoryFind200ResponseResult.swift
 Sources/OpenAPIClient/Models/CategoryFind200ResponseResultCategoryInner.swift
@@ -569,6 +571,8 @@ docs/CategoryCount200Response.md
 docs/CategoryCount200ResponseResult.md
 docs/CategoryDelete200Response.md
 docs/CategoryDelete200ResponseResult.md
+docs/CategoryDeleteBatch.md
+docs/CategoryDeleteBatchPayloadInner.md
 docs/CategoryFind200Response.md
 docs/CategoryFind200ResponseResult.md
 docs/CategoryFind200ResponseResultCategoryInner.md

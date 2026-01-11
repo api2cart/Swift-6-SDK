@@ -125,8 +125,10 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var marketplaceItemProperties: String?
     /** Is cache clear required */
     public var clearCache: Bool? = true
+    /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+    public var idempotencyKey: String?
 
-    public init(productId: String? = nil, attributes: [ProductVariantAddAttributesInner]? = nil, name: String? = nil, model: String, description: String? = nil, shortDescription: String? = nil, availableForView: Bool? = true, availableForSale: Bool? = true, status: String? = nil, isVirtual: Bool? = false, isDefault: Bool? = nil, storeId: String? = nil, storesIds: String? = nil, langId: String? = nil, price: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceModified: String? = nil, spriceExpire: String? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, measureUnit: String? = nil, unitPrice: Double? = nil, quantity: Double? = 0, warehouseId: String? = nil, inStock: Bool? = nil, backorderStatus: String? = nil, manageStock: Bool? = nil, lowStockThreshold: Double? = nil, weight: Double? = 0, width: Double? = nil, height: Double? = nil, length: Double? = nil, weightUnit: String? = nil, sku: String? = nil, barcode: String? = nil, gtin: String? = nil, upc: String? = nil, ean: String? = nil, mpn: String? = nil, isbn: String? = nil, seoUrl: String? = nil, manufacturer: String? = nil, createdAt: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, url: String? = nil, taxClassId: String? = nil, taxable: Bool? = true, fixedCostShippingPrice: Double? = nil, isFreeShipping: Bool? = nil, countryOfOrigin: String? = nil, harmonizedSystemCode: String? = nil, processingProfileId: Int? = nil, marketplaceItemProperties: String? = nil, clearCache: Bool? = true) {
+    public init(productId: String? = nil, attributes: [ProductVariantAddAttributesInner]? = nil, name: String? = nil, model: String, description: String? = nil, shortDescription: String? = nil, availableForView: Bool? = true, availableForSale: Bool? = true, status: String? = nil, isVirtual: Bool? = false, isDefault: Bool? = nil, storeId: String? = nil, storesIds: String? = nil, langId: String? = nil, price: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceModified: String? = nil, spriceExpire: String? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, measureUnit: String? = nil, unitPrice: Double? = nil, quantity: Double? = 0, warehouseId: String? = nil, inStock: Bool? = nil, backorderStatus: String? = nil, manageStock: Bool? = nil, lowStockThreshold: Double? = nil, weight: Double? = 0, width: Double? = nil, height: Double? = nil, length: Double? = nil, weightUnit: String? = nil, sku: String? = nil, barcode: String? = nil, gtin: String? = nil, upc: String? = nil, ean: String? = nil, mpn: String? = nil, isbn: String? = nil, seoUrl: String? = nil, manufacturer: String? = nil, createdAt: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, url: String? = nil, taxClassId: String? = nil, taxable: Bool? = true, fixedCostShippingPrice: Double? = nil, isFreeShipping: Bool? = nil, countryOfOrigin: String? = nil, harmonizedSystemCode: String? = nil, processingProfileId: Int? = nil, marketplaceItemProperties: String? = nil, clearCache: Bool? = true, idempotencyKey: String? = nil) {
         self.productId = productId
         self.attributes = attributes
         self.name = name
@@ -185,6 +187,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.processingProfileId = processingProfileId
         self.marketplaceItemProperties = marketplaceItemProperties
         self.clearCache = clearCache
+        self.idempotencyKey = idempotencyKey
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -246,6 +249,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
         case processingProfileId = "processing_profile_id"
         case marketplaceItemProperties = "marketplace_item_properties"
         case clearCache = "clear_cache"
+        case idempotencyKey = "idempotency_key"
     }
 
     // Encodable protocol methods
@@ -310,6 +314,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(processingProfileId, forKey: .processingProfileId)
         try container.encodeIfPresent(marketplaceItemProperties, forKey: .marketplaceItemProperties)
         try container.encodeIfPresent(clearCache, forKey: .clearCache)
+        try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
     }
 }
 

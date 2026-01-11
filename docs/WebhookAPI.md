@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 # **webhookCreate**
 ```swift
-    open class func webhookCreate(entity: String, action: String, callback: String? = nil, label: String? = nil, fields: String? = nil, responseFields: String? = nil, active: Bool? = nil, langId: String? = nil, storeId: String? = nil, completion: @escaping (_ data: BasketLiveShippingServiceCreate200Response?, _ error: Error?) -> Void)
+    open class func webhookCreate(entity: String, action: String, callback: String? = nil, label: String? = nil, fields: String? = nil, responseFields: String? = nil, active: Bool? = nil, langId: String? = nil, storeId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: BasketLiveShippingServiceCreate200Response?, _ error: Error?) -> Void)
 ```
 
 webhook.create
@@ -89,9 +89,10 @@ let responseFields = "responseFields_example" // String | Set this parameter in 
 let active = true // Bool | Webhook status (optional) (default to true)
 let langId = "langId_example" // String | Language id (optional)
 let storeId = "storeId_example" // String | Defines store id where the webhook should be assigned (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // webhook.create
-WebhookAPI.webhookCreate(entity: entity, action: action, callback: callback, label: label, fields: fields, responseFields: responseFields, active: active, langId: langId, storeId: storeId) { (response, error) in
+WebhookAPI.webhookCreate(entity: entity, action: action, callback: callback, label: label, fields: fields, responseFields: responseFields, active: active, langId: langId, storeId: storeId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -116,6 +117,7 @@ Name | Type | Description  | Notes
  **active** | **Bool** | Webhook status | [optional] [default to true]
  **langId** | **String** | Language id | [optional] 
  **storeId** | **String** | Defines store id where the webhook should be assigned | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -292,7 +294,7 @@ Name | Type | Description  | Notes
 
 # **webhookUpdate**
 ```swift
-    open class func webhookUpdate(id: String, callback: String? = nil, label: String? = nil, fields: String? = nil, responseFields: String? = nil, active: Bool? = nil, langId: String? = nil, completion: @escaping (_ data: ProductImageUpdate200Response?, _ error: Error?) -> Void)
+    open class func webhookUpdate(id: String, callback: String? = nil, label: String? = nil, fields: String? = nil, responseFields: String? = nil, active: Bool? = nil, langId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: ProductImageUpdate200Response?, _ error: Error?) -> Void)
 ```
 
 webhook.update
@@ -311,9 +313,10 @@ let fields = "fields_example" // String | Fields the webhook should send (option
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let active = true // Bool | Webhook status (optional)
 let langId = "langId_example" // String | Language id (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // webhook.update
-WebhookAPI.webhookUpdate(id: id, callback: callback, label: label, fields: fields, responseFields: responseFields, active: active, langId: langId) { (response, error) in
+WebhookAPI.webhookUpdate(id: id, callback: callback, label: label, fields: fields, responseFields: responseFields, active: active, langId: langId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -336,6 +339,7 @@ Name | Type | Description  | Notes
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **active** | **Bool** | Webhook status | [optional] 
  **langId** | **String** | Language id | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 

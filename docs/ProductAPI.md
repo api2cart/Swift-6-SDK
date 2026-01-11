@@ -68,7 +68,7 @@ Add new product to store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productAdd = ProductAdd(name: "name_example", model: "model_example", description: "description_example", price: 123, sku: "sku_example", shortDescription: "shortDescription_example", type: "type_example", status: "status_example", visible: "visible_example", categoryId: "categoryId_example", categoriesIds: "categoriesIds_example", productClass: "productClass_example", productType: "productType_example", isVirtual: false, downloadable: true, isSupply: false, availableForView: false, availableForSale: false, storeId: "storeId_example", storesIds: "storesIds_example", langId: "langId_example", oldPrice: 123, specialPrice: 123, wholesalePrice: 123, costPrice: 123, fixedCostShippingPrice: 123, tierPrices: [ProductAdd_tier_prices_inner(quantity: 123, price: 123)], groupPrices: [ProductAdd_group_prices_inner(groupId: "groupId_example", price: 123, qty: 123)], buyitnowPrice: 123, reservePrice: 123, measureUnit: "measureUnit_example", unitPrice: 123, quantity: 123, inStock: true, manageStock: false, warehouseId: "warehouseId_example", backorderStatus: "backorderStatus_example", minOrderQuantity: 123, maxOrderQuantity: 123, lowStockThreshold: 123, weight: 123, weightUnit: "weightUnit_example", width: 123, height: 123, length: 123, dimensionsUnit: "dimensionsUnit_example", barcode: "barcode_example", upc: "upc_example", ean: "ean_example", isbn: "isbn_example", gtin: "gtin_example", mpn: "mpn_example", asin: "asin_example", productReference: "productReference_example", externalProductLink: "externalProductLink_example", harmonizedSystemCode: "harmonizedSystemCode_example", countryOfOrigin: "countryOfOrigin_example", manufacturer: "manufacturer_example", manufacturerId: "manufacturerId_example", manufacturerInfo: ProductAdd_manufacturer_info(name: "name_example", address: "address_example", phone: "phone_example", email: "email_example"), brandName: "brandName_example", imageUrl: "imageUrl_example", imageName: "imageName_example", additionalImageUrls: ["additionalImageUrls_example"], files: [ProductAdd_files_inner(name: "name_example", url: "url_example")], sizeChart: ProductAdd_size_chart(id: "id_example", url: "url_example"), relatedProductsIds: "relatedProductsIds_example", upSellProductsIds: "upSellProductsIds_example", crossSellProductsIds: "crossSellProductsIds_example", attributeSetName: "attributeSetName_example", attributeName: "attributeName_example", searchKeywords: "searchKeywords_example", tags: "tags_example", materials: ["materials_example"], certifications: [ProductAdd_certifications_inner(id: "id_example", images: [ProductAdd_certifications_inner_images_inner(url: "url_example")], files: [ProductAdd_certifications_inner_files_inner(url: "url_example")])], specifics: [ProductAdd_specifics_inner(name: "name_example", value: "value_example", values: ["values_example"], usedForVariations: false, scaleId: 123, inputValue: "inputValue_example", foodDetails: ProductAdd_specifics_inner_food_details(calories: 123), groupProductsDetails: [ProductAdd_specifics_inner_group_products_details_inner(id: "id_example", quantity: 123)], bookingDetails: ProductAdd_specifics_inner_booking_details(location: "location_example", type: "type_example", sessionDuration: 123, sessionGap: 123, sessionsCount: 123, timeStrictValue: 123, timeStrictType: "timeStrictType_example", availabilities: [ProductAdd_specifics_inner_booking_details_availabilities_inner(day: "day_example", isAvailable: false, times: [ProductAdd_specifics_inner_booking_details_availabilities_inner_times_inner(from: "from_example", to: "to_example")])], overrides: [ProductAdd_specifics_inner_booking_details_overrides_inner(day: "day_example", date: "date_example")]))], availFrom: "availFrom_example", spriceCreate: "spriceCreate_example", spriceModified: "spriceModified_example", spriceExpire: "spriceExpire_example", createdAt: "createdAt_example", autoRenew: false, whenMade: "whenMade_example", metaTitle: "metaTitle_example", metaKeywords: "metaKeywords_example", metaDescription: "metaDescription_example", url: "url_example", seoUrl: "seoUrl_example", taxClassId: "taxClassId_example", taxable: false, salesTax: ProductAdd_sales_tax(taxPercent: 123, taxState: "taxState_example", shippingIncInTax: false), condition: "condition_example", conditionDescription: "conditionDescription_example", allowDisplayCondition: false, paymentMethods: ["paymentMethods_example"], paypalEmail: "paypalEmail_example", shippingTemplateId: 123, processingProfileId: 123, shippingDetails: [ProductAdd_shipping_details_inner(shippingType: "shippingType_example", shippingService: "shippingService_example", shippingCost: 123)], isFreeShipping: true, deliveryCode: "deliveryCode_example", deliveryType: "deliveryType_example", deliveryTime: 123, deliveryOptionIds: "deliveryOptionIds_example", packageDetails: ProductAdd_package_details(measureUnit: "measureUnit_example", weighUnit: "weighUnit_example", packageDepth: 123, packageLength: 123, packageWidth: 123, weightMajor: 123, weightMinor: 123, shippingPackage: "shippingPackage_example"), logisticInfo: [ProductAdd_logistic_info_inner(logisticId: 123, isFree: false, shippingFee: 123, sizeId: 123)], listingDuration: "listingDuration_example", listingType: "listingType_example", categoryType: "categoryType_example", returnAccepted: true, sellerProfiles: ProductAdd_seller_profiles(shippingProfileId: "shippingProfileId_example", paymentProfileId: "paymentProfileId_example", returnProfileId: "returnProfileId_example"), auctionConfidentialityLevel: "auctionConfidentialityLevel_example", bestOffer: ProductAdd_best_offer(minimumOfferPrice: 123, autoAcceptPrice: 123), productionPartnerIds: "productionPartnerIds_example", marketplaceItemProperties: "marketplaceItemProperties_example", clearCache: false, viewedCount: 123, orderedCount: 123, shopSectionId: 123, returnPolicyId: 123, personalizationDetails: ProductAdd_personalization_details(isPersonalizable: false, personalizationIsRequired: false, personalizationCharCountMax: 123, personalizationInstructions: "personalizationInstructions_example")) // ProductAdd | 
+let productAdd = ProductAdd(name: "name_example", model: "model_example", description: "description_example", price: 123, sku: "sku_example", shortDescription: "shortDescription_example", type: "type_example", status: "status_example", visible: "visible_example", categoryId: "categoryId_example", categoriesIds: "categoriesIds_example", productClass: "productClass_example", productType: "productType_example", isVirtual: false, downloadable: true, isSupply: false, availableForView: false, availableForSale: false, storeId: "storeId_example", storesIds: "storesIds_example", langId: "langId_example", oldPrice: 123, specialPrice: 123, wholesalePrice: 123, costPrice: 123, fixedCostShippingPrice: 123, tierPrices: [ProductAdd_tier_prices_inner(quantity: 123, price: 123)], groupPrices: [ProductAdd_group_prices_inner(groupId: "groupId_example", price: 123, qty: 123)], buyitnowPrice: 123, reservePrice: 123, measureUnit: "measureUnit_example", unitPrice: 123, quantity: 123, inStock: true, manageStock: false, warehouseId: "warehouseId_example", backorderStatus: "backorderStatus_example", minOrderQuantity: 123, maxOrderQuantity: 123, lowStockThreshold: 123, weight: 123, weightUnit: "weightUnit_example", width: 123, height: 123, length: 123, dimensionsUnit: "dimensionsUnit_example", barcode: "barcode_example", upc: "upc_example", ean: "ean_example", isbn: "isbn_example", gtin: "gtin_example", mpn: "mpn_example", asin: "asin_example", productReference: "productReference_example", externalProductLink: "externalProductLink_example", harmonizedSystemCode: "harmonizedSystemCode_example", countryOfOrigin: "countryOfOrigin_example", manufacturer: "manufacturer_example", manufacturerId: "manufacturerId_example", manufacturerInfo: ProductAdd_manufacturer_info(name: "name_example", address: "address_example", phone: "phone_example", email: "email_example"), brandName: "brandName_example", imageUrl: "imageUrl_example", imageName: "imageName_example", additionalImageUrls: ["additionalImageUrls_example"], files: [ProductAdd_files_inner(name: "name_example", url: "url_example")], sizeChart: ProductAdd_size_chart(id: "id_example", url: "url_example"), relatedProductsIds: "relatedProductsIds_example", upSellProductsIds: "upSellProductsIds_example", crossSellProductsIds: "crossSellProductsIds_example", attributeSetName: "attributeSetName_example", attributeName: "attributeName_example", searchKeywords: "searchKeywords_example", tags: "tags_example", materials: ["materials_example"], certifications: [ProductAdd_certifications_inner(id: "id_example", images: [ProductAdd_certifications_inner_images_inner(url: "url_example")], files: [ProductAdd_certifications_inner_files_inner(url: "url_example")])], specifics: [ProductAdd_specifics_inner(name: "name_example", value: "value_example", values: ["values_example"], usedForVariations: false, scaleId: 123, inputValue: "inputValue_example", foodDetails: ProductAdd_specifics_inner_food_details(calories: 123), groupProductsDetails: [ProductAdd_specifics_inner_group_products_details_inner(id: "id_example", quantity: 123)], bookingDetails: ProductAdd_specifics_inner_booking_details(location: "location_example", type: "type_example", sessionDuration: 123, sessionGap: 123, sessionsCount: 123, timeStrictValue: 123, timeStrictType: "timeStrictType_example", availabilities: [ProductAdd_specifics_inner_booking_details_availabilities_inner(day: "day_example", isAvailable: false, times: [ProductAdd_specifics_inner_booking_details_availabilities_inner_times_inner(from: "from_example", to: "to_example")])], overrides: [ProductAdd_specifics_inner_booking_details_overrides_inner(day: "day_example", date: "date_example")]))], availFrom: "availFrom_example", spriceCreate: "spriceCreate_example", spriceModified: "spriceModified_example", spriceExpire: "spriceExpire_example", createdAt: "createdAt_example", autoRenew: false, whenMade: "whenMade_example", metaTitle: "metaTitle_example", metaKeywords: "metaKeywords_example", metaDescription: "metaDescription_example", url: "url_example", seoUrl: "seoUrl_example", taxClassId: "taxClassId_example", taxable: false, salesTax: ProductAdd_sales_tax(taxPercent: 123, taxState: "taxState_example", shippingIncInTax: false), condition: "condition_example", conditionDescription: "conditionDescription_example", allowDisplayCondition: false, paymentMethods: ["paymentMethods_example"], paypalEmail: "paypalEmail_example", shippingTemplateId: 123, processingProfileId: 123, shippingDetails: [ProductAdd_shipping_details_inner(shippingType: "shippingType_example", shippingService: "shippingService_example", shippingCost: 123)], isFreeShipping: true, deliveryCode: "deliveryCode_example", deliveryType: "deliveryType_example", deliveryTime: 123, deliveryOptionIds: "deliveryOptionIds_example", packageDetails: ProductAdd_package_details(measureUnit: "measureUnit_example", weighUnit: "weighUnit_example", packageDepth: 123, packageLength: 123, packageWidth: 123, weightMajor: 123, weightMinor: 123, shippingPackage: "shippingPackage_example"), logisticInfo: [ProductAdd_logistic_info_inner(logisticId: 123, isFree: false, shippingFee: 123, sizeId: 123)], listingDuration: "listingDuration_example", listingType: "listingType_example", categoryType: "categoryType_example", returnAccepted: true, sellerProfiles: ProductAdd_seller_profiles(shippingProfileId: "shippingProfileId_example", paymentProfileId: "paymentProfileId_example", returnProfileId: "returnProfileId_example"), auctionConfidentialityLevel: "auctionConfidentialityLevel_example", bestOffer: ProductAdd_best_offer(minimumOfferPrice: 123, autoAcceptPrice: 123), productionPartnerIds: "productionPartnerIds_example", marketplaceItemProperties: "marketplaceItemProperties_example", clearCache: false, viewedCount: 123, orderedCount: 123, shopSectionId: 123, returnPolicyId: 123, personalizationDetails: ProductAdd_personalization_details(isPersonalizable: false, personalizationIsRequired: false, personalizationCharCountMax: 123, personalizationInstructions: "personalizationInstructions_example"), idempotencyKey: "idempotencyKey_example") // ProductAdd | 
 
 // product.add
 ProductAPI.productAdd(productAdd: productAdd) { (response, error) in
@@ -118,7 +118,7 @@ Add new products to the store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productAddBatch = ProductAddBatch(nestedItemsUpdateBehaviour: "nestedItemsUpdateBehaviour_example", clearCache: false, reindex: false, payload: [ProductAddBatch_payload_inner(name: "name_example", description: "description_example", shortDescription: "shortDescription_example", sku: "sku_example", model: "model_example", asin: "asin_example", upc: "upc_example", ean: "ean_example", gtin: "gtin_example", mpn: "mpn_example", isbn: "isbn_example", barcode: "barcode_example", price: 123, oldPrice: 123, costPrice: 123, specialPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", availFrom: "availFrom_example", advancedPrices: [ProductAddBatch_payload_inner_advanced_prices_inner(value: 123, groupId: 123, quantity: 123, startTime: "startTime_example", expireTime: "expireTime_example")], fixedCostShippingPrice: 123, buyitnowPrice: 123, reservePrice: 123, bestOffer: 123, quantity: 123, manageStock: false, productType: "productType_example", marketplaceItemProperties: 123, specifics: 123, isFreeShipping: false, taxable: false, status: "status_example", condition: "condition_example", conditionDescription: "conditionDescription_example", visible: "visible_example", availableForView: false, availableForSale: false, isVirtual: false, inStock: false, type: "type_example", listingType: "listingType_example", listingDuration: "listingDuration_example", downloadable: false, weight: 123, length: 123, width: 123, height: 123, weightUnit: "weightUnit_example", dimensionsUnit: "dimensionsUnit_example", storeId: "storeId_example", langId: "langId_example", categoryId: "categoryId_example", warehouseId: "warehouseId_example", categoriesIds: ["categoriesIds_example"], relatedProductsIds: ["relatedProductsIds_example"], upSellProductsIds: ["upSellProductsIds_example"], crossSellProductsIds: ["crossSellProductsIds_example"], storesIds: ["storesIds_example"], taxClassId: "taxClassId_example", salesTax: ProductAddBatch_payload_inner_sales_tax(taxPercent: 123, taxable: false), metaTitle: "metaTitle_example", metaDescription: "metaDescription_example", metaKeywords: ["metaKeywords_example"], searchKeywords: ["searchKeywords_example"], harmonizedSystemCode: "harmonizedSystemCode_example", url: "url_example", seoUrl: "seoUrl_example", externalProductLink: "externalProductLink_example", manufacturer: "manufacturer_example", manufacturerId: "manufacturerId_example", backorderStatus: "backorderStatus_example", images: [ProductAddBatch_payload_inner_images_inner(type: "type_example", url: "url_example", label: "label_example", name: "name_example", position: 123)], tags: ["tags_example"], files: [ProductAdd_files_inner(name: "name_example", url: "url_example")])]) // ProductAddBatch | 
+let productAddBatch = ProductAddBatch(nestedItemsUpdateBehaviour: "nestedItemsUpdateBehaviour_example", clearCache: false, reindex: false, payload: [ProductAddBatch_payload_inner(name: "name_example", description: "description_example", shortDescription: "shortDescription_example", sku: "sku_example", model: "model_example", asin: "asin_example", upc: "upc_example", ean: "ean_example", gtin: "gtin_example", mpn: "mpn_example", isbn: "isbn_example", barcode: "barcode_example", price: 123, oldPrice: 123, costPrice: 123, specialPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", availFrom: "availFrom_example", advancedPrices: [ProductAddBatch_payload_inner_advanced_prices_inner(value: 123, groupId: 123, quantity: 123, startTime: "startTime_example", expireTime: "expireTime_example")], fixedCostShippingPrice: 123, buyitnowPrice: 123, reservePrice: 123, bestOffer: 123, quantity: 123, manageStock: false, productType: "productType_example", marketplaceItemProperties: 123, specifics: 123, isFreeShipping: false, taxable: false, status: "status_example", condition: "condition_example", conditionDescription: "conditionDescription_example", visible: "visible_example", availableForView: false, availableForSale: false, isVirtual: false, inStock: false, type: "type_example", listingType: "listingType_example", listingDuration: "listingDuration_example", downloadable: false, weight: 123, length: 123, width: 123, height: 123, weightUnit: "weightUnit_example", dimensionsUnit: "dimensionsUnit_example", storeId: "storeId_example", langId: "langId_example", categoryId: "categoryId_example", warehouseId: "warehouseId_example", categoriesIds: ["categoriesIds_example"], relatedProductsIds: ["relatedProductsIds_example"], upSellProductsIds: ["upSellProductsIds_example"], crossSellProductsIds: ["crossSellProductsIds_example"], storesIds: ["storesIds_example"], taxClassId: "taxClassId_example", salesTax: ProductAddBatch_payload_inner_sales_tax(taxPercent: 123, taxable: false), metaTitle: "metaTitle_example", metaDescription: "metaDescription_example", metaKeywords: ["metaKeywords_example"], searchKeywords: ["searchKeywords_example"], harmonizedSystemCode: "harmonizedSystemCode_example", url: "url_example", seoUrl: "seoUrl_example", externalProductLink: "externalProductLink_example", manufacturer: "manufacturer_example", manufacturerId: "manufacturerId_example", backorderStatus: "backorderStatus_example", images: [ProductAddBatch_payload_inner_images_inner(type: "type_example", url: "url_example", label: "label_example", name: "name_example", position: 123)], tags: ["tags_example"], files: [ProductAdd_files_inner(name: "name_example", url: "url_example")])], idempotencyKey: "idempotencyKey_example") // ProductAddBatch | 
 
 // product.add.batch
 ProductAPI.productAddBatch(productAddBatch: productAddBatch) { (response, error) in
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 # **productAttributeValueSet**
 ```swift
-    open class func productAttributeValueSet(productId: String, attributeId: String? = nil, attributeGroupId: String? = nil, attributeName: String? = nil, value: String? = nil, valueId: Int? = nil, langId: String? = nil, storeId: String? = nil, completion: @escaping (_ data: ProductAttributeValueSet200Response?, _ error: Error?) -> Void)
+    open class func productAttributeValueSet(productId: String, attributeId: String? = nil, attributeGroupId: String? = nil, attributeName: String? = nil, value: String? = nil, valueId: Int? = nil, langId: String? = nil, storeId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: ProductAttributeValueSet200Response?, _ error: Error?) -> Void)
 ```
 
 product.attribute.value.set
@@ -254,9 +254,10 @@ let value = "value_example" // String | Define attribute value (optional)
 let valueId = 987 // Int | Define attribute value id (optional)
 let langId = "langId_example" // String | Language id (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // product.attribute.value.set
-ProductAPI.productAttributeValueSet(productId: productId, attributeId: attributeId, attributeGroupId: attributeGroupId, attributeName: attributeName, value: value, valueId: valueId, langId: langId, storeId: storeId) { (response, error) in
+ProductAPI.productAttributeValueSet(productId: productId, attributeId: attributeId, attributeGroupId: attributeGroupId, attributeName: attributeName, value: value, valueId: valueId, langId: langId, storeId: storeId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -280,6 +281,7 @@ Name | Type | Description  | Notes
  **valueId** | **Int** | Define attribute value id | [optional] 
  **langId** | **String** | Language id | [optional] 
  **storeId** | **String** | Store Id | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -298,7 +300,7 @@ Name | Type | Description  | Notes
 
 # **productAttributeValueUnset**
 ```swift
-    open class func productAttributeValueUnset(productId: String, attributeId: String, storeId: String? = nil, includeDefault: Bool? = nil, reindex: Bool? = nil, clearCache: Bool? = nil, completion: @escaping (_ data: ProductAttributeValueUnset200Response?, _ error: Error?) -> Void)
+    open class func productAttributeValueUnset(productId: String, attributeId: String, storeId: String? = nil, includeDefault: Bool? = nil, reindex: Bool? = nil, clearCache: Bool? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: ProductAttributeValueUnset200Response?, _ error: Error?) -> Void)
 ```
 
 product.attribute.value.unset
@@ -316,9 +318,10 @@ let storeId = "storeId_example" // String | Store Id (optional)
 let includeDefault = true // Bool | Boolean, whether or not to unset default value of the attribute, if applicable (optional) (default to false)
 let reindex = false // Bool | Is reindex required (optional) (default to true)
 let clearCache = false // Bool | Is cache clear required (optional) (default to true)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // product.attribute.value.unset
-ProductAPI.productAttributeValueUnset(productId: productId, attributeId: attributeId, storeId: storeId, includeDefault: includeDefault, reindex: reindex, clearCache: clearCache) { (response, error) in
+ProductAPI.productAttributeValueUnset(productId: productId, attributeId: attributeId, storeId: storeId, includeDefault: includeDefault, reindex: reindex, clearCache: clearCache, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -340,6 +343,7 @@ Name | Type | Description  | Notes
  **includeDefault** | **Bool** | Boolean, whether or not to unset default value of the attribute, if applicable | [optional] [default to false]
  **reindex** | **Bool** | Is reindex required | [optional] [default to true]
  **clearCache** | **Bool** | Is cache clear required | [optional] [default to true]
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -754,7 +758,7 @@ Name | Type | Description  | Notes
 
 # **productCurrencyAdd**
 ```swift
-    open class func productCurrencyAdd(iso3: String, rate: Double, name: String? = nil, avail: Bool? = nil, symbolLeft: String? = nil, symbolRight: String? = nil, _default: Bool? = nil, completion: @escaping (_ data: ProductCurrencyAdd200Response?, _ error: Error?) -> Void)
+    open class func productCurrencyAdd(iso3: String, rate: Double, name: String? = nil, avail: Bool? = nil, symbolLeft: String? = nil, symbolRight: String? = nil, _default: Bool? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: ProductCurrencyAdd200Response?, _ error: Error?) -> Void)
 ```
 
 product.currency.add
@@ -773,9 +777,10 @@ let avail = false // Bool | Specifies whether the currency is available (optiona
 let symbolLeft = "symbolLeft_example" // String | Defines the symbol that is located before the currency (optional)
 let symbolRight = "symbolRight_example" // String | Defines the symbol that is located after the currency (optional)
 let _default = true // Bool | Specifies currency's default meaning (optional) (default to false)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // product.currency.add
-ProductAPI.productCurrencyAdd(iso3: iso3, rate: rate, name: name, avail: avail, symbolLeft: symbolLeft, symbolRight: symbolRight, _default: _default) { (response, error) in
+ProductAPI.productCurrencyAdd(iso3: iso3, rate: rate, name: name, avail: avail, symbolLeft: symbolLeft, symbolRight: symbolRight, _default: _default, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -798,6 +803,7 @@ Name | Type | Description  | Notes
  **symbolLeft** | **String** | Defines the symbol that is located before the currency | [optional] 
  **symbolRight** | **String** | Defines the symbol that is located after the currency | [optional] 
  **_default** | **Bool** | Specifies currency&#39;s default meaning | [optional] [default to false]
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -944,7 +950,7 @@ Remove product from the store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productDeleteBatch = ProductDeleteBatch(payload: [ProductDeleteBatch_payload_inner(id: "id_example", storeId: "storeId_example")]) // ProductDeleteBatch | 
+let productDeleteBatch = ProductDeleteBatch(payload: [ProductDeleteBatch_payload_inner(id: "id_example", storeId: "storeId_example")], idempotencyKey: "idempotencyKey_example") // ProductDeleteBatch | 
 
 // product.delete.batch
 ProductAPI.productDeleteBatch(productDeleteBatch: productDeleteBatch) { (response, error) in
@@ -1054,7 +1060,7 @@ Add image to product
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productImageAdd = ProductImageAdd(type: "type_example", imageName: "imageName_example", productId: "productId_example", productVariantId: "productVariantId_example", variantIds: "variantIds_example", optionValueIds: "optionValueIds_example", storeId: "storeId_example", langId: "langId_example", url: "url_example", content: "content_example", label: "label_example", mime: "mime_example", position: 123, useLatestApiVersion: true) // ProductImageAdd | 
+let productImageAdd = ProductImageAdd(type: "type_example", imageName: "imageName_example", productId: "productId_example", productVariantId: "productVariantId_example", variantIds: "variantIds_example", optionValueIds: "optionValueIds_example", storeId: "storeId_example", langId: "langId_example", url: "url_example", content: "content_example", label: "label_example", mime: "mime_example", position: 123, useLatestApiVersion: true, idempotencyKey: "idempotencyKey_example") // ProductImageAdd | 
 
 // product.image.add
 ProductAPI.productImageAdd(productImageAdd: productImageAdd) { (response, error) in
@@ -1146,7 +1152,7 @@ Name | Type | Description  | Notes
 
 # **productImageUpdate**
 ```swift
-    open class func productImageUpdate(productId: String, id: String, variantIds: String? = nil, storeId: String? = nil, langId: String? = nil, imageName: String? = nil, type: String? = nil, label: String? = nil, position: Int? = nil, hidden: Bool? = nil, completion: @escaping (_ data: ProductImageUpdate200Response?, _ error: Error?) -> Void)
+    open class func productImageUpdate(productId: String, id: String, variantIds: String? = nil, storeId: String? = nil, langId: String? = nil, imageName: String? = nil, type: String? = nil, label: String? = nil, position: Int? = nil, hidden: Bool? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: ProductImageUpdate200Response?, _ error: Error?) -> Void)
 ```
 
 product.image.update
@@ -1168,9 +1174,10 @@ let type = "type_example" // String | Defines image's types that are specified b
 let label = "label_example" // String | Defines alternative text that has to be attached to the picture (optional)
 let position = 987 // Int | Defines image’s position in the list (optional)
 let hidden = true // Bool | Define is hide image (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // product.image.update
-ProductAPI.productImageUpdate(productId: productId, id: id, variantIds: variantIds, storeId: storeId, langId: langId, imageName: imageName, type: type, label: label, position: position, hidden: hidden) { (response, error) in
+ProductAPI.productImageUpdate(productId: productId, id: id, variantIds: variantIds, storeId: storeId, langId: langId, imageName: imageName, type: type, label: label, position: position, hidden: hidden, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1196,6 +1203,7 @@ Name | Type | Description  | Notes
  **label** | **String** | Defines alternative text that has to be attached to the picture | [optional] 
  **position** | **Int** | Defines image’s position in the list | [optional] 
  **hidden** | **Bool** | Define is hide image | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -1402,7 +1410,7 @@ Name | Type | Description  | Notes
 
 # **productManufacturerAdd**
 ```swift
-    open class func productManufacturerAdd(productId: String, manufacturer: String, storeId: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, searchKeywords: String? = nil, imageUrl: String? = nil, seoUrl: String? = nil, completion: @escaping (_ data: ProductManufacturerAdd200Response?, _ error: Error?) -> Void)
+    open class func productManufacturerAdd(productId: String, manufacturer: String, storeId: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, searchKeywords: String? = nil, imageUrl: String? = nil, seoUrl: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: ProductManufacturerAdd200Response?, _ error: Error?) -> Void)
 ```
 
 product.manufacturer.add
@@ -1423,9 +1431,10 @@ let metaDescription = "metaDescription_example" // String | Defines unique meta 
 let searchKeywords = "searchKeywords_example" // String | Defines unique search keywords (optional)
 let imageUrl = "imageUrl_example" // String | Image Url (optional)
 let seoUrl = "seoUrl_example" // String | Defines unique URL for SEO (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // product.manufacturer.add
-ProductAPI.productManufacturerAdd(productId: productId, manufacturer: manufacturer, storeId: storeId, metaTitle: metaTitle, metaKeywords: metaKeywords, metaDescription: metaDescription, searchKeywords: searchKeywords, imageUrl: imageUrl, seoUrl: seoUrl) { (response, error) in
+ProductAPI.productManufacturerAdd(productId: productId, manufacturer: manufacturer, storeId: storeId, metaTitle: metaTitle, metaKeywords: metaKeywords, metaDescription: metaDescription, searchKeywords: searchKeywords, imageUrl: imageUrl, seoUrl: seoUrl, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1450,6 +1459,7 @@ Name | Type | Description  | Notes
  **searchKeywords** | **String** | Defines unique search keywords | [optional] 
  **imageUrl** | **String** | Image Url | [optional] 
  **seoUrl** | **String** | Defines unique URL for SEO | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -1480,7 +1490,7 @@ Add product option from store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productOptionAdd = ProductOptionAdd(name: "name_example", type: "type_example", productId: "productId_example", defaultOptionValue: "defaultOptionValue_example", optionValues: "optionValues_example", description: "description_example", avail: false, sortOrder: 123, _required: true, values: [ProductOptionAdd_values_inner(value: "value_example", displayValue: "displayValue_example", isDefault: false)], clearCache: false) // ProductOptionAdd | 
+let productOptionAdd = ProductOptionAdd(name: "name_example", type: "type_example", productId: "productId_example", defaultOptionValue: "defaultOptionValue_example", optionValues: "optionValues_example", description: "description_example", avail: false, sortOrder: 123, _required: true, values: [ProductOptionAdd_values_inner(value: "value_example", displayValue: "displayValue_example", isDefault: false)], clearCache: false, idempotencyKey: "idempotencyKey_example") // ProductOptionAdd | 
 
 // product.option.add
 ProductAPI.productOptionAdd(productOptionAdd: productOptionAdd) { (response, error) in
@@ -1518,7 +1528,7 @@ Name | Type | Description  | Notes
 
 # **productOptionAssign**
 ```swift
-    open class func productOptionAssign(productId: String, optionId: String, _required: Bool? = nil, sortOrder: Int? = nil, optionValues: String? = nil, clearCache: Bool? = nil, completion: @escaping (_ data: ProductOptionAssign200Response?, _ error: Error?) -> Void)
+    open class func productOptionAssign(productId: String, optionId: String, _required: Bool? = nil, sortOrder: Int? = nil, optionValues: String? = nil, clearCache: Bool? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: ProductOptionAssign200Response?, _ error: Error?) -> Void)
 ```
 
 product.option.assign
@@ -1536,9 +1546,10 @@ let _required = true // Bool | Defines if the option is required (optional) (def
 let sortOrder = 987 // Int | Sort number in the list (optional) (default to 0)
 let optionValues = "optionValues_example" // String | Defines option values that has to be assigned (optional)
 let clearCache = false // Bool | Is cache clear required (optional) (default to true)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // product.option.assign
-ProductAPI.productOptionAssign(productId: productId, optionId: optionId, _required: _required, sortOrder: sortOrder, optionValues: optionValues, clearCache: clearCache) { (response, error) in
+ProductAPI.productOptionAssign(productId: productId, optionId: optionId, _required: _required, sortOrder: sortOrder, optionValues: optionValues, clearCache: clearCache, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1560,6 +1571,7 @@ Name | Type | Description  | Notes
  **sortOrder** | **Int** | Sort number in the list | [optional] [default to 0]
  **optionValues** | **String** | Defines option values that has to be assigned | [optional] 
  **clearCache** | **Bool** | Is cache clear required | [optional] [default to true]
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -1696,7 +1708,7 @@ Name | Type | Description  | Notes
 
 # **productOptionValueAdd**
 ```swift
-    open class func productOptionValueAdd(productId: String, optionId: String, optionValue: String? = nil, sortOrder: Int? = nil, displayValue: String? = nil, isDefault: Bool? = nil, clearCache: Bool? = nil, completion: @escaping (_ data: ProductOptionValueAdd200Response?, _ error: Error?) -> Void)
+    open class func productOptionValueAdd(productId: String, optionId: String, optionValue: String? = nil, sortOrder: Int? = nil, displayValue: String? = nil, isDefault: Bool? = nil, clearCache: Bool? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: ProductOptionValueAdd200Response?, _ error: Error?) -> Void)
 ```
 
 product.option.value.add
@@ -1715,9 +1727,10 @@ let sortOrder = 987 // Int | Sort number in the list (optional) (default to 0)
 let displayValue = "displayValue_example" // String | Defines the value that will be displayed for the option value (optional)
 let isDefault = true // Bool | Defines as a default (optional)
 let clearCache = false // Bool | Is cache clear required (optional) (default to true)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // product.option.value.add
-ProductAPI.productOptionValueAdd(productId: productId, optionId: optionId, optionValue: optionValue, sortOrder: sortOrder, displayValue: displayValue, isDefault: isDefault, clearCache: clearCache) { (response, error) in
+ProductAPI.productOptionValueAdd(productId: productId, optionId: optionId, optionValue: optionValue, sortOrder: sortOrder, displayValue: displayValue, isDefault: isDefault, clearCache: clearCache, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1740,6 +1753,7 @@ Name | Type | Description  | Notes
  **displayValue** | **String** | Defines the value that will be displayed for the option value | [optional] 
  **isDefault** | **Bool** | Defines as a default | [optional] 
  **clearCache** | **Bool** | Is cache clear required | [optional] [default to true]
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -1758,7 +1772,7 @@ Name | Type | Description  | Notes
 
 # **productOptionValueAssign**
 ```swift
-    open class func productOptionValueAssign(productOptionId: Int, optionValueId: String, clearCache: Bool? = nil, completion: @escaping (_ data: ProductOptionValueAssign200Response?, _ error: Error?) -> Void)
+    open class func productOptionValueAssign(productOptionId: Int, optionValueId: String, clearCache: Bool? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: ProductOptionValueAssign200Response?, _ error: Error?) -> Void)
 ```
 
 product.option.value.assign
@@ -1773,9 +1787,10 @@ import OpenAPIClient
 let productOptionId = 987 // Int | Defines product's option id where the value has to be assigned
 let optionValueId = "optionValueId_example" // String | Defines value id that has to be assigned
 let clearCache = false // Bool | Is cache clear required (optional) (default to true)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // product.option.value.assign
-ProductAPI.productOptionValueAssign(productOptionId: productOptionId, optionValueId: optionValueId, clearCache: clearCache) { (response, error) in
+ProductAPI.productOptionValueAssign(productOptionId: productOptionId, optionValueId: optionValueId, clearCache: clearCache, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1794,6 +1809,7 @@ Name | Type | Description  | Notes
  **productOptionId** | **Int** | Defines product&#39;s option id where the value has to be assigned | 
  **optionValueId** | **String** | Defines value id that has to be assigned | 
  **clearCache** | **Bool** | Is cache clear required | [optional] [default to true]
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -1868,7 +1884,7 @@ Name | Type | Description  | Notes
 
 # **productOptionValueUpdate**
 ```swift
-    open class func productOptionValueUpdate(productId: String, optionId: String, optionValueId: String, optionValue: String? = nil, price: Double? = nil, quantity: Double? = nil, displayValue: String? = nil, clearCache: Bool? = nil, completion: @escaping (_ data: AccountConfigUpdate200Response?, _ error: Error?) -> Void)
+    open class func productOptionValueUpdate(productId: String, optionId: String, optionValueId: String, optionValue: String? = nil, price: Double? = nil, quantity: Double? = nil, displayValue: String? = nil, clearCache: Bool? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: AccountConfigUpdate200Response?, _ error: Error?) -> Void)
 ```
 
 product.option.value.update
@@ -1888,9 +1904,10 @@ let price = 987 // Double | Defines new product option price (optional)
 let quantity = 987 // Double | Defines new products' options quantity (optional)
 let displayValue = "displayValue_example" // String | Defines the value that will be displayed for the option value (optional)
 let clearCache = false // Bool | Is cache clear required (optional) (default to true)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // product.option.value.update
-ProductAPI.productOptionValueUpdate(productId: productId, optionId: optionId, optionValueId: optionValueId, optionValue: optionValue, price: price, quantity: quantity, displayValue: displayValue, clearCache: clearCache) { (response, error) in
+ProductAPI.productOptionValueUpdate(productId: productId, optionId: optionId, optionValueId: optionValueId, optionValue: optionValue, price: price, quantity: quantity, displayValue: displayValue, clearCache: clearCache, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1914,6 +1931,7 @@ Name | Type | Description  | Notes
  **quantity** | **Double** | Defines new products&#39; options quantity | [optional] 
  **displayValue** | **String** | Defines the value that will be displayed for the option value | [optional] 
  **clearCache** | **Bool** | Is cache clear required | [optional] [default to true]
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -1944,7 +1962,7 @@ Add some prices to the product.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productPriceAdd = ProductPriceAdd(productId: "productId_example", groupPrices: [ProductAdd_group_prices_inner(groupId: "groupId_example", price: 123, qty: 123)], storeId: "storeId_example") // ProductPriceAdd | 
+let productPriceAdd = ProductPriceAdd(productId: "productId_example", groupPrices: [ProductAdd_group_prices_inner(groupId: "groupId_example", price: 123, qty: 123)], storeId: "storeId_example", idempotencyKey: "idempotencyKey_example") // ProductPriceAdd | 
 
 // product.price.add
 ProductAPI.productPriceAdd(productPriceAdd: productPriceAdd) { (response, error) in
@@ -2048,7 +2066,7 @@ Update some prices of the product.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productPriceUpdate = ProductPriceUpdate(productId: "productId_example", groupPrices: [ProductPriceUpdate_group_prices_inner(id: 123, groupId: "groupId_example", price: 123, qty: 123)]) // ProductPriceUpdate | 
+let productPriceUpdate = ProductPriceUpdate(productId: "productId_example", groupPrices: [ProductPriceUpdate_group_prices_inner(id: 123, groupId: "groupId_example", price: 123, qty: 123)], idempotencyKey: "idempotencyKey_example") // ProductPriceUpdate | 
 
 // product.price.update
 ProductAPI.productPriceUpdate(productPriceUpdate: productPriceUpdate) { (response, error) in
@@ -2166,7 +2184,7 @@ Name | Type | Description  | Notes
 
 # **productStoreAssign**
 ```swift
-    open class func productStoreAssign(productId: String, storeId: String, completion: @escaping (_ data: AccountConfigUpdate200Response?, _ error: Error?) -> Void)
+    open class func productStoreAssign(productId: String, storeId: String, idempotencyKey: String? = nil, completion: @escaping (_ data: AccountConfigUpdate200Response?, _ error: Error?) -> Void)
 ```
 
 product.store.assign
@@ -2180,9 +2198,10 @@ import OpenAPIClient
 
 let productId = "productId_example" // String | Defines id of the product which should be assigned to a store
 let storeId = "storeId_example" // String | Defines id of the store product should be assigned to
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // product.store.assign
-ProductAPI.productStoreAssign(productId: productId, storeId: storeId) { (response, error) in
+ProductAPI.productStoreAssign(productId: productId, storeId: storeId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -2200,6 +2219,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **String** | Defines id of the product which should be assigned to a store | 
  **storeId** | **String** | Defines id of the store product should be assigned to | 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -2230,7 +2250,7 @@ Add tax class and tax rate to store and assign to product.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productTaxAdd = ProductTaxAdd(productId: "productId_example", name: "name_example", taxRates: [ProductTaxAdd_tax_rates_inner(name: "name_example", type: "type_example", value: 123)]) // ProductTaxAdd | 
+let productTaxAdd = ProductTaxAdd(productId: "productId_example", name: "name_example", taxRates: [ProductTaxAdd_tax_rates_inner(name: "name_example", type: "type_example", value: 123)], idempotencyKey: "idempotencyKey_example") // ProductTaxAdd | 
 
 // product.tax.add
 ProductAPI.productTaxAdd(productTaxAdd: productTaxAdd) { (response, error) in
@@ -2280,7 +2300,7 @@ This method can be used to update certain product data. The list of supported pa
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productUpdate = ProductUpdate(id: "id_example", model: "model_example", sku: "sku_example", name: "name_example", description: "description_example", shortDescription: "shortDescription_example", price: 123, oldPrice: 123, specialPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", costPrice: 123, fixedCostShippingPrice: 123, retailPrice: 123, tierPrices: [ProductAdd_tier_prices_inner(quantity: 123, price: 123)], reservePrice: 123, buyitnowPrice: 123, taxable: false, taxClassId: "taxClassId_example", type: "type_example", status: "status_example", condition: "condition_example", visible: "visible_example", inStock: true, avail: false, availFrom: "availFrom_example", productClass: "productClass_example", brandName: "brandName_example", availableForView: false, measureUnit: "measureUnit_example", unitPrice: 123, storesIds: "storesIds_example", storeId: "storeId_example", langId: "langId_example", quantity: 123, reserveQuantity: 123, manageStock: false, backorderStatus: "backorderStatus_example", increaseQuantity: 123, reduceQuantity: 123, lowStockThreshold: 123, warehouseId: "warehouseId_example", weight: 123, weightUnit: "weightUnit_example", height: 123, length: 123, width: 123, dimensionsUnit: "dimensionsUnit_example", isVirtual: false, isFreeShipping: true, gtin: "gtin_example", upc: "upc_example", mpn: "mpn_example", ean: "ean_example", isbn: "isbn_example", barcode: "barcode_example", manufacturer: "manufacturer_example", manufacturerId: "manufacturerId_example", categoriesIds: "categoriesIds_example", relatedProductsIds: "relatedProductsIds_example", upSellProductsIds: "upSellProductsIds_example", crossSellProductsIds: "crossSellProductsIds_example", metaTitle: "metaTitle_example", metaKeywords: "metaKeywords_example", metaDescription: "metaDescription_example", seoUrl: "seoUrl_example", searchKeywords: "searchKeywords_example", tags: "tags_example", deliveryCode: "deliveryCode_example", packageDetails: ProductAdd_package_details(measureUnit: "measureUnit_example", weighUnit: "weighUnit_example", packageDepth: 123, packageLength: 123, packageWidth: 123, weightMajor: 123, weightMinor: 123, shippingPackage: "shippingPackage_example"), countryOfOrigin: "countryOfOrigin_example", harmonizedSystemCode: "harmonizedSystemCode_example", shippingTemplateId: 123, processingProfileId: 123, whenMade: "whenMade_example", isSupply: false, downloadable: true, materials: ["materials_example"], autoRenew: false, onSale: false, productionPartnerIds: "productionPartnerIds_example", manufacturerInfo: ProductAdd_manufacturer_info(name: "name_example", address: "address_example", phone: "phone_example", email: "email_example"), reportRequestId: "reportRequestId_example", disableReportCache: false, reindex: false, clearCache: false, checkProcessStatus: false, specifics: [ProductAdd_specifics_inner(name: "name_example", value: "value_example", values: ["values_example"], usedForVariations: false, scaleId: 123, inputValue: "inputValue_example", foodDetails: ProductAdd_specifics_inner_food_details(calories: 123), groupProductsDetails: [ProductAdd_specifics_inner_group_products_details_inner(id: "id_example", quantity: 123)], bookingDetails: ProductAdd_specifics_inner_booking_details(location: "location_example", type: "type_example", sessionDuration: 123, sessionGap: 123, sessionsCount: 123, timeStrictValue: 123, timeStrictType: "timeStrictType_example", availabilities: [ProductAdd_specifics_inner_booking_details_availabilities_inner(day: "day_example", isAvailable: false, times: [ProductAdd_specifics_inner_booking_details_availabilities_inner_times_inner(from: "from_example", to: "to_example")])], overrides: [ProductAdd_specifics_inner_booking_details_overrides_inner(day: "day_example", date: "date_example")]))], shopSectionId: 123, personalizationDetails: ProductAdd_personalization_details(isPersonalizable: false, personalizationIsRequired: false, personalizationCharCountMax: 123, personalizationInstructions: "personalizationInstructions_example"), externalProductLink: "externalProductLink_example", marketplaceItemProperties: "marketplaceItemProperties_example", minOrderQuantity: 123) // ProductUpdate | 
+let productUpdate = ProductUpdate(id: "id_example", model: "model_example", sku: "sku_example", name: "name_example", description: "description_example", shortDescription: "shortDescription_example", price: 123, oldPrice: 123, specialPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", costPrice: 123, fixedCostShippingPrice: 123, retailPrice: 123, tierPrices: [ProductAdd_tier_prices_inner(quantity: 123, price: 123)], reservePrice: 123, buyitnowPrice: 123, taxable: false, taxClassId: "taxClassId_example", type: "type_example", status: "status_example", condition: "condition_example", visible: "visible_example", inStock: true, avail: false, availFrom: "availFrom_example", productClass: "productClass_example", brandName: "brandName_example", availableForView: false, measureUnit: "measureUnit_example", unitPrice: 123, storesIds: "storesIds_example", storeId: "storeId_example", langId: "langId_example", quantity: 123, reserveQuantity: 123, manageStock: false, backorderStatus: "backorderStatus_example", increaseQuantity: 123, reduceQuantity: 123, lowStockThreshold: 123, warehouseId: "warehouseId_example", weight: 123, weightUnit: "weightUnit_example", height: 123, length: 123, width: 123, dimensionsUnit: "dimensionsUnit_example", isVirtual: false, isFreeShipping: true, gtin: "gtin_example", upc: "upc_example", mpn: "mpn_example", ean: "ean_example", isbn: "isbn_example", barcode: "barcode_example", manufacturer: "manufacturer_example", manufacturerId: "manufacturerId_example", categoriesIds: "categoriesIds_example", relatedProductsIds: "relatedProductsIds_example", upSellProductsIds: "upSellProductsIds_example", crossSellProductsIds: "crossSellProductsIds_example", metaTitle: "metaTitle_example", metaKeywords: "metaKeywords_example", metaDescription: "metaDescription_example", seoUrl: "seoUrl_example", searchKeywords: "searchKeywords_example", tags: "tags_example", deliveryCode: "deliveryCode_example", packageDetails: ProductAdd_package_details(measureUnit: "measureUnit_example", weighUnit: "weighUnit_example", packageDepth: 123, packageLength: 123, packageWidth: 123, weightMajor: 123, weightMinor: 123, shippingPackage: "shippingPackage_example"), countryOfOrigin: "countryOfOrigin_example", harmonizedSystemCode: "harmonizedSystemCode_example", shippingTemplateId: 123, processingProfileId: 123, whenMade: "whenMade_example", isSupply: false, downloadable: true, materials: ["materials_example"], autoRenew: false, onSale: false, productionPartnerIds: "productionPartnerIds_example", manufacturerInfo: ProductAdd_manufacturer_info(name: "name_example", address: "address_example", phone: "phone_example", email: "email_example"), reportRequestId: "reportRequestId_example", disableReportCache: false, reindex: false, clearCache: false, checkProcessStatus: false, specifics: [ProductAdd_specifics_inner(name: "name_example", value: "value_example", values: ["values_example"], usedForVariations: false, scaleId: 123, inputValue: "inputValue_example", foodDetails: ProductAdd_specifics_inner_food_details(calories: 123), groupProductsDetails: [ProductAdd_specifics_inner_group_products_details_inner(id: "id_example", quantity: 123)], bookingDetails: ProductAdd_specifics_inner_booking_details(location: "location_example", type: "type_example", sessionDuration: 123, sessionGap: 123, sessionsCount: 123, timeStrictValue: 123, timeStrictType: "timeStrictType_example", availabilities: [ProductAdd_specifics_inner_booking_details_availabilities_inner(day: "day_example", isAvailable: false, times: [ProductAdd_specifics_inner_booking_details_availabilities_inner_times_inner(from: "from_example", to: "to_example")])], overrides: [ProductAdd_specifics_inner_booking_details_overrides_inner(day: "day_example", date: "date_example")]))], shopSectionId: 123, personalizationDetails: ProductAdd_personalization_details(isPersonalizable: false, personalizationIsRequired: false, personalizationCharCountMax: 123, personalizationInstructions: "personalizationInstructions_example"), externalProductLink: "externalProductLink_example", marketplaceItemProperties: "marketplaceItemProperties_example", minOrderQuantity: 123, idempotencyKey: "idempotencyKey_example") // ProductUpdate | 
 
 // product.update
 ProductAPI.productUpdate(productUpdate: productUpdate) { (response, error) in
@@ -2330,7 +2350,7 @@ Update products on the store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productUpdateBatch = ProductUpdateBatch(nestedItemsUpdateBehaviour: "nestedItemsUpdateBehaviour_example", clearCache: false, reindex: false, payload: [ProductUpdateBatch_payload_inner(id: "id_example", name: "name_example", description: "description_example", shortDescription: "shortDescription_example", sku: "sku_example", model: "model_example", price: 123, specialPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", costPrice: 123, oldPrice: 123, fixedCostShippingPrice: 123, advancedPrices: [ProductUpdateBatch_payload_inner_advanced_prices_inner(value: 123, groupId: 123, quantity: 123)], quantity: 123, increaseQuantity: 123, reduceQuantity: 123, reserveQuantity: 123, storeId: "storeId_example", langId: "langId_example", status: "status_example", type: "type_example", condition: "condition_example", conditionDescription: "conditionDescription_example", visible: "visible_example", availableForView: false, availableForSale: false, availFrom: "availFrom_example", weight: 123, length: 123, width: 123, height: 123, dimensionsUnit: "dimensionsUnit_example", weightUnit: "weightUnit_example", manageStock: false, inStock: false, backorderStatus: "backorderStatus_example", isFreeShipping: false, isVirtual: false, taxable: false, downloadable: false, warehouseId: "warehouseId_example", taxClassId: "taxClassId_example", categoriesIds: ["categoriesIds_example"], metaTitle: "metaTitle_example", metaDescription: "metaDescription_example", metaKeywords: ["metaKeywords_example"], url: "url_example", seoUrl: "seoUrl_example", manufacturer: "manufacturer_example", manufacturerId: "manufacturerId_example", mpn: "mpn_example", gtin: "gtin_example", upc: "upc_example", isbn: "isbn_example", ean: "ean_example", barcode: "barcode_example", images: [ProductUpdateBatch_payload_inner_images_inner(id: "id_example", name: "name_example", url: "url_example", label: "label_example", position: 123, type: "type_example")], relatedProductsIds: ["relatedProductsIds_example"], upSellProductsIds: ["upSellProductsIds_example"], crossSellProductsIds: ["crossSellProductsIds_example"], tags: ["tags_example"], searchKeywords: ["searchKeywords_example"], harmonizedSystemCode: "harmonizedSystemCode_example")]) // ProductUpdateBatch | 
+let productUpdateBatch = ProductUpdateBatch(nestedItemsUpdateBehaviour: "nestedItemsUpdateBehaviour_example", clearCache: false, reindex: false, payload: [ProductUpdateBatch_payload_inner(id: "id_example", name: "name_example", description: "description_example", shortDescription: "shortDescription_example", sku: "sku_example", model: "model_example", price: 123, specialPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", costPrice: 123, oldPrice: 123, fixedCostShippingPrice: 123, advancedPrices: [ProductUpdateBatch_payload_inner_advanced_prices_inner(value: 123, groupId: 123, quantity: 123)], quantity: 123, increaseQuantity: 123, reduceQuantity: 123, reserveQuantity: 123, storeId: "storeId_example", langId: "langId_example", status: "status_example", type: "type_example", condition: "condition_example", conditionDescription: "conditionDescription_example", visible: "visible_example", availableForView: false, availableForSale: false, availFrom: "availFrom_example", weight: 123, length: 123, width: 123, height: 123, dimensionsUnit: "dimensionsUnit_example", weightUnit: "weightUnit_example", manageStock: false, inStock: false, backorderStatus: "backorderStatus_example", isFreeShipping: false, isVirtual: false, taxable: false, downloadable: false, warehouseId: "warehouseId_example", taxClassId: "taxClassId_example", categoriesIds: ["categoriesIds_example"], metaTitle: "metaTitle_example", metaDescription: "metaDescription_example", metaKeywords: ["metaKeywords_example"], url: "url_example", seoUrl: "seoUrl_example", manufacturer: "manufacturer_example", manufacturerId: "manufacturerId_example", mpn: "mpn_example", gtin: "gtin_example", upc: "upc_example", isbn: "isbn_example", ean: "ean_example", barcode: "barcode_example", images: [ProductUpdateBatch_payload_inner_images_inner(id: "id_example", name: "name_example", url: "url_example", label: "label_example", position: 123, type: "type_example")], relatedProductsIds: ["relatedProductsIds_example"], upSellProductsIds: ["upSellProductsIds_example"], crossSellProductsIds: ["crossSellProductsIds_example"], tags: ["tags_example"], searchKeywords: ["searchKeywords_example"], harmonizedSystemCode: "harmonizedSystemCode_example")], idempotencyKey: "idempotencyKey_example") // ProductUpdateBatch | 
 
 // product.update.batch
 ProductAPI.productUpdateBatch(productUpdateBatch: productUpdateBatch) { (response, error) in
@@ -2380,7 +2400,7 @@ Add variant to product.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productVariantAdd = ProductVariantAdd(productId: "productId_example", attributes: [ProductVariantAdd_attributes_inner(attributeName: "attributeName_example", attributeValue: "attributeValue_example", attributePrice: 123)], name: "name_example", model: "model_example", description: "description_example", shortDescription: "shortDescription_example", availableForView: false, availableForSale: false, status: "status_example", isVirtual: false, isDefault: true, storeId: "storeId_example", storesIds: "storesIds_example", langId: "langId_example", price: 123, oldPrice: 123, costPrice: 123, specialPrice: 123, spriceCreate: "spriceCreate_example", spriceModified: "spriceModified_example", spriceExpire: "spriceExpire_example", tierPrices: [ProductAdd_tier_prices_inner(quantity: 123, price: 123)], measureUnit: "measureUnit_example", unitPrice: 123, quantity: 123, warehouseId: "warehouseId_example", inStock: true, backorderStatus: "backorderStatus_example", manageStock: false, lowStockThreshold: 123, weight: 123, width: 123, height: 123, length: 123, weightUnit: "weightUnit_example", sku: "sku_example", barcode: "barcode_example", gtin: "gtin_example", upc: "upc_example", ean: "ean_example", mpn: "mpn_example", isbn: "isbn_example", seoUrl: "seoUrl_example", manufacturer: "manufacturer_example", createdAt: "createdAt_example", metaTitle: "metaTitle_example", metaKeywords: "metaKeywords_example", metaDescription: "metaDescription_example", url: "url_example", taxClassId: "taxClassId_example", taxable: false, fixedCostShippingPrice: 123, isFreeShipping: true, countryOfOrigin: "countryOfOrigin_example", harmonizedSystemCode: "harmonizedSystemCode_example", processingProfileId: 123, marketplaceItemProperties: "marketplaceItemProperties_example", clearCache: false) // ProductVariantAdd | 
+let productVariantAdd = ProductVariantAdd(productId: "productId_example", attributes: [ProductVariantAdd_attributes_inner(attributeName: "attributeName_example", attributeValue: "attributeValue_example", attributePrice: 123)], name: "name_example", model: "model_example", description: "description_example", shortDescription: "shortDescription_example", availableForView: false, availableForSale: false, status: "status_example", isVirtual: false, isDefault: true, storeId: "storeId_example", storesIds: "storesIds_example", langId: "langId_example", price: 123, oldPrice: 123, costPrice: 123, specialPrice: 123, spriceCreate: "spriceCreate_example", spriceModified: "spriceModified_example", spriceExpire: "spriceExpire_example", tierPrices: [ProductAdd_tier_prices_inner(quantity: 123, price: 123)], measureUnit: "measureUnit_example", unitPrice: 123, quantity: 123, warehouseId: "warehouseId_example", inStock: true, backorderStatus: "backorderStatus_example", manageStock: false, lowStockThreshold: 123, weight: 123, width: 123, height: 123, length: 123, weightUnit: "weightUnit_example", sku: "sku_example", barcode: "barcode_example", gtin: "gtin_example", upc: "upc_example", ean: "ean_example", mpn: "mpn_example", isbn: "isbn_example", seoUrl: "seoUrl_example", manufacturer: "manufacturer_example", createdAt: "createdAt_example", metaTitle: "metaTitle_example", metaKeywords: "metaKeywords_example", metaDescription: "metaDescription_example", url: "url_example", taxClassId: "taxClassId_example", taxable: false, fixedCostShippingPrice: 123, isFreeShipping: true, countryOfOrigin: "countryOfOrigin_example", harmonizedSystemCode: "harmonizedSystemCode_example", processingProfileId: 123, marketplaceItemProperties: "marketplaceItemProperties_example", clearCache: false, idempotencyKey: "idempotencyKey_example") // ProductVariantAdd | 
 
 // product.variant.add
 ProductAPI.productVariantAdd(productVariantAdd: productVariantAdd) { (response, error) in
@@ -2430,7 +2450,7 @@ Add new product variants to the store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productVariantAddBatch = ProductVariantAddBatch(clearCache: false, reindex: false, payload: [ProductVariantAddBatch_payload_inner(productId: "productId_example", combination: [ProductVariantAddBatch_payload_inner_combination_inner(optionName: "optionName_example", optionValueName: "optionValueName_example")], name: "name_example", description: "description_example", shortDescription: "shortDescription_example", sku: "sku_example", model: "model_example", price: 123, oldPrice: 123, costPrice: 123, specialPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", advancedPrices: [ProductUpdateBatch_payload_inner_advanced_prices_inner(value: 123, groupId: 123, quantity: 123)], metaTitle: 123, metaDescription: 123, metaKeywords: ["metaKeywords_example"], categoriesIds: ["categoriesIds_example"], storesIds: ["storesIds_example"], weight: 123, width: 123, height: 123, length: 123, weightUnit: "weightUnit_example", warehouseId: "warehouseId_example", quantity: 123, manageStock: false, inStock: false, storeId: "storeId_example", langId: "langId_example", taxClassId: "taxClassId_example", backorderStatus: "backorderStatus_example", status: "status_example", visible: "visible_example", isVirtual: false, downloadable: false, isDefault: false, upc: "upc_example", isbn: "isbn_example", mpn: "mpn_example", ean: "ean_example", barcode: "barcode_example", availableForSale: false, isFreeShipping: false, taxable: false, seoUrl: "seoUrl_example", manufacturerId: "manufacturerId_example", harmonizedSystemCode: "harmonizedSystemCode_example", marketplaceItemProperties: 123, images: [ProductAddBatch_payload_inner_images_inner(type: "type_example", url: "url_example", label: "label_example", name: "name_example", position: 123)], productImagesIds: ["productImagesIds_example"], relatedProductsIds: ["relatedProductsIds_example"], upSellProductsIds: ["upSellProductsIds_example"], crossSellProductsIds: ["crossSellProductsIds_example"])]) // ProductVariantAddBatch | 
+let productVariantAddBatch = ProductVariantAddBatch(clearCache: false, reindex: false, payload: [ProductVariantAddBatch_payload_inner(productId: "productId_example", combination: [ProductVariantAddBatch_payload_inner_combination_inner(optionName: "optionName_example", optionValueName: "optionValueName_example")], name: "name_example", description: "description_example", shortDescription: "shortDescription_example", sku: "sku_example", model: "model_example", price: 123, oldPrice: 123, costPrice: 123, specialPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", advancedPrices: [ProductUpdateBatch_payload_inner_advanced_prices_inner(value: 123, groupId: 123, quantity: 123)], metaTitle: 123, metaDescription: 123, metaKeywords: ["metaKeywords_example"], categoriesIds: ["categoriesIds_example"], storesIds: ["storesIds_example"], weight: 123, width: 123, height: 123, length: 123, weightUnit: "weightUnit_example", warehouseId: "warehouseId_example", quantity: 123, manageStock: false, inStock: false, storeId: "storeId_example", langId: "langId_example", taxClassId: "taxClassId_example", backorderStatus: "backorderStatus_example", status: "status_example", visible: "visible_example", isVirtual: false, downloadable: false, isDefault: false, upc: "upc_example", isbn: "isbn_example", mpn: "mpn_example", ean: "ean_example", barcode: "barcode_example", availableForSale: false, isFreeShipping: false, taxable: false, seoUrl: "seoUrl_example", manufacturerId: "manufacturerId_example", harmonizedSystemCode: "harmonizedSystemCode_example", marketplaceItemProperties: 123, images: [ProductAddBatch_payload_inner_images_inner(type: "type_example", url: "url_example", label: "label_example", name: "name_example", position: 123)], productImagesIds: ["productImagesIds_example"], relatedProductsIds: ["relatedProductsIds_example"], upSellProductsIds: ["upSellProductsIds_example"], crossSellProductsIds: ["crossSellProductsIds_example"])], idempotencyKey: "idempotencyKey_example") // ProductVariantAddBatch | 
 
 // product.variant.add.batch
 ProductAPI.productVariantAddBatch(productVariantAddBatch: productVariantAddBatch) { (response, error) in
@@ -2534,7 +2554,7 @@ Remove product variants from the store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productVariantDeleteBatch = ProductVariantDeleteBatch(clearCache: false, reindex: false, payload: [ProductVariantDeleteBatch_payload_inner(productId: "productId_example", id: "id_example", storeId: "storeId_example")]) // ProductVariantDeleteBatch | 
+let productVariantDeleteBatch = ProductVariantDeleteBatch(clearCache: false, reindex: false, payload: [ProductVariantDeleteBatch_payload_inner(productId: "productId_example", id: "id_example", storeId: "storeId_example")], idempotencyKey: "idempotencyKey_example") // ProductVariantDeleteBatch | 
 
 // product.variant.delete.batch
 ProductAPI.productVariantDeleteBatch(productVariantDeleteBatch: productVariantDeleteBatch) { (response, error) in
@@ -2584,7 +2604,7 @@ Add image to product
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productVariantImageAdd = ProductVariantImageAdd(productId: "productId_example", productVariantId: "productVariantId_example", storeId: "storeId_example", imageName: "imageName_example", type: "type_example", url: "url_example", content: "content_example", label: "label_example", mime: "mime_example", position: 123, optionId: "optionId_example") // ProductVariantImageAdd | 
+let productVariantImageAdd = ProductVariantImageAdd(productId: "productId_example", productVariantId: "productVariantId_example", storeId: "storeId_example", imageName: "imageName_example", type: "type_example", url: "url_example", content: "content_example", label: "label_example", mime: "mime_example", position: 123, optionId: "optionId_example", idempotencyKey: "idempotencyKey_example") // ProductVariantImageAdd | 
 
 // product.variant.image.add
 ProductAPI.productVariantImageAdd(productVariantImageAdd: productVariantImageAdd) { (response, error) in
@@ -2796,7 +2816,7 @@ Update some prices of the product variant.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productVariantPriceUpdate = ProductVariantPriceUpdate(id: "id_example", productId: "productId_example", groupPrices: [ProductPriceUpdate_group_prices_inner(id: 123, groupId: "groupId_example", price: 123, qty: 123)]) // ProductVariantPriceUpdate | 
+let productVariantPriceUpdate = ProductVariantPriceUpdate(id: "id_example", productId: "productId_example", groupPrices: [ProductPriceUpdate_group_prices_inner(id: 123, groupId: "groupId_example", price: 123, qty: 123)], idempotencyKey: "idempotencyKey_example") // ProductVariantPriceUpdate | 
 
 // product.variant.price.update
 ProductAPI.productVariantPriceUpdate(productVariantPriceUpdate: productVariantPriceUpdate) { (response, error) in
@@ -2846,7 +2866,7 @@ Update variant.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productVariantUpdate = ProductVariantUpdate(id: "id_example", productId: "productId_example", storeId: "storeId_example", langId: "langId_example", options: [ProductVariantUpdate_options_inner(optionName: "optionName_example", optionValue: "optionValue_example")], name: "name_example", description: "description_example", shortDescription: "shortDescription_example", model: "model_example", sku: "sku_example", visible: "visible_example", status: "status_example", backorderStatus: "backorderStatus_example", lowStockThreshold: 123, availableForSale: false, avail: false, isDefault: true, isFreeShipping: true, taxable: false, taxClassId: "taxClassId_example", isVirtual: false, manageStock: false, inStock: true, warehouseId: "warehouseId_example", reserveQuantity: 123, quantity: 123, increaseQuantity: 123, reduceQuantity: 123, price: 123, specialPrice: 123, retailPrice: 123, oldPrice: 123, costPrice: 123, fixedCostShippingPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", measureUnit: "measureUnit_example", unitPrice: 123, weight: 123, barcode: "barcode_example", width: 123, weightUnit: "weightUnit_example", height: 123, length: 123, gtin: "gtin_example", upc: "upc_example", mpn: "mpn_example", ean: "ean_example", isbn: "isbn_example", harmonizedSystemCode: "harmonizedSystemCode_example", countryOfOrigin: "countryOfOrigin_example", metaTitle: "metaTitle_example", metaDescription: "metaDescription_example", metaKeywords: "metaKeywords_example", manufacturer: "manufacturer_example", reindex: false, clearCache: false, processingProfileId: 123) // ProductVariantUpdate | 
+let productVariantUpdate = ProductVariantUpdate(id: "id_example", productId: "productId_example", storeId: "storeId_example", langId: "langId_example", options: [ProductVariantUpdate_options_inner(optionName: "optionName_example", optionValue: "optionValue_example")], name: "name_example", description: "description_example", shortDescription: "shortDescription_example", model: "model_example", sku: "sku_example", visible: "visible_example", status: "status_example", backorderStatus: "backorderStatus_example", lowStockThreshold: 123, availableForSale: false, avail: false, isDefault: true, isFreeShipping: true, taxable: false, taxClassId: "taxClassId_example", isVirtual: false, manageStock: false, inStock: true, warehouseId: "warehouseId_example", reserveQuantity: 123, quantity: 123, increaseQuantity: 123, reduceQuantity: 123, price: 123, specialPrice: 123, retailPrice: 123, oldPrice: 123, costPrice: 123, fixedCostShippingPrice: 123, spriceCreate: "spriceCreate_example", spriceExpire: "spriceExpire_example", measureUnit: "measureUnit_example", unitPrice: 123, weight: 123, barcode: "barcode_example", width: 123, weightUnit: "weightUnit_example", height: 123, length: 123, gtin: "gtin_example", upc: "upc_example", mpn: "mpn_example", ean: "ean_example", isbn: "isbn_example", harmonizedSystemCode: "harmonizedSystemCode_example", countryOfOrigin: "countryOfOrigin_example", metaTitle: "metaTitle_example", metaDescription: "metaDescription_example", metaKeywords: "metaKeywords_example", manufacturer: "manufacturer_example", reindex: false, clearCache: false, processingProfileId: 123, idempotencyKey: "idempotencyKey_example") // ProductVariantUpdate | 
 
 // product.variant.update
 ProductAPI.productVariantUpdate(productVariantUpdate: productVariantUpdate) { (response, error) in
@@ -2896,7 +2916,7 @@ Update products variants on the store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let productVariantUpdateBatch = ProductVariantUpdateBatch(nestedItemsUpdateBehaviour: "nestedItemsUpdateBehaviour_example", clearCache: false, reindex: false, payload: [ProductVariantUpdateBatch_payload_inner(id: "id_example", productId: "productId_example", name: "name_example", description: "description_example", shortDescription: "shortDescription_example", sku: "sku_example", upc: "upc_example", mpn: "mpn_example", gtin: "gtin_example", isbn: "isbn_example", status: "status_example", price: 123, specialPrice: 123, costPrice: 123, retailPrice: 123, advancedPrices: [ProductUpdateBatch_payload_inner_advanced_prices_inner(value: 123, groupId: 123, quantity: 123)], quantity: 123, reserveQuantity: 123, increaseQuantity: 123, reduceQuantity: 123, warehouseId: "warehouseId_example", manufacturerId: "manufacturerId_example", weight: 123, height: 123, length: 123, width: 123, storeId: "storeId_example", langId: "langId_example", taxClassId: "taxClassId_example", backorderStatus: "backorderStatus_example", visible: "visible_example", isDefault: false, inStock: false, isVirtual: false, downloadable: false, manageStock: false, isFreeShipping: false, seoUrl: "seoUrl_example", metaTitle: "metaTitle_example", metaDescription: "metaDescription_example", metaKeywords: ["metaKeywords_example"], categoriesIds: ["categoriesIds_example"], storesIds: ["storesIds_example"], images: [ProductAddBatch_payload_inner_images_inner(type: "type_example", url: "url_example", label: "label_example", name: "name_example", position: 123)], productImagesIds: ["productImagesIds_example"], relatedProductsIds: ["relatedProductsIds_example"], upSellProductsIds: ["upSellProductsIds_example"], crossSellProductsIds: ["crossSellProductsIds_example"])]) // ProductVariantUpdateBatch | 
+let productVariantUpdateBatch = ProductVariantUpdateBatch(nestedItemsUpdateBehaviour: "nestedItemsUpdateBehaviour_example", clearCache: false, reindex: false, payload: [ProductVariantUpdateBatch_payload_inner(id: "id_example", productId: "productId_example", name: "name_example", description: "description_example", shortDescription: "shortDescription_example", sku: "sku_example", upc: "upc_example", mpn: "mpn_example", gtin: "gtin_example", isbn: "isbn_example", status: "status_example", price: 123, specialPrice: 123, costPrice: 123, retailPrice: 123, advancedPrices: [ProductUpdateBatch_payload_inner_advanced_prices_inner(value: 123, groupId: 123, quantity: 123)], quantity: 123, reserveQuantity: 123, increaseQuantity: 123, reduceQuantity: 123, warehouseId: "warehouseId_example", manufacturerId: "manufacturerId_example", weight: 123, height: 123, length: 123, width: 123, storeId: "storeId_example", langId: "langId_example", taxClassId: "taxClassId_example", backorderStatus: "backorderStatus_example", visible: "visible_example", isDefault: false, inStock: false, isVirtual: false, downloadable: false, manageStock: false, isFreeShipping: false, seoUrl: "seoUrl_example", metaTitle: "metaTitle_example", metaDescription: "metaDescription_example", metaKeywords: ["metaKeywords_example"], categoriesIds: ["categoriesIds_example"], storesIds: ["storesIds_example"], images: [ProductAddBatch_payload_inner_images_inner(type: "type_example", url: "url_example", label: "label_example", name: "name_example", position: 123)], productImagesIds: ["productImagesIds_example"], relatedProductsIds: ["relatedProductsIds_example"], upSellProductsIds: ["upSellProductsIds_example"], crossSellProductsIds: ["crossSellProductsIds_example"])], idempotencyKey: "idempotencyKey_example") // ProductVariantUpdateBatch | 
 
 // product.variant.update.batch
 ProductAPI.productVariantUpdateBatch(productVariantUpdateBatch: productVariantUpdateBatch) { (response, error) in

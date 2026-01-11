@@ -252,12 +252,13 @@ open class CustomerAPI {
      customer.delete
      
      - parameter id: (query) Identifies customer specified by the id 
+     - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CustomerDelete200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func customerDelete(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerDelete200Response {
-        return try await customerDeleteWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
+    open class func customerDelete(id: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerDelete200Response {
+        return try await customerDeleteWithRequestBuilder(id: id, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -271,10 +272,11 @@ open class CustomerAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter id: (query) Identifies customer specified by the id 
+     - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CustomerDelete200Response> 
      */
-    open class func customerDeleteWithRequestBuilder(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CustomerDelete200Response> {
+    open class func customerDeleteWithRequestBuilder(id: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CustomerDelete200Response> {
         let localVariablePath = "/customer.delete.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -282,6 +284,7 @@ open class CustomerAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "id": (wrappedValue: id.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -360,12 +363,13 @@ open class CustomerAPI {
      - parameter name: (query) Customer group name 
      - parameter storeId: (query) Store Id (optional)
      - parameter storesIds: (query) Assign customer group to the stores that is specified by comma-separated stores&#39; id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CustomerGroupAdd200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func customerGroupAdd(name: String, storeId: String? = nil, storesIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerGroupAdd200Response {
-        return try await customerGroupAddWithRequestBuilder(name: name, storeId: storeId, storesIds: storesIds, apiConfiguration: apiConfiguration).execute().body
+    open class func customerGroupAdd(name: String, storeId: String? = nil, storesIds: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerGroupAdd200Response {
+        return try await customerGroupAddWithRequestBuilder(name: name, storeId: storeId, storesIds: storesIds, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -381,10 +385,11 @@ open class CustomerAPI {
      - parameter name: (query) Customer group name 
      - parameter storeId: (query) Store Id (optional)
      - parameter storesIds: (query) Assign customer group to the stores that is specified by comma-separated stores&#39; id (optional)
+     - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CustomerGroupAdd200Response> 
      */
-    open class func customerGroupAddWithRequestBuilder(name: String, storeId: String? = nil, storesIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CustomerGroupAdd200Response> {
+    open class func customerGroupAddWithRequestBuilder(name: String, storeId: String? = nil, storesIds: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CustomerGroupAdd200Response> {
         let localVariablePath = "/customer.group.add.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -394,6 +399,7 @@ open class CustomerAPI {
             "name": (wrappedValue: name.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "stores_ids": (wrappedValue: storesIds?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [

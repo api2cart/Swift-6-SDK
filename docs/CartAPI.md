@@ -151,7 +151,7 @@ Use this method to create a coupon with specified conditions.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let cartCouponAdd = CartCouponAdd(code: "code_example", actionType: "actionType_example", actionApplyTo: "actionApplyTo_example", actionScope: "actionScope_example", actionAmount: 123, codes: ["codes_example"], name: "name_example", dateStart: "dateStart_example", dateEnd: "dateEnd_example", usageLimit: 123, usageLimitPerCustomer: 123, actionConditionEntity: "actionConditionEntity_example", actionConditionKey: "actionConditionKey_example", actionConditionOperator: "actionConditionOperator_example", actionConditionValue: "actionConditionValue_example", includeTax: true, storeId: "storeId_example", freeCashOnDelivery: true, customerId: "customerId_example") // CartCouponAdd | 
+let cartCouponAdd = CartCouponAdd(code: "code_example", actionType: "actionType_example", actionApplyTo: "actionApplyTo_example", actionScope: "actionScope_example", actionAmount: 123, codes: ["codes_example"], name: "name_example", dateStart: "dateStart_example", dateEnd: "dateEnd_example", usageLimit: 123, usageLimitPerCustomer: 123, actionConditionEntity: "actionConditionEntity_example", actionConditionKey: "actionConditionKey_example", actionConditionOperator: "actionConditionOperator_example", actionConditionValue: "actionConditionValue_example", includeTax: true, storeId: "storeId_example", freeCashOnDelivery: true, customerId: "customerId_example", idempotencyKey: "idempotencyKey_example") // CartCouponAdd | 
 
 // cart.coupon.add
 CartAPI.cartCouponAdd(cartCouponAdd: cartCouponAdd) { (response, error) in
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 # **cartCouponConditionAdd**
 ```swift
-    open class func cartCouponConditionAdd(couponId: String, entity: Entity_cartCouponConditionAdd, key: Key_cartCouponConditionAdd, _operator: String, value: String, target: String? = nil, includeTax: Bool? = nil, includeShipping: Bool? = nil, storeId: String? = nil, completion: @escaping (_ data: BasketLiveShippingServiceDelete200Response?, _ error: Error?) -> Void)
+    open class func cartCouponConditionAdd(couponId: String, entity: Entity_cartCouponConditionAdd, key: Key_cartCouponConditionAdd, _operator: String, value: String, target: String? = nil, includeTax: Bool? = nil, includeShipping: Bool? = nil, storeId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: BasketLiveShippingServiceDelete200Response?, _ error: Error?) -> Void)
 ```
 
 cart.coupon.condition.add
@@ -210,9 +210,10 @@ let target = "target_example" // String | Defines condition operator (optional) 
 let includeTax = true // Bool | Indicates whether to apply a discount for taxes. (optional) (default to false)
 let includeShipping = true // Bool | Indicates whether to apply a discount for shipping. (optional) (default to false)
 let storeId = "storeId_example" // String | Store Id (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // cart.coupon.condition.add
-CartAPI.cartCouponConditionAdd(couponId: couponId, entity: entity, key: key, _operator: _operator, value: value, target: target, includeTax: includeTax, includeShipping: includeShipping, storeId: storeId) { (response, error) in
+CartAPI.cartCouponConditionAdd(couponId: couponId, entity: entity, key: key, _operator: _operator, value: value, target: target, includeTax: includeTax, includeShipping: includeShipping, storeId: storeId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -237,6 +238,7 @@ Name | Type | Description  | Notes
  **includeTax** | **Bool** | Indicates whether to apply a discount for taxes. | [optional] [default to false]
  **includeShipping** | **Bool** | Indicates whether to apply a discount for shipping. | [optional] [default to false]
  **storeId** | **String** | Store Id | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -495,7 +497,7 @@ Name | Type | Description  | Notes
 
 # **cartGiftcardAdd**
 ```swift
-    open class func cartGiftcardAdd(amount: Double, code: String? = nil, ownerEmail: String? = nil, recipientEmail: String? = nil, recipientName: String? = nil, ownerName: String? = nil, completion: @escaping (_ data: CartGiftcardAdd200Response?, _ error: Error?) -> Void)
+    open class func cartGiftcardAdd(amount: Double, code: String? = nil, ownerEmail: String? = nil, recipientEmail: String? = nil, recipientName: String? = nil, ownerName: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: CartGiftcardAdd200Response?, _ error: Error?) -> Void)
 ```
 
 cart.giftcard.add
@@ -513,9 +515,10 @@ let ownerEmail = "ownerEmail_example" // String | Gift card owner email (optiona
 let recipientEmail = "recipientEmail_example" // String | Gift card recipient email (optional)
 let recipientName = "recipientName_example" // String | Gift card recipient name (optional)
 let ownerName = "ownerName_example" // String | Gift card owner name (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // cart.giftcard.add
-CartAPI.cartGiftcardAdd(amount: amount, code: code, ownerEmail: ownerEmail, recipientEmail: recipientEmail, recipientName: recipientName, ownerName: ownerName) { (response, error) in
+CartAPI.cartGiftcardAdd(amount: amount, code: code, ownerEmail: ownerEmail, recipientEmail: recipientEmail, recipientName: recipientName, ownerName: ownerName, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -537,6 +540,7 @@ Name | Type | Description  | Notes
  **recipientEmail** | **String** | Gift card recipient email | [optional] 
  **recipientName** | **String** | Gift card recipient name | [optional] 
  **ownerName** | **String** | Gift card owner name | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -841,7 +845,7 @@ Name | Type | Description  | Notes
 
 # **cartMetaDataSet**
 ```swift
-    open class func cartMetaDataSet(entityId: String, key: String, value: String, namespace: String, entity: String? = nil, storeId: String? = nil, langId: String? = nil, completion: @escaping (_ data: AttributeAdd200Response?, _ error: Error?) -> Void)
+    open class func cartMetaDataSet(entityId: String, key: String, value: String, namespace: String, entity: String? = nil, storeId: String? = nil, langId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: AttributeAdd200Response?, _ error: Error?) -> Void)
 ```
 
 cart.meta_data.set
@@ -860,9 +864,10 @@ let namespace = "namespace_example" // String | Metafield namespace
 let entity = "entity_example" // String | Entity (optional) (default to "product")
 let storeId = "storeId_example" // String | Store Id (optional)
 let langId = "langId_example" // String | Language id (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // cart.meta_data.set
-CartAPI.cartMetaDataSet(entityId: entityId, key: key, value: value, namespace: namespace, entity: entity, storeId: storeId, langId: langId) { (response, error) in
+CartAPI.cartMetaDataSet(entityId: entityId, key: key, value: value, namespace: namespace, entity: entity, storeId: storeId, langId: langId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -885,6 +890,7 @@ Name | Type | Description  | Notes
  **entity** | **String** | Entity | [optional] [default to &quot;product&quot;]
  **storeId** | **String** | Store Id | [optional] 
  **langId** | **String** | Language id | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -1061,7 +1067,7 @@ Name | Type | Description  | Notes
 
 # **cartScriptAdd**
 ```swift
-    open class func cartScriptAdd(name: String? = nil, description: String? = nil, html: String? = nil, src: String? = nil, loadMethod: String? = nil, scope: String? = nil, events: String? = nil, storeId: String? = nil, completion: @escaping (_ data: CartScriptAdd200Response?, _ error: Error?) -> Void)
+    open class func cartScriptAdd(name: String? = nil, description: String? = nil, html: String? = nil, src: String? = nil, loadMethod: String? = nil, scope: String? = nil, events: String? = nil, storeId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: CartScriptAdd200Response?, _ error: Error?) -> Void)
 ```
 
 cart.script.add
@@ -1081,9 +1087,10 @@ let loadMethod = "loadMethod_example" // String | The load method to use for the
 let scope = "scope_example" // String | The page or pages on the online store where the script should be included (optional) (default to "storefront")
 let events = "events_example" // String | Event for run scripts (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // cart.script.add
-CartAPI.cartScriptAdd(name: name, description: description, html: html, src: src, loadMethod: loadMethod, scope: scope, events: events, storeId: storeId) { (response, error) in
+CartAPI.cartScriptAdd(name: name, description: description, html: html, src: src, loadMethod: loadMethod, scope: scope, events: events, storeId: storeId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1107,6 +1114,7 @@ Name | Type | Description  | Notes
  **scope** | **String** | The page or pages on the online store where the script should be included | [optional] [default to &quot;storefront&quot;]
  **events** | **String** | Event for run scripts | [optional] 
  **storeId** | **String** | Store Id | [optional] 
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 

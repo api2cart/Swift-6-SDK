@@ -62,9 +62,11 @@ public struct OrderCalculate: Sendable, Codable, JSONEncodable, Hashable {
     public var billPhone: String?
     /** Set this parameter in order to choose which entity fields you want to retrieve */
     public var responseFields: String?
+    /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+    public var idempotencyKey: String?
     public var orderItem: [OrderCalculateOrderItemInner]
 
-    public init(customerEmail: String, currencyId: String? = nil, storeId: String? = nil, coupons: [String]? = nil, roundingPrecision: Int? = nil, shippFirstName: String, shippLastName: String, shippAddress1: String, shippAddress2: String? = nil, shippCity: String, shippPostcode: String, shippState: String? = nil, shippCountry: String, shippCompany: String? = nil, shippPhone: String? = nil, billFirstName: String? = nil, billLastName: String? = nil, billAddress1: String? = nil, billAddress2: String? = nil, billCity: String? = nil, billPostcode: String? = nil, billState: String? = nil, billCountry: String? = nil, billCompany: String? = nil, billPhone: String? = nil, responseFields: String? = nil, orderItem: [OrderCalculateOrderItemInner]) {
+    public init(customerEmail: String, currencyId: String? = nil, storeId: String? = nil, coupons: [String]? = nil, roundingPrecision: Int? = nil, shippFirstName: String, shippLastName: String, shippAddress1: String, shippAddress2: String? = nil, shippCity: String, shippPostcode: String, shippState: String? = nil, shippCountry: String, shippCompany: String? = nil, shippPhone: String? = nil, billFirstName: String? = nil, billLastName: String? = nil, billAddress1: String? = nil, billAddress2: String? = nil, billCity: String? = nil, billPostcode: String? = nil, billState: String? = nil, billCountry: String? = nil, billCompany: String? = nil, billPhone: String? = nil, responseFields: String? = nil, idempotencyKey: String? = nil, orderItem: [OrderCalculateOrderItemInner]) {
         self.customerEmail = customerEmail
         self.currencyId = currencyId
         self.storeId = storeId
@@ -91,6 +93,7 @@ public struct OrderCalculate: Sendable, Codable, JSONEncodable, Hashable {
         self.billCompany = billCompany
         self.billPhone = billPhone
         self.responseFields = responseFields
+        self.idempotencyKey = idempotencyKey
         self.orderItem = orderItem
     }
 
@@ -121,6 +124,7 @@ public struct OrderCalculate: Sendable, Codable, JSONEncodable, Hashable {
         case billCompany = "bill_company"
         case billPhone = "bill_phone"
         case responseFields = "response_fields"
+        case idempotencyKey = "idempotency_key"
         case orderItem = "order_item"
     }
 
@@ -154,6 +158,7 @@ public struct OrderCalculate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(billCompany, forKey: .billCompany)
         try container.encodeIfPresent(billPhone, forKey: .billPhone)
         try container.encodeIfPresent(responseFields, forKey: .responseFields)
+        try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
         try container.encode(orderItem, forKey: .orderItem)
     }
 }

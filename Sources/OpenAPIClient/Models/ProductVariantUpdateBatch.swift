@@ -20,12 +20,15 @@ public struct ProductVariantUpdateBatch: Sendable, Codable, JSONEncodable, Hasha
     public var reindex: Bool? = false
     /** Contains an array of product objects. The list of properties may vary depending on the specific platform. */
     public var payload: [ProductVariantUpdateBatchPayloadInner]
+    /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+    public var idempotencyKey: String?
 
-    public init(nestedItemsUpdateBehaviour: NestedItemsUpdateBehaviour? = .replace, clearCache: Bool? = false, reindex: Bool? = false, payload: [ProductVariantUpdateBatchPayloadInner]) {
+    public init(nestedItemsUpdateBehaviour: NestedItemsUpdateBehaviour? = .replace, clearCache: Bool? = false, reindex: Bool? = false, payload: [ProductVariantUpdateBatchPayloadInner], idempotencyKey: String? = nil) {
         self.nestedItemsUpdateBehaviour = nestedItemsUpdateBehaviour
         self.clearCache = clearCache
         self.reindex = reindex
         self.payload = payload
+        self.idempotencyKey = idempotencyKey
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -33,6 +36,7 @@ public struct ProductVariantUpdateBatch: Sendable, Codable, JSONEncodable, Hasha
         case clearCache = "clear_cache"
         case reindex
         case payload
+        case idempotencyKey = "idempotency_key"
     }
 
     // Encodable protocol methods
@@ -43,6 +47,7 @@ public struct ProductVariantUpdateBatch: Sendable, Codable, JSONEncodable, Hasha
         try container.encodeIfPresent(clearCache, forKey: .clearCache)
         try container.encodeIfPresent(reindex, forKey: .reindex)
         try container.encode(payload, forKey: .payload)
+        try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
     }
 }
 

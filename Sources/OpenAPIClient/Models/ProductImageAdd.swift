@@ -43,8 +43,10 @@ public struct ProductImageAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var position: Int? = 0
     /** Use the latest platform API version */
     public var useLatestApiVersion: Bool? = false
+    /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
+    public var idempotencyKey: String?
 
-    public init(type: ModelType, imageName: String, productId: String? = nil, productVariantId: String? = nil, variantIds: String? = nil, optionValueIds: String? = nil, storeId: String? = nil, langId: String? = nil, url: String? = nil, content: String? = nil, label: String? = nil, mime: String? = nil, position: Int? = 0, useLatestApiVersion: Bool? = false) {
+    public init(type: ModelType, imageName: String, productId: String? = nil, productVariantId: String? = nil, variantIds: String? = nil, optionValueIds: String? = nil, storeId: String? = nil, langId: String? = nil, url: String? = nil, content: String? = nil, label: String? = nil, mime: String? = nil, position: Int? = 0, useLatestApiVersion: Bool? = false, idempotencyKey: String? = nil) {
         self.type = type
         self.imageName = imageName
         self.productId = productId
@@ -59,6 +61,7 @@ public struct ProductImageAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.mime = mime
         self.position = position
         self.useLatestApiVersion = useLatestApiVersion
+        self.idempotencyKey = idempotencyKey
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -76,6 +79,7 @@ public struct ProductImageAdd: Sendable, Codable, JSONEncodable, Hashable {
         case mime
         case position
         case useLatestApiVersion = "use_latest_api_version"
+        case idempotencyKey = "idempotency_key"
     }
 
     // Encodable protocol methods
@@ -96,6 +100,7 @@ public struct ProductImageAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(mime, forKey: .mime)
         try container.encodeIfPresent(position, forKey: .position)
         try container.encodeIfPresent(useLatestApiVersion, forKey: .useLatestApiVersion)
+        try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
     }
 }
 
