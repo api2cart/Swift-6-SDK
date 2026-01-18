@@ -105,6 +105,7 @@ Sources/OpenAPIClient/Models/CartInfo200Response.swift
 Sources/OpenAPIClient/Models/CartMetaData.swift
 Sources/OpenAPIClient/Models/CartMethods200Response.swift
 Sources/OpenAPIClient/Models/CartMethods200ResponseResult.swift
+Sources/OpenAPIClient/Models/CartPickupLocation.swift
 Sources/OpenAPIClient/Models/CartPluginList200Response.swift
 Sources/OpenAPIClient/Models/CartPluginList200ResponseResult.swift
 Sources/OpenAPIClient/Models/CartScriptAdd200Response.swift
@@ -543,6 +544,7 @@ docs/CartInfo200Response.md
 docs/CartMetaData.md
 docs/CartMethods200Response.md
 docs/CartMethods200ResponseResult.md
+docs/CartPickupLocation.md
 docs/CartPluginList200Response.md
 docs/CartPluginList200ResponseResult.md
 docs/CartScriptAdd200Response.md

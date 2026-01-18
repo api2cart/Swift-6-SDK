@@ -561,7 +561,7 @@ Name | Type | Description  | Notes
 
 # **categoryInfo**
 ```swift
-    open class func categoryInfo(id: String, storeId: String? = nil, langId: String? = nil, schemaType: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, completion: @escaping (_ data: CategoryInfo200Response?, _ error: Error?) -> Void)
+    open class func categoryInfo(id: String, storeId: String? = nil, langId: String? = nil, schemaType: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: CategoryInfo200Response?, _ error: Error?) -> Void)
 ```
 
 category.info
@@ -582,9 +582,10 @@ let params = "params_example" // String | Set this parameter in order to choose 
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let reportRequestId = "reportRequestId_example" // String | Report request id (optional)
 let disableReportCache = false // Bool | Disable report cache for current request (optional) (default to false)
+let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
 
 // category.info
-CategoryAPI.categoryInfo(id: id, storeId: storeId, langId: langId, schemaType: schemaType, responseFields: responseFields, params: params, exclude: exclude, reportRequestId: reportRequestId, disableReportCache: disableReportCache) { (response, error) in
+CategoryAPI.categoryInfo(id: id, storeId: storeId, langId: langId, schemaType: schemaType, responseFields: responseFields, params: params, exclude: exclude, reportRequestId: reportRequestId, disableReportCache: disableReportCache, useLatestApiVersion: useLatestApiVersion) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -609,6 +610,7 @@ Name | Type | Description  | Notes
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **reportRequestId** | **String** | Report request id | [optional] 
  **disableReportCache** | **Bool** | Disable report cache for current request | [optional] [default to false]
+ **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
 
 ### Return type
 
@@ -627,7 +629,7 @@ Name | Type | Description  | Notes
 
 # **categoryList**
 ```swift
-    open class func categoryList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, parentId: String? = nil, avail: Bool? = nil, productType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, findValue: String? = nil, findWhere: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, disableCache: Bool? = nil, completion: @escaping (_ data: ModelResponseCategoryList?, _ error: Error?) -> Void)
+    open class func categoryList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, parentId: String? = nil, avail: Bool? = nil, productType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, findValue: String? = nil, findWhere: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, disableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: ModelResponseCategoryList?, _ error: Error?) -> Void)
 ```
 
 category.list
@@ -659,9 +661,10 @@ let exclude = "exclude_example" // String | Set this parameter in order to choos
 let reportRequestId = "reportRequestId_example" // String | Report request id (optional)
 let disableReportCache = false // Bool | Disable report cache for current request (optional) (default to false)
 let disableCache = false // Bool | Disable cache for current request (optional) (default to false)
+let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
 
 // category.list
-CategoryAPI.categoryList(start: start, count: count, pageCursor: pageCursor, storeId: storeId, langId: langId, parentId: parentId, avail: avail, productType: productType, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, findValue: findValue, findWhere: findWhere, responseFields: responseFields, params: params, exclude: exclude, reportRequestId: reportRequestId, disableReportCache: disableReportCache, disableCache: disableCache) { (response, error) in
+CategoryAPI.categoryList(start: start, count: count, pageCursor: pageCursor, storeId: storeId, langId: langId, parentId: parentId, avail: avail, productType: productType, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, findValue: findValue, findWhere: findWhere, responseFields: responseFields, params: params, exclude: exclude, reportRequestId: reportRequestId, disableReportCache: disableReportCache, disableCache: disableCache, useLatestApiVersion: useLatestApiVersion) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -697,6 +700,7 @@ Name | Type | Description  | Notes
  **reportRequestId** | **String** | Report request id | [optional] 
  **disableReportCache** | **Bool** | Disable report cache for current request | [optional] [default to false]
  **disableCache** | **Bool** | Disable cache for current request | [optional] [default to false]
+ **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
 
 ### Return type
 

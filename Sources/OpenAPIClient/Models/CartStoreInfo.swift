@@ -27,10 +27,11 @@ public struct CartStoreInfo: Sendable, Codable, JSONEncodable, Hashable {
     public var storeOwnerInfo: Info?
     public var defaultWarehouseId: String?
     public var channels: [CartChannel]?
+    public var pickupLocations: [CartPickupLocation]?
     public var additionalFields: JSONValue?
     public var customFields: JSONValue?
 
-    public init(storeId: String? = nil, name: String? = nil, language: String? = nil, storeLanguages: [Language]? = nil, currency: Currency? = nil, storeCurrencies: [Currency]? = nil, timezone: String? = nil, country: String? = nil, rootCategoryId: String? = nil, multiStoreUrl: String? = nil, active: Bool? = nil, weightUnit: String? = nil, dimensionUnit: String? = nil, pricesIncludeTax: Bool? = nil, carrierInfo: [Carrier]? = nil, storeOwnerInfo: Info? = nil, defaultWarehouseId: String? = nil, channels: [CartChannel]? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
+    public init(storeId: String? = nil, name: String? = nil, language: String? = nil, storeLanguages: [Language]? = nil, currency: Currency? = nil, storeCurrencies: [Currency]? = nil, timezone: String? = nil, country: String? = nil, rootCategoryId: String? = nil, multiStoreUrl: String? = nil, active: Bool? = nil, weightUnit: String? = nil, dimensionUnit: String? = nil, pricesIncludeTax: Bool? = nil, carrierInfo: [Carrier]? = nil, storeOwnerInfo: Info? = nil, defaultWarehouseId: String? = nil, channels: [CartChannel]? = nil, pickupLocations: [CartPickupLocation]? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
         self.storeId = storeId
         self.name = name
         self.language = language
@@ -49,6 +50,7 @@ public struct CartStoreInfo: Sendable, Codable, JSONEncodable, Hashable {
         self.storeOwnerInfo = storeOwnerInfo
         self.defaultWarehouseId = defaultWarehouseId
         self.channels = channels
+        self.pickupLocations = pickupLocations
         self.additionalFields = additionalFields
         self.customFields = customFields
     }
@@ -72,6 +74,7 @@ public struct CartStoreInfo: Sendable, Codable, JSONEncodable, Hashable {
         case storeOwnerInfo = "store_owner_info"
         case defaultWarehouseId = "default_warehouse_id"
         case channels
+        case pickupLocations = "pickup_locations"
         case additionalFields = "additional_fields"
         case customFields = "custom_fields"
     }
@@ -98,6 +101,7 @@ public struct CartStoreInfo: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(storeOwnerInfo, forKey: .storeOwnerInfo)
         try container.encodeIfPresent(defaultWarehouseId, forKey: .defaultWarehouseId)
         try container.encodeIfPresent(channels, forKey: .channels)
+        try container.encodeIfPresent(pickupLocations, forKey: .pickupLocations)
         try container.encodeIfPresent(additionalFields, forKey: .additionalFields)
         try container.encodeIfPresent(customFields, forKey: .customFields)
     }

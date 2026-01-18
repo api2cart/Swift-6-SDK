@@ -581,12 +581,13 @@ open class CategoryAPI {
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter reportRequestId: (query) Report request id (optional)
      - parameter disableReportCache: (query) Disable report cache for current request (optional, default to false)
+     - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CategoryInfo200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func categoryInfo(id: String, storeId: String? = nil, langId: String? = nil, schemaType: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryInfo200Response {
-        return try await categoryInfoWithRequestBuilder(id: id, storeId: storeId, langId: langId, schemaType: schemaType, responseFields: responseFields, params: params, exclude: exclude, reportRequestId: reportRequestId, disableReportCache: disableReportCache, apiConfiguration: apiConfiguration).execute().body
+    open class func categoryInfo(id: String, storeId: String? = nil, langId: String? = nil, schemaType: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryInfo200Response {
+        return try await categoryInfoWithRequestBuilder(id: id, storeId: storeId, langId: langId, schemaType: schemaType, responseFields: responseFields, params: params, exclude: exclude, reportRequestId: reportRequestId, disableReportCache: disableReportCache, useLatestApiVersion: useLatestApiVersion, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -608,10 +609,11 @@ open class CategoryAPI {
      - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter reportRequestId: (query) Report request id (optional)
      - parameter disableReportCache: (query) Disable report cache for current request (optional, default to false)
+     - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CategoryInfo200Response> 
      */
-    open class func categoryInfoWithRequestBuilder(id: String, storeId: String? = nil, langId: String? = nil, schemaType: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryInfo200Response> {
+    open class func categoryInfoWithRequestBuilder(id: String, storeId: String? = nil, langId: String? = nil, schemaType: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryInfo200Response> {
         let localVariablePath = "/category.info.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -627,6 +629,7 @@ open class CategoryAPI {
             "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "report_request_id": (wrappedValue: reportRequestId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "disable_report_cache": (wrappedValue: disableReportCache?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "use_latest_api_version": (wrappedValue: useLatestApiVersion?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -663,12 +666,13 @@ open class CategoryAPI {
      - parameter reportRequestId: (query) Report request id (optional)
      - parameter disableReportCache: (query) Disable report cache for current request (optional, default to false)
      - parameter disableCache: (query) Disable cache for current request (optional, default to false)
+     - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseCategoryList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func categoryList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, parentId: String? = nil, avail: Bool? = nil, productType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, findValue: String? = nil, findWhere: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, disableCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCategoryList {
-        return try await categoryListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, storeId: storeId, langId: langId, parentId: parentId, avail: avail, productType: productType, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, findValue: findValue, findWhere: findWhere, responseFields: responseFields, params: params, exclude: exclude, reportRequestId: reportRequestId, disableReportCache: disableReportCache, disableCache: disableCache, apiConfiguration: apiConfiguration).execute().body
+    open class func categoryList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, parentId: String? = nil, avail: Bool? = nil, productType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, findValue: String? = nil, findWhere: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, disableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCategoryList {
+        return try await categoryListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, storeId: storeId, langId: langId, parentId: parentId, avail: avail, productType: productType, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, findValue: findValue, findWhere: findWhere, responseFields: responseFields, params: params, exclude: exclude, reportRequestId: reportRequestId, disableReportCache: disableReportCache, disableCache: disableCache, useLatestApiVersion: useLatestApiVersion, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -701,10 +705,11 @@ open class CategoryAPI {
      - parameter reportRequestId: (query) Report request id (optional)
      - parameter disableReportCache: (query) Disable report cache for current request (optional, default to false)
      - parameter disableCache: (query) Disable cache for current request (optional, default to false)
+     - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseCategoryList> 
      */
-    open class func categoryListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, parentId: String? = nil, avail: Bool? = nil, productType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, findValue: String? = nil, findWhere: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, disableCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCategoryList> {
+    open class func categoryListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, parentId: String? = nil, avail: Bool? = nil, productType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, findValue: String? = nil, findWhere: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, disableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCategoryList> {
         let localVariablePath = "/category.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -731,6 +736,7 @@ open class CategoryAPI {
             "report_request_id": (wrappedValue: reportRequestId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "disable_report_cache": (wrappedValue: disableReportCache?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "disable_cache": (wrappedValue: disableCache?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "use_latest_api_version": (wrappedValue: useLatestApiVersion?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
