@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **returnStatusId** | **String** | Defines return request status | 
 **returnActionId** | **String** | Defines return request action | 
 **returnReasonId** | **String** | Defines return request reason | 
+**returnAction** | **String** | Defines return request action | [optional] 
 **returnReason** | **String** | Defines return request reason | [optional] 
 **itemRestock** | **Bool** | Boolean, whether or not to add the line items back to the store inventory. | [optional] [default to false]
 **staffNote** | **String** | Specifies staff note | [optional] 

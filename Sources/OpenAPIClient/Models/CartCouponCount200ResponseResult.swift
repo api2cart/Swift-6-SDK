@@ -9,9 +9,9 @@ import Foundation
 
 public struct CartCouponCount200ResponseResult: Sendable, Codable, JSONEncodable, Hashable {
 
-    public var couponsCount: String?
+    public var couponsCount: Int?
 
-    public init(couponsCount: String? = nil) {
+    public init(couponsCount: Int? = nil) {
         self.couponsCount = couponsCount
     }
 

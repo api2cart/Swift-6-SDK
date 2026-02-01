@@ -19,6 +19,8 @@ public struct OrderReturnAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var returnActionId: String
     /** Defines return request reason */
     public var returnReasonId: String
+    /** Defines return request action */
+    public var returnAction: String?
     /** Defines return request reason */
     public var returnReason: String?
     /** Boolean, whether or not to add the line items back to the store inventory. */
@@ -35,12 +37,13 @@ public struct OrderReturnAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var idempotencyKey: String?
     public var orderProducts: [OrderReturnAddOrderProductsInner]
 
-    public init(orderId: String? = nil, storeId: String? = nil, returnStatusId: String, returnActionId: String, returnReasonId: String, returnReason: String? = nil, itemRestock: Bool? = false, staffNote: String? = nil, comment: String? = nil, sendNotifications: Bool? = false, rejectReason: String? = nil, idempotencyKey: String? = nil, orderProducts: [OrderReturnAddOrderProductsInner]) {
+    public init(orderId: String? = nil, storeId: String? = nil, returnStatusId: String, returnActionId: String, returnReasonId: String, returnAction: String? = nil, returnReason: String? = nil, itemRestock: Bool? = false, staffNote: String? = nil, comment: String? = nil, sendNotifications: Bool? = false, rejectReason: String? = nil, idempotencyKey: String? = nil, orderProducts: [OrderReturnAddOrderProductsInner]) {
         self.orderId = orderId
         self.storeId = storeId
         self.returnStatusId = returnStatusId
         self.returnActionId = returnActionId
         self.returnReasonId = returnReasonId
+        self.returnAction = returnAction
         self.returnReason = returnReason
         self.itemRestock = itemRestock
         self.staffNote = staffNote
@@ -57,6 +60,7 @@ public struct OrderReturnAdd: Sendable, Codable, JSONEncodable, Hashable {
         case returnStatusId = "return_status_id"
         case returnActionId = "return_action_id"
         case returnReasonId = "return_reason_id"
+        case returnAction = "return_action"
         case returnReason = "return_reason"
         case itemRestock = "item_restock"
         case staffNote = "staff_note"
@@ -76,6 +80,7 @@ public struct OrderReturnAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encode(returnStatusId, forKey: .returnStatusId)
         try container.encode(returnActionId, forKey: .returnActionId)
         try container.encode(returnReasonId, forKey: .returnReasonId)
+        try container.encodeIfPresent(returnAction, forKey: .returnAction)
         try container.encodeIfPresent(returnReason, forKey: .returnReason)
         try container.encodeIfPresent(itemRestock, forKey: .itemRestock)
         try container.encodeIfPresent(staffNote, forKey: .staffNote)
