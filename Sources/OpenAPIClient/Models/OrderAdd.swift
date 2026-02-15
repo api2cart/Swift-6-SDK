@@ -106,7 +106,7 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var totalPaid: Double?
     /** Defines the sum of all line item weights in grams for the order */
     public var totalWeight: Int?
-    /** Indicates whether prices and subtotal includes tax. */
+    /** Indicates whether prices and subtotal include tax. */
     public var pricesIncTax: Bool? = false
     /** Specifies order's shipping price */
     public var shippingPrice: Double? = 0

@@ -65,6 +65,8 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var increaseQuantity: Double? = 0
     /** Defines the decrement changes in product quantity */
     public var reduceQuantity: Double? = 0
+    /** Indicates whether prices include tax. */
+    public var pricesIncTax: Bool? = false
     /** Defines new product's variant price */
     public var price: Double?
     /** Defines new product's variant special price */
@@ -128,7 +130,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
     /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
     public var idempotencyKey: String?
 
-    public init(id: String? = nil, productId: String? = nil, storeId: String? = nil, langId: String? = nil, options: [ProductVariantUpdateOptionsInner]? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, model: String? = nil, sku: String? = nil, visible: String? = nil, status: String? = nil, backorderStatus: String? = nil, lowStockThreshold: Double? = nil, availableForSale: Bool? = true, avail: Bool? = true, isDefault: Bool? = nil, isFreeShipping: Bool? = nil, taxable: Bool? = nil, taxClassId: String? = nil, isVirtual: Bool? = false, manageStock: Bool? = nil, inStock: Bool? = nil, warehouseId: String? = nil, reserveQuantity: Double? = nil, quantity: Double? = nil, increaseQuantity: Double? = 0, reduceQuantity: Double? = 0, price: Double? = nil, specialPrice: Double? = nil, retailPrice: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, measureUnit: String? = nil, unitPrice: Double? = nil, weight: Double? = 0, barcode: String? = nil, width: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, manufacturer: String? = nil, reindex: Bool? = true, clearCache: Bool? = true, processingProfileId: Int? = nil, idempotencyKey: String? = nil) {
+    public init(id: String? = nil, productId: String? = nil, storeId: String? = nil, langId: String? = nil, options: [ProductVariantUpdateOptionsInner]? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, model: String? = nil, sku: String? = nil, visible: String? = nil, status: String? = nil, backorderStatus: String? = nil, lowStockThreshold: Double? = nil, availableForSale: Bool? = true, avail: Bool? = true, isDefault: Bool? = nil, isFreeShipping: Bool? = nil, taxable: Bool? = nil, taxClassId: String? = nil, isVirtual: Bool? = false, manageStock: Bool? = nil, inStock: Bool? = nil, warehouseId: String? = nil, reserveQuantity: Double? = nil, quantity: Double? = nil, increaseQuantity: Double? = 0, reduceQuantity: Double? = 0, pricesIncTax: Bool? = false, price: Double? = nil, specialPrice: Double? = nil, retailPrice: Double? = nil, oldPrice: Double? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, measureUnit: String? = nil, unitPrice: Double? = nil, weight: Double? = 0, barcode: String? = nil, width: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, harmonizedSystemCode: String? = nil, countryOfOrigin: String? = nil, metaTitle: String? = nil, metaDescription: String? = nil, metaKeywords: String? = nil, manufacturer: String? = nil, reindex: Bool? = true, clearCache: Bool? = true, processingProfileId: Int? = nil, idempotencyKey: String? = nil) {
         self.id = id
         self.productId = productId
         self.storeId = storeId
@@ -157,6 +159,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.quantity = quantity
         self.increaseQuantity = increaseQuantity
         self.reduceQuantity = reduceQuantity
+        self.pricesIncTax = pricesIncTax
         self.price = price
         self.specialPrice = specialPrice
         self.retailPrice = retailPrice
@@ -219,6 +222,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case quantity
         case increaseQuantity = "increase_quantity"
         case reduceQuantity = "reduce_quantity"
+        case pricesIncTax = "prices_inc_tax"
         case price
         case specialPrice = "special_price"
         case retailPrice = "retail_price"
@@ -284,6 +288,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(quantity, forKey: .quantity)
         try container.encodeIfPresent(increaseQuantity, forKey: .increaseQuantity)
         try container.encodeIfPresent(reduceQuantity, forKey: .reduceQuantity)
+        try container.encodeIfPresent(pricesIncTax, forKey: .pricesIncTax)
         try container.encodeIfPresent(price, forKey: .price)
         try container.encodeIfPresent(specialPrice, forKey: .specialPrice)
         try container.encodeIfPresent(retailPrice, forKey: .retailPrice)

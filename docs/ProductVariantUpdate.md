@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **quantity** | **Double** | Defines new products&#39; variants quantity | [optional] 
 **increaseQuantity** | **Double** | Defines the incremental changes in product quantity | [optional] [default to 0]
 **reduceQuantity** | **Double** | Defines the decrement changes in product quantity | [optional] [default to 0]
+**pricesIncTax** | **Bool** | Indicates whether prices include tax. | [optional] [default to false]
 **price** | **Double** | Defines new product&#39;s variant price | [optional] 
 **specialPrice** | **Double** | Defines new product&#39;s variant special price | [optional] 
 **retailPrice** | **Double** | Defines new product&#39;s retail price | [optional] 

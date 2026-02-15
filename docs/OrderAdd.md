@@ -51,7 +51,7 @@ Name | Type | Description | Notes
 **totalPrice** | **Double** | Defines order&#39;s total price | [optional] 
 **totalPaid** | **Double** | Defines total paid amount for the order | [optional] 
 **totalWeight** | **Int** | Defines the sum of all line item weights in grams for the order | [optional] 
-**pricesIncTax** | **Bool** | Indicates whether prices and subtotal includes tax. | [optional] [default to false]
+**pricesIncTax** | **Bool** | Indicates whether prices and subtotal include tax. | [optional] [default to false]
 **shippingPrice** | **Double** | Specifies order&#39;s shipping price | [optional] [default to 0]
 **shippingTax** | **Double** | Specifies order&#39;s shipping price tax | [optional] 
 **discount** | **Double** | Specifies order&#39;s discount | [optional] 

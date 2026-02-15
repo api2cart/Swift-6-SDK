@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **tierPrices** | [ProductAddTierPricesInner] | Defines product&#39;s tier prices | [optional] 
 **measureUnit** | **String** | Unit for the price per unit. Must be in allowed list | [optional] 
 **unitPrice** | **Double** | Defines new product&#39;s unit price | [optional] 
+**pricesIncTax** | **Bool** | Indicates whether prices include tax. | [optional] [default to false]
 **quantity** | **Double** | Defines product variant&#39;s quantity that has to be added | [optional] [default to 0]
 **warehouseId** | **String** | This parameter is used for selecting a warehouse where you need to set/modify a product quantity. | [optional] 
 **inStock** | **Bool** | Set stock status | [optional] 

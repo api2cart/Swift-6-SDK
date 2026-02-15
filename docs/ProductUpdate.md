@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **name** | **String** | Defines product&#39;s name that has to be updated | [optional] 
 **description** | **String** | Defines new product&#39;s description | [optional] 
 **shortDescription** | **String** | Defines short description | [optional] 
+**pricesIncTax** | **Bool** | Indicates whether prices include tax. | [optional] [default to false]
 **price** | **Double** | Defines new product&#39;s price | [optional] 
 **oldPrice** | **Double** | Defines product&#39;s old price | [optional] 
 **specialPrice** | **Double** | Defines new product&#39;s special price | [optional] 
