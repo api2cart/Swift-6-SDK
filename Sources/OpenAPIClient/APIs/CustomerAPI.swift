@@ -101,6 +101,7 @@ open class CustomerAPI {
      customer.attribute.list
      
      - parameter customerId: (query) Retrieves orders specified by customer id 
+     - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
      - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter storeId: (query) Store Id (optional)
@@ -112,8 +113,8 @@ open class CustomerAPI {
      - returns: ModelResponseCustomerAttributeList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func customerAttributeList(customerId: String, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCustomerAttributeList {
-        return try await customerAttributeListWithRequestBuilder(customerId: customerId, count: count, pageCursor: pageCursor, storeId: storeId, langId: langId, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
+    open class func customerAttributeList(customerId: String, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCustomerAttributeList {
+        return try await customerAttributeListWithRequestBuilder(customerId: customerId, start: start, count: count, pageCursor: pageCursor, storeId: storeId, langId: langId, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -127,6 +128,7 @@ open class CustomerAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter customerId: (query) Retrieves orders specified by customer id 
+     - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
      - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
      - parameter storeId: (query) Store Id (optional)
@@ -137,13 +139,14 @@ open class CustomerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseCustomerAttributeList> 
      */
-    open class func customerAttributeListWithRequestBuilder(customerId: String, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCustomerAttributeList> {
+    open class func customerAttributeListWithRequestBuilder(customerId: String, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCustomerAttributeList> {
         let localVariablePath = "/customer.attribute.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "customer_id": (wrappedValue: customerId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),

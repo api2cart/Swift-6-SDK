@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 
 # **customerAttributeList**
 ```swift
-    open class func customerAttributeList(customerId: String, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCustomerAttributeList?, _ error: Error?) -> Void)
+    open class func customerAttributeList(customerId: String, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, langId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCustomerAttributeList?, _ error: Error?) -> Void)
 ```
 
 customer.attribute.list
@@ -133,6 +133,7 @@ Get attributes for specific customer
 import OpenAPIClient
 
 let customerId = "customerId_example" // String | Retrieves orders specified by customer id
+let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
 let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
@@ -142,7 +143,7 @@ let params = "params_example" // String | Set this parameter in order to choose 
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // customer.attribute.list
-CustomerAPI.customerAttributeList(customerId: customerId, count: count, pageCursor: pageCursor, storeId: storeId, langId: langId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
+CustomerAPI.customerAttributeList(customerId: customerId, start: start, count: count, pageCursor: pageCursor, storeId: storeId, langId: langId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -159,6 +160,7 @@ CustomerAPI.customerAttributeList(customerId: customerId, count: count, pageCurs
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customerId** | **String** | Retrieves orders specified by customer id | 
+ **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **storeId** | **String** | Store Id | [optional] 
@@ -652,7 +654,7 @@ Update information of customer in store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let customerUpdate = CustomerUpdate(id: "id_example", groupId: "groupId_example", groupIds: "groupIds_example", group: "group_example", email: "email_example", phone: "phone_example", firstName: "firstName_example", lastName: "lastName_example", birthDay: "birthDay_example", newsLetterSubscription: true, consents: [CustomerAdd_consents_inner(type: "type_example", status: "status_example", optInLevel: "optInLevel_example")], tags: "tags_example", gender: "gender_example", note: "note_example", status: "status_example", storeId: "storeId_example", idempotencyKey: "idempotencyKey_example", address: [CustomerUpdate_address_inner(addressBookId: "addressBookId_example", addressBookFirstName: "addressBookFirstName_example", addressBookLastName: "addressBookLastName_example", addressBookCompany: "addressBookCompany_example", addressBookFax: "addressBookFax_example", addressBookPhone: "addressBookPhone_example", addressBookPhoneMobile: "addressBookPhoneMobile_example", addressBookAddress1: "addressBookAddress1_example", addressBookAddress2: "addressBookAddress2_example", addressBookCity: "addressBookCity_example", addressBookCountry: "addressBookCountry_example", addressBookState: "addressBookState_example", addressBookPostcode: "addressBookPostcode_example", addressBookTaxId: "addressBookTaxId_example", addressBookIdentificationNumber: "addressBookIdentificationNumber_example", addressBookGender: "addressBookGender_example", addressBookAlias: "addressBookAlias_example", addressBookType: "addressBookType_example", addressBookDefault: true)]) // CustomerUpdate | 
+let customerUpdate = CustomerUpdate(id: "id_example", groupId: "groupId_example", groupIds: "groupIds_example", group: "group_example", email: "email_example", phone: "phone_example", firstName: "firstName_example", lastName: "lastName_example", birthDay: "birthDay_example", newsLetterSubscription: true, consents: [CustomerAdd_consents_inner(type: "type_example", status: "status_example", optInLevel: "optInLevel_example")], tags: "tags_example", gender: "gender_example", note: "note_example", status: "status_example", password: "password_example", storeId: "storeId_example", idempotencyKey: "idempotencyKey_example", address: [CustomerUpdate_address_inner(addressBookId: "addressBookId_example", addressBookFirstName: "addressBookFirstName_example", addressBookLastName: "addressBookLastName_example", addressBookCompany: "addressBookCompany_example", addressBookFax: "addressBookFax_example", addressBookPhone: "addressBookPhone_example", addressBookPhoneMobile: "addressBookPhoneMobile_example", addressBookAddress1: "addressBookAddress1_example", addressBookAddress2: "addressBookAddress2_example", addressBookCity: "addressBookCity_example", addressBookCountry: "addressBookCountry_example", addressBookState: "addressBookState_example", addressBookPostcode: "addressBookPostcode_example", addressBookTaxId: "addressBookTaxId_example", addressBookIdentificationNumber: "addressBookIdentificationNumber_example", addressBookGender: "addressBookGender_example", addressBookAlias: "addressBookAlias_example", addressBookType: "addressBookType_example", addressBookDefault: true)]) // CustomerUpdate | 
 
 // customer.update
 CustomerAPI.customerUpdate(customerUpdate: customerUpdate) { (response, error) in

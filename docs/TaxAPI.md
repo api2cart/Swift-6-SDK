@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 # **taxClassList**
 ```swift
-    open class func taxClassList(count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, findValue: String? = nil, findWhere: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, responseFields: String? = nil, completion: @escaping (_ data: ModelResponseTaxClassList?, _ error: Error?) -> Void)
+    open class func taxClassList(count: Int? = nil, start: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, findValue: String? = nil, findWhere: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, responseFields: String? = nil, completion: @escaping (_ data: ModelResponseTaxClassList?, _ error: Error?) -> Void)
 ```
 
 tax.class.list
@@ -83,6 +83,7 @@ Get list of tax classes from your store.
 import OpenAPIClient
 
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
 let findValue = "findValue_example" // String | Entity search that is specified by some value (optional)
@@ -94,7 +95,7 @@ let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from the
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "{return_code,return_message,pagination,result}")
 
 // tax.class.list
-TaxAPI.taxClassList(count: count, pageCursor: pageCursor, storeId: storeId, findValue: findValue, findWhere: findWhere, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, responseFields: responseFields) { (response, error) in
+TaxAPI.taxClassList(count: count, start: start, pageCursor: pageCursor, storeId: storeId, findValue: findValue, findWhere: findWhere, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, responseFields: responseFields) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -111,6 +112,7 @@ TaxAPI.taxClassList(count: count, pageCursor: pageCursor, storeId: storeId, find
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **storeId** | **String** | Store Id | [optional] 
  **findValue** | **String** | Entity search that is specified by some value | [optional] 

@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
 
 # **categoryImageAdd**
 ```swift
-    open class func categoryImageAdd(categoryId: String, imageName: String, url: String, type: ModelType_categoryImageAdd, storeId: String? = nil, label: String? = nil, mime: String? = nil, position: Int? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: CategoryImageAdd200Response?, _ error: Error?) -> Void)
+    open class func categoryImageAdd(categoryId: String, imageName: String, url: String, type: ModelType_categoryImageAdd, storeId: String? = nil, label: String? = nil, mime: String? = nil, position: Int? = nil, applyToTranslations: Bool? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: CategoryImageAdd200Response?, _ error: Error?) -> Void)
 ```
 
 category.image.add
@@ -461,10 +461,11 @@ let storeId = "storeId_example" // String | Store Id (optional)
 let label = "label_example" // String | Defines alternative text that has to be attached to the picture (optional)
 let mime = "mime_example" // String | Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. (optional)
 let position = 987 // Int | Defines image’s position in the list (optional) (default to 0)
+let applyToTranslations = true // Bool | Defines whether to add image to all category translations (optional) (default to true)
 let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // category.image.add
-CategoryAPI.categoryImageAdd(categoryId: categoryId, imageName: imageName, url: url, type: type, storeId: storeId, label: label, mime: mime, position: position, idempotencyKey: idempotencyKey) { (response, error) in
+CategoryAPI.categoryImageAdd(categoryId: categoryId, imageName: imageName, url: url, type: type, storeId: storeId, label: label, mime: mime, position: position, applyToTranslations: applyToTranslations, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -488,6 +489,7 @@ Name | Type | Description  | Notes
  **label** | **String** | Defines alternative text that has to be attached to the picture | [optional] 
  **mime** | **String** | Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. | [optional] 
  **position** | **Int** | Defines image’s position in the list | [optional] [default to 0]
+ **applyToTranslations** | **Bool** | Defines whether to add image to all category translations | [optional] [default to true]
  **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
@@ -507,7 +509,7 @@ Name | Type | Description  | Notes
 
 # **categoryImageDelete**
 ```swift
-    open class func categoryImageDelete(categoryId: String, imageId: String, storeId: String? = nil, completion: @escaping (_ data: AttributeDelete200Response?, _ error: Error?) -> Void)
+    open class func categoryImageDelete(categoryId: String, imageId: String, storeId: String? = nil, applyToTranslations: Bool? = nil, completion: @escaping (_ data: AttributeDelete200Response?, _ error: Error?) -> Void)
 ```
 
 category.image.delete
@@ -522,9 +524,10 @@ import OpenAPIClient
 let categoryId = "categoryId_example" // String | Defines category id where the image should be deleted
 let imageId = "imageId_example" // String | Define image id
 let storeId = "storeId_example" // String | Store Id (optional)
+let applyToTranslations = false // Bool | Defines whether to delete image from all category translations (optional) (default to true)
 
 // category.image.delete
-CategoryAPI.categoryImageDelete(categoryId: categoryId, imageId: imageId, storeId: storeId) { (response, error) in
+CategoryAPI.categoryImageDelete(categoryId: categoryId, imageId: imageId, storeId: storeId, applyToTranslations: applyToTranslations) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -543,6 +546,7 @@ Name | Type | Description  | Notes
  **categoryId** | **String** | Defines category id where the image should be deleted | 
  **imageId** | **String** | Define image id | 
  **storeId** | **String** | Store Id | [optional] 
+ **applyToTranslations** | **Bool** | Defines whether to delete image from all category translations | [optional] [default to true]
 
 ### Return type
 

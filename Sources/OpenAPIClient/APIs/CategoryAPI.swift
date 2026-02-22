@@ -456,13 +456,14 @@ open class CategoryAPI {
      - parameter label: (query) Defines alternative text that has to be attached to the picture (optional)
      - parameter mime: (query) Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. (optional)
      - parameter position: (query) Defines image’s position in the list (optional, default to 0)
+     - parameter applyToTranslations: (query) Defines whether to add image to all category translations (optional, default to true)
      - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CategoryImageAdd200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func categoryImageAdd(categoryId: String, imageName: String, url: String, type: ModelType_categoryImageAdd, storeId: String? = nil, label: String? = nil, mime: String? = nil, position: Int? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryImageAdd200Response {
-        return try await categoryImageAddWithRequestBuilder(categoryId: categoryId, imageName: imageName, url: url, type: type, storeId: storeId, label: label, mime: mime, position: position, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
+    open class func categoryImageAdd(categoryId: String, imageName: String, url: String, type: ModelType_categoryImageAdd, storeId: String? = nil, label: String? = nil, mime: String? = nil, position: Int? = nil, applyToTranslations: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryImageAdd200Response {
+        return try await categoryImageAddWithRequestBuilder(categoryId: categoryId, imageName: imageName, url: url, type: type, storeId: storeId, label: label, mime: mime, position: position, applyToTranslations: applyToTranslations, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -483,11 +484,12 @@ open class CategoryAPI {
      - parameter label: (query) Defines alternative text that has to be attached to the picture (optional)
      - parameter mime: (query) Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. (optional)
      - parameter position: (query) Defines image’s position in the list (optional, default to 0)
+     - parameter applyToTranslations: (query) Defines whether to add image to all category translations (optional, default to true)
      - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CategoryImageAdd200Response> 
      */
-    open class func categoryImageAddWithRequestBuilder(categoryId: String, imageName: String, url: String, type: ModelType_categoryImageAdd, storeId: String? = nil, label: String? = nil, mime: String? = nil, position: Int? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryImageAdd200Response> {
+    open class func categoryImageAddWithRequestBuilder(categoryId: String, imageName: String, url: String, type: ModelType_categoryImageAdd, storeId: String? = nil, label: String? = nil, mime: String? = nil, position: Int? = nil, applyToTranslations: Bool? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryImageAdd200Response> {
         let localVariablePath = "/category.image.add.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -502,6 +504,7 @@ open class CategoryAPI {
             "label": (wrappedValue: label?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "mime": (wrappedValue: mime?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "position": (wrappedValue: position?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "apply_to_translations": (wrappedValue: applyToTranslations?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
@@ -522,12 +525,13 @@ open class CategoryAPI {
      - parameter categoryId: (query) Defines category id where the image should be deleted 
      - parameter imageId: (query) Define image id 
      - parameter storeId: (query) Store Id (optional)
+     - parameter applyToTranslations: (query) Defines whether to delete image from all category translations (optional, default to true)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AttributeDelete200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func categoryImageDelete(categoryId: String, imageId: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeDelete200Response {
-        return try await categoryImageDeleteWithRequestBuilder(categoryId: categoryId, imageId: imageId, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
+    open class func categoryImageDelete(categoryId: String, imageId: String, storeId: String? = nil, applyToTranslations: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeDelete200Response {
+        return try await categoryImageDeleteWithRequestBuilder(categoryId: categoryId, imageId: imageId, storeId: storeId, applyToTranslations: applyToTranslations, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -543,10 +547,11 @@ open class CategoryAPI {
      - parameter categoryId: (query) Defines category id where the image should be deleted 
      - parameter imageId: (query) Define image id 
      - parameter storeId: (query) Store Id (optional)
+     - parameter applyToTranslations: (query) Defines whether to delete image from all category translations (optional, default to true)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AttributeDelete200Response> 
      */
-    open class func categoryImageDeleteWithRequestBuilder(categoryId: String, imageId: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeDelete200Response> {
+    open class func categoryImageDeleteWithRequestBuilder(categoryId: String, imageId: String, storeId: String? = nil, applyToTranslations: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeDelete200Response> {
         let localVariablePath = "/category.image.delete.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -556,6 +561,7 @@ open class CategoryAPI {
             "category_id": (wrappedValue: categoryId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "image_id": (wrappedValue: imageId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "apply_to_translations": (wrappedValue: applyToTranslations?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
