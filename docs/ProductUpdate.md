@@ -94,6 +94,7 @@ Name | Type | Description | Notes
 **specifics** | [ProductAddSpecificsInner] | An array of Item Specific Name/Value pairs used by the seller to provide descriptive details of an item in a structured manner.         The list of possible specifications can be obtained using the category.info method (additional_fields-&gt;product_specifics).         &lt;b&gt;The structure of the parameter is different for specific platforms.&lt;/b&gt; | [optional] 
 **shopSectionId** | **Int** | Add Shop Section Id | [optional] 
 **personalizationDetails** | [**ProductAddPersonalizationDetails**](ProductAddPersonalizationDetails.md) |  | [optional] 
+**personalizationQuestions** | [ProductAddPersonalizationQuestionsInner] | Defines personalization questions for the listing as an array of question objects. Each question object supports the following fields: question_id (integer, nullable), question_text (string, 1-45 chars), instructions (string, nullable), question_type (string), required (boolean), max_allowed_characters (integer, nullable), max_allowed_files (integer, nullable), options (array, nullable). Cannot be used together with &lt;strong&gt;personalization_details&lt;/strong&gt;. | [optional] 
 **externalProductLink** | **String** | External product link | [optional] 
 **marketplaceItemProperties** | **String** | String containing the JSON representation of the supplied data | [optional] 
 **minOrderQuantity** | **Double** | The minimum quantity an order must contain, to be eligible to purchase this product. | [optional] 

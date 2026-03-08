@@ -305,6 +305,7 @@ Sources/OpenAPIClient/Models/ProductAddLogisticInfoInner.swift
 Sources/OpenAPIClient/Models/ProductAddManufacturerInfo.swift
 Sources/OpenAPIClient/Models/ProductAddPackageDetails.swift
 Sources/OpenAPIClient/Models/ProductAddPersonalizationDetails.swift
+Sources/OpenAPIClient/Models/ProductAddPersonalizationQuestionsInner.swift
 Sources/OpenAPIClient/Models/ProductAddSalesTax.swift
 Sources/OpenAPIClient/Models/ProductAddSellerProfiles.swift
 Sources/OpenAPIClient/Models/ProductAddShippingDetailsInner.swift
@@ -749,6 +750,7 @@ docs/ProductAddLogisticInfoInner.md
 docs/ProductAddManufacturerInfo.md
 docs/ProductAddPackageDetails.md
 docs/ProductAddPersonalizationDetails.md
+docs/ProductAddPersonalizationQuestionsInner.md
 docs/ProductAddSalesTax.md
 docs/ProductAddSellerProfiles.md
 docs/ProductAddShippingDetailsInner.md

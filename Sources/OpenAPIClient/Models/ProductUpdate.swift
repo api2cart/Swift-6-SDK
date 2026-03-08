@@ -9,6 +9,7 @@ import Foundation
 
 public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
 
+    public static let personalizationQuestionsRule = ArrayRule(minItems: 1, maxItems: 5, uniqueItems: false)
     /** Defines product id that has to be updated */
     public var id: String?
     /** Defines product model that has to be updated */
@@ -188,6 +189,8 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
     /** Add Shop Section Id */
     public var shopSectionId: Int?
     public var personalizationDetails: ProductAddPersonalizationDetails?
+    /** Defines personalization questions for the listing as an array of question objects. Each question object supports the following fields: question_id (integer, nullable), question_text (string, 1-45 chars), instructions (string, nullable), question_type (string), required (boolean), max_allowed_characters (integer, nullable), max_allowed_files (integer, nullable), options (array, nullable). Cannot be used together with <strong>personalization_details</strong>. */
+    public var personalizationQuestions: [ProductAddPersonalizationQuestionsInner]?
     /** External product link */
     public var externalProductLink: String?
     /** String containing the JSON representation of the supplied data */
@@ -197,7 +200,7 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
     /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
     public var idempotencyKey: String?
 
-    public init(id: String? = nil, model: String? = nil, sku: String? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, pricesIncTax: Bool? = false, price: Double? = nil, oldPrice: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, retailPrice: Double? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, reservePrice: Double? = nil, buyitnowPrice: Double? = nil, taxable: Bool? = nil, taxClassId: String? = nil, type: String? = nil, status: String? = nil, condition: String? = nil, visible: String? = nil, inStock: Bool? = nil, avail: Bool? = true, availFrom: String? = nil, productClass: String? = nil, brandName: String? = nil, availableForView: Bool? = nil, measureUnit: String? = nil, unitPrice: Double? = nil, storesIds: String? = nil, storeId: String? = nil, langId: String? = nil, quantity: Double? = nil, reserveQuantity: Double? = nil, manageStock: Bool? = nil, backorderStatus: String? = nil, increaseQuantity: Double? = nil, reduceQuantity: Double? = nil, lowStockThreshold: Double? = nil, warehouseId: String? = nil, weight: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, width: Double? = nil, dimensionsUnit: String? = nil, isVirtual: Bool? = false, isFreeShipping: Bool? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, barcode: String? = nil, manufacturer: String? = nil, manufacturerId: String? = nil, categoriesIds: String? = nil, relatedProductsIds: String? = nil, upSellProductsIds: String? = nil, crossSellProductsIds: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, seoUrl: String? = nil, searchKeywords: String? = nil, tags: String? = nil, deliveryCode: String? = nil, packageDetails: ProductAddPackageDetails? = nil, countryOfOrigin: String? = nil, harmonizedSystemCode: String? = nil, shippingTemplateId: Int? = 0, processingProfileId: Int? = nil, whenMade: String? = "made_to_order", isSupply: Bool? = true, downloadable: Bool? = false, materials: [String]? = nil, autoRenew: Bool? = false, onSale: Bool? = false, productionPartnerIds: String? = nil, manufacturerInfo: ProductAddManufacturerInfo? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = false, reindex: Bool? = true, clearCache: Bool? = true, checkProcessStatus: Bool? = false, specifics: [ProductAddSpecificsInner]? = nil, shopSectionId: Int? = nil, personalizationDetails: ProductAddPersonalizationDetails? = nil, externalProductLink: String? = nil, marketplaceItemProperties: String? = nil, minOrderQuantity: Double? = nil, idempotencyKey: String? = nil) {
+    public init(id: String? = nil, model: String? = nil, sku: String? = nil, name: String? = nil, description: String? = nil, shortDescription: String? = nil, pricesIncTax: Bool? = false, price: Double? = nil, oldPrice: Double? = nil, specialPrice: Double? = nil, spriceCreate: String? = nil, spriceExpire: String? = nil, costPrice: Double? = nil, fixedCostShippingPrice: Double? = nil, retailPrice: Double? = nil, tierPrices: [ProductAddTierPricesInner]? = nil, reservePrice: Double? = nil, buyitnowPrice: Double? = nil, taxable: Bool? = nil, taxClassId: String? = nil, type: String? = nil, status: String? = nil, condition: String? = nil, visible: String? = nil, inStock: Bool? = nil, avail: Bool? = true, availFrom: String? = nil, productClass: String? = nil, brandName: String? = nil, availableForView: Bool? = nil, measureUnit: String? = nil, unitPrice: Double? = nil, storesIds: String? = nil, storeId: String? = nil, langId: String? = nil, quantity: Double? = nil, reserveQuantity: Double? = nil, manageStock: Bool? = nil, backorderStatus: String? = nil, increaseQuantity: Double? = nil, reduceQuantity: Double? = nil, lowStockThreshold: Double? = nil, warehouseId: String? = nil, weight: Double? = nil, weightUnit: String? = nil, height: Double? = nil, length: Double? = nil, width: Double? = nil, dimensionsUnit: String? = nil, isVirtual: Bool? = false, isFreeShipping: Bool? = nil, gtin: String? = nil, upc: String? = nil, mpn: String? = nil, ean: String? = nil, isbn: String? = nil, barcode: String? = nil, manufacturer: String? = nil, manufacturerId: String? = nil, categoriesIds: String? = nil, relatedProductsIds: String? = nil, upSellProductsIds: String? = nil, crossSellProductsIds: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, seoUrl: String? = nil, searchKeywords: String? = nil, tags: String? = nil, deliveryCode: String? = nil, packageDetails: ProductAddPackageDetails? = nil, countryOfOrigin: String? = nil, harmonizedSystemCode: String? = nil, shippingTemplateId: Int? = 0, processingProfileId: Int? = nil, whenMade: String? = "made_to_order", isSupply: Bool? = true, downloadable: Bool? = false, materials: [String]? = nil, autoRenew: Bool? = false, onSale: Bool? = false, productionPartnerIds: String? = nil, manufacturerInfo: ProductAddManufacturerInfo? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = false, reindex: Bool? = true, clearCache: Bool? = true, checkProcessStatus: Bool? = false, specifics: [ProductAddSpecificsInner]? = nil, shopSectionId: Int? = nil, personalizationDetails: ProductAddPersonalizationDetails? = nil, personalizationQuestions: [ProductAddPersonalizationQuestionsInner]? = nil, externalProductLink: String? = nil, marketplaceItemProperties: String? = nil, minOrderQuantity: Double? = nil, idempotencyKey: String? = nil) {
         self.id = id
         self.model = model
         self.sku = sku
@@ -289,6 +292,7 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.specifics = specifics
         self.shopSectionId = shopSectionId
         self.personalizationDetails = personalizationDetails
+        self.personalizationQuestions = personalizationQuestions
         self.externalProductLink = externalProductLink
         self.marketplaceItemProperties = marketplaceItemProperties
         self.minOrderQuantity = minOrderQuantity
@@ -387,6 +391,7 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case specifics
         case shopSectionId = "shop_section_id"
         case personalizationDetails = "personalization_details"
+        case personalizationQuestions = "personalization_questions"
         case externalProductLink = "external_product_link"
         case marketplaceItemProperties = "marketplace_item_properties"
         case minOrderQuantity = "min_order_quantity"
@@ -488,6 +493,7 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(specifics, forKey: .specifics)
         try container.encodeIfPresent(shopSectionId, forKey: .shopSectionId)
         try container.encodeIfPresent(personalizationDetails, forKey: .personalizationDetails)
+        try container.encodeIfPresent(personalizationQuestions, forKey: .personalizationQuestions)
         try container.encodeIfPresent(externalProductLink, forKey: .externalProductLink)
         try container.encodeIfPresent(marketplaceItemProperties, forKey: .marketplaceItemProperties)
         try container.encodeIfPresent(minOrderQuantity, forKey: .minOrderQuantity)
