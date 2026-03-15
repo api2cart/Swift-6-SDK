@@ -12,17 +12,20 @@ public struct WebhookEvents200ResponseResultEventsInner: Sendable, Codable, JSON
     public var webhookName: String?
     public var entity: String?
     public var action: String?
+    public var filterableFields: JSONValue?
 
-    public init(webhookName: String? = nil, entity: String? = nil, action: String? = nil) {
+    public init(webhookName: String? = nil, entity: String? = nil, action: String? = nil, filterableFields: JSONValue? = nil) {
         self.webhookName = webhookName
         self.entity = entity
         self.action = action
+        self.filterableFields = filterableFields
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case webhookName = "webhook_name"
         case entity
         case action
+        case filterableFields = "filterable_fields"
     }
 
     // Encodable protocol methods
@@ -32,6 +35,7 @@ public struct WebhookEvents200ResponseResultEventsInner: Sendable, Codable, JSON
         try container.encodeIfPresent(webhookName, forKey: .webhookName)
         try container.encodeIfPresent(entity, forKey: .entity)
         try container.encodeIfPresent(action, forKey: .action)
+        try container.encodeIfPresent(filterableFields, forKey: .filterableFields)
     }
 }
 

@@ -21,10 +21,11 @@ public struct Webhook: Sendable, Codable, JSONEncodable, Hashable {
     public var updatedAt: String?
     public var entity: String?
     public var action: String?
+    public var filteringConditions: JSONValue?
     public var additionalFields: JSONValue?
     public var customFields: JSONValue?
 
-    public init(id: Int? = nil, label: String? = nil, storeId: String? = nil, langId: String? = nil, active: Bool? = nil, callback: String? = nil, fields: String? = nil, responseFields: String? = nil, createdAt: String? = nil, updatedAt: String? = nil, entity: String? = nil, action: String? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
+    public init(id: Int? = nil, label: String? = nil, storeId: String? = nil, langId: String? = nil, active: Bool? = nil, callback: String? = nil, fields: String? = nil, responseFields: String? = nil, createdAt: String? = nil, updatedAt: String? = nil, entity: String? = nil, action: String? = nil, filteringConditions: JSONValue? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
         self.id = id
         self.label = label
         self.storeId = storeId
@@ -37,6 +38,7 @@ public struct Webhook: Sendable, Codable, JSONEncodable, Hashable {
         self.updatedAt = updatedAt
         self.entity = entity
         self.action = action
+        self.filteringConditions = filteringConditions
         self.additionalFields = additionalFields
         self.customFields = customFields
     }
@@ -54,6 +56,7 @@ public struct Webhook: Sendable, Codable, JSONEncodable, Hashable {
         case updatedAt = "updated_at"
         case entity
         case action
+        case filteringConditions = "filtering_conditions"
         case additionalFields = "additional_fields"
         case customFields = "custom_fields"
     }
@@ -74,6 +77,7 @@ public struct Webhook: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(updatedAt, forKey: .updatedAt)
         try container.encodeIfPresent(entity, forKey: .entity)
         try container.encodeIfPresent(action, forKey: .action)
+        try container.encodeIfPresent(filteringConditions, forKey: .filteringConditions)
         try container.encodeIfPresent(additionalFields, forKey: .additionalFields)
         try container.encodeIfPresent(customFields, forKey: .customFields)
     }

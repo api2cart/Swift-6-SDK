@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 # **webhookCreate**
 ```swift
-    open class func webhookCreate(entity: String, action: String, callback: String? = nil, label: String? = nil, fields: String? = nil, responseFields: String? = nil, active: Bool? = nil, langId: String? = nil, storeId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: BasketLiveShippingServiceCreate200Response?, _ error: Error?) -> Void)
+    open class func webhookCreate(webhookCreate: WebhookCreate, completion: @escaping (_ data: BasketLiveShippingServiceCreate200Response?, _ error: Error?) -> Void)
 ```
 
 webhook.create
@@ -80,19 +80,10 @@ Create webhook on the store and subscribe to it.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let entity = "entity_example" // String | Specify the entity that you want to enable webhooks for (e.g product, order, customer, category)
-let action = "action_example" // String | Specify what action (event) will trigger the webhook (e.g add, delete, or update)
-let callback = "callback_example" // String | Callback url that returns shipping rates. It should be able to accept POST requests with json data. (optional)
-let label = "label_example" // String | The name you give to the webhook (optional)
-let fields = "fields_example" // String | Fields the webhook should send (optional) (default to "force_all")
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let active = true // Bool | Webhook status (optional) (default to true)
-let langId = "langId_example" // String | Language id (optional)
-let storeId = "storeId_example" // String | Defines store id where the webhook should be assigned (optional)
-let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+let webhookCreate = WebhookCreate(entity: "entity_example", action: "action_example", callback: "callback_example", label: "label_example", fields: "fields_example", responseFields: "responseFields_example", active: true, langId: "langId_example", storeId: "storeId_example", filteringConditions: ParamDefinition_FilteringConditions_FilterCondition(and: [123], or: [123], not: 123, field: "field_example", _operator: "_operator_example", value: ParamDefinition_FilteringConditions_FilterRule_value()), idempotencyKey: "idempotencyKey_example") // WebhookCreate | 
 
 // webhook.create
-WebhookAPI.webhookCreate(entity: entity, action: action, callback: callback, label: label, fields: fields, responseFields: responseFields, active: active, langId: langId, storeId: storeId, idempotencyKey: idempotencyKey) { (response, error) in
+WebhookAPI.webhookCreate(webhookCreate: webhookCreate) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -108,16 +99,7 @@ WebhookAPI.webhookCreate(entity: entity, action: action, callback: callback, lab
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity** | **String** | Specify the entity that you want to enable webhooks for (e.g product, order, customer, category) | 
- **action** | **String** | Specify what action (event) will trigger the webhook (e.g add, delete, or update) | 
- **callback** | **String** | Callback url that returns shipping rates. It should be able to accept POST requests with json data. | [optional] 
- **label** | **String** | The name you give to the webhook | [optional] 
- **fields** | **String** | Fields the webhook should send | [optional] [default to &quot;force_all&quot;]
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **active** | **Bool** | Webhook status | [optional] [default to true]
- **langId** | **String** | Language id | [optional] 
- **storeId** | **String** | Defines store id where the webhook should be assigned | [optional] 
- **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
+ **webhookCreate** | [**WebhookCreate**](WebhookCreate.md) |  | 
 
 ### Return type
 
@@ -129,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -294,7 +276,7 @@ Name | Type | Description  | Notes
 
 # **webhookUpdate**
 ```swift
-    open class func webhookUpdate(id: String, callback: String? = nil, label: String? = nil, fields: String? = nil, responseFields: String? = nil, active: Bool? = nil, langId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: ProductImageUpdate200Response?, _ error: Error?) -> Void)
+    open class func webhookUpdate(webhookUpdate: WebhookUpdate, completion: @escaping (_ data: ProductImageUpdate200Response?, _ error: Error?) -> Void)
 ```
 
 webhook.update
@@ -306,17 +288,10 @@ Update Webhooks parameters.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let id = "id_example" // String | Webhook id
-let callback = "callback_example" // String | Callback url that returns shipping rates. It should be able to accept POST requests with json data. (optional)
-let label = "label_example" // String | The name you give to the webhook (optional)
-let fields = "fields_example" // String | Fields the webhook should send (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let active = true // Bool | Webhook status (optional)
-let langId = "langId_example" // String | Language id (optional)
-let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+let webhookUpdate = WebhookUpdate(id: "id_example", callback: "callback_example", label: "label_example", fields: "fields_example", responseFields: "responseFields_example", active: true, langId: "langId_example", filteringConditions: ParamDefinition_FilteringConditions_FilterCondition(and: [123], or: [123], not: 123, field: "field_example", _operator: "_operator_example", value: ParamDefinition_FilteringConditions_FilterRule_value()), idempotencyKey: "idempotencyKey_example") // WebhookUpdate | 
 
 // webhook.update
-WebhookAPI.webhookUpdate(id: id, callback: callback, label: label, fields: fields, responseFields: responseFields, active: active, langId: langId, idempotencyKey: idempotencyKey) { (response, error) in
+WebhookAPI.webhookUpdate(webhookUpdate: webhookUpdate) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -332,14 +307,7 @@ WebhookAPI.webhookUpdate(id: id, callback: callback, label: label, fields: field
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String** | Webhook id | 
- **callback** | **String** | Callback url that returns shipping rates. It should be able to accept POST requests with json data. | [optional] 
- **label** | **String** | The name you give to the webhook | [optional] 
- **fields** | **String** | Fields the webhook should send | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **active** | **Bool** | Webhook status | [optional] 
- **langId** | **String** | Language id | [optional] 
- **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
+ **webhookUpdate** | [**WebhookUpdate**](WebhookUpdate.md) |  | 
 
 ### Return type
 
@@ -351,7 +319,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

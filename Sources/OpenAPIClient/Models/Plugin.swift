@@ -10,12 +10,14 @@ import Foundation
 public struct Plugin: Sendable, Codable, JSONEncodable, Hashable {
 
     public var name: String?
+    public var code: String?
     public var active: Bool?
     public var additionalFields: JSONValue?
     public var customFields: JSONValue?
 
-    public init(name: String? = nil, active: Bool? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
+    public init(name: String? = nil, code: String? = nil, active: Bool? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
         self.name = name
+        self.code = code
         self.active = active
         self.additionalFields = additionalFields
         self.customFields = customFields
@@ -23,6 +25,7 @@ public struct Plugin: Sendable, Codable, JSONEncodable, Hashable {
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
+        case code
         case active
         case additionalFields = "additional_fields"
         case customFields = "custom_fields"
@@ -33,6 +36,7 @@ public struct Plugin: Sendable, Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(name, forKey: .name)
+        try container.encodeIfPresent(code, forKey: .code)
         try container.encodeIfPresent(active, forKey: .active)
         try container.encodeIfPresent(additionalFields, forKey: .additionalFields)
         try container.encodeIfPresent(customFields, forKey: .customFields)

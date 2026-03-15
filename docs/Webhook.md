@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **updatedAt** | **String** |  | [optional] 
 **entity** | **String** |  | [optional] 
 **action** | **String** |  | [optional] 
+**filteringConditions** | **JSONValue** |  | [optional] 
 **additionalFields** | **JSONValue** |  | [optional] 
 **customFields** | **JSONValue** |  | [optional] 
 
