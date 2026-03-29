@@ -31,7 +31,7 @@ Method | HTTP request | Description
 
 # **orderAbandonedList**
 ```swift
-    open class func orderAbandonedList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, customerId: String? = nil, customerEmail: String? = nil, storeId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, skipEmptyEmail: Bool? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseOrderAbandonedList?, _ error: Error?) -> Void)
+    open class func orderAbandonedList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, customerId: String? = nil, customerEmail: String? = nil, storeId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, skipEmptyEmail: Bool? = nil, roundingPrecision: Int? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseOrderAbandonedList?, _ error: Error?) -> Void)
 ```
 
 order.abandoned.list
@@ -54,12 +54,13 @@ let createdTo = "createdTo_example" // String | Retrieve entities to their creat
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
 let skipEmptyEmail = true // Bool | Filter empty emails (optional) (default to false)
+let roundingPrecision = 987 // Int | <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p> (optional)
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "customer,totals,items")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // order.abandoned.list
-OrderAPI.orderAbandonedList(start: start, count: count, pageCursor: pageCursor, customerId: customerId, customerEmail: customerEmail, storeId: storeId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, skipEmptyEmail: skipEmptyEmail, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
+OrderAPI.orderAbandonedList(start: start, count: count, pageCursor: pageCursor, customerId: customerId, customerEmail: customerEmail, storeId: storeId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, skipEmptyEmail: skipEmptyEmail, roundingPrecision: roundingPrecision, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -86,6 +87,7 @@ Name | Type | Description  | Notes
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
  **skipEmptyEmail** | **Bool** | Filter empty emails | [optional] [default to false]
+ **roundingPrecision** | **Int** | &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt; | [optional] 
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;customer,totals,items&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 

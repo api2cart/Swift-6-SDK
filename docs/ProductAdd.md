@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **measureUnit** | **String** | Unit for the price per unit. Must be in allowed list | [optional] 
 **unitPrice** | **Double** | Defines new product&#39;s unit price | [optional] 
 **pricesIncTax** | **Bool** | Indicates whether prices include tax. | [optional] [default to false]
+**retailPrice** | **Double** | Defines new product&#39;s retail price | [optional] 
 **quantity** | **Double** | Defines product&#39;s quantity that has to be added | [optional] [default to 0]
 **inStock** | **Bool** | Set stock status | [optional] 
 **manageStock** | **Bool** | Defines inventory tracking for product | [optional] 
