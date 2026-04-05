@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
 
 # **productBrandList**
 ```swift
-    open class func productBrandList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, brandIds: String? = nil, categoryId: String? = nil, parentId: String? = nil, storeId: String? = nil, langId: String? = nil, findWhere: String? = nil, findValue: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseProductBrandList?, _ error: Error?) -> Void)
+    open class func productBrandList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, brandIds: String? = nil, categoryId: String? = nil, parentId: String? = nil, storeId: String? = nil, langId: String? = nil, findWhere: String? = nil, findValue: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, avail: Bool? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseProductBrandList?, _ error: Error?) -> Void)
 ```
 
 product.brand.list
@@ -388,12 +388,13 @@ let createdFrom = "createdFrom_example" // String | Retrieve entities from their
 let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
+let avail = false // Bool | Defines category's visibility status (optional) (default to true)
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
 let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,name,short_description,active,url")
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // product.brand.list
-ProductAPI.productBrandList(start: start, count: count, pageCursor: pageCursor, brandIds: brandIds, categoryId: categoryId, parentId: parentId, storeId: storeId, langId: langId, findWhere: findWhere, findValue: findValue, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
+ProductAPI.productBrandList(start: start, count: count, pageCursor: pageCursor, brandIds: brandIds, categoryId: categoryId, parentId: parentId, storeId: storeId, langId: langId, findWhere: findWhere, findValue: findValue, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, avail: avail, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -423,6 +424,7 @@ Name | Type | Description  | Notes
  **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
+ **avail** | **Bool** | Defines category&#39;s visibility status | [optional] [default to true]
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,name,short_description,active,url&quot;]
  **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
@@ -660,7 +662,7 @@ Name | Type | Description  | Notes
 
 # **productCount**
 ```swift
-    open class func productCount(sku: String? = nil, productIds: String? = nil, sinceId: String? = nil, categoriesIds: String? = nil, categoryId: String? = nil, storeId: String? = nil, langId: String? = nil, availView: Bool? = nil, availSale: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, brandName: String? = nil, manufacturerId: String? = nil, productAttributes: [String]? = nil, status: String? = nil, type: String? = nil, visible: String? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, returnGlobal: Bool? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: ProductCount200Response?, _ error: Error?) -> Void)
+    open class func productCount(sku: String? = nil, productIds: String? = nil, sinceId: String? = nil, categoriesIds: String? = nil, categoryId: String? = nil, storeId: String? = nil, vendorId: String? = nil, langId: String? = nil, availView: Bool? = nil, availSale: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, brandName: String? = nil, manufacturerId: String? = nil, productAttributes: [String]? = nil, status: String? = nil, type: String? = nil, visible: String? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, returnGlobal: Bool? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: ProductCount200Response?, _ error: Error?) -> Void)
 ```
 
 product.count
@@ -678,6 +680,7 @@ let sinceId = "sinceId_example" // String | Retrieve entities starting from the 
 let categoriesIds = "categoriesIds_example" // String | Defines product add that is specified by comma-separated categories id (optional)
 let categoryId = "categoryId_example" // String | Counts products specified by category id (optional)
 let storeId = "storeId_example" // String | Counts products specified by store id (optional)
+let vendorId = "vendorId_example" // String | Counts products specified by vendor id (optional)
 let langId = "langId_example" // String | Counts products specified by language id (optional)
 let availView = true // Bool | Specifies the set of visible/invisible products (optional)
 let availSale = false // Bool | Specifies the set of available/not available products for sale (optional)
@@ -699,7 +702,7 @@ let disableReportCache = false // Bool | Disable report cache for current reques
 let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
 
 // product.count
-ProductAPI.productCount(sku: sku, productIds: productIds, sinceId: sinceId, categoriesIds: categoriesIds, categoryId: categoryId, storeId: storeId, langId: langId, availView: availView, availSale: availSale, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, brandName: brandName, manufacturerId: manufacturerId, productAttributes: productAttributes, status: status, type: type, visible: visible, findValue: findValue, findWhere: findWhere, reportRequestId: reportRequestId, returnGlobal: returnGlobal, disableReportCache: disableReportCache, useLatestApiVersion: useLatestApiVersion) { (response, error) in
+ProductAPI.productCount(sku: sku, productIds: productIds, sinceId: sinceId, categoriesIds: categoriesIds, categoryId: categoryId, storeId: storeId, vendorId: vendorId, langId: langId, availView: availView, availSale: availSale, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, brandName: brandName, manufacturerId: manufacturerId, productAttributes: productAttributes, status: status, type: type, visible: visible, findValue: findValue, findWhere: findWhere, reportRequestId: reportRequestId, returnGlobal: returnGlobal, disableReportCache: disableReportCache, useLatestApiVersion: useLatestApiVersion) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -721,6 +724,7 @@ Name | Type | Description  | Notes
  **categoriesIds** | **String** | Defines product add that is specified by comma-separated categories id | [optional] 
  **categoryId** | **String** | Counts products specified by category id | [optional] 
  **storeId** | **String** | Counts products specified by store id | [optional] 
+ **vendorId** | **String** | Counts products specified by vendor id | [optional] 
  **langId** | **String** | Counts products specified by language id | [optional] 
  **availView** | **Bool** | Specifies the set of visible/invisible products | [optional] 
  **availSale** | **Bool** | Specifies the set of available/not available products for sale | [optional] 
@@ -1222,7 +1226,7 @@ Name | Type | Description  | Notes
 
 # **productInfo**
 ```swift
-    open class func productInfo(id: String, storeId: String? = nil, langId: String? = nil, currencyId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: ProductInfo200Response?, _ error: Error?) -> Void)
+    open class func productInfo(id: String, storeId: String? = nil, vendorId: String? = nil, langId: String? = nil, currencyId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: ProductInfo200Response?, _ error: Error?) -> Void)
 ```
 
 product.info
@@ -1236,6 +1240,7 @@ import OpenAPIClient
 
 let id = "id_example" // String | Retrieves product's info specified by product id
 let storeId = "storeId_example" // String | Retrieves product info specified by store id (optional)
+let vendorId = "vendorId_example" // String | Vendor Id (optional)
 let langId = "langId_example" // String | Retrieves product info specified by language id (optional)
 let currencyId = "currencyId_example" // String | Currency Id (optional)
 let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
@@ -1246,7 +1251,7 @@ let disableReportCache = false // Bool | Disable report cache for current reques
 let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
 
 // product.info
-ProductAPI.productInfo(id: id, storeId: storeId, langId: langId, currencyId: currencyId, responseFields: responseFields, params: params, exclude: exclude, reportRequestId: reportRequestId, disableReportCache: disableReportCache, useLatestApiVersion: useLatestApiVersion) { (response, error) in
+ProductAPI.productInfo(id: id, storeId: storeId, vendorId: vendorId, langId: langId, currencyId: currencyId, responseFields: responseFields, params: params, exclude: exclude, reportRequestId: reportRequestId, disableReportCache: disableReportCache, useLatestApiVersion: useLatestApiVersion) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1264,6 +1269,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String** | Retrieves product&#39;s info specified by product id | 
  **storeId** | **String** | Retrieves product info specified by store id | [optional] 
+ **vendorId** | **String** | Vendor Id | [optional] 
  **langId** | **String** | Retrieves product info specified by language id | [optional] 
  **currencyId** | **String** | Currency Id | [optional] 
  **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
@@ -1290,7 +1296,7 @@ Name | Type | Description  | Notes
 
 # **productList**
 ```swift
-    open class func productList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, productIds: String? = nil, sinceId: String? = nil, categoriesIds: String? = nil, categoryId: String? = nil, storeId: String? = nil, langId: String? = nil, currencyId: String? = nil, availView: Bool? = nil, availSale: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, sku: String? = nil, brandName: String? = nil, productAttributes: [String]? = nil, manufacturerId: String? = nil, status: String? = nil, type: String? = nil, visible: String? = nil, findValue: String? = nil, findWhere: String? = nil, returnGlobal: Bool? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, reportRequestId: String? = nil, disableCache: Bool? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, productType: String? = nil, completion: @escaping (_ data: ModelResponseProductList?, _ error: Error?) -> Void)
+    open class func productList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, productIds: String? = nil, sinceId: String? = nil, categoriesIds: String? = nil, categoryId: String? = nil, storeId: String? = nil, vendorId: String? = nil, langId: String? = nil, currencyId: String? = nil, availView: Bool? = nil, availSale: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, sku: String? = nil, brandName: String? = nil, productAttributes: [String]? = nil, manufacturerId: String? = nil, status: String? = nil, type: String? = nil, visible: String? = nil, findValue: String? = nil, findWhere: String? = nil, returnGlobal: Bool? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, reportRequestId: String? = nil, disableCache: Bool? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, productType: String? = nil, completion: @escaping (_ data: ModelResponseProductList?, _ error: Error?) -> Void)
 ```
 
 product.list
@@ -1310,6 +1316,7 @@ let sinceId = "sinceId_example" // String | Retrieve entities starting from the 
 let categoriesIds = "categoriesIds_example" // String | Retrieves products specified by categories ids (optional)
 let categoryId = "categoryId_example" // String | Retrieves products specified by category id (optional)
 let storeId = "storeId_example" // String | Retrieves products specified by store id (optional)
+let vendorId = "vendorId_example" // String | Retrieves products specified by vendor id (optional)
 let langId = "langId_example" // String | Retrieves products specified by language id (optional)
 let currencyId = "currencyId_example" // String | Currency Id (optional)
 let availView = true // Bool | Specifies the set of visible/invisible products (optional)
@@ -1340,7 +1347,7 @@ let useLatestApiVersion = true // Bool | Use the latest platform API version (op
 let productType = "productType_example" // String | A categorization for the product (optional)
 
 // product.list
-ProductAPI.productList(start: start, count: count, pageCursor: pageCursor, productIds: productIds, sinceId: sinceId, categoriesIds: categoriesIds, categoryId: categoryId, storeId: storeId, langId: langId, currencyId: currencyId, availView: availView, availSale: availSale, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, sku: sku, brandName: brandName, productAttributes: productAttributes, manufacturerId: manufacturerId, status: status, type: type, visible: visible, findValue: findValue, findWhere: findWhere, returnGlobal: returnGlobal, params: params, responseFields: responseFields, exclude: exclude, sortBy: sortBy, sortDirection: sortDirection, reportRequestId: reportRequestId, disableCache: disableCache, disableReportCache: disableReportCache, useLatestApiVersion: useLatestApiVersion, productType: productType) { (response, error) in
+ProductAPI.productList(start: start, count: count, pageCursor: pageCursor, productIds: productIds, sinceId: sinceId, categoriesIds: categoriesIds, categoryId: categoryId, storeId: storeId, vendorId: vendorId, langId: langId, currencyId: currencyId, availView: availView, availSale: availSale, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, sku: sku, brandName: brandName, productAttributes: productAttributes, manufacturerId: manufacturerId, status: status, type: type, visible: visible, findValue: findValue, findWhere: findWhere, returnGlobal: returnGlobal, params: params, responseFields: responseFields, exclude: exclude, sortBy: sortBy, sortDirection: sortDirection, reportRequestId: reportRequestId, disableCache: disableCache, disableReportCache: disableReportCache, useLatestApiVersion: useLatestApiVersion, productType: productType) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -1364,6 +1371,7 @@ Name | Type | Description  | Notes
  **categoriesIds** | **String** | Retrieves products specified by categories ids | [optional] 
  **categoryId** | **String** | Retrieves products specified by category id | [optional] 
  **storeId** | **String** | Retrieves products specified by store id | [optional] 
+ **vendorId** | **String** | Retrieves products specified by vendor id | [optional] 
  **langId** | **String** | Retrieves products specified by language id | [optional] 
  **currencyId** | **String** | Currency Id | [optional] 
  **availView** | **Bool** | Specifies the set of visible/invisible products | [optional] 

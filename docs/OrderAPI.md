@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 # **orderCount**
 ```swift
-    open class func orderCount(orderIds: String? = nil, ids: String? = nil, customerId: String? = nil, storeId: String? = nil, customerEmail: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentChannel: String? = nil, fulfillmentStatus: String? = nil, shippingMethod: String? = nil, deliveryMethod: String? = nil, tags: String? = nil, shipNodeType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: OrderCount200Response?, _ error: Error?) -> Void)
+    open class func orderCount(orderIds: String? = nil, ids: String? = nil, customerId: String? = nil, storeId: String? = nil, customerEmail: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentChannel: String? = nil, fulfillmentStatus: String? = nil, shippingMethod: String? = nil, deliveryMethod: String? = nil, tags: String? = nil, shipNodeType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, useLatestApiVersion: Bool? = nil, vendorId: String? = nil, completion: @escaping (_ data: OrderCount200Response?, _ error: Error?) -> Void)
 ```
 
 order.count
@@ -242,9 +242,10 @@ let createdTo = "createdTo_example" // String | Retrieve entities to their creat
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
 let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
+let vendorId = "vendorId_example" // String | Counts orders specified by vendor id (optional)
 
 // order.count
-OrderAPI.orderCount(orderIds: orderIds, ids: ids, customerId: customerId, storeId: storeId, customerEmail: customerEmail, orderStatus: orderStatus, orderStatusIds: orderStatusIds, ebayOrderStatus: ebayOrderStatus, financialStatus: financialStatus, financialStatusIds: financialStatusIds, fulfillmentChannel: fulfillmentChannel, fulfillmentStatus: fulfillmentStatus, shippingMethod: shippingMethod, deliveryMethod: deliveryMethod, tags: tags, shipNodeType: shipNodeType, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, useLatestApiVersion: useLatestApiVersion) { (response, error) in
+OrderAPI.orderCount(orderIds: orderIds, ids: ids, customerId: customerId, storeId: storeId, customerEmail: customerEmail, orderStatus: orderStatus, orderStatusIds: orderStatusIds, ebayOrderStatus: ebayOrderStatus, financialStatus: financialStatus, financialStatusIds: financialStatusIds, fulfillmentChannel: fulfillmentChannel, fulfillmentStatus: fulfillmentStatus, shippingMethod: shippingMethod, deliveryMethod: deliveryMethod, tags: tags, shipNodeType: shipNodeType, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, useLatestApiVersion: useLatestApiVersion, vendorId: vendorId) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -281,6 +282,7 @@ Name | Type | Description  | Notes
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
  **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
+ **vendorId** | **String** | Counts orders specified by vendor id | [optional] 
 
 ### Return type
 
@@ -463,7 +465,7 @@ Name | Type | Description  | Notes
 
 # **orderList**
 ```swift
-    open class func orderList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, orderIds: String? = nil, sinceId: String? = nil, storeId: String? = nil, customerId: String? = nil, customerEmail: String? = nil, basketId: String? = nil, currencyId: String? = nil, phone: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentStatus: String? = nil, returnStatus: String? = nil, fulfillmentChannel: String? = nil, shippingMethod: String? = nil, skipOrderIds: String? = nil, isDeleted: Bool? = nil, shippingCountryIso3: String? = nil, deliveryMethod: String? = nil, shipNodeType: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, tags: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, roundingPrecision: Int? = nil, allowUserDefinedOrderStatuses: Bool? = nil, completion: @escaping (_ data: ModelResponseOrderList?, _ error: Error?) -> Void)
+    open class func orderList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, ids: String? = nil, orderIds: String? = nil, sinceId: String? = nil, storeId: String? = nil, vendorId: String? = nil, customerId: String? = nil, customerEmail: String? = nil, basketId: String? = nil, currencyId: String? = nil, phone: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentStatus: String? = nil, returnStatus: String? = nil, fulfillmentChannel: String? = nil, shippingMethod: String? = nil, skipOrderIds: String? = nil, isDeleted: Bool? = nil, shippingCountryIso3: String? = nil, deliveryMethod: String? = nil, shipNodeType: String? = nil, createdTo: String? = nil, createdFrom: String? = nil, modifiedTo: String? = nil, modifiedFrom: String? = nil, tags: String? = nil, sortBy: String? = nil, sortDirection: String? = nil, params: String? = nil, responseFields: String? = nil, exclude: String? = nil, enableCache: Bool? = nil, useLatestApiVersion: Bool? = nil, roundingPrecision: Int? = nil, allowUserDefinedOrderStatuses: Bool? = nil, completion: @escaping (_ data: ModelResponseOrderList?, _ error: Error?) -> Void)
 ```
 
 order.list
@@ -482,6 +484,7 @@ let ids = "ids_example" // String | Retrieves orders specified by ids (optional)
 let orderIds = "orderIds_example" // String | Retrieves orders specified by order ids (optional)
 let sinceId = "sinceId_example" // String | Retrieve entities starting from the specified id. (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
+let vendorId = "vendorId_example" // String | Retrieves orders specified by vendor id (optional)
 let customerId = "customerId_example" // String | Retrieves orders specified by customer id (optional)
 let customerEmail = "customerEmail_example" // String | Retrieves orders specified by customer email (optional)
 let basketId = "basketId_example" // String | Retrieves order’s info specified by basket id. (optional)
@@ -517,7 +520,7 @@ let roundingPrecision = 987 // Int | <p>Specifies the rounding precision for fra
 let allowUserDefinedOrderStatuses = true // Bool | Indicates whether custom (user-defined) order statuses should be included in the response. (optional) (default to false)
 
 // order.list
-OrderAPI.orderList(start: start, count: count, pageCursor: pageCursor, ids: ids, orderIds: orderIds, sinceId: sinceId, storeId: storeId, customerId: customerId, customerEmail: customerEmail, basketId: basketId, currencyId: currencyId, phone: phone, orderStatus: orderStatus, orderStatusIds: orderStatusIds, ebayOrderStatus: ebayOrderStatus, financialStatus: financialStatus, financialStatusIds: financialStatusIds, fulfillmentStatus: fulfillmentStatus, returnStatus: returnStatus, fulfillmentChannel: fulfillmentChannel, shippingMethod: shippingMethod, skipOrderIds: skipOrderIds, isDeleted: isDeleted, shippingCountryIso3: shippingCountryIso3, deliveryMethod: deliveryMethod, shipNodeType: shipNodeType, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, tags: tags, sortBy: sortBy, sortDirection: sortDirection, params: params, responseFields: responseFields, exclude: exclude, enableCache: enableCache, useLatestApiVersion: useLatestApiVersion, roundingPrecision: roundingPrecision, allowUserDefinedOrderStatuses: allowUserDefinedOrderStatuses) { (response, error) in
+OrderAPI.orderList(start: start, count: count, pageCursor: pageCursor, ids: ids, orderIds: orderIds, sinceId: sinceId, storeId: storeId, vendorId: vendorId, customerId: customerId, customerEmail: customerEmail, basketId: basketId, currencyId: currencyId, phone: phone, orderStatus: orderStatus, orderStatusIds: orderStatusIds, ebayOrderStatus: ebayOrderStatus, financialStatus: financialStatus, financialStatusIds: financialStatusIds, fulfillmentStatus: fulfillmentStatus, returnStatus: returnStatus, fulfillmentChannel: fulfillmentChannel, shippingMethod: shippingMethod, skipOrderIds: skipOrderIds, isDeleted: isDeleted, shippingCountryIso3: shippingCountryIso3, deliveryMethod: deliveryMethod, shipNodeType: shipNodeType, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, tags: tags, sortBy: sortBy, sortDirection: sortDirection, params: params, responseFields: responseFields, exclude: exclude, enableCache: enableCache, useLatestApiVersion: useLatestApiVersion, roundingPrecision: roundingPrecision, allowUserDefinedOrderStatuses: allowUserDefinedOrderStatuses) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -540,6 +543,7 @@ Name | Type | Description  | Notes
  **orderIds** | **String** | Retrieves orders specified by order ids | [optional] 
  **sinceId** | **String** | Retrieve entities starting from the specified id. | [optional] 
  **storeId** | **String** | Store Id | [optional] 
+ **vendorId** | **String** | Retrieves orders specified by vendor id | [optional] 
  **customerId** | **String** | Retrieves orders specified by customer id | [optional] 
  **customerEmail** | **String** | Retrieves orders specified by customer email | [optional] 
  **basketId** | **String** | Retrieves order’s info specified by basket id. | [optional] 
