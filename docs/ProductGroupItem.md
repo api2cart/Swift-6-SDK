@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **childItemId** | **String** |  | [optional] 
 **productId** | **String** |  | [optional] 
-**defaultQtyInPack** | **String** |  | [optional] 
+**defaultQtyInPack** | **Double** |  | [optional] 
 **isQtyInPackFixed** | **Bool** |  | [optional] 
 **price** | **Double** |  | [optional] 
 **additionalFields** | **JSONValue** |  | [optional] 

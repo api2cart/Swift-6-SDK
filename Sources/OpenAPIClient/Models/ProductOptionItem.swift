@@ -13,8 +13,8 @@ public struct ProductOptionItem: Sendable, Codable, JSONEncodable, Hashable {
     public var productOptionItemId: String?
     public var name: String?
     public var sortOrder: Int?
-    public var price: String?
-    public var weight: String?
+    public var price: Double?
+    public var weight: Double?
     public var quantity: Int?
     public var typePrice: String?
     public var sku: String?
@@ -22,7 +22,7 @@ public struct ProductOptionItem: Sendable, Codable, JSONEncodable, Hashable {
     public var additionalFields: JSONValue?
     public var customFields: JSONValue?
 
-    public init(id: String? = nil, productOptionItemId: String? = nil, name: String? = nil, sortOrder: Int? = nil, price: String? = nil, weight: String? = nil, quantity: Int? = nil, typePrice: String? = nil, sku: String? = nil, isDefault: Bool? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
+    public init(id: String? = nil, productOptionItemId: String? = nil, name: String? = nil, sortOrder: Int? = nil, price: Double? = nil, weight: Double? = nil, quantity: Int? = nil, typePrice: String? = nil, sku: String? = nil, isDefault: Bool? = nil, additionalFields: JSONValue? = nil, customFields: JSONValue? = nil) {
         self.id = id
         self.productOptionItemId = productOptionItemId
         self.name = name
