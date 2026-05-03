@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **country** | **String** | Specifies ISO code or name of country | [optional] 
 **currencyId** | **String** | Currency Id | [optional] 
 **isTaxExempt** | **Bool** | Marks a customer as tax-exempt (B2B/wholesale). | [optional] 
-**vendorId** | **String** | Vendor Id | [optional] 
+**vendorId** | **String** | Assigns vendor id to the customer | [optional] 
 **storeId** | **String** | Store Id | [optional] 
 **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 **address** | [CustomerAddAddressInner] |  | [optional] 

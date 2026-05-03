@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **productId** | **String** | Defines product&#39;s id where the variant has to be added | [optional] 
-**attributes** | [ProductVariantAddAttributesInner] | Defines variant&#39;s attributes list | [optional] 
+**attributes** | [ProductVariantAddAttributesInner] | Defines variant&#39;s attributes list with optional per-option price and weight modifiers | [optional] 
 **name** | **String** | Defines variant&#39;s name that has to be added | [optional] 
 **model** | **String** | Specifies variant&#39;s model that has to be added | 
 **description** | **String** | Specifies variant&#39;s description | [optional] 

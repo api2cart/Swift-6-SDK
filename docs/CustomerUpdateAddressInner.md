@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **addressBookTaxId** | **String** | Add Tax Id | [optional] 
 **addressBookIdentificationNumber** | **String** | The national ID card number of this person, or a unique tax identification number. | [optional] 
 **addressBookGender** | **String** | Specifies customer&#39;s gender | [optional] 
+**addressBookRegion** | **String** | Specifies customer&#39;s region | [optional] 
 **addressBookAlias** | **String** | Specifies customer&#39;s alias in the address book | [optional] 
 **addressBookType** | **String** | Specifies customer&#39;s address type | [optional] 
 **addressBookDefault** | **Bool** | Defines whether the address is used by default | [optional] 

@@ -11,7 +11,7 @@ public struct ProductVariantAdd: Sendable, Codable, JSONEncodable, Hashable {
 
     /** Defines product's id where the variant has to be added */
     public var productId: String?
-    /** Defines variant's attributes list */
+    /** Defines variant's attributes list with optional per-option price and weight modifiers */
     public var attributes: [ProductVariantAddAttributesInner]?
     /** Defines variant's name that has to be added */
     public var name: String?

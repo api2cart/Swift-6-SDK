@@ -41,6 +41,8 @@ public struct CustomerUpdateAddressInner: Sendable, Codable, JSONEncodable, Hash
     public var addressBookIdentificationNumber: String?
     /** Specifies customer's gender */
     public var addressBookGender: String?
+    /** Specifies customer's region */
+    public var addressBookRegion: String?
     /** Specifies customer's alias in the address book */
     public var addressBookAlias: String?
     /** Specifies customer's address type */
@@ -48,7 +50,7 @@ public struct CustomerUpdateAddressInner: Sendable, Codable, JSONEncodable, Hash
     /** Defines whether the address is used by default */
     public var addressBookDefault: Bool?
 
-    public init(addressBookId: String? = nil, addressBookFirstName: String? = nil, addressBookLastName: String? = nil, addressBookCompany: String? = nil, addressBookFax: String? = nil, addressBookPhone: String? = nil, addressBookPhoneMobile: String? = nil, addressBookAddress1: String? = nil, addressBookAddress2: String? = nil, addressBookCity: String? = nil, addressBookCountry: String? = nil, addressBookState: String? = nil, addressBookPostcode: String? = nil, addressBookTaxId: String? = nil, addressBookIdentificationNumber: String? = nil, addressBookGender: String? = nil, addressBookAlias: String? = nil, addressBookType: String? = nil, addressBookDefault: Bool? = nil) {
+    public init(addressBookId: String? = nil, addressBookFirstName: String? = nil, addressBookLastName: String? = nil, addressBookCompany: String? = nil, addressBookFax: String? = nil, addressBookPhone: String? = nil, addressBookPhoneMobile: String? = nil, addressBookAddress1: String? = nil, addressBookAddress2: String? = nil, addressBookCity: String? = nil, addressBookCountry: String? = nil, addressBookState: String? = nil, addressBookPostcode: String? = nil, addressBookTaxId: String? = nil, addressBookIdentificationNumber: String? = nil, addressBookGender: String? = nil, addressBookRegion: String? = nil, addressBookAlias: String? = nil, addressBookType: String? = nil, addressBookDefault: Bool? = nil) {
         self.addressBookId = addressBookId
         self.addressBookFirstName = addressBookFirstName
         self.addressBookLastName = addressBookLastName
@@ -65,6 +67,7 @@ public struct CustomerUpdateAddressInner: Sendable, Codable, JSONEncodable, Hash
         self.addressBookTaxId = addressBookTaxId
         self.addressBookIdentificationNumber = addressBookIdentificationNumber
         self.addressBookGender = addressBookGender
+        self.addressBookRegion = addressBookRegion
         self.addressBookAlias = addressBookAlias
         self.addressBookType = addressBookType
         self.addressBookDefault = addressBookDefault
@@ -87,6 +90,7 @@ public struct CustomerUpdateAddressInner: Sendable, Codable, JSONEncodable, Hash
         case addressBookTaxId = "address_book_tax_id"
         case addressBookIdentificationNumber = "address_book_identification_number"
         case addressBookGender = "address_book_gender"
+        case addressBookRegion = "address_book_region"
         case addressBookAlias = "address_book_alias"
         case addressBookType = "address_book_type"
         case addressBookDefault = "address_book_default"
@@ -112,6 +116,7 @@ public struct CustomerUpdateAddressInner: Sendable, Codable, JSONEncodable, Hash
         try container.encodeIfPresent(addressBookTaxId, forKey: .addressBookTaxId)
         try container.encodeIfPresent(addressBookIdentificationNumber, forKey: .addressBookIdentificationNumber)
         try container.encodeIfPresent(addressBookGender, forKey: .addressBookGender)
+        try container.encodeIfPresent(addressBookRegion, forKey: .addressBookRegion)
         try container.encodeIfPresent(addressBookAlias, forKey: .addressBookAlias)
         try container.encodeIfPresent(addressBookType, forKey: .addressBookType)
         try container.encodeIfPresent(addressBookDefault, forKey: .addressBookDefault)

@@ -58,7 +58,7 @@ public struct CustomerAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var currencyId: String?
     /** Marks a customer as tax-exempt (B2B/wholesale). */
     public var isTaxExempt: Bool?
-    /** Vendor Id */
+    /** Assigns vendor id to the customer */
     public var vendorId: String?
     /** Store Id */
     public var storeId: String?

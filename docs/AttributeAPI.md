@@ -524,7 +524,7 @@ Name | Type | Description  | Notes
 
 # **attributeList**
 ```swift
-    open class func attributeList(start: Int? = nil, count: Int? = nil, attributeIds: String? = nil, attributeSetId: String? = nil, storeId: String? = nil, langId: String? = nil, type: String? = nil, visible: Bool? = nil, _required: Bool? = nil, system: Bool? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseAttributeList?, _ error: Error?) -> Void)
+    open class func attributeList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, attributeIds: String? = nil, attributeSetId: String? = nil, storeId: String? = nil, langId: String? = nil, type: String? = nil, visible: Bool? = nil, _required: Bool? = nil, system: Bool? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseAttributeList?, _ error: Error?) -> Void)
 ```
 
 attribute.list
@@ -538,6 +538,7 @@ import OpenAPIClient
 
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let attributeIds = "attributeIds_example" // String | Filter attributes by ids (optional)
 let attributeSetId = "attributeSetId_example" // String | Filter items by attribute set id (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
@@ -551,7 +552,7 @@ let params = "params_example" // String | Set this parameter in order to choose 
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // attribute.list
-AttributeAPI.attributeList(start: start, count: count, attributeIds: attributeIds, attributeSetId: attributeSetId, storeId: storeId, langId: langId, type: type, visible: visible, _required: _required, system: system, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
+AttributeAPI.attributeList(start: start, count: count, pageCursor: pageCursor, attributeIds: attributeIds, attributeSetId: attributeSetId, storeId: storeId, langId: langId, type: type, visible: visible, _required: _required, system: system, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -569,6 +570,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **attributeIds** | **String** | Filter attributes by ids | [optional] 
  **attributeSetId** | **String** | Filter items by attribute set id | [optional] 
  **storeId** | **String** | Store Id | [optional] 
@@ -752,7 +754,7 @@ Name | Type | Description  | Notes
 
 # **attributeUpdate**
 ```swift
-    open class func attributeUpdate(id: String, name: String, storeId: String? = nil, langId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: AttributeUpdate200Response?, _ error: Error?) -> Void)
+    open class func attributeUpdate(id: String, name: String? = nil, visible: Bool? = nil, position: Int? = nil, storeId: String? = nil, langId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: AttributeUpdate200Response?, _ error: Error?) -> Void)
 ```
 
 attribute.update
@@ -765,13 +767,15 @@ Update attribute data
 import OpenAPIClient
 
 let id = "id_example" // String | Entity id
-let name = "name_example" // String | Defines new attributes's name
+let name = "name_example" // String | Defines new attributes's name (optional)
+let visible = true // Bool | Set visibility status (optional)
+let position = 987 // Int | Attribute`s position (optional) (default to 0)
 let storeId = "storeId_example" // String | Store Id (optional)
 let langId = "langId_example" // String | Language id (optional)
 let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // attribute.update
-AttributeAPI.attributeUpdate(id: id, name: name, storeId: storeId, langId: langId, idempotencyKey: idempotencyKey) { (response, error) in
+AttributeAPI.attributeUpdate(id: id, name: name, visible: visible, position: position, storeId: storeId, langId: langId, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -788,7 +792,9 @@ AttributeAPI.attributeUpdate(id: id, name: name, storeId: storeId, langId: langI
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String** | Entity id | 
- **name** | **String** | Defines new attributes&#39;s name | 
+ **name** | **String** | Defines new attributes&#39;s name | [optional] 
+ **visible** | **Bool** | Set visibility status | [optional] 
+ **position** | **Int** | Attribute&#x60;s position | [optional] [default to 0]
  **storeId** | **String** | Store Id | [optional] 
  **langId** | **String** | Language id | [optional] 
  **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 

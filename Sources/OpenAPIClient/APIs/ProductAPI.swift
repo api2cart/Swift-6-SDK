@@ -1486,6 +1486,7 @@ open class ProductAPI {
      - parameter productId: (query) Defines products specified by product id 
      - parameter manufacturer: (query) Defines product’s manufacturer&#39;s name 
      - parameter storeId: (query) Store Id (optional)
+     - parameter description: (query) Defines manufacturer&#39;s description (optional)
      - parameter metaTitle: (query) Defines unique meta title for each entity (optional)
      - parameter metaKeywords: (query) Defines unique meta keywords for each entity (optional)
      - parameter metaDescription: (query) Defines unique meta description of a entity (optional)
@@ -1497,8 +1498,8 @@ open class ProductAPI {
      - returns: ProductManufacturerAdd200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func productManufacturerAdd(productId: String, manufacturer: String, storeId: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, searchKeywords: String? = nil, imageUrl: String? = nil, seoUrl: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductManufacturerAdd200Response {
-        return try await productManufacturerAddWithRequestBuilder(productId: productId, manufacturer: manufacturer, storeId: storeId, metaTitle: metaTitle, metaKeywords: metaKeywords, metaDescription: metaDescription, searchKeywords: searchKeywords, imageUrl: imageUrl, seoUrl: seoUrl, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
+    open class func productManufacturerAdd(productId: String, manufacturer: String, storeId: String? = nil, description: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, searchKeywords: String? = nil, imageUrl: String? = nil, seoUrl: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductManufacturerAdd200Response {
+        return try await productManufacturerAddWithRequestBuilder(productId: productId, manufacturer: manufacturer, storeId: storeId, description: description, metaTitle: metaTitle, metaKeywords: metaKeywords, metaDescription: metaDescription, searchKeywords: searchKeywords, imageUrl: imageUrl, seoUrl: seoUrl, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -1514,6 +1515,7 @@ open class ProductAPI {
      - parameter productId: (query) Defines products specified by product id 
      - parameter manufacturer: (query) Defines product’s manufacturer&#39;s name 
      - parameter storeId: (query) Store Id (optional)
+     - parameter description: (query) Defines manufacturer&#39;s description (optional)
      - parameter metaTitle: (query) Defines unique meta title for each entity (optional)
      - parameter metaKeywords: (query) Defines unique meta keywords for each entity (optional)
      - parameter metaDescription: (query) Defines unique meta description of a entity (optional)
@@ -1524,7 +1526,7 @@ open class ProductAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProductManufacturerAdd200Response> 
      */
-    open class func productManufacturerAddWithRequestBuilder(productId: String, manufacturer: String, storeId: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, searchKeywords: String? = nil, imageUrl: String? = nil, seoUrl: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductManufacturerAdd200Response> {
+    open class func productManufacturerAddWithRequestBuilder(productId: String, manufacturer: String, storeId: String? = nil, description: String? = nil, metaTitle: String? = nil, metaKeywords: String? = nil, metaDescription: String? = nil, searchKeywords: String? = nil, imageUrl: String? = nil, seoUrl: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductManufacturerAdd200Response> {
         let localVariablePath = "/product.manufacturer.add.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1534,6 +1536,7 @@ open class ProductAPI {
             "product_id": (wrappedValue: productId.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "manufacturer": (wrappedValue: manufacturer.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "description": (wrappedValue: description?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "meta_title": (wrappedValue: metaTitle?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "meta_keywords": (wrappedValue: metaKeywords?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "meta_description": (wrappedValue: metaDescription?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),

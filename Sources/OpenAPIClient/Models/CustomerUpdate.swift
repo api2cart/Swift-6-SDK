@@ -44,9 +44,17 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var password: String?
     /** Currency Id */
     public var currencyId: String?
+    /** Defines customer's company */
+    public var company: String?
+    /** Specifies ISO code or name of country */
+    public var country: String?
+    /** Defines customer's fax */
+    public var fax: String?
+    /** Add Tax Id */
+    public var taxId: String?
     /** Marks a customer as tax-exempt (B2B/wholesale). */
     public var isTaxExempt: Bool?
-    /** Vendor Id */
+    /** Updates vendor id of the customer */
     public var vendorId: String?
     /** Store Id */
     public var storeId: String?
@@ -54,7 +62,7 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var idempotencyKey: String?
     public var address: [CustomerUpdateAddressInner]?
 
-    public init(id: String? = nil, groupId: String? = nil, groupIds: String? = nil, group: String? = nil, email: String? = nil, phone: String? = nil, firstName: String? = nil, lastName: String? = nil, birthDay: String? = nil, newsLetterSubscription: Bool? = nil, consents: [CustomerAddConsentsInner]? = nil, tags: String? = nil, gender: String? = nil, note: String? = nil, status: String? = nil, password: String? = nil, currencyId: String? = nil, isTaxExempt: Bool? = nil, vendorId: String? = nil, storeId: String? = nil, idempotencyKey: String? = nil, address: [CustomerUpdateAddressInner]? = nil) {
+    public init(id: String? = nil, groupId: String? = nil, groupIds: String? = nil, group: String? = nil, email: String? = nil, phone: String? = nil, firstName: String? = nil, lastName: String? = nil, birthDay: String? = nil, newsLetterSubscription: Bool? = nil, consents: [CustomerAddConsentsInner]? = nil, tags: String? = nil, gender: String? = nil, note: String? = nil, status: String? = nil, password: String? = nil, currencyId: String? = nil, company: String? = nil, country: String? = nil, fax: String? = nil, taxId: String? = nil, isTaxExempt: Bool? = nil, vendorId: String? = nil, storeId: String? = nil, idempotencyKey: String? = nil, address: [CustomerUpdateAddressInner]? = nil) {
         self.id = id
         self.groupId = groupId
         self.groupIds = groupIds
@@ -72,6 +80,10 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.status = status
         self.password = password
         self.currencyId = currencyId
+        self.company = company
+        self.country = country
+        self.fax = fax
+        self.taxId = taxId
         self.isTaxExempt = isTaxExempt
         self.vendorId = vendorId
         self.storeId = storeId
@@ -97,6 +109,10 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case status
         case password
         case currencyId = "currency_id"
+        case company
+        case country
+        case fax
+        case taxId = "tax_id"
         case isTaxExempt = "is_tax_exempt"
         case vendorId = "vendor_id"
         case storeId = "store_id"
@@ -125,6 +141,10 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(status, forKey: .status)
         try container.encodeIfPresent(password, forKey: .password)
         try container.encodeIfPresent(currencyId, forKey: .currencyId)
+        try container.encodeIfPresent(company, forKey: .company)
+        try container.encodeIfPresent(country, forKey: .country)
+        try container.encodeIfPresent(fax, forKey: .fax)
+        try container.encodeIfPresent(taxId, forKey: .taxId)
         try container.encodeIfPresent(isTaxExempt, forKey: .isTaxExempt)
         try container.encodeIfPresent(vendorId, forKey: .vendorId)
         try container.encodeIfPresent(storeId, forKey: .storeId)
