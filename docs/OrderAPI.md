@@ -20,6 +20,8 @@ Method | HTTP request | Description
 [**orderShipmentAdd**](OrderAPI.md#ordershipmentadd) | **POST** /order.shipment.add.json | order.shipment.add
 [**orderShipmentAddBatch**](OrderAPI.md#ordershipmentaddbatch) | **POST** /order.shipment.add.batch.json | order.shipment.add.batch
 [**orderShipmentDelete**](OrderAPI.md#ordershipmentdelete) | **DELETE** /order.shipment.delete.json | order.shipment.delete
+[**orderShipmentEventAdd**](OrderAPI.md#ordershipmenteventadd) | **POST** /order.shipment.event.add.json | order.shipment.event.add
+[**orderShipmentEventList**](OrderAPI.md#ordershipmenteventlist) | **GET** /order.shipment.event.list.json | order.shipment.event.list
 [**orderShipmentInfo**](OrderAPI.md#ordershipmentinfo) | **GET** /order.shipment.info.json | order.shipment.info
 [**orderShipmentList**](OrderAPI.md#ordershipmentlist) | **GET** /order.shipment.list.json | order.shipment.list
 [**orderShipmentTrackingAdd**](OrderAPI.md#ordershipmenttrackingadd) | **POST** /order.shipment.tracking.add.json | order.shipment.tracking.add
@@ -989,6 +991,118 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OrderShipmentDelete200Response**](OrderShipmentDelete200Response.md)
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orderShipmentEventAdd**
+```swift
+    open class func orderShipmentEventAdd(orderShipmentEventAdd: OrderShipmentEventAdd, completion: @escaping (_ data: AttributeAdd200Response?, _ error: Error?) -> Void)
+```
+
+order.shipment.event.add
+
+Add a tracking event to the shipment.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let orderShipmentEventAdd = OrderShipmentEventAdd(shipmentId: "shipmentId_example", orderId: "orderId_example", status: "status_example", storeId: "storeId_example", address1: "address1_example", city: "city_example", country: "country_example", state: "state_example", postcode: "postcode_example", message: "message_example", latitude: 123, longitude: 123, createdAt: "createdAt_example", estimatedDeliveryAt: "estimatedDeliveryAt_example", idempotencyKey: "idempotencyKey_example") // OrderShipmentEventAdd | 
+
+// order.shipment.event.add
+OrderAPI.orderShipmentEventAdd(orderShipmentEventAdd: orderShipmentEventAdd) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderShipmentEventAdd** | [**OrderShipmentEventAdd**](OrderShipmentEventAdd.md) |  | 
+
+### Return type
+
+[**AttributeAdd200Response**](AttributeAdd200Response.md)
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orderShipmentEventList**
+```swift
+    open class func orderShipmentEventList(shipmentId: String, orderId: String? = nil, storeId: String? = nil, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, responseFields: String? = nil, completion: @escaping (_ data: ModelResponseOrderShipmentEventList?, _ error: Error?) -> Void)
+```
+
+order.shipment.event.list
+
+Get list of shipment tracking events.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let shipmentId = "shipmentId_example" // String | Defines the shipment for which tracking events will be retrieved
+let orderId = "orderId_example" // String | Defines the order to which the shipment belongs (optional)
+let storeId = "storeId_example" // String | Store Id (optional)
+let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
+let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
+let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+
+// order.shipment.event.list
+OrderAPI.orderShipmentEventList(shipmentId: shipmentId, orderId: orderId, storeId: storeId, start: start, count: count, pageCursor: pageCursor, responseFields: responseFields) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **shipmentId** | **String** | Defines the shipment for which tracking events will be retrieved | 
+ **orderId** | **String** | Defines the order to which the shipment belongs | [optional] 
+ **storeId** | **String** | Store Id | [optional] 
+ **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
+ **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
+ **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+
+### Return type
+
+[**ModelResponseOrderShipmentEventList**](ModelResponseOrderShipmentEventList.md)
 
 ### Authorization
 

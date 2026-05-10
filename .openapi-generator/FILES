@@ -200,6 +200,7 @@ Sources/OpenAPIClient/Models/ModelResponseMarketplaceProductFind.swift
 Sources/OpenAPIClient/Models/ModelResponseOrderAbandonedList.swift
 Sources/OpenAPIClient/Models/ModelResponseOrderList.swift
 Sources/OpenAPIClient/Models/ModelResponseOrderPreestimateShippingList.swift
+Sources/OpenAPIClient/Models/ModelResponseOrderShipmentEventList.swift
 Sources/OpenAPIClient/Models/ModelResponseOrderShipmentList.swift
 Sources/OpenAPIClient/Models/ModelResponseOrderStatusList.swift
 Sources/OpenAPIClient/Models/ModelResponseOrderTransactionList.swift
@@ -269,6 +270,7 @@ Sources/OpenAPIClient/Models/OrderShipmentAddItemsInner.swift
 Sources/OpenAPIClient/Models/OrderShipmentAddTrackingNumbersInner.swift
 Sources/OpenAPIClient/Models/OrderShipmentDelete200Response.swift
 Sources/OpenAPIClient/Models/OrderShipmentDelete200ResponseResult.swift
+Sources/OpenAPIClient/Models/OrderShipmentEventAdd.swift
 Sources/OpenAPIClient/Models/OrderShipmentInfo200Response.swift
 Sources/OpenAPIClient/Models/OrderShipmentTrackingAdd.swift
 Sources/OpenAPIClient/Models/OrderShipmentTrackingAdd200Response.swift
@@ -417,6 +419,7 @@ Sources/OpenAPIClient/Models/ResponseMarketplaceProductFindResult.swift
 Sources/OpenAPIClient/Models/ResponseOrderAbandonedListResult.swift
 Sources/OpenAPIClient/Models/ResponseOrderListResult.swift
 Sources/OpenAPIClient/Models/ResponseOrderPreestimateShippingListResult.swift
+Sources/OpenAPIClient/Models/ResponseOrderShipmentEventListResult.swift
 Sources/OpenAPIClient/Models/ResponseOrderShipmentListResult.swift
 Sources/OpenAPIClient/Models/ResponseOrderStatusListResult.swift
 Sources/OpenAPIClient/Models/ResponseOrderTransactionListResult.swift
@@ -447,6 +450,7 @@ Sources/OpenAPIClient/Models/ReturnStatusList200Response.swift
 Sources/OpenAPIClient/Models/ReturnStatusList200ResponseResult.swift
 Sources/OpenAPIClient/Models/Script.swift
 Sources/OpenAPIClient/Models/Shipment.swift
+Sources/OpenAPIClient/Models/ShipmentEvent.swift
 Sources/OpenAPIClient/Models/ShipmentItem.swift
 Sources/OpenAPIClient/Models/ShipmentTrackingNumber.swift
 Sources/OpenAPIClient/Models/SpecialPrice.swift
@@ -649,6 +653,7 @@ docs/ModelResponseMarketplaceProductFind.md
 docs/ModelResponseOrderAbandonedList.md
 docs/ModelResponseOrderList.md
 docs/ModelResponseOrderPreestimateShippingList.md
+docs/ModelResponseOrderShipmentEventList.md
 docs/ModelResponseOrderShipmentList.md
 docs/ModelResponseOrderStatusList.md
 docs/ModelResponseOrderTransactionList.md
@@ -719,6 +724,7 @@ docs/OrderShipmentAddItemsInner.md
 docs/OrderShipmentAddTrackingNumbersInner.md
 docs/OrderShipmentDelete200Response.md
 docs/OrderShipmentDelete200ResponseResult.md
+docs/OrderShipmentEventAdd.md
 docs/OrderShipmentInfo200Response.md
 docs/OrderShipmentTrackingAdd.md
 docs/OrderShipmentTrackingAdd200Response.md
@@ -868,6 +874,7 @@ docs/ResponseMarketplaceProductFindResult.md
 docs/ResponseOrderAbandonedListResult.md
 docs/ResponseOrderListResult.md
 docs/ResponseOrderPreestimateShippingListResult.md
+docs/ResponseOrderShipmentEventListResult.md
 docs/ResponseOrderShipmentListResult.md
 docs/ResponseOrderStatusListResult.md
 docs/ResponseOrderTransactionListResult.md
@@ -899,6 +906,7 @@ docs/ReturnStatusList200Response.md
 docs/ReturnStatusList200ResponseResult.md
 docs/Script.md
 docs/Shipment.md
+docs/ShipmentEvent.md
 docs/ShipmentItem.md
 docs/ShipmentTrackingNumber.md
 docs/SpecialPrice.md
