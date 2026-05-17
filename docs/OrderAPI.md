@@ -659,7 +659,7 @@ Add a refund to the order.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let orderRefundAdd = OrderRefundAdd(orderId: "orderId_example", items: [OrderRefundAdd_items_inner(orderProductId: "orderProductId_example", quantity: 123, price: 123)], totalPrice: 123, shippingPrice: 123, feePrice: 123, message: "message_example", itemRestock: true, sendNotifications: true, date: "date_example", isOnline: false, idempotencyKey: "idempotencyKey_example") // OrderRefundAdd | 
+let orderRefundAdd = OrderRefundAdd(orderId: "orderId_example", items: [OrderRefundAdd_items_inner(orderProductId: "orderProductId_example", quantity: 123, price: 123)], totalPrice: 123, shippingPrice: 123, feePrice: 123, message: "message_example", itemRestock: true, sendNotifications: true, date: "date_example", storeId: "storeId_example", isOnline: false, idempotencyKey: "idempotencyKey_example") // OrderRefundAdd | 
 
 // order.refund.add
 OrderAPI.orderRefundAdd(orderRefundAdd: orderRefundAdd) { (response, error) in
