@@ -39,10 +39,12 @@ public struct OrderShipmentAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var trackingProvider: String?
     /** Use the latest platform API version */
     public var useLatestApiVersion: Bool? = false
+    /** Specifies admin's order comment */
+    public var adminComment: String?
     /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
     public var idempotencyKey: String?
 
-    public init(orderId: String? = nil, warehouseId: String? = nil, storeId: String? = nil, shipmentProvider: String? = nil, shippingMethod: String? = nil, items: [OrderShipmentAddItemsInner]? = nil, trackingNumbers: [OrderShipmentAddTrackingNumbersInner]? = nil, trackingLink: String? = nil, isShipped: Bool? = true, sendNotifications: Bool? = false, adjustStock: Bool? = false, enableCache: Bool? = false, checkProcessStatus: Bool? = false, trackingProvider: String? = nil, useLatestApiVersion: Bool? = false, idempotencyKey: String? = nil) {
+    public init(orderId: String? = nil, warehouseId: String? = nil, storeId: String? = nil, shipmentProvider: String? = nil, shippingMethod: String? = nil, items: [OrderShipmentAddItemsInner]? = nil, trackingNumbers: [OrderShipmentAddTrackingNumbersInner]? = nil, trackingLink: String? = nil, isShipped: Bool? = true, sendNotifications: Bool? = false, adjustStock: Bool? = false, enableCache: Bool? = false, checkProcessStatus: Bool? = false, trackingProvider: String? = nil, useLatestApiVersion: Bool? = false, adminComment: String? = nil, idempotencyKey: String? = nil) {
         self.orderId = orderId
         self.warehouseId = warehouseId
         self.storeId = storeId
@@ -58,6 +60,7 @@ public struct OrderShipmentAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.checkProcessStatus = checkProcessStatus
         self.trackingProvider = trackingProvider
         self.useLatestApiVersion = useLatestApiVersion
+        self.adminComment = adminComment
         self.idempotencyKey = idempotencyKey
     }
 
@@ -77,6 +80,7 @@ public struct OrderShipmentAdd: Sendable, Codable, JSONEncodable, Hashable {
         case checkProcessStatus = "check_process_status"
         case trackingProvider = "tracking_provider"
         case useLatestApiVersion = "use_latest_api_version"
+        case adminComment = "admin_comment"
         case idempotencyKey = "idempotency_key"
     }
 
@@ -99,6 +103,7 @@ public struct OrderShipmentAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(checkProcessStatus, forKey: .checkProcessStatus)
         try container.encodeIfPresent(trackingProvider, forKey: .trackingProvider)
         try container.encodeIfPresent(useLatestApiVersion, forKey: .useLatestApiVersion)
+        try container.encodeIfPresent(adminComment, forKey: .adminComment)
         try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
     }
 }

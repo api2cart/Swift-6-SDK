@@ -19,10 +19,16 @@ public struct OrderReturnUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var itemRestock: Bool? = false
     /** Defines return request status */
     public var returnStatusId: String?
+    /** Defines return request reason */
+    public var returnReasonId: String?
+    /** Defines return request action */
+    public var returnActionId: String?
     /** Specifies staff note */
     public var staffNote: String?
     /** Specifies return comment */
     public var comment: String?
+    /** Customer-visible message attached to the return request (updated). */
+    public var message: String?
     /** Send notifications to customer after order was created */
     public var sendNotifications: Bool? = false
     /** Defines return reject reason */
@@ -31,22 +37,34 @@ public struct OrderReturnUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var returnAction: String?
     /** Defines return request reason */
     public var returnReason: String?
+    /** Indicates whether refund type is online */
+    public var isOnline: Bool? = false
+    /** Specifies refund's fee price */
+    public var feePrice: Double?
+    /** Specifies order's shipping price */
+    public var shippingPrice: Double? = 0
     /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
     public var idempotencyKey: String?
     public var orderProducts: [OrderReturnUpdateOrderProductsInner]
 
-    public init(returnId: String, orderId: String? = nil, storeId: String? = nil, itemRestock: Bool? = false, returnStatusId: String? = nil, staffNote: String? = nil, comment: String? = nil, sendNotifications: Bool? = false, rejectReason: String? = nil, returnAction: String? = nil, returnReason: String? = nil, idempotencyKey: String? = nil, orderProducts: [OrderReturnUpdateOrderProductsInner]) {
+    public init(returnId: String, orderId: String? = nil, storeId: String? = nil, itemRestock: Bool? = false, returnStatusId: String? = nil, returnReasonId: String? = nil, returnActionId: String? = nil, staffNote: String? = nil, comment: String? = nil, message: String? = nil, sendNotifications: Bool? = false, rejectReason: String? = nil, returnAction: String? = nil, returnReason: String? = nil, isOnline: Bool? = false, feePrice: Double? = nil, shippingPrice: Double? = 0, idempotencyKey: String? = nil, orderProducts: [OrderReturnUpdateOrderProductsInner]) {
         self.returnId = returnId
         self.orderId = orderId
         self.storeId = storeId
         self.itemRestock = itemRestock
         self.returnStatusId = returnStatusId
+        self.returnReasonId = returnReasonId
+        self.returnActionId = returnActionId
         self.staffNote = staffNote
         self.comment = comment
+        self.message = message
         self.sendNotifications = sendNotifications
         self.rejectReason = rejectReason
         self.returnAction = returnAction
         self.returnReason = returnReason
+        self.isOnline = isOnline
+        self.feePrice = feePrice
+        self.shippingPrice = shippingPrice
         self.idempotencyKey = idempotencyKey
         self.orderProducts = orderProducts
     }
@@ -57,12 +75,18 @@ public struct OrderReturnUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case storeId = "store_id"
         case itemRestock = "item_restock"
         case returnStatusId = "return_status_id"
+        case returnReasonId = "return_reason_id"
+        case returnActionId = "return_action_id"
         case staffNote = "staff_note"
         case comment
+        case message
         case sendNotifications = "send_notifications"
         case rejectReason = "reject_reason"
         case returnAction = "return_action"
         case returnReason = "return_reason"
+        case isOnline = "is_online"
+        case feePrice = "fee_price"
+        case shippingPrice = "shipping_price"
         case idempotencyKey = "idempotency_key"
         case orderProducts = "order_products"
     }
@@ -76,12 +100,18 @@ public struct OrderReturnUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(itemRestock, forKey: .itemRestock)
         try container.encodeIfPresent(returnStatusId, forKey: .returnStatusId)
+        try container.encodeIfPresent(returnReasonId, forKey: .returnReasonId)
+        try container.encodeIfPresent(returnActionId, forKey: .returnActionId)
         try container.encodeIfPresent(staffNote, forKey: .staffNote)
         try container.encodeIfPresent(comment, forKey: .comment)
+        try container.encodeIfPresent(message, forKey: .message)
         try container.encodeIfPresent(sendNotifications, forKey: .sendNotifications)
         try container.encodeIfPresent(rejectReason, forKey: .rejectReason)
         try container.encodeIfPresent(returnAction, forKey: .returnAction)
         try container.encodeIfPresent(returnReason, forKey: .returnReason)
+        try container.encodeIfPresent(isOnline, forKey: .isOnline)
+        try container.encodeIfPresent(feePrice, forKey: .feePrice)
+        try container.encodeIfPresent(shippingPrice, forKey: .shippingPrice)
         try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
         try container.encode(orderProducts, forKey: .orderProducts)
     }

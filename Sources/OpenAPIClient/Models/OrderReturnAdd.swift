@@ -29,15 +29,23 @@ public struct OrderReturnAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var staffNote: String?
     /** Specifies return comment */
     public var comment: String?
+    /** Customer-visible message attached to the return request. */
+    public var message: String?
     /** Send notifications to customer after order was created */
     public var sendNotifications: Bool? = false
     /** Defines return reject reason */
     public var rejectReason: String?
+    /** Indicates whether refund type is online */
+    public var isOnline: Bool? = false
+    /** Specifies refund's fee price */
+    public var feePrice: Double?
+    /** Specifies order's shipping price */
+    public var shippingPrice: Double? = 0
     /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
     public var idempotencyKey: String?
     public var orderProducts: [OrderReturnAddOrderProductsInner]
 
-    public init(orderId: String? = nil, storeId: String? = nil, returnStatusId: String, returnActionId: String, returnReasonId: String, returnAction: String? = nil, returnReason: String? = nil, itemRestock: Bool? = false, staffNote: String? = nil, comment: String? = nil, sendNotifications: Bool? = false, rejectReason: String? = nil, idempotencyKey: String? = nil, orderProducts: [OrderReturnAddOrderProductsInner]) {
+    public init(orderId: String? = nil, storeId: String? = nil, returnStatusId: String, returnActionId: String, returnReasonId: String, returnAction: String? = nil, returnReason: String? = nil, itemRestock: Bool? = false, staffNote: String? = nil, comment: String? = nil, message: String? = nil, sendNotifications: Bool? = false, rejectReason: String? = nil, isOnline: Bool? = false, feePrice: Double? = nil, shippingPrice: Double? = 0, idempotencyKey: String? = nil, orderProducts: [OrderReturnAddOrderProductsInner]) {
         self.orderId = orderId
         self.storeId = storeId
         self.returnStatusId = returnStatusId
@@ -48,8 +56,12 @@ public struct OrderReturnAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.itemRestock = itemRestock
         self.staffNote = staffNote
         self.comment = comment
+        self.message = message
         self.sendNotifications = sendNotifications
         self.rejectReason = rejectReason
+        self.isOnline = isOnline
+        self.feePrice = feePrice
+        self.shippingPrice = shippingPrice
         self.idempotencyKey = idempotencyKey
         self.orderProducts = orderProducts
     }
@@ -65,8 +77,12 @@ public struct OrderReturnAdd: Sendable, Codable, JSONEncodable, Hashable {
         case itemRestock = "item_restock"
         case staffNote = "staff_note"
         case comment
+        case message
         case sendNotifications = "send_notifications"
         case rejectReason = "reject_reason"
+        case isOnline = "is_online"
+        case feePrice = "fee_price"
+        case shippingPrice = "shipping_price"
         case idempotencyKey = "idempotency_key"
         case orderProducts = "order_products"
     }
@@ -85,8 +101,12 @@ public struct OrderReturnAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(itemRestock, forKey: .itemRestock)
         try container.encodeIfPresent(staffNote, forKey: .staffNote)
         try container.encodeIfPresent(comment, forKey: .comment)
+        try container.encodeIfPresent(message, forKey: .message)
         try container.encodeIfPresent(sendNotifications, forKey: .sendNotifications)
         try container.encodeIfPresent(rejectReason, forKey: .rejectReason)
+        try container.encodeIfPresent(isOnline, forKey: .isOnline)
+        try container.encodeIfPresent(feePrice, forKey: .feePrice)
+        try container.encodeIfPresent(shippingPrice, forKey: .shippingPrice)
         try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
         try container.encode(orderProducts, forKey: .orderProducts)
     }

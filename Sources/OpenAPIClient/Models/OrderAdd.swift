@@ -144,6 +144,8 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var inventoryBehaviour: String? = "bypass"
     /** Defines whether the invoice is created automatically along with the order */
     public var createInvoice: Bool? = false
+    /** Specifies admin's order invoice comment */
+    public var invoiceAdminComment: String?
     /** Defines note attributes */
     public var noteAttributes: [OrderAddNoteAttributesInner]?
     /** Is cache clear required */
@@ -156,7 +158,7 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var idempotencyKey: String?
     public var orderItem: [OrderAddOrderItemInner]
 
-    public init(id: String? = nil, orderId: String? = nil, storeId: String? = nil, channelId: String? = nil, orderStatus: String, fulfillmentStatus: String? = nil, financialStatus: String? = nil, customerEmail: String, customerFirstName: String? = nil, customerLastName: String? = nil, customerPhone: String? = nil, customerCountry: String? = nil, customerBirthday: String? = nil, customerFax: String? = nil, isGuest: Bool? = false, orderPaymentMethod: String? = nil, transactionId: String? = nil, currency: String? = nil, date: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, billFirstName: String, billLastName: String, billAddress1: String, billAddress2: String? = nil, billCity: String, billPostcode: String, billState: String, billCountry: String, billCompany: String? = nil, billPhone: String? = nil, billFax: String? = nil, shippFirstName: String? = nil, shippLastName: String? = nil, shippAddress1: String? = nil, shippAddress2: String? = nil, shippCity: String? = nil, shippPostcode: String? = nil, shippState: String? = nil, shippCountry: String? = nil, shippCompany: String? = nil, shippPhone: String? = nil, shippFax: String? = nil, subtotalPrice: Double? = nil, taxPrice: Double? = 0, totalPrice: Double? = nil, totalPaid: Double? = nil, totalWeight: Int? = nil, pricesIncTax: Bool? = false, shippingPrice: Double? = 0, shippingTax: Double? = nil, discount: Double? = nil, couponDiscount: Double? = nil, giftCertificateDiscount: Double? = nil, orderShippingMethod: String? = nil, carrierId: String? = nil, warehouseId: String? = nil, coupons: [String]? = nil, tags: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, sendNotifications: Bool? = false, sendAdminNotifications: Bool? = false, externalSource: String? = nil, inventoryBehaviour: String? = "bypass", createInvoice: Bool? = false, noteAttributes: [OrderAddNoteAttributesInner]? = nil, clearCache: Bool? = true, origin: String? = nil, feePrice: Double? = nil, idempotencyKey: String? = nil, orderItem: [OrderAddOrderItemInner]) {
+    public init(id: String? = nil, orderId: String? = nil, storeId: String? = nil, channelId: String? = nil, orderStatus: String, fulfillmentStatus: String? = nil, financialStatus: String? = nil, customerEmail: String, customerFirstName: String? = nil, customerLastName: String? = nil, customerPhone: String? = nil, customerCountry: String? = nil, customerBirthday: String? = nil, customerFax: String? = nil, isGuest: Bool? = false, orderPaymentMethod: String? = nil, transactionId: String? = nil, currency: String? = nil, date: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, billFirstName: String, billLastName: String, billAddress1: String, billAddress2: String? = nil, billCity: String, billPostcode: String, billState: String, billCountry: String, billCompany: String? = nil, billPhone: String? = nil, billFax: String? = nil, shippFirstName: String? = nil, shippLastName: String? = nil, shippAddress1: String? = nil, shippAddress2: String? = nil, shippCity: String? = nil, shippPostcode: String? = nil, shippState: String? = nil, shippCountry: String? = nil, shippCompany: String? = nil, shippPhone: String? = nil, shippFax: String? = nil, subtotalPrice: Double? = nil, taxPrice: Double? = 0, totalPrice: Double? = nil, totalPaid: Double? = nil, totalWeight: Int? = nil, pricesIncTax: Bool? = false, shippingPrice: Double? = 0, shippingTax: Double? = nil, discount: Double? = nil, couponDiscount: Double? = nil, giftCertificateDiscount: Double? = nil, orderShippingMethod: String? = nil, carrierId: String? = nil, warehouseId: String? = nil, coupons: [String]? = nil, tags: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, sendNotifications: Bool? = false, sendAdminNotifications: Bool? = false, externalSource: String? = nil, inventoryBehaviour: String? = "bypass", createInvoice: Bool? = false, invoiceAdminComment: String? = nil, noteAttributes: [OrderAddNoteAttributesInner]? = nil, clearCache: Bool? = true, origin: String? = nil, feePrice: Double? = nil, idempotencyKey: String? = nil, orderItem: [OrderAddOrderItemInner]) {
         self.id = id
         self.orderId = orderId
         self.storeId = storeId
@@ -224,6 +226,7 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.externalSource = externalSource
         self.inventoryBehaviour = inventoryBehaviour
         self.createInvoice = createInvoice
+        self.invoiceAdminComment = invoiceAdminComment
         self.noteAttributes = noteAttributes
         self.clearCache = clearCache
         self.origin = origin
@@ -300,6 +303,7 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
         case externalSource = "external_source"
         case inventoryBehaviour = "inventory_behaviour"
         case createInvoice = "create_invoice"
+        case invoiceAdminComment = "invoice_admin_comment"
         case noteAttributes = "note_attributes"
         case clearCache = "clear_cache"
         case origin
@@ -379,6 +383,7 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(externalSource, forKey: .externalSource)
         try container.encodeIfPresent(inventoryBehaviour, forKey: .inventoryBehaviour)
         try container.encodeIfPresent(createInvoice, forKey: .createInvoice)
+        try container.encodeIfPresent(invoiceAdminComment, forKey: .invoiceAdminComment)
         try container.encodeIfPresent(noteAttributes, forKey: .noteAttributes)
         try container.encodeIfPresent(clearCache, forKey: .clearCache)
         try container.encodeIfPresent(origin, forKey: .origin)

@@ -12,6 +12,8 @@ public struct OrderCalculate: Sendable, Codable, JSONEncodable, Hashable {
     public static let couponsRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     /** Defines the customer specified by email for whom the order needs to be calculated */
     public var customerEmail: String
+    /** Currency code of order */
+    public var currency: String?
     /** Currency Id */
     public var currencyId: String?
     /** Store Id */
@@ -66,8 +68,9 @@ public struct OrderCalculate: Sendable, Codable, JSONEncodable, Hashable {
     public var idempotencyKey: String?
     public var orderItem: [OrderCalculateOrderItemInner]
 
-    public init(customerEmail: String, currencyId: String? = nil, storeId: String? = nil, coupons: [String]? = nil, roundingPrecision: Int? = nil, shippFirstName: String, shippLastName: String, shippAddress1: String, shippAddress2: String? = nil, shippCity: String, shippPostcode: String, shippState: String? = nil, shippCountry: String, shippCompany: String? = nil, shippPhone: String? = nil, billFirstName: String? = nil, billLastName: String? = nil, billAddress1: String? = nil, billAddress2: String? = nil, billCity: String? = nil, billPostcode: String? = nil, billState: String? = nil, billCountry: String? = nil, billCompany: String? = nil, billPhone: String? = nil, responseFields: String? = nil, idempotencyKey: String? = nil, orderItem: [OrderCalculateOrderItemInner]) {
+    public init(customerEmail: String, currency: String? = nil, currencyId: String? = nil, storeId: String? = nil, coupons: [String]? = nil, roundingPrecision: Int? = nil, shippFirstName: String, shippLastName: String, shippAddress1: String, shippAddress2: String? = nil, shippCity: String, shippPostcode: String, shippState: String? = nil, shippCountry: String, shippCompany: String? = nil, shippPhone: String? = nil, billFirstName: String? = nil, billLastName: String? = nil, billAddress1: String? = nil, billAddress2: String? = nil, billCity: String? = nil, billPostcode: String? = nil, billState: String? = nil, billCountry: String? = nil, billCompany: String? = nil, billPhone: String? = nil, responseFields: String? = nil, idempotencyKey: String? = nil, orderItem: [OrderCalculateOrderItemInner]) {
         self.customerEmail = customerEmail
+        self.currency = currency
         self.currencyId = currencyId
         self.storeId = storeId
         self.coupons = coupons
@@ -99,6 +102,7 @@ public struct OrderCalculate: Sendable, Codable, JSONEncodable, Hashable {
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case customerEmail = "customer_email"
+        case currency
         case currencyId = "currency_id"
         case storeId = "store_id"
         case coupons
@@ -133,6 +137,7 @@ public struct OrderCalculate: Sendable, Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(customerEmail, forKey: .customerEmail)
+        try container.encodeIfPresent(currency, forKey: .currency)
         try container.encodeIfPresent(currencyId, forKey: .currencyId)
         try container.encodeIfPresent(storeId, forKey: .storeId)
         try container.encodeIfPresent(coupons, forKey: .coupons)
