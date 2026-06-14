@@ -30,6 +30,8 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var birthDay: String?
     /** Defines whether the newsletter subscription is available for the user */
     public var newsLetterSubscription: Bool?
+    /** Defines whether the customer agreed to receive offers from partners */
+    public var partnerOffersSubscription: Bool?
     /** Defines consents to notifications */
     public var consents: [CustomerAddConsentsInner]?
     /** Customer tags */
@@ -46,6 +48,8 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var currencyId: String?
     /** Defines customer's company */
     public var company: String?
+    /** Link to customer website */
+    public var website: String?
     /** Specifies ISO code or name of country */
     public var country: String?
     /** Defines customer's fax */
@@ -62,7 +66,7 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var idempotencyKey: String?
     public var address: [CustomerUpdateAddressInner]?
 
-    public init(id: String? = nil, groupId: String? = nil, groupIds: String? = nil, group: String? = nil, email: String? = nil, phone: String? = nil, firstName: String? = nil, lastName: String? = nil, birthDay: String? = nil, newsLetterSubscription: Bool? = nil, consents: [CustomerAddConsentsInner]? = nil, tags: String? = nil, gender: String? = nil, note: String? = nil, status: String? = nil, password: String? = nil, currencyId: String? = nil, company: String? = nil, country: String? = nil, fax: String? = nil, taxId: String? = nil, isTaxExempt: Bool? = nil, vendorId: String? = nil, storeId: String? = nil, idempotencyKey: String? = nil, address: [CustomerUpdateAddressInner]? = nil) {
+    public init(id: String? = nil, groupId: String? = nil, groupIds: String? = nil, group: String? = nil, email: String? = nil, phone: String? = nil, firstName: String? = nil, lastName: String? = nil, birthDay: String? = nil, newsLetterSubscription: Bool? = nil, partnerOffersSubscription: Bool? = nil, consents: [CustomerAddConsentsInner]? = nil, tags: String? = nil, gender: String? = nil, note: String? = nil, status: String? = nil, password: String? = nil, currencyId: String? = nil, company: String? = nil, website: String? = nil, country: String? = nil, fax: String? = nil, taxId: String? = nil, isTaxExempt: Bool? = nil, vendorId: String? = nil, storeId: String? = nil, idempotencyKey: String? = nil, address: [CustomerUpdateAddressInner]? = nil) {
         self.id = id
         self.groupId = groupId
         self.groupIds = groupIds
@@ -73,6 +77,7 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.lastName = lastName
         self.birthDay = birthDay
         self.newsLetterSubscription = newsLetterSubscription
+        self.partnerOffersSubscription = partnerOffersSubscription
         self.consents = consents
         self.tags = tags
         self.gender = gender
@@ -81,6 +86,7 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
         self.password = password
         self.currencyId = currencyId
         self.company = company
+        self.website = website
         self.country = country
         self.fax = fax
         self.taxId = taxId
@@ -102,6 +108,7 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case lastName = "last_name"
         case birthDay = "birth_day"
         case newsLetterSubscription = "news_letter_subscription"
+        case partnerOffersSubscription = "partner_offers_subscription"
         case consents
         case tags
         case gender
@@ -110,6 +117,7 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
         case password
         case currencyId = "currency_id"
         case company
+        case website
         case country
         case fax
         case taxId = "tax_id"
@@ -134,6 +142,7 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(lastName, forKey: .lastName)
         try container.encodeIfPresent(birthDay, forKey: .birthDay)
         try container.encodeIfPresent(newsLetterSubscription, forKey: .newsLetterSubscription)
+        try container.encodeIfPresent(partnerOffersSubscription, forKey: .partnerOffersSubscription)
         try container.encodeIfPresent(consents, forKey: .consents)
         try container.encodeIfPresent(tags, forKey: .tags)
         try container.encodeIfPresent(gender, forKey: .gender)
@@ -142,6 +151,7 @@ public struct CustomerUpdate: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(password, forKey: .password)
         try container.encodeIfPresent(currencyId, forKey: .currencyId)
         try container.encodeIfPresent(company, forKey: .company)
+        try container.encodeIfPresent(website, forKey: .website)
         try container.encodeIfPresent(country, forKey: .country)
         try container.encodeIfPresent(fax, forKey: .fax)
         try container.encodeIfPresent(taxId, forKey: .taxId)
