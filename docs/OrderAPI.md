@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 # **orderCount**
 ```swift
-    open class func orderCount(orderIds: String? = nil, ids: String? = nil, customerId: String? = nil, storeId: String? = nil, customerEmail: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentChannel: String? = nil, fulfillmentStatus: String? = nil, shippingMethod: String? = nil, deliveryMethod: String? = nil, tags: String? = nil, shipNodeType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, useLatestApiVersion: Bool? = nil, vendorId: String? = nil, completion: @escaping (_ data: OrderCount200Response?, _ error: Error?) -> Void)
+    open class func orderCount(orderIds: String? = nil, ids: String? = nil, customerId: String? = nil, storeId: String? = nil, customerEmail: String? = nil, orderStatus: String? = nil, orderStatusIds: [String]? = nil, ebayOrderStatus: String? = nil, financialStatus: String? = nil, financialStatusIds: [String]? = nil, fulfillmentChannel: String? = nil, fulfillmentStatus: String? = nil, shippingMethod: String? = nil, deliveryMethod: String? = nil, tags: String? = nil, shipNodeType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, useLatestApiVersion: Bool? = nil, vendorId: String? = nil, completion: @escaping (_ data: ModelResponseOrderCount?, _ error: Error?) -> Void)
 ```
 
 order.count
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderCount200Response**](OrderCount200Response.md)
+[**ModelResponseOrderCount**](ModelResponseOrderCount.md)
 
 ### Authorization
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 # **orderFinancialStatusList**
 ```swift
-    open class func orderFinancialStatusList(completion: @escaping (_ data: OrderFinancialStatusList200Response?, _ error: Error?) -> Void)
+    open class func orderFinancialStatusList(completion: @escaping (_ data: ModelResponseOrderFinancialStatusList?, _ error: Error?) -> Void)
 ```
 
 order.financial_status.list
@@ -334,7 +334,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**OrderFinancialStatusList200Response**](OrderFinancialStatusList200Response.md)
+[**ModelResponseOrderFinancialStatusList**](ModelResponseOrderFinancialStatusList.md)
 
 ### Authorization
 
@@ -349,7 +349,7 @@ This endpoint does not need any parameter.
 
 # **orderFulfillmentStatusList**
 ```swift
-    open class func orderFulfillmentStatusList(action: String? = nil, completion: @escaping (_ data: OrderFulfillmentStatusList200Response?, _ error: Error?) -> Void)
+    open class func orderFulfillmentStatusList(action: String? = nil, completion: @escaping (_ data: ModelResponseOrderFulfillmentStatusList?, _ error: Error?) -> Void)
 ```
 
 order.fulfillment_status.list
@@ -384,7 +384,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderFulfillmentStatusList200Response**](OrderFulfillmentStatusList200Response.md)
+[**ModelResponseOrderFulfillmentStatusList**](ModelResponseOrderFulfillmentStatusList.md)
 
 ### Authorization
 

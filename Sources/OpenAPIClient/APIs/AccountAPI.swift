@@ -747,10 +747,10 @@ open class AccountAPI {
      account.supported_platforms
      
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: AccountSupportedPlatforms200Response
+     - returns: ModelResponseAccountSupportedPlatforms
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func accountSupportedPlatforms(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AccountSupportedPlatforms200Response {
+    open class func accountSupportedPlatforms(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseAccountSupportedPlatforms {
         return try await accountSupportedPlatformsWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -762,9 +762,9 @@ open class AccountAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<AccountSupportedPlatforms200Response> 
+     - returns: RequestBuilder<ModelResponseAccountSupportedPlatforms> 
      */
-    open class func accountSupportedPlatformsWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AccountSupportedPlatforms200Response> {
+    open class func accountSupportedPlatformsWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseAccountSupportedPlatforms> {
         let localVariablePath = "/account.supported_platforms.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -777,7 +777,7 @@ open class AccountAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AccountSupportedPlatforms200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseAccountSupportedPlatforms>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

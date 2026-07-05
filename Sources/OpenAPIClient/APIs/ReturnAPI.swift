@@ -13,10 +13,10 @@ open class ReturnAPI {
      return.action.list
      
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: ReturnActionList200Response
+     - returns: ModelResponseReturnActionList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func returnActionList(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ReturnActionList200Response {
+    open class func returnActionList(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseReturnActionList {
         return try await returnActionListWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -31,9 +31,9 @@ open class ReturnAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ReturnActionList200Response> 
+     - returns: RequestBuilder<ModelResponseReturnActionList> 
      */
-    open class func returnActionListWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ReturnActionList200Response> {
+    open class func returnActionListWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseReturnActionList> {
         let localVariablePath = "/return.action.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -46,7 +46,7 @@ open class ReturnAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ReturnActionList200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseReturnActionList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -66,10 +66,10 @@ open class ReturnAPI {
      - parameter reportRequestId: (query) Report request id (optional)
      - parameter disableReportCache: (query) Disable report cache for current request (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: ReturnCount200Response
+     - returns: ModelResponseReturnCount
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func returnCount(orderIds: String? = nil, customerId: String? = nil, storeId: String? = nil, status: String? = nil, returnType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ReturnCount200Response {
+    open class func returnCount(orderIds: String? = nil, customerId: String? = nil, storeId: String? = nil, status: String? = nil, returnType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseReturnCount {
         return try await returnCountWithRequestBuilder(orderIds: orderIds, customerId: customerId, storeId: storeId, status: status, returnType: returnType, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, reportRequestId: reportRequestId, disableReportCache: disableReportCache, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -95,9 +95,9 @@ open class ReturnAPI {
      - parameter reportRequestId: (query) Report request id (optional)
      - parameter disableReportCache: (query) Disable report cache for current request (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ReturnCount200Response> 
+     - returns: RequestBuilder<ModelResponseReturnCount> 
      */
-    open class func returnCountWithRequestBuilder(orderIds: String? = nil, customerId: String? = nil, storeId: String? = nil, status: String? = nil, returnType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ReturnCount200Response> {
+    open class func returnCountWithRequestBuilder(orderIds: String? = nil, customerId: String? = nil, storeId: String? = nil, status: String? = nil, returnType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseReturnCount> {
         let localVariablePath = "/return.count.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -123,7 +123,7 @@ open class ReturnAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ReturnCount200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseReturnCount>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -293,10 +293,10 @@ open class ReturnAPI {
      
      - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: ReturnReasonList200Response
+     - returns: ModelResponseReturnReasonList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func returnReasonList(storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ReturnReasonList200Response {
+    open class func returnReasonList(storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseReturnReasonList {
         return try await returnReasonListWithRequestBuilder(storeId: storeId, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -312,9 +312,9 @@ open class ReturnAPI {
        - name: ApiKeyAuth
      - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ReturnReasonList200Response> 
+     - returns: RequestBuilder<ModelResponseReturnReasonList> 
      */
-    open class func returnReasonListWithRequestBuilder(storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ReturnReasonList200Response> {
+    open class func returnReasonListWithRequestBuilder(storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseReturnReasonList> {
         let localVariablePath = "/return.reason.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -330,7 +330,7 @@ open class ReturnAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ReturnReasonList200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseReturnReasonList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -339,10 +339,10 @@ open class ReturnAPI {
      return.status.list
      
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: ReturnStatusList200Response
+     - returns: ModelResponseReturnStatusList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func returnStatusList(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ReturnStatusList200Response {
+    open class func returnStatusList(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseReturnStatusList {
         return try await returnStatusListWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -357,9 +357,9 @@ open class ReturnAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ReturnStatusList200Response> 
+     - returns: RequestBuilder<ModelResponseReturnStatusList> 
      */
-    open class func returnStatusListWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ReturnStatusList200Response> {
+    open class func returnStatusListWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseReturnStatusList> {
         let localVariablePath = "/return.status.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -372,7 +372,7 @@ open class ReturnAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ReturnStatusList200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseReturnStatusList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

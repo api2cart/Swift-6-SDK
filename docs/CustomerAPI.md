@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 # **customerCount**
 ```swift
-    open class func customerCount(ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, includeGuests: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, completion: @escaping (_ data: CustomerCount200Response?, _ error: Error?) -> Void)
+    open class func customerCount(ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, includeGuests: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, completion: @escaping (_ data: ModelResponseCustomerCount?, _ error: Error?) -> Void)
 ```
 
 customer.count
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomerCount200Response**](CustomerCount200Response.md)
+[**ModelResponseCustomerCount**](ModelResponseCustomerCount.md)
 
 ### Authorization
 
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 # **customerFind**
 ```swift
-    open class func customerFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, includeGuests: Bool? = nil, completion: @escaping (_ data: CustomerFind200Response?, _ error: Error?) -> Void)
+    open class func customerFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, includeGuests: Bool? = nil, completion: @escaping (_ data: ModelResponseCustomerFind?, _ error: Error?) -> Void)
 ```
 
 customer.find
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomerFind200Response**](CustomerFind200Response.md)
+[**ModelResponseCustomerFind**](ModelResponseCustomerFind.md)
 
 ### Authorization
 

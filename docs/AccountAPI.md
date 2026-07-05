@@ -585,7 +585,7 @@ Name | Type | Description  | Notes
 
 # **accountSupportedPlatforms**
 ```swift
-    open class func accountSupportedPlatforms(completion: @escaping (_ data: AccountSupportedPlatforms200Response?, _ error: Error?) -> Void)
+    open class func accountSupportedPlatforms(completion: @escaping (_ data: ModelResponseAccountSupportedPlatforms?, _ error: Error?) -> Void)
 ```
 
 account.supported_platforms
@@ -616,7 +616,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AccountSupportedPlatforms200Response**](AccountSupportedPlatforms200Response.md)
+[**ModelResponseAccountSupportedPlatforms**](ModelResponseAccountSupportedPlatforms.md)
 
 ### Authorization
 

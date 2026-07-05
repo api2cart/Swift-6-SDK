@@ -446,7 +446,7 @@ Name | Type | Description  | Notes
 
 # **productChildItemFind**
 ```swift
-    open class func productChildItemFind(findValue: String? = nil, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, completion: @escaping (_ data: ProductChildItemFind200Response?, _ error: Error?) -> Void)
+    open class func productChildItemFind(findValue: String? = nil, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, completion: @escaping (_ data: ModelResponseProductChildItemFind?, _ error: Error?) -> Void)
 ```
 
 product.child_item.find
@@ -487,7 +487,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProductChildItemFind200Response**](ProductChildItemFind200Response.md)
+[**ModelResponseProductChildItemFind**](ModelResponseProductChildItemFind.md)
 
 ### Authorization
 
@@ -662,7 +662,7 @@ Name | Type | Description  | Notes
 
 # **productCount**
 ```swift
-    open class func productCount(sku: String? = nil, productIds: String? = nil, sinceId: String? = nil, categoriesIds: String? = nil, categoryId: String? = nil, storeId: String? = nil, vendorId: String? = nil, langId: String? = nil, availView: Bool? = nil, availSale: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, brandName: String? = nil, manufacturerId: String? = nil, productAttributes: [String]? = nil, status: String? = nil, type: String? = nil, visible: String? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, returnGlobal: Bool? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: ProductCount200Response?, _ error: Error?) -> Void)
+    open class func productCount(sku: String? = nil, productIds: String? = nil, sinceId: String? = nil, categoriesIds: String? = nil, categoryId: String? = nil, storeId: String? = nil, vendorId: String? = nil, langId: String? = nil, availView: Bool? = nil, availSale: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, brandName: String? = nil, manufacturerId: String? = nil, productAttributes: [String]? = nil, status: String? = nil, type: String? = nil, visible: String? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, returnGlobal: Bool? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: ModelResponseProductCount?, _ error: Error?) -> Void)
 ```
 
 product.count
@@ -747,7 +747,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProductCount200Response**](ProductCount200Response.md)
+[**ModelResponseProductCount**](ModelResponseProductCount.md)
 
 ### Authorization
 
@@ -992,7 +992,7 @@ Name | Type | Description  | Notes
 
 # **productFind**
 ```swift
-    open class func productFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, findWhat: String? = nil, langId: String? = nil, storeId: String? = nil, completion: @escaping (_ data: ProductFind200Response?, _ error: Error?) -> Void)
+    open class func productFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, findWhat: String? = nil, langId: String? = nil, storeId: String? = nil, completion: @escaping (_ data: ModelResponseProductFind?, _ error: Error?) -> Void)
 ```
 
 product.find
@@ -1037,7 +1037,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProductFind200Response**](ProductFind200Response.md)
+[**ModelResponseProductFind**](ModelResponseProductFind.md)
 
 ### Authorization
 

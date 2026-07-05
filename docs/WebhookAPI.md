@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 # **webhookCount**
 ```swift
-    open class func webhookCount(entity: String? = nil, action: String? = nil, active: Bool? = nil, completion: @escaping (_ data: WebhookCount200Response?, _ error: Error?) -> Void)
+    open class func webhookCount(entity: String? = nil, action: String? = nil, active: Bool? = nil, completion: @escaping (_ data: ModelResponseWebhookCount?, _ error: Error?) -> Void)
 ```
 
 webhook.count
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WebhookCount200Response**](WebhookCount200Response.md)
+[**ModelResponseWebhookCount**](ModelResponseWebhookCount.md)
 
 ### Authorization
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 # **webhookEvents**
 ```swift
-    open class func webhookEvents(completion: @escaping (_ data: WebhookEvents200Response?, _ error: Error?) -> Void)
+    open class func webhookEvents(completion: @escaping (_ data: ModelResponseWebhookEvents?, _ error: Error?) -> Void)
 ```
 
 webhook.events
@@ -199,7 +199,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**WebhookEvents200Response**](WebhookEvents200Response.md)
+[**ModelResponseWebhookEvents**](ModelResponseWebhookEvents.md)
 
 ### Authorization
 

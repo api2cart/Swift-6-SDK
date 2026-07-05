@@ -185,10 +185,10 @@ open class CustomerAPI {
      - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
      - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: CustomerCount200Response
+     - returns: ModelResponseCustomerCount
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func customerCount(ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, includeGuests: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerCount200Response {
+    open class func customerCount(ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, includeGuests: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCustomerCount {
         return try await customerCountWithRequestBuilder(ids: ids, sinceId: sinceId, customerListId: customerListId, groupId: groupId, storeId: storeId, avail: avail, includeGuests: includeGuests, findValue: findValue, findWhere: findWhere, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -216,9 +216,9 @@ open class CustomerAPI {
      - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
      - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<CustomerCount200Response> 
+     - returns: RequestBuilder<ModelResponseCustomerCount> 
      */
-    open class func customerCountWithRequestBuilder(ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, includeGuests: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CustomerCount200Response> {
+    open class func customerCountWithRequestBuilder(ids: String? = nil, sinceId: String? = nil, customerListId: String? = nil, groupId: String? = nil, storeId: String? = nil, avail: Bool? = nil, includeGuests: Bool? = nil, findValue: String? = nil, findWhere: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCustomerCount> {
         let localVariablePath = "/customer.count.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -246,7 +246,7 @@ open class CustomerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CustomerCount200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseCustomerCount>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -310,10 +310,10 @@ open class CustomerAPI {
      - parameter storeId: (query) Store Id (optional)
      - parameter includeGuests: (query) Indicates whether to search among guest customers when looking up a customer. (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: CustomerFind200Response
+     - returns: ModelResponseCustomerFind
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func customerFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, includeGuests: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CustomerFind200Response {
+    open class func customerFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, includeGuests: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCustomerFind {
         return try await customerFindWithRequestBuilder(findValue: findValue, findWhere: findWhere, findParams: findParams, storeId: storeId, includeGuests: includeGuests, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -333,9 +333,9 @@ open class CustomerAPI {
      - parameter storeId: (query) Store Id (optional)
      - parameter includeGuests: (query) Indicates whether to search among guest customers when looking up a customer. (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<CustomerFind200Response> 
+     - returns: RequestBuilder<ModelResponseCustomerFind> 
      */
-    open class func customerFindWithRequestBuilder(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, includeGuests: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CustomerFind200Response> {
+    open class func customerFindWithRequestBuilder(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, includeGuests: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCustomerFind> {
         let localVariablePath = "/customer.find.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -355,7 +355,7 @@ open class CustomerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CustomerFind200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseCustomerFind>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

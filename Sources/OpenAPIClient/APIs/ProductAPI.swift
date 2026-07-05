@@ -428,10 +428,10 @@ open class ProductAPI {
      - parameter findParams: (query) Entity search that is specified by comma-separated parameters (optional, default to "whole_words")
      - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: ProductChildItemFind200Response
+     - returns: ModelResponseProductChildItemFind
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func productChildItemFind(findValue: String? = nil, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductChildItemFind200Response {
+    open class func productChildItemFind(findValue: String? = nil, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseProductChildItemFind {
         return try await productChildItemFindWithRequestBuilder(findValue: findValue, findWhere: findWhere, findParams: findParams, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -450,9 +450,9 @@ open class ProductAPI {
      - parameter findParams: (query) Entity search that is specified by comma-separated parameters (optional, default to "whole_words")
      - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ProductChildItemFind200Response> 
+     - returns: RequestBuilder<ModelResponseProductChildItemFind> 
      */
-    open class func productChildItemFindWithRequestBuilder(findValue: String? = nil, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductChildItemFind200Response> {
+    open class func productChildItemFindWithRequestBuilder(findValue: String? = nil, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseProductChildItemFind> {
         let localVariablePath = "/product.child_item.find.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -471,7 +471,7 @@ open class ProductAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ProductChildItemFind200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseProductChildItemFind>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -690,10 +690,10 @@ open class ProductAPI {
      - parameter disableReportCache: (query) Disable report cache for current request (optional, default to false)
      - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: ProductCount200Response
+     - returns: ModelResponseProductCount
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func productCount(sku: String? = nil, productIds: String? = nil, sinceId: String? = nil, categoriesIds: String? = nil, categoryId: String? = nil, storeId: String? = nil, vendorId: String? = nil, langId: String? = nil, availView: Bool? = nil, availSale: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, brandName: String? = nil, manufacturerId: String? = nil, productAttributes: [String]? = nil, status: String? = nil, type: String? = nil, visible: String? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, returnGlobal: Bool? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductCount200Response {
+    open class func productCount(sku: String? = nil, productIds: String? = nil, sinceId: String? = nil, categoriesIds: String? = nil, categoryId: String? = nil, storeId: String? = nil, vendorId: String? = nil, langId: String? = nil, availView: Bool? = nil, availSale: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, brandName: String? = nil, manufacturerId: String? = nil, productAttributes: [String]? = nil, status: String? = nil, type: String? = nil, visible: String? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, returnGlobal: Bool? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseProductCount {
         return try await productCountWithRequestBuilder(sku: sku, productIds: productIds, sinceId: sinceId, categoriesIds: categoriesIds, categoryId: categoryId, storeId: storeId, vendorId: vendorId, langId: langId, availView: availView, availSale: availSale, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, brandName: brandName, manufacturerId: manufacturerId, productAttributes: productAttributes, status: status, type: type, visible: visible, findValue: findValue, findWhere: findWhere, reportRequestId: reportRequestId, returnGlobal: returnGlobal, disableReportCache: disableReportCache, useLatestApiVersion: useLatestApiVersion, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -734,9 +734,9 @@ open class ProductAPI {
      - parameter disableReportCache: (query) Disable report cache for current request (optional, default to false)
      - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ProductCount200Response> 
+     - returns: RequestBuilder<ModelResponseProductCount> 
      */
-    open class func productCountWithRequestBuilder(sku: String? = nil, productIds: String? = nil, sinceId: String? = nil, categoriesIds: String? = nil, categoryId: String? = nil, storeId: String? = nil, vendorId: String? = nil, langId: String? = nil, availView: Bool? = nil, availSale: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, brandName: String? = nil, manufacturerId: String? = nil, productAttributes: [String]? = nil, status: String? = nil, type: String? = nil, visible: String? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, returnGlobal: Bool? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductCount200Response> {
+    open class func productCountWithRequestBuilder(sku: String? = nil, productIds: String? = nil, sinceId: String? = nil, categoriesIds: String? = nil, categoryId: String? = nil, storeId: String? = nil, vendorId: String? = nil, langId: String? = nil, availView: Bool? = nil, availSale: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, brandName: String? = nil, manufacturerId: String? = nil, productAttributes: [String]? = nil, status: String? = nil, type: String? = nil, visible: String? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, returnGlobal: Bool? = nil, disableReportCache: Bool? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseProductCount> {
         let localVariablePath = "/product.count.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -777,7 +777,7 @@ open class ProductAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ProductCount200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseProductCount>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -1022,10 +1022,10 @@ open class ProductAPI {
      - parameter langId: (query) Search products specified by language id (optional)
      - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: ProductFind200Response
+     - returns: ModelResponseProductFind
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func productFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, findWhat: String? = nil, langId: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProductFind200Response {
+    open class func productFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, findWhat: String? = nil, langId: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseProductFind {
         return try await productFindWithRequestBuilder(findValue: findValue, findWhere: findWhere, findParams: findParams, findWhat: findWhat, langId: langId, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -1046,9 +1046,9 @@ open class ProductAPI {
      - parameter langId: (query) Search products specified by language id (optional)
      - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<ProductFind200Response> 
+     - returns: RequestBuilder<ModelResponseProductFind> 
      */
-    open class func productFindWithRequestBuilder(findValue: String, findWhere: String? = nil, findParams: String? = nil, findWhat: String? = nil, langId: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProductFind200Response> {
+    open class func productFindWithRequestBuilder(findValue: String, findWhere: String? = nil, findParams: String? = nil, findWhat: String? = nil, langId: String? = nil, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseProductFind> {
         let localVariablePath = "/product.find.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1069,7 +1069,7 @@ open class ProductAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ProductFind200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseProductFind>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

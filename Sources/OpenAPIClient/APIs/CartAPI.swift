@@ -13,10 +13,10 @@ open class CartAPI {
      cart.catalog_price_rules.count
      
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: CartCatalogPriceRulesCount200Response
+     - returns: ModelResponseCartCatalogPriceRulesCount
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartCatalogPriceRulesCount(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartCatalogPriceRulesCount200Response {
+    open class func cartCatalogPriceRulesCount(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartCatalogPriceRulesCount {
         return try await cartCatalogPriceRulesCountWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -31,9 +31,9 @@ open class CartAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<CartCatalogPriceRulesCount200Response> 
+     - returns: RequestBuilder<ModelResponseCartCatalogPriceRulesCount> 
      */
-    open class func cartCatalogPriceRulesCountWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartCatalogPriceRulesCount200Response> {
+    open class func cartCatalogPriceRulesCountWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartCatalogPriceRulesCount> {
         let localVariablePath = "/cart.catalog_price_rules.count.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -46,7 +46,7 @@ open class CartAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CartCatalogPriceRulesCount200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseCartCatalogPriceRulesCount>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -274,10 +274,10 @@ open class CartAPI {
      - parameter dateEndFrom: (query) Filter entity by date_end (greater or equal) (optional)
      - parameter dateEndTo: (query) Filter entity by date_end (less or equal) (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: CartCouponCount200Response
+     - returns: ModelResponseCartCouponCount
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartCouponCount(storeId: String? = nil, avail: Bool? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartCouponCount200Response {
+    open class func cartCouponCount(storeId: String? = nil, avail: Bool? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartCouponCount {
         return try await cartCouponCountWithRequestBuilder(storeId: storeId, avail: avail, dateStartFrom: dateStartFrom, dateStartTo: dateStartTo, dateEndFrom: dateEndFrom, dateEndTo: dateEndTo, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -298,9 +298,9 @@ open class CartAPI {
      - parameter dateEndFrom: (query) Filter entity by date_end (greater or equal) (optional)
      - parameter dateEndTo: (query) Filter entity by date_end (less or equal) (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<CartCouponCount200Response> 
+     - returns: RequestBuilder<ModelResponseCartCouponCount> 
      */
-    open class func cartCouponCountWithRequestBuilder(storeId: String? = nil, avail: Bool? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartCouponCount200Response> {
+    open class func cartCouponCountWithRequestBuilder(storeId: String? = nil, avail: Bool? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartCouponCount> {
         let localVariablePath = "/cart.coupon.count.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -321,7 +321,7 @@ open class CartAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CartCouponCount200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseCartCouponCount>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -516,18 +516,22 @@ open class CartAPI {
      cart.giftcard.add
      
      - parameter amount: (query) Defines the gift card amount value. 
+     - parameter currency: (query) Defines currency code (optional)
+     - parameter storeId: (query) Store Id (optional)
      - parameter code: (query) Gift card code (optional)
+     - parameter name: (query) Entity name (optional)
      - parameter ownerEmail: (query) Gift card owner email (optional)
+     - parameter ownerName: (query) Gift card owner name (optional)
      - parameter recipientEmail: (query) Gift card recipient email (optional)
      - parameter recipientName: (query) Gift card recipient name (optional)
-     - parameter ownerName: (query) Gift card owner name (optional)
+     - parameter message: (query) Free-form message attached to the entity. (optional)
      - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CartGiftcardAdd200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartGiftcardAdd(amount: Double, code: String? = nil, ownerEmail: String? = nil, recipientEmail: String? = nil, recipientName: String? = nil, ownerName: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartGiftcardAdd200Response {
-        return try await cartGiftcardAddWithRequestBuilder(amount: amount, code: code, ownerEmail: ownerEmail, recipientEmail: recipientEmail, recipientName: recipientName, ownerName: ownerName, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
+    open class func cartGiftcardAdd(amount: Double, currency: String? = nil, storeId: String? = nil, code: String? = nil, name: String? = nil, ownerEmail: String? = nil, ownerName: String? = nil, recipientEmail: String? = nil, recipientName: String? = nil, message: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartGiftcardAdd200Response {
+        return try await cartGiftcardAddWithRequestBuilder(amount: amount, currency: currency, storeId: storeId, code: code, name: name, ownerEmail: ownerEmail, ownerName: ownerName, recipientEmail: recipientEmail, recipientName: recipientName, message: message, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -541,16 +545,20 @@ open class CartAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter amount: (query) Defines the gift card amount value. 
+     - parameter currency: (query) Defines currency code (optional)
+     - parameter storeId: (query) Store Id (optional)
      - parameter code: (query) Gift card code (optional)
+     - parameter name: (query) Entity name (optional)
      - parameter ownerEmail: (query) Gift card owner email (optional)
+     - parameter ownerName: (query) Gift card owner name (optional)
      - parameter recipientEmail: (query) Gift card recipient email (optional)
      - parameter recipientName: (query) Gift card recipient name (optional)
-     - parameter ownerName: (query) Gift card owner name (optional)
+     - parameter message: (query) Free-form message attached to the entity. (optional)
      - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CartGiftcardAdd200Response> 
      */
-    open class func cartGiftcardAddWithRequestBuilder(amount: Double, code: String? = nil, ownerEmail: String? = nil, recipientEmail: String? = nil, recipientName: String? = nil, ownerName: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartGiftcardAdd200Response> {
+    open class func cartGiftcardAddWithRequestBuilder(amount: Double, currency: String? = nil, storeId: String? = nil, code: String? = nil, name: String? = nil, ownerEmail: String? = nil, ownerName: String? = nil, recipientEmail: String? = nil, recipientName: String? = nil, message: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartGiftcardAdd200Response> {
         let localVariablePath = "/cart.giftcard.add.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -558,11 +566,15 @@ open class CartAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "amount": (wrappedValue: amount.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "currency": (wrappedValue: currency?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "code": (wrappedValue: code?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "name": (wrappedValue: name?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "owner_email": (wrappedValue: ownerEmail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "owner_name": (wrappedValue: ownerName?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "recipient_email": (wrappedValue: recipientEmail?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "recipient_name": (wrappedValue: recipientName?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "owner_name": (wrappedValue: ownerName?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "message": (wrappedValue: message?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "idempotency_key": (wrappedValue: idempotencyKey?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
@@ -582,10 +594,10 @@ open class CartAPI {
      
      - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: CartGiftcardCount200Response
+     - returns: ModelResponseCartGiftcardCount
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartGiftcardCount(storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartGiftcardCount200Response {
+    open class func cartGiftcardCount(storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartGiftcardCount {
         return try await cartGiftcardCountWithRequestBuilder(storeId: storeId, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -601,9 +613,9 @@ open class CartAPI {
        - name: ApiKeyAuth
      - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<CartGiftcardCount200Response> 
+     - returns: RequestBuilder<ModelResponseCartGiftcardCount> 
      */
-    open class func cartGiftcardCountWithRequestBuilder(storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartGiftcardCount200Response> {
+    open class func cartGiftcardCountWithRequestBuilder(storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartGiftcardCount> {
         let localVariablePath = "/cart.giftcard.count.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -619,7 +631,7 @@ open class CartAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CartGiftcardCount200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseCartGiftcardCount>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -628,12 +640,13 @@ open class CartAPI {
      cart.giftcard.delete
      
      - parameter id: (query) Entity id 
+     - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AttributeDelete200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartGiftcardDelete(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeDelete200Response {
-        return try await cartGiftcardDeleteWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
+    open class func cartGiftcardDelete(id: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeDelete200Response {
+        return try await cartGiftcardDeleteWithRequestBuilder(id: id, storeId: storeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -647,10 +660,11 @@ open class CartAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter id: (query) Entity id 
+     - parameter storeId: (query) Store Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AttributeDelete200Response> 
      */
-    open class func cartGiftcardDeleteWithRequestBuilder(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeDelete200Response> {
+    open class func cartGiftcardDeleteWithRequestBuilder(id: String, storeId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeDelete200Response> {
         let localVariablePath = "/cart.giftcard.delete.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -658,6 +672,7 @@ open class CartAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "id": (wrappedValue: id.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "store_id": (wrappedValue: storeId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -674,6 +689,7 @@ open class CartAPI {
     /**
      cart.giftcard.list
      
+     - parameter ids: (query) Retrieves gift cards specified by ids (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
      - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
@@ -685,8 +701,8 @@ open class CartAPI {
      - returns: ModelResponseCartGiftCardList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartGiftcardList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartGiftCardList {
-        return try await cartGiftcardListWithRequestBuilder(start: start, count: count, pageCursor: pageCursor, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
+    open class func cartGiftcardList(ids: String? = nil, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartGiftCardList {
+        return try await cartGiftcardListWithRequestBuilder(ids: ids, start: start, count: count, pageCursor: pageCursor, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -699,6 +715,7 @@ open class CartAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
+     - parameter ids: (query) Retrieves gift cards specified by ids (optional)
      - parameter start: (query) This parameter sets the number from which you want to get entities (optional, default to 0)
      - parameter count: (query) This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
      - parameter pageCursor: (query) Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
@@ -709,13 +726,14 @@ open class CartAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseCartGiftCardList> 
      */
-    open class func cartGiftcardListWithRequestBuilder(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartGiftCardList> {
+    open class func cartGiftcardListWithRequestBuilder(ids: String? = nil, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartGiftCardList> {
         let localVariablePath = "/cart.giftcard.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "ids": (wrappedValue: ids?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "start": (wrappedValue: start?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "count": (wrappedValue: count?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "page_cursor": (wrappedValue: pageCursor?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
@@ -816,7 +834,7 @@ open class CartAPI {
     /**
      cart.meta_data.list
      - GET /cart.meta_data.list.json
-     - Using this method, you can get a list of metadata for various entities (products, options, customers, orders). Usually this is data created by third-party plugins.
+     - Using this method, you can get a list of metadata for various entities. Entities supported may differ across platforms. To get the list of supported entities, pass an invalid value in the <code>entity</code> parameter. The response will contain the list of entities supported by the specific platform. Usually this is data created by third-party plugins.
      - API Key:
        - type: apiKey x-store-key (HEADER)
        - name: StoreKeyAuth
@@ -888,7 +906,7 @@ open class CartAPI {
     /**
      cart.meta_data.set
      - POST /cart.meta_data.set.json
-     - Set meta data for a specific entity
+     - Set metadata for a specific entity. Entities supported may differ across platforms. To get the list of supported entities, pass an invalid value in the <code>entity</code> parameter. The response will contain the list of entities supported by the specific platform. Usually this is data created by third-party plugins.
      - API Key:
        - type: apiKey x-store-key (HEADER)
        - name: StoreKeyAuth
@@ -997,10 +1015,10 @@ open class CartAPI {
      cart.methods
      
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: CartMethods200Response
+     - returns: ModelResponseCartMethods
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartMethods(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartMethods200Response {
+    open class func cartMethods(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCartMethods {
         return try await cartMethodsWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -1015,9 +1033,9 @@ open class CartAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<CartMethods200Response> 
+     - returns: RequestBuilder<ModelResponseCartMethods> 
      */
-    open class func cartMethodsWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartMethods200Response> {
+    open class func cartMethodsWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCartMethods> {
         let localVariablePath = "/cart.methods.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -1030,7 +1048,7 @@ open class CartAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CartMethods200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseCartMethods>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

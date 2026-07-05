@@ -31,7 +31,7 @@ Method | HTTP request | Description
 
 # **cartCatalogPriceRulesCount**
 ```swift
-    open class func cartCatalogPriceRulesCount(completion: @escaping (_ data: CartCatalogPriceRulesCount200Response?, _ error: Error?) -> Void)
+    open class func cartCatalogPriceRulesCount(completion: @escaping (_ data: ModelResponseCartCatalogPriceRulesCount?, _ error: Error?) -> Void)
 ```
 
 cart.catalog_price_rules.count
@@ -62,7 +62,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**CartCatalogPriceRulesCount200Response**](CartCatalogPriceRulesCount200Response.md)
+[**ModelResponseCartCatalogPriceRulesCount**](ModelResponseCartCatalogPriceRulesCount.md)
 
 ### Authorization
 
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 # **cartCouponCount**
 ```swift
-    open class func cartCouponCount(storeId: String? = nil, avail: Bool? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, completion: @escaping (_ data: CartCouponCount200Response?, _ error: Error?) -> Void)
+    open class func cartCouponCount(storeId: String? = nil, avail: Bool? = nil, dateStartFrom: String? = nil, dateStartTo: String? = nil, dateEndFrom: String? = nil, dateEndTo: String? = nil, completion: @escaping (_ data: ModelResponseCartCouponCount?, _ error: Error?) -> Void)
 ```
 
 cart.coupon.count
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CartCouponCount200Response**](CartCouponCount200Response.md)
+[**ModelResponseCartCouponCount**](ModelResponseCartCouponCount.md)
 
 ### Authorization
 
@@ -497,7 +497,7 @@ Name | Type | Description  | Notes
 
 # **cartGiftcardAdd**
 ```swift
-    open class func cartGiftcardAdd(amount: Double, code: String? = nil, ownerEmail: String? = nil, recipientEmail: String? = nil, recipientName: String? = nil, ownerName: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: CartGiftcardAdd200Response?, _ error: Error?) -> Void)
+    open class func cartGiftcardAdd(amount: Double, currency: String? = nil, storeId: String? = nil, code: String? = nil, name: String? = nil, ownerEmail: String? = nil, ownerName: String? = nil, recipientEmail: String? = nil, recipientName: String? = nil, message: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: CartGiftcardAdd200Response?, _ error: Error?) -> Void)
 ```
 
 cart.giftcard.add
@@ -510,15 +510,19 @@ Use this method to create a gift card for a specified amount.
 import OpenAPIClient
 
 let amount = 987 // Double | Defines the gift card amount value.
+let currency = "currency_example" // String | Defines currency code (optional)
+let storeId = "storeId_example" // String | Store Id (optional)
 let code = "code_example" // String | Gift card code (optional)
+let name = "name_example" // String | Entity name (optional)
 let ownerEmail = "ownerEmail_example" // String | Gift card owner email (optional)
+let ownerName = "ownerName_example" // String | Gift card owner name (optional)
 let recipientEmail = "recipientEmail_example" // String | Gift card recipient email (optional)
 let recipientName = "recipientName_example" // String | Gift card recipient name (optional)
-let ownerName = "ownerName_example" // String | Gift card owner name (optional)
+let message = "message_example" // String | Free-form message attached to the entity. (optional)
 let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // cart.giftcard.add
-CartAPI.cartGiftcardAdd(amount: amount, code: code, ownerEmail: ownerEmail, recipientEmail: recipientEmail, recipientName: recipientName, ownerName: ownerName, idempotencyKey: idempotencyKey) { (response, error) in
+CartAPI.cartGiftcardAdd(amount: amount, currency: currency, storeId: storeId, code: code, name: name, ownerEmail: ownerEmail, ownerName: ownerName, recipientEmail: recipientEmail, recipientName: recipientName, message: message, idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -535,11 +539,15 @@ CartAPI.cartGiftcardAdd(amount: amount, code: code, ownerEmail: ownerEmail, reci
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **amount** | **Double** | Defines the gift card amount value. | 
+ **currency** | **String** | Defines currency code | [optional] 
+ **storeId** | **String** | Store Id | [optional] 
  **code** | **String** | Gift card code | [optional] 
+ **name** | **String** | Entity name | [optional] 
  **ownerEmail** | **String** | Gift card owner email | [optional] 
+ **ownerName** | **String** | Gift card owner name | [optional] 
  **recipientEmail** | **String** | Gift card recipient email | [optional] 
  **recipientName** | **String** | Gift card recipient name | [optional] 
- **ownerName** | **String** | Gift card owner name | [optional] 
+ **message** | **String** | Free-form message attached to the entity. | [optional] 
  **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
@@ -559,7 +567,7 @@ Name | Type | Description  | Notes
 
 # **cartGiftcardCount**
 ```swift
-    open class func cartGiftcardCount(storeId: String? = nil, completion: @escaping (_ data: CartGiftcardCount200Response?, _ error: Error?) -> Void)
+    open class func cartGiftcardCount(storeId: String? = nil, completion: @escaping (_ data: ModelResponseCartGiftcardCount?, _ error: Error?) -> Void)
 ```
 
 cart.giftcard.count
@@ -594,7 +602,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CartGiftcardCount200Response**](CartGiftcardCount200Response.md)
+[**ModelResponseCartGiftcardCount**](ModelResponseCartGiftcardCount.md)
 
 ### Authorization
 
@@ -609,7 +617,7 @@ Name | Type | Description  | Notes
 
 # **cartGiftcardDelete**
 ```swift
-    open class func cartGiftcardDelete(id: String, completion: @escaping (_ data: AttributeDelete200Response?, _ error: Error?) -> Void)
+    open class func cartGiftcardDelete(id: String, storeId: String? = nil, completion: @escaping (_ data: AttributeDelete200Response?, _ error: Error?) -> Void)
 ```
 
 cart.giftcard.delete
@@ -622,9 +630,10 @@ Delete giftcard
 import OpenAPIClient
 
 let id = "id_example" // String | Entity id
+let storeId = "storeId_example" // String | Store Id (optional)
 
 // cart.giftcard.delete
-CartAPI.cartGiftcardDelete(id: id) { (response, error) in
+CartAPI.cartGiftcardDelete(id: id, storeId: storeId) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -641,6 +650,7 @@ CartAPI.cartGiftcardDelete(id: id) { (response, error) in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String** | Entity id | 
+ **storeId** | **String** | Store Id | [optional] 
 
 ### Return type
 
@@ -659,7 +669,7 @@ Name | Type | Description  | Notes
 
 # **cartGiftcardList**
 ```swift
-    open class func cartGiftcardList(start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartGiftCardList?, _ error: Error?) -> Void)
+    open class func cartGiftcardList(ids: String? = nil, start: Int? = nil, count: Int? = nil, pageCursor: String? = nil, storeId: String? = nil, responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: ModelResponseCartGiftCardList?, _ error: Error?) -> Void)
 ```
 
 cart.giftcard.list
@@ -671,6 +681,7 @@ Get gift cards list.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
+let ids = "ids_example" // String | Retrieves gift cards specified by ids (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
 let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
@@ -680,7 +691,7 @@ let params = "params_example" // String | Set this parameter in order to choose 
 let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // cart.giftcard.list
-CartAPI.cartGiftcardList(start: start, count: count, pageCursor: pageCursor, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
+CartAPI.cartGiftcardList(ids: ids, start: start, count: count, pageCursor: pageCursor, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -696,6 +707,7 @@ CartAPI.cartGiftcardList(start: start, count: count, pageCursor: pageCursor, sto
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ids** | **String** | Retrieves gift cards specified by ids | [optional] 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
@@ -782,7 +794,7 @@ Name | Type | Description  | Notes
 
 cart.meta_data.list
 
-Using this method, you can get a list of metadata for various entities (products, options, customers, orders). Usually this is data created by third-party plugins.
+Using this method, you can get a list of metadata for various entities. Entities supported may differ across platforms. To get the list of supported entities, pass an invalid value in the <code>entity</code> parameter. The response will contain the list of entities supported by the specific platform. Usually this is data created by third-party plugins.
 
 ### Example
 ```swift
@@ -850,7 +862,7 @@ Name | Type | Description  | Notes
 
 cart.meta_data.set
 
-Set meta data for a specific entity
+Set metadata for a specific entity. Entities supported may differ across platforms. To get the list of supported entities, pass an invalid value in the <code>entity</code> parameter. The response will contain the list of entities supported by the specific platform. Usually this is data created by third-party plugins.
 
 ### Example
 ```swift
@@ -967,7 +979,7 @@ Name | Type | Description  | Notes
 
 # **cartMethods**
 ```swift
-    open class func cartMethods(completion: @escaping (_ data: CartMethods200Response?, _ error: Error?) -> Void)
+    open class func cartMethods(completion: @escaping (_ data: ModelResponseCartMethods?, _ error: Error?) -> Void)
 ```
 
 cart.methods
@@ -998,7 +1010,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**CartMethods200Response**](CartMethods200Response.md)
+[**ModelResponseCartMethods**](ModelResponseCartMethods.md)
 
 ### Authorization
 

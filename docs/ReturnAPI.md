@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 # **returnActionList**
 ```swift
-    open class func returnActionList(completion: @escaping (_ data: ReturnActionList200Response?, _ error: Error?) -> Void)
+    open class func returnActionList(completion: @escaping (_ data: ModelResponseReturnActionList?, _ error: Error?) -> Void)
 ```
 
 return.action.list
@@ -45,7 +45,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ReturnActionList200Response**](ReturnActionList200Response.md)
+[**ModelResponseReturnActionList**](ModelResponseReturnActionList.md)
 
 ### Authorization
 
@@ -60,7 +60,7 @@ This endpoint does not need any parameter.
 
 # **returnCount**
 ```swift
-    open class func returnCount(orderIds: String? = nil, customerId: String? = nil, storeId: String? = nil, status: String? = nil, returnType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, completion: @escaping (_ data: ReturnCount200Response?, _ error: Error?) -> Void)
+    open class func returnCount(orderIds: String? = nil, customerId: String? = nil, storeId: String? = nil, status: String? = nil, returnType: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, completion: @escaping (_ data: ModelResponseReturnCount?, _ error: Error?) -> Void)
 ```
 
 return.count
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ReturnCount200Response**](ReturnCount200Response.md)
+[**ModelResponseReturnCount**](ModelResponseReturnCount.md)
 
 ### Authorization
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 # **returnReasonList**
 ```swift
-    open class func returnReasonList(storeId: String? = nil, completion: @escaping (_ data: ReturnReasonList200Response?, _ error: Error?) -> Void)
+    open class func returnReasonList(storeId: String? = nil, completion: @escaping (_ data: ModelResponseReturnReasonList?, _ error: Error?) -> Void)
 ```
 
 return.reason.list
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ReturnReasonList200Response**](ReturnReasonList200Response.md)
+[**ModelResponseReturnReasonList**](ModelResponseReturnReasonList.md)
 
 ### Authorization
 
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 # **returnStatusList**
 ```swift
-    open class func returnStatusList(completion: @escaping (_ data: ReturnStatusList200Response?, _ error: Error?) -> Void)
+    open class func returnStatusList(completion: @escaping (_ data: ModelResponseReturnStatusList?, _ error: Error?) -> Void)
 ```
 
 return.status.list
@@ -355,7 +355,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ReturnStatusList200Response**](ReturnStatusList200Response.md)
+[**ModelResponseReturnStatusList**](ModelResponseReturnStatusList.md)
 
 ### Authorization
 

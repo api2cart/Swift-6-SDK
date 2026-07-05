@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 
 # **attributeCount**
 ```swift
-    open class func attributeCount(type: String? = nil, attributeSetId: String? = nil, storeId: String? = nil, langId: String? = nil, visible: Bool? = nil, _required: Bool? = nil, system: Bool? = nil, completion: @escaping (_ data: AttributeCount200Response?, _ error: Error?) -> Void)
+    open class func attributeCount(type: String? = nil, attributeSetId: String? = nil, storeId: String? = nil, langId: String? = nil, visible: Bool? = nil, _required: Bool? = nil, system: Bool? = nil, completion: @escaping (_ data: ModelResponseAttributeCount?, _ error: Error?) -> Void)
 ```
 
 attribute.count
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AttributeCount200Response**](AttributeCount200Response.md)
+[**ModelResponseAttributeCount**](ModelResponseAttributeCount.md)
 
 ### Authorization
 
@@ -600,7 +600,7 @@ Name | Type | Description  | Notes
 
 # **attributeTypeList**
 ```swift
-    open class func attributeTypeList(completion: @escaping (_ data: AttributeTypeList200Response?, _ error: Error?) -> Void)
+    open class func attributeTypeList(completion: @escaping (_ data: ModelResponseAttributeTypeList?, _ error: Error?) -> Void)
 ```
 
 attribute.type.list
@@ -631,7 +631,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AttributeTypeList200Response**](AttributeTypeList200Response.md)
+[**ModelResponseAttributeTypeList**](ModelResponseAttributeTypeList.md)
 
 ### Authorization
 

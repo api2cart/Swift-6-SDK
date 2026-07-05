@@ -316,10 +316,10 @@ open class AttributeAPI {
      - parameter _required: (query) Defines if the option is required (optional)
      - parameter system: (query) True if attribute is system (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: AttributeCount200Response
+     - returns: ModelResponseAttributeCount
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func attributeCount(type: String? = nil, attributeSetId: String? = nil, storeId: String? = nil, langId: String? = nil, visible: Bool? = nil, _required: Bool? = nil, system: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeCount200Response {
+    open class func attributeCount(type: String? = nil, attributeSetId: String? = nil, storeId: String? = nil, langId: String? = nil, visible: Bool? = nil, _required: Bool? = nil, system: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseAttributeCount {
         return try await attributeCountWithRequestBuilder(type: type, attributeSetId: attributeSetId, storeId: storeId, langId: langId, visible: visible, _required: _required, system: system, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -341,9 +341,9 @@ open class AttributeAPI {
      - parameter _required: (query) Defines if the option is required (optional)
      - parameter system: (query) True if attribute is system (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<AttributeCount200Response> 
+     - returns: RequestBuilder<ModelResponseAttributeCount> 
      */
-    open class func attributeCountWithRequestBuilder(type: String? = nil, attributeSetId: String? = nil, storeId: String? = nil, langId: String? = nil, visible: Bool? = nil, _required: Bool? = nil, system: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeCount200Response> {
+    open class func attributeCountWithRequestBuilder(type: String? = nil, attributeSetId: String? = nil, storeId: String? = nil, langId: String? = nil, visible: Bool? = nil, _required: Bool? = nil, system: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseAttributeCount> {
         let localVariablePath = "/attribute.count.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -365,7 +365,7 @@ open class AttributeAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AttributeCount200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseAttributeCount>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -640,10 +640,10 @@ open class AttributeAPI {
      attribute.type.list
      
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: AttributeTypeList200Response
+     - returns: ModelResponseAttributeTypeList
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func attributeTypeList(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AttributeTypeList200Response {
+    open class func attributeTypeList(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseAttributeTypeList {
         return try await attributeTypeListWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -658,9 +658,9 @@ open class AttributeAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<AttributeTypeList200Response> 
+     - returns: RequestBuilder<ModelResponseAttributeTypeList> 
      */
-    open class func attributeTypeListWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AttributeTypeList200Response> {
+    open class func attributeTypeListWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseAttributeTypeList> {
         let localVariablePath = "/attribute.type.list.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -673,7 +673,7 @@ open class AttributeAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AttributeTypeList200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseAttributeTypeList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

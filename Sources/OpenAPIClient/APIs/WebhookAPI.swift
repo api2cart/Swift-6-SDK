@@ -16,10 +16,10 @@ open class WebhookAPI {
      - parameter action: (query) The action you want to filter webhooks by (e.g. order or product) (optional)
      - parameter active: (query) The webhook status you want to filter webhooks by (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: WebhookCount200Response
+     - returns: ModelResponseWebhookCount
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func webhookCount(entity: String? = nil, action: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WebhookCount200Response {
+    open class func webhookCount(entity: String? = nil, action: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseWebhookCount {
         return try await webhookCountWithRequestBuilder(entity: entity, action: action, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -37,9 +37,9 @@ open class WebhookAPI {
      - parameter action: (query) The action you want to filter webhooks by (e.g. order or product) (optional)
      - parameter active: (query) The webhook status you want to filter webhooks by (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<WebhookCount200Response> 
+     - returns: RequestBuilder<ModelResponseWebhookCount> 
      */
-    open class func webhookCountWithRequestBuilder(entity: String? = nil, action: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WebhookCount200Response> {
+    open class func webhookCountWithRequestBuilder(entity: String? = nil, action: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseWebhookCount> {
         let localVariablePath = "/webhook.count.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -57,7 +57,7 @@ open class WebhookAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebhookCount200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseWebhookCount>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -157,10 +157,10 @@ open class WebhookAPI {
      webhook.events
      
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: WebhookEvents200Response
+     - returns: ModelResponseWebhookEvents
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func webhookEvents(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WebhookEvents200Response {
+    open class func webhookEvents(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseWebhookEvents {
         return try await webhookEventsWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -175,9 +175,9 @@ open class WebhookAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<WebhookEvents200Response> 
+     - returns: RequestBuilder<ModelResponseWebhookEvents> 
      */
-    open class func webhookEventsWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WebhookEvents200Response> {
+    open class func webhookEventsWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseWebhookEvents> {
         let localVariablePath = "/webhook.events.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -190,7 +190,7 @@ open class WebhookAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<WebhookEvents200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseWebhookEvents>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

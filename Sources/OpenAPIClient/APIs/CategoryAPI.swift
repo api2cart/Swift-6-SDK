@@ -153,10 +153,10 @@ open class CategoryAPI {
      - parameter storeId: (query) Store Id (optional)
      - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: CategoryAssign200Response
+     - returns: ModelResponseCategoryAssign
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func categoryAssign(categoryId: String, productId: String, storeId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryAssign200Response {
+    open class func categoryAssign(categoryId: String, productId: String, storeId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCategoryAssign {
         return try await categoryAssignWithRequestBuilder(categoryId: categoryId, productId: productId, storeId: storeId, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -175,9 +175,9 @@ open class CategoryAPI {
      - parameter storeId: (query) Store Id (optional)
      - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<CategoryAssign200Response> 
+     - returns: RequestBuilder<ModelResponseCategoryAssign> 
      */
-    open class func categoryAssignWithRequestBuilder(categoryId: String, productId: String, storeId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryAssign200Response> {
+    open class func categoryAssignWithRequestBuilder(categoryId: String, productId: String, storeId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCategoryAssign> {
         let localVariablePath = "/category.assign.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -196,7 +196,7 @@ open class CategoryAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CategoryAssign200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseCategoryAssign>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -218,10 +218,10 @@ open class CategoryAPI {
      - parameter reportRequestId: (query) Report request id (optional)
      - parameter disableReportCache: (query) Disable report cache for current request (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: CategoryCount200Response
+     - returns: ModelResponseCategoryCount
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func categoryCount(parentId: String? = nil, storeId: String? = nil, langId: String? = nil, avail: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, productType: String? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryCount200Response {
+    open class func categoryCount(parentId: String? = nil, storeId: String? = nil, langId: String? = nil, avail: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, productType: String? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCategoryCount {
         return try await categoryCountWithRequestBuilder(parentId: parentId, storeId: storeId, langId: langId, avail: avail, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, productType: productType, findValue: findValue, findWhere: findWhere, reportRequestId: reportRequestId, disableReportCache: disableReportCache, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -249,9 +249,9 @@ open class CategoryAPI {
      - parameter reportRequestId: (query) Report request id (optional)
      - parameter disableReportCache: (query) Disable report cache for current request (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<CategoryCount200Response> 
+     - returns: RequestBuilder<ModelResponseCategoryCount> 
      */
-    open class func categoryCountWithRequestBuilder(parentId: String? = nil, storeId: String? = nil, langId: String? = nil, avail: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, productType: String? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryCount200Response> {
+    open class func categoryCountWithRequestBuilder(parentId: String? = nil, storeId: String? = nil, langId: String? = nil, avail: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, productType: String? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCategoryCount> {
         let localVariablePath = "/category.count.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -279,7 +279,7 @@ open class CategoryAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CategoryCount200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseCategoryCount>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -387,10 +387,10 @@ open class CategoryAPI {
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: CategoryFind200Response
+     - returns: ModelResponseCategoryFind
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func categoryFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, langId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryFind200Response {
+    open class func categoryFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, langId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCategoryFind {
         return try await categoryFindWithRequestBuilder(findValue: findValue, findWhere: findWhere, findParams: findParams, storeId: storeId, langId: langId, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -410,9 +410,9 @@ open class CategoryAPI {
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<CategoryFind200Response> 
+     - returns: RequestBuilder<ModelResponseCategoryFind> 
      */
-    open class func categoryFindWithRequestBuilder(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, langId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryFind200Response> {
+    open class func categoryFindWithRequestBuilder(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, langId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCategoryFind> {
         let localVariablePath = "/category.find.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -432,7 +432,7 @@ open class CategoryAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CategoryFind200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseCategoryFind>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }
@@ -764,10 +764,10 @@ open class CategoryAPI {
      - parameter storeId: (query) Store Id (optional)
      - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: CategoryAssign200Response
+     - returns: ModelResponseCategoryUnassign
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func categoryUnassign(categoryId: String, productId: String, storeId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryAssign200Response {
+    open class func categoryUnassign(categoryId: String, productId: String, storeId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseCategoryUnassign {
         return try await categoryUnassignWithRequestBuilder(categoryId: categoryId, productId: productId, storeId: storeId, idempotencyKey: idempotencyKey, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -786,9 +786,9 @@ open class CategoryAPI {
      - parameter storeId: (query) Store Id (optional)
      - parameter idempotencyKey: (query) A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; (optional)
      - parameter apiConfiguration: The configuration for the http request.
-     - returns: RequestBuilder<CategoryAssign200Response> 
+     - returns: RequestBuilder<ModelResponseCategoryUnassign> 
      */
-    open class func categoryUnassignWithRequestBuilder(categoryId: String, productId: String, storeId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryAssign200Response> {
+    open class func categoryUnassignWithRequestBuilder(categoryId: String, productId: String, storeId: String? = nil, idempotencyKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseCategoryUnassign> {
         let localVariablePath = "/category.unassign.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -807,7 +807,7 @@ open class CategoryAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CategoryAssign200Response>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ModelResponseCategoryUnassign>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
     }

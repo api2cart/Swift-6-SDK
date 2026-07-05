@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 # **categoryAssign**
 ```swift
-    open class func categoryAssign(categoryId: String, productId: String, storeId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: CategoryAssign200Response?, _ error: Error?) -> Void)
+    open class func categoryAssign(categoryId: String, productId: String, storeId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: ModelResponseCategoryAssign?, _ error: Error?) -> Void)
 ```
 
 category.assign
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CategoryAssign200Response**](CategoryAssign200Response.md)
+[**ModelResponseCategoryAssign**](ModelResponseCategoryAssign.md)
 
 ### Authorization
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 # **categoryCount**
 ```swift
-    open class func categoryCount(parentId: String? = nil, storeId: String? = nil, langId: String? = nil, avail: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, productType: String? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, completion: @escaping (_ data: CategoryCount200Response?, _ error: Error?) -> Void)
+    open class func categoryCount(parentId: String? = nil, storeId: String? = nil, langId: String? = nil, avail: Bool? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, productType: String? = nil, findValue: String? = nil, findWhere: String? = nil, reportRequestId: String? = nil, disableReportCache: Bool? = nil, completion: @escaping (_ data: ModelResponseCategoryCount?, _ error: Error?) -> Void)
 ```
 
 category.count
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CategoryCount200Response**](CategoryCount200Response.md)
+[**ModelResponseCategoryCount**](ModelResponseCategoryCount.md)
 
 ### Authorization
 
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 
 # **categoryFind**
 ```swift
-    open class func categoryFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, langId: String? = nil, completion: @escaping (_ data: CategoryFind200Response?, _ error: Error?) -> Void)
+    open class func categoryFind(findValue: String, findWhere: String? = nil, findParams: String? = nil, storeId: String? = nil, langId: String? = nil, completion: @escaping (_ data: ModelResponseCategoryFind?, _ error: Error?) -> Void)
 ```
 
 category.find
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CategoryFind200Response**](CategoryFind200Response.md)
+[**ModelResponseCategoryFind**](ModelResponseCategoryFind.md)
 
 ### Authorization
 
@@ -723,7 +723,7 @@ Name | Type | Description  | Notes
 
 # **categoryUnassign**
 ```swift
-    open class func categoryUnassign(categoryId: String, productId: String, storeId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: CategoryAssign200Response?, _ error: Error?) -> Void)
+    open class func categoryUnassign(categoryId: String, productId: String, storeId: String? = nil, idempotencyKey: String? = nil, completion: @escaping (_ data: ModelResponseCategoryUnassign?, _ error: Error?) -> Void)
 ```
 
 category.unassign
@@ -764,7 +764,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CategoryAssign200Response**](CategoryAssign200Response.md)
+[**ModelResponseCategoryUnassign**](ModelResponseCategoryUnassign.md)
 
 ### Authorization
 

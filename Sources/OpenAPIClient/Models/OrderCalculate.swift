@@ -12,7 +12,7 @@ public struct OrderCalculate: Sendable, Codable, JSONEncodable, Hashable {
     public static let couponsRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     /** Defines the customer specified by email for whom the order needs to be calculated */
     public var customerEmail: String
-    /** Currency code of order */
+    /** Defines currency code */
     public var currency: String?
     /** Currency Id */
     public var currencyId: String?
