@@ -58,7 +58,7 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var condition: String?
     /** Set visibility status */
     public var visible: String?
-    /** Set stock status */
+    /** Set stock status. Effective only when manage_stock is false — when stock is managed, the status is derived from quantity automatically and this parameter is ignored. */
     public var inStock: Bool?
     /** Defines category's visibility status */
     public var avail: Bool? = true
@@ -80,17 +80,17 @@ public struct ProductUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var storeId: String?
     /** Language id */
     public var langId: String?
-    /** Defines new product's quantity */
+    /** Defines new product's quantity. Effective only when manage_stock is true — otherwise the value is ignored. To enable stock tracking and set a quantity in one call, pass manage_stock=true together with quantity. */
     public var quantity: Double?
     /** This parameter allows to reserve/unreserve product quantity. */
     public var reserveQuantity: Double?
-    /** Defines inventory tracking for product */
+    /** Defines inventory tracking for product. When true, quantity sets the stock level and the stock status is derived from it; when false, quantity is ignored and in_stock sets the status directly. */
     public var manageStock: Bool?
     /** Set backorder status */
     public var backorderStatus: String?
-    /** Defines the incremental changes in product quantity */
+    /** Defines the incremental changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. */
     public var increaseQuantity: Double?
-    /** Defines the decrement changes in product quantity */
+    /** Defines the decrement changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. */
     public var reduceQuantity: Double?
     /** Specify the quantity threshold below which the product is considered low in stock */
     public var lowStockThreshold: Double?

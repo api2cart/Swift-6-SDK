@@ -54,12 +54,12 @@ open class AccountAPI {
      account.cart.list
      
      - parameter storeUrl: (query) A web address of a store (optional)
-     - parameter storeKey: (query) Find store by store key (optional)
-     - parameter requestFromDate: (query) Retrieve entities from their creation date (optional)
-     - parameter requestToDate: (query) Retrieve entities to their creation date (optional)
+     - parameter storeKey: (query) Optional filter: return only the connected store whose store key matches this value. A store key is the unique 32-character identifier of a connected store, returned as store_key here and by account.cart.add. (optional)
+     - parameter requestFromDate: (query) Start date of the period for counting API requests made to each connection. Set together with request_to_date to include each store&#39;s total_calls (number of API requests in that period) in the response. (optional)
+     - parameter requestToDate: (query) End date of the period for counting API requests made to each connection. Set together with request_from_date to include each store&#39;s total_calls (number of API requests in that period) in the response. (optional)
      - parameter customLabel: (query) Defines a custom label for the store in the app (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "force_all")
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+     - parameter params: (query) Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "force_all")
+     - parameter exclude: (query) Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AccountCartList200Response
      */
@@ -76,12 +76,12 @@ open class AccountAPI {
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
      - parameter storeUrl: (query) A web address of a store (optional)
-     - parameter storeKey: (query) Find store by store key (optional)
-     - parameter requestFromDate: (query) Retrieve entities from their creation date (optional)
-     - parameter requestToDate: (query) Retrieve entities to their creation date (optional)
+     - parameter storeKey: (query) Optional filter: return only the connected store whose store key matches this value. A store key is the unique 32-character identifier of a connected store, returned as store_key here and by account.cart.add. (optional)
+     - parameter requestFromDate: (query) Start date of the period for counting API requests made to each connection. Set together with request_to_date to include each store&#39;s total_calls (number of API requests in that period) in the response. (optional)
+     - parameter requestToDate: (query) End date of the period for counting API requests made to each connection. Set together with request_from_date to include each store&#39;s total_calls (number of API requests in that period) in the response. (optional)
      - parameter customLabel: (query) Defines a custom label for the store in the app (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "force_all")
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+     - parameter params: (query) Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "force_all")
+     - parameter exclude: (query) Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AccountCartList200Response> 
      */
@@ -746,12 +746,13 @@ open class AccountAPI {
     /**
      account.supported_platforms
      
+     - parameter cartId: (query) Filter by integration identifier (e.g. &#39;Shopify&#39;). If omitted, the method returns all integrations. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseAccountSupportedPlatforms
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func accountSupportedPlatforms(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseAccountSupportedPlatforms {
-        return try await accountSupportedPlatformsWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
+    open class func accountSupportedPlatforms(cartId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ModelResponseAccountSupportedPlatforms {
+        return try await accountSupportedPlatformsWithRequestBuilder(cartId: cartId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -761,15 +762,19 @@ open class AccountAPI {
      - API Key:
        - type: apiKey x-api-key (HEADER)
        - name: ApiKeyAuth
+     - parameter cartId: (query) Filter by integration identifier (e.g. &#39;Shopify&#39;). If omitted, the method returns all integrations. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseAccountSupportedPlatforms> 
      */
-    open class func accountSupportedPlatformsWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseAccountSupportedPlatforms> {
+    open class func accountSupportedPlatformsWithRequestBuilder(cartId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ModelResponseAccountSupportedPlatforms> {
         let localVariablePath = "/account.supported_platforms.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "cart_id": (wrappedValue: cartId?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ])
 
         let localVariableNillableHeaders: [String: Any?] = [
             :

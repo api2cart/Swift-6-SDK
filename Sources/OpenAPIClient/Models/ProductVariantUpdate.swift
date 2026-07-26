@@ -51,19 +51,19 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var taxClassId: String?
     /** Defines whether the product is virtual */
     public var isVirtual: Bool? = false
-    /** Defines inventory tracking for product variant */
+    /** Defines inventory tracking for product variant. When true, quantity sets the stock level and the stock status is derived from it; when false, quantity is ignored and in_stock sets the status directly. */
     public var manageStock: Bool?
-    /** Set stock status */
+    /** Set stock status. Effective only when manage_stock is false — when stock is managed, the status is derived from quantity automatically and this parameter is ignored. */
     public var inStock: Bool?
     /** This parameter is used for selecting a warehouse where you need to set/modify a product quantity. */
     public var warehouseId: String?
     /** This parameter allows to reserve/unreserve product variants quantity. */
     public var reserveQuantity: Double?
-    /** Defines new products' variants quantity */
+    /** Defines new products' variants quantity. Effective only when manage_stock is true — otherwise the value is ignored. To enable stock tracking and set a quantity in one call, pass manage_stock=true together with quantity. */
     public var quantity: Double?
-    /** Defines the incremental changes in product quantity */
+    /** Defines the incremental changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. */
     public var increaseQuantity: Double? = 0
-    /** Defines the decrement changes in product quantity */
+    /** Defines the decrement changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. */
     public var reduceQuantity: Double? = 0
     /** Indicates whether prices include tax. */
     public var pricesIncTax: Bool? = false

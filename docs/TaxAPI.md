@@ -25,9 +25,9 @@ import OpenAPIClient
 let taxClassId = "taxClassId_example" // String | Retrieves taxes specified by class id
 let storeId = "storeId_example" // String | Store Id (optional)
 let langId = "langId_example" // String | Language id (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "tax_class_id,name,avail")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
+let params = "params_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "tax_class_id,name,avail")
+let exclude = "exclude_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // tax.class.info
 TaxAPI.taxClassInfo(taxClassId: taxClassId, storeId: storeId, langId: langId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
@@ -49,9 +49,9 @@ Name | Type | Description  | Notes
  **taxClassId** | **String** | Retrieves taxes specified by class id | 
  **storeId** | **String** | Store Id | [optional] 
  **langId** | **String** | Language id | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;tax_class_id,name,avail&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
+ **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;tax_class_id,name,avail&quot;]
+ **exclude** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -92,7 +92,7 @@ let createdTo = "createdTo_example" // String | Retrieve entities to their creat
 let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "{return_code,return_message,pagination,result}")
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional) (default to "{return_code,return_message,pagination,result}")
 
 // tax.class.list
 TaxAPI.taxClassList(count: count, start: start, pageCursor: pageCursor, storeId: storeId, findValue: findValue, findWhere: findWhere, createdTo: createdTo, createdFrom: createdFrom, modifiedTo: modifiedTo, modifiedFrom: modifiedFrom, responseFields: responseFields) { (response, error) in
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
  **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;{return_code,return_message,pagination,result}&quot;]
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] [default to &quot;{return_code,return_message,pagination,result}&quot;]
 
 ### Return type
 

@@ -19,7 +19,7 @@ open class BatchAPI {
      - parameter createdTo: (query) Retrieve entities to their creation date (optional)
      - parameter processedFrom: (query) Retrieve entities according to their processing datetime (optional)
      - parameter processedTo: (query) Retrieve entities according to their processing datetime (optional)
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "{return_code,return_message,pagination,result}")
+     - parameter responseFields: (query) Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional, default to "{return_code,return_message,pagination,result}")
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseBatchJobList
      */
@@ -45,7 +45,7 @@ open class BatchAPI {
      - parameter createdTo: (query) Retrieve entities to their creation date (optional)
      - parameter processedFrom: (query) Retrieve entities according to their processing datetime (optional)
      - parameter processedTo: (query) Retrieve entities according to their processing datetime (optional)
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "{return_code,return_message,pagination,result}")
+     - parameter responseFields: (query) Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional, default to "{return_code,return_message,pagination,result}")
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseBatchJobList> 
      */

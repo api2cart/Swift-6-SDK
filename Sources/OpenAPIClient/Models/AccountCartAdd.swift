@@ -83,7 +83,7 @@ public struct AccountCartAdd: Sendable, Codable, JSONEncodable, Hashable {
         case zoho = "Zoho"
     }
     public static let hybrisWebsitesRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
-    /** Store’s identifier which you can get from cart_list method */
+    /** Integration identifier */
     public var cartId: CartId
     /** A web address of a store that you would like to connect to API2Cart */
     public var storeUrl: String?
@@ -91,7 +91,7 @@ public struct AccountCartAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var bridgeUrl: String?
     /** Absolute path to the store root directory (used with \"bridge_url\" parameter) */
     public var storeRoot: String?
-    /** Set this parameter if bridge is already uploaded to store */
+    /** If a bridge connector is already installed on the store, you MUST pass here the store key it generated during installation, to connect via the bridge-based integration. Omit it only when connecting via an API-based integration, which uses API credentials instead. */
     public var storeKey: String?
     /** Defines alternative text that has to be attached to the picture */
     public var label: String?

@@ -145,9 +145,9 @@ import OpenAPIClient
 let id = "id_example" // String | Entity id
 let orderId = "orderId_example" // String | Defines the order id (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,order_products")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
+let params = "params_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,order_products")
+let exclude = "exclude_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // return.info
 ReturnAPI.returnInfo(id: id, orderId: orderId, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
@@ -169,9 +169,9 @@ Name | Type | Description  | Notes
  **id** | **String** | Entity id | 
  **orderId** | **String** | Defines the order id | [optional] 
  **storeId** | **String** | Store Id | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,order_products&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
+ **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,order_products&quot;]
+ **exclude** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -215,9 +215,9 @@ let createdFrom = "createdFrom_example" // String | Retrieve entities from their
 let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,order_products")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
+let params = "params_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,order_products")
+let exclude = "exclude_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let reportRequestId = "reportRequestId_example" // String | Report request id (optional)
 let disableReportCache = false // Bool | Disable report cache for current request (optional) (default to false)
 
@@ -251,9 +251,9 @@ Name | Type | Description  | Notes
  **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,order_products&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
+ **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,order_products&quot;]
+ **exclude** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **reportRequestId** | **String** | Report request id | [optional] 
  **disableReportCache** | **Bool** | Disable report cache for current request | [optional] [default to false]
 

@@ -76,12 +76,12 @@ This method lets you get a list of online stores connected to your API2Cart acco
 import OpenAPIClient
 
 let storeUrl = "storeUrl_example" // String | A web address of a store (optional)
-let storeKey = "storeKey_example" // String | Find store by store key (optional)
-let requestFromDate = "requestFromDate_example" // String | Retrieve entities from their creation date (optional)
-let requestToDate = "requestToDate_example" // String | Retrieve entities to their creation date (optional)
+let storeKey = "storeKey_example" // String | Optional filter: return only the connected store whose store key matches this value. A store key is the unique 32-character identifier of a connected store, returned as store_key here and by account.cart.add. (optional)
+let requestFromDate = "requestFromDate_example" // String | Start date of the period for counting API requests made to each connection. Set together with request_to_date to include each store's total_calls (number of API requests in that period) in the response. (optional)
+let requestToDate = "requestToDate_example" // String | End date of the period for counting API requests made to each connection. Set together with request_from_date to include each store's total_calls (number of API requests in that period) in the response. (optional)
 let customLabel = "customLabel_example" // String | Defines a custom label for the store in the app (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "force_all")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let params = "params_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "force_all")
+let exclude = "exclude_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // account.cart.list
 AccountAPI.accountCartList(storeUrl: storeUrl, storeKey: storeKey, requestFromDate: requestFromDate, requestToDate: requestToDate, customLabel: customLabel, params: params, exclude: exclude) { (response, error) in
@@ -101,12 +101,12 @@ AccountAPI.accountCartList(storeUrl: storeUrl, storeKey: storeKey, requestFromDa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storeUrl** | **String** | A web address of a store | [optional] 
- **storeKey** | **String** | Find store by store key | [optional] 
- **requestFromDate** | **String** | Retrieve entities from their creation date | [optional] 
- **requestToDate** | **String** | Retrieve entities to their creation date | [optional] 
+ **storeKey** | **String** | Optional filter: return only the connected store whose store key matches this value. A store key is the unique 32-character identifier of a connected store, returned as store_key here and by account.cart.add. | [optional] 
+ **requestFromDate** | **String** | Start date of the period for counting API requests made to each connection. Set together with request_to_date to include each store&#39;s total_calls (number of API requests in that period) in the response. | [optional] 
+ **requestToDate** | **String** | End date of the period for counting API requests made to each connection. Set together with request_from_date to include each store&#39;s total_calls (number of API requests in that period) in the response. | [optional] 
  **customLabel** | **String** | Defines a custom label for the store in the app | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;force_all&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;force_all&quot;]
+ **exclude** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -585,7 +585,7 @@ Name | Type | Description  | Notes
 
 # **accountSupportedPlatforms**
 ```swift
-    open class func accountSupportedPlatforms(completion: @escaping (_ data: ModelResponseAccountSupportedPlatforms?, _ error: Error?) -> Void)
+    open class func accountSupportedPlatforms(cartId: String? = nil, completion: @escaping (_ data: ModelResponseAccountSupportedPlatforms?, _ error: Error?) -> Void)
 ```
 
 account.supported_platforms
@@ -597,9 +597,10 @@ Use this method to retrieve a list of supported platforms and the sets of parame
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
+let cartId = "cartId_example" // String | Filter by integration identifier (e.g. 'Shopify'). If omitted, the method returns all integrations. (optional)
 
 // account.supported_platforms
-AccountAPI.accountSupportedPlatforms() { (response, error) in
+AccountAPI.accountSupportedPlatforms(cartId: cartId) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -612,7 +613,10 @@ AccountAPI.accountSupportedPlatforms() { (response, error) in
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cartId** | **String** | Filter by integration identifier (e.g. &#39;Shopify&#39;). If omitted, the method returns all integrations. | [optional] 
 
 ### Return type
 

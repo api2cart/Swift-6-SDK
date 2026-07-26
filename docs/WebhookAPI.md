@@ -232,7 +232,7 @@ let entity = "entity_example" // String | The entity you want to filter webhooks
 let action = "action_example" // String | The action you want to filter webhooks by (e.g. add, update, or delete) (optional)
 let active = true // Bool | The webhook status you want to filter webhooks by (optional)
 let ids = "ids_example" // String | List of сomma-separated webhook ids (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,entity,action,callback")
+let params = "params_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,entity,action,callback")
 
 // webhook.list
 WebhookAPI.webhookList(start: start, count: count, entity: entity, action: action, active: active, ids: ids, params: params) { (response, error) in
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
  **action** | **String** | The action you want to filter webhooks by (e.g. add, update, or delete) | [optional] 
  **active** | **Bool** | The webhook status you want to filter webhooks by | [optional] 
  **ids** | **String** | List of сomma-separated webhook ids | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,entity,action,callback&quot;]
+ **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,entity,action,callback&quot;]
 
 ### Return type
 

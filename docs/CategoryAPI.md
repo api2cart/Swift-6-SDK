@@ -581,9 +581,9 @@ let id = "id_example" // String | Retrieves category's info specified by categor
 let storeId = "storeId_example" // String | Retrieves category info  specified by store id (optional)
 let langId = "langId_example" // String | Retrieves category info  specified by language id (optional)
 let schemaType = "schemaType_example" // String | The name of the requirements set for the provided schema. (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,parent_id,name,description")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
+let params = "params_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,parent_id,name,description")
+let exclude = "exclude_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let reportRequestId = "reportRequestId_example" // String | Report request id (optional)
 let disableReportCache = false // Bool | Disable report cache for current request (optional) (default to false)
 let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
@@ -609,9 +609,9 @@ Name | Type | Description  | Notes
  **storeId** | **String** | Retrieves category info  specified by store id | [optional] 
  **langId** | **String** | Retrieves category info  specified by language id | [optional] 
  **schemaType** | **String** | The name of the requirements set for the provided schema. | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,parent_id,name,description&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
+ **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,parent_id,name,description&quot;]
+ **exclude** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **reportRequestId** | **String** | Report request id | [optional] 
  **disableReportCache** | **Bool** | Disable report cache for current request | [optional] [default to false]
  **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
@@ -659,9 +659,9 @@ let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from the
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
 let findValue = "findValue_example" // String | Entity search that is specified by some value (optional)
 let findWhere = "findWhere_example" // String | Category search that is specified by field (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,parent_id,name,description")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
+let params = "params_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,parent_id,name,description")
+let exclude = "exclude_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let reportRequestId = "reportRequestId_example" // String | Report request id (optional)
 let disableReportCache = false // Bool | Disable report cache for current request (optional) (default to false)
 let disableCache = false // Bool | Disable cache for current request (optional) (default to false)
@@ -698,9 +698,9 @@ Name | Type | Description  | Notes
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
  **findValue** | **String** | Entity search that is specified by some value | [optional] 
  **findWhere** | **String** | Category search that is specified by field | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,parent_id,name,description&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
+ **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,parent_id,name,description&quot;]
+ **exclude** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **reportRequestId** | **String** | Report request id | [optional] 
  **disableReportCache** | **Bool** | Disable report cache for current request | [optional] [default to false]
  **disableCache** | **Bool** | Disable cache for current request | [optional] [default to false]

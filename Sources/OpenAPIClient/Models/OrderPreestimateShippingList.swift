@@ -27,9 +27,9 @@ public struct OrderPreestimateShippingList: Sendable, Codable, JSONEncodable, Ha
     public var shippState: String?
     /** Specifies shipping country code */
     public var shippCountry: String
-    /** Set this parameter in order to choose which entity fields you want to retrieve */
+    /** Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve */
     public var params: String? = "force_all"
-    /** Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all */
+    /** Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all */
     public var exclude: String?
     /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
     public var idempotencyKey: String?

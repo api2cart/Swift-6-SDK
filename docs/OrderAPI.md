@@ -57,9 +57,9 @@ let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from the
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
 let skipEmptyEmail = true // Bool | Filter empty emails (optional) (default to false)
 let roundingPrecision = 987 // Int | <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p> (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "customer,totals,items")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
+let params = "params_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "customer,totals,items")
+let exclude = "exclude_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // order.abandoned.list
 OrderAPI.orderAbandonedList(start: start, count: count, pageCursor: pageCursor, customerId: customerId, customerEmail: customerEmail, storeId: storeId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, skipEmptyEmail: skipEmptyEmail, roundingPrecision: roundingPrecision, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
@@ -90,9 +90,9 @@ Name | Type | Description  | Notes
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
  **skipEmptyEmail** | **Bool** | Filter empty emails | [optional] [default to false]
  **roundingPrecision** | **Int** | &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt; | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;customer,totals,items&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
+ **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;customer,totals,items&quot;]
+ **exclude** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -414,9 +414,9 @@ import OpenAPIClient
 let id = "id_example" // String | Retrieves order info specified by id (optional)
 let orderId = "orderId_example" // String | Retrieves order’s info specified by order id (optional)
 let storeId = "storeId_example" // String | Defines store id where the order should be found (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "order_id,customer,totals,address,items,bundles,status")
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let params = "params_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "order_id,customer,totals,address,items,bundles,status")
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
+let exclude = "exclude_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let enableCache = true // Bool | If the value is 'true' and order exist in our cache, we will return order.info response from cache (optional) (default to false)
 let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
 let roundingPrecision = 987 // Int | <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p> (optional)
@@ -442,9 +442,9 @@ Name | Type | Description  | Notes
  **id** | **String** | Retrieves order info specified by id | [optional] 
  **orderId** | **String** | Retrieves order’s info specified by order id | [optional] 
  **storeId** | **String** | Defines store id where the order should be found | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;order_id,customer,totals,address,items,bundles,status&quot;]
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;order_id,customer,totals,address,items,bundles,status&quot;]
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
+ **exclude** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **enableCache** | **Bool** | If the value is &#39;true&#39; and order exist in our cache, we will return order.info response from cache | [optional] [default to false]
  **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
  **roundingPrecision** | **Int** | &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt; | [optional] 
@@ -513,9 +513,9 @@ let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from the
 let tags = "tags_example" // String | Order tags (optional)
 let sortBy = "sortBy_example" // String | Set field to sort by (optional) (default to "order_id")
 let sortDirection = "sortDirection_example" // String | Set sorting direction (optional) (default to "asc")
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "order_id,customer,totals,address,items,bundles,status")
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let params = "params_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "order_id,customer,totals,address,items,bundles,status")
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
+let exclude = "exclude_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 let enableCache = true // Bool | If the value is 'true', we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add) (optional) (default to false)
 let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
 let roundingPrecision = 987 // Int | <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p> (optional)
@@ -572,9 +572,9 @@ Name | Type | Description  | Notes
  **tags** | **String** | Order tags | [optional] 
  **sortBy** | **String** | Set field to sort by | [optional] [default to &quot;order_id&quot;]
  **sortDirection** | **String** | Set sorting direction | [optional] [default to &quot;asc&quot;]
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;order_id,customer,totals,address,items,bundles,status&quot;]
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;order_id,customer,totals,address,items,bundles,status&quot;]
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
+ **exclude** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **enableCache** | **Bool** | If the value is &#39;true&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add) | [optional] [default to false]
  **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
  **roundingPrecision** | **Int** | &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt; | [optional] 
@@ -863,7 +863,7 @@ Add a shipment to the order.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let orderShipmentAdd = OrderShipmentAdd(orderId: "orderId_example", warehouseId: "warehouseId_example", storeId: "storeId_example", shipmentProvider: "shipmentProvider_example", shippingMethod: "shippingMethod_example", items: [OrderShipmentAdd_items_inner(orderProductId: "orderProductId_example", quantity: 123)], trackingNumbers: [OrderShipmentAdd_tracking_numbers_inner(carrierId: "carrierId_example", trackingNumber: "trackingNumber_example")], trackingLink: "trackingLink_example", isShipped: true, sendNotifications: true, adjustStock: true, enableCache: true, checkProcessStatus: false, trackingProvider: "trackingProvider_example", useLatestApiVersion: true, adminComment: "adminComment_example", idempotencyKey: "idempotencyKey_example") // OrderShipmentAdd | 
+let orderShipmentAdd = OrderShipmentAdd(orderId: "orderId_example", warehouseId: "warehouseId_example", storeId: "storeId_example", shipmentProvider: "shipmentProvider_example", shippingMethod: "shippingMethod_example", items: [OrderShipmentAdd_items_inner(orderProductId: "orderProductId_example", quantity: 123)], trackingNumbers: [OrderShipmentAdd_tracking_numbers_inner(carrierId: "carrierId_example", trackingNumber: "trackingNumber_example")], trackingLink: "trackingLink_example", isShipped: true, sendNotifications: true, adjustStock: true, checkProcessStatus: false, trackingProvider: "trackingProvider_example", adminComment: "adminComment_example", mailClass: "mailClass_example", shipDate: "shipDate_example", weight: 123, weightUnit: "weightUnit_example", length: 123, width: 123, height: 123, dimensionsUnit: "dimensionsUnit_example", shippingLabelCost: 123, shippingLabelCurrency: "shippingLabelCurrency_example", revenueEligibility: true, shipFromCountry: "shipFromCountry_example", shipToCountry: "shipToCountry_example", incoterm: "incoterm_example", dutyAmount: 123, dutyCurrency: "dutyCurrency_example", enableCache: true, useLatestApiVersion: true, idempotencyKey: "idempotencyKey_example") // OrderShipmentAdd | 
 
 // order.shipment.add
 OrderAPI.orderShipmentAdd(orderShipmentAdd: orderShipmentAdd) { (response, error) in
@@ -1073,7 +1073,7 @@ let storeId = "storeId_example" // String | Store Id (optional)
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
 let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
 
 // order.shipment.event.list
 OrderAPI.orderShipmentEventList(shipmentId: shipmentId, orderId: orderId, storeId: storeId, start: start, count: count, pageCursor: pageCursor, responseFields: responseFields) { (response, error) in
@@ -1098,7 +1098,7 @@ Name | Type | Description  | Notes
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
 
 ### Return type
 
@@ -1133,9 +1133,9 @@ let id = "id_example" // String | Entity id
 let orderId = "orderId_example" // String | Defines the order id
 let start = 987 // Int | This parameter sets the number from which you want to get entities (optional) (default to 0)
 let storeId = "storeId_example" // String | Store Id (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,order_id,items,tracking_numbers")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
+let params = "params_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,order_id,items,tracking_numbers")
+let exclude = "exclude_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // order.shipment.info
 OrderAPI.orderShipmentInfo(id: id, orderId: orderId, start: start, storeId: storeId, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
@@ -1158,9 +1158,9 @@ Name | Type | Description  | Notes
  **orderId** | **String** | Defines the order id | 
  **start** | **Int** | This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **storeId** | **String** | Store Id | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,order_id,items,tracking_numbers&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
+ **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,order_id,items,tracking_numbers&quot;]
+ **exclude** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -1200,9 +1200,9 @@ let createdFrom = "createdFrom_example" // String | Retrieve entities from their
 let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
 let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,order_id,items,tracking_numbers")
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
+let params = "params_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,order_id,items,tracking_numbers")
+let exclude = "exclude_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // order.shipment.list
 OrderAPI.orderShipmentList(orderId: orderId, start: start, count: count, pageCursor: pageCursor, storeId: storeId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
@@ -1230,9 +1230,9 @@ Name | Type | Description  | Notes
  **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
  **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,order_id,items,tracking_numbers&quot;]
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
+ **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,order_id,items,tracking_numbers&quot;]
+ **exclude** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -1366,7 +1366,7 @@ import OpenAPIClient
 let storeId = "storeId_example" // String | Store Id (optional)
 let action = "action_example" // String | Available statuses for the specified action. (optional)
 let allowUserDefinedOrderStatuses = true // Bool | Indicates whether custom (user-defined) order statuses should be included in the response. (optional) (default to false)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
 
 // order.status.list
 OrderAPI.orderStatusList(storeId: storeId, action: action, allowUserDefinedOrderStatuses: allowUserDefinedOrderStatuses, responseFields: responseFields) { (response, error) in
@@ -1388,7 +1388,7 @@ Name | Type | Description  | Notes
  **storeId** | **String** | Store Id | [optional] 
  **action** | **String** | Available statuses for the specified action. | [optional] 
  **allowUserDefinedOrderStatuses** | **Bool** | Indicates whether custom (user-defined) order statuses should be included in the response. | [optional] [default to false]
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
 
 ### Return type
 
@@ -1423,9 +1423,9 @@ let orderIds = "orderIds_example" // String | Retrieves order transactions speci
 let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
 let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
-let params = "params_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,order_id,amount,description")
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
-let exclude = "exclude_example" // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let params = "params_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "id,order_id,amount,description")
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
+let exclude = "exclude_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
 
 // order.transaction.list
 OrderAPI.orderTransactionList(orderIds: orderIds, count: count, pageCursor: pageCursor, storeId: storeId, params: params, responseFields: responseFields, exclude: exclude) { (response, error) in
@@ -1448,9 +1448,9 @@ Name | Type | Description  | Notes
  **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **storeId** | **String** | Store Id | [optional] 
- **params** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,order_id,amount,description&quot;]
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **String** | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;id,order_id,amount,description&quot;]
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
+ **exclude** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 

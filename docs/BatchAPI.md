@@ -29,7 +29,7 @@ let createdFrom = "createdFrom_example" // String | Retrieve entities from their
 let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
 let processedFrom = "processedFrom_example" // String | Retrieve entities according to their processing datetime (optional)
 let processedTo = "processedTo_example" // String | Retrieve entities according to their processing datetime (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "{return_code,return_message,pagination,result}")
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional) (default to "{return_code,return_message,pagination,result}")
 
 // batch.job.list
 BatchAPI.batchJobList(count: count, pageCursor: pageCursor, ids: ids, createdFrom: createdFrom, createdTo: createdTo, processedFrom: processedFrom, processedTo: processedTo, responseFields: responseFields) { (response, error) in
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
  **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
  **processedFrom** | **String** | Retrieve entities according to their processing datetime | [optional] 
  **processedTo** | **String** | Retrieve entities according to their processing datetime | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;{return_code,return_message,pagination,result}&quot;]
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] [default to &quot;{return_code,return_message,pagination,result}&quot;]
 
 ### Return type
 

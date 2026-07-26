@@ -15,9 +15,9 @@ open class TaxAPI {
      - parameter taxClassId: (query) Retrieves taxes specified by class id 
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "tax_class_id,name,avail")
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+     - parameter responseFields: (query) Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
+     - parameter params: (query) Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "tax_class_id,name,avail")
+     - parameter exclude: (query) Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseTaxClassInfo
      */
@@ -39,9 +39,9 @@ open class TaxAPI {
      - parameter taxClassId: (query) Retrieves taxes specified by class id 
      - parameter storeId: (query) Store Id (optional)
      - parameter langId: (query) Language id (optional)
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional)
-     - parameter params: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "tax_class_id,name,avail")
-     - parameter exclude: (query) Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+     - parameter responseFields: (query) Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
+     - parameter params: (query) Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "tax_class_id,name,avail")
+     - parameter exclude: (query) Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseTaxClassInfo> 
      */
@@ -84,7 +84,7 @@ open class TaxAPI {
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
      - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
      - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "{return_code,return_message,pagination,result}")
+     - parameter responseFields: (query) Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional, default to "{return_code,return_message,pagination,result}")
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ModelResponseTaxClassList
      */
@@ -113,7 +113,7 @@ open class TaxAPI {
      - parameter createdFrom: (query) Retrieve entities from their creation date (optional)
      - parameter modifiedTo: (query) Retrieve entities to their modification date (optional)
      - parameter modifiedFrom: (query) Retrieve entities from their modification date (optional)
-     - parameter responseFields: (query) Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "{return_code,return_message,pagination,result}")
+     - parameter responseFields: (query) Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional, default to "{return_code,return_message,pagination,result}")
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ModelResponseTaxClassList> 
      */

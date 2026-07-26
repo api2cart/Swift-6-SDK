@@ -33,7 +33,7 @@ let email = "email_example" // String | Filter analytics customers by email (opt
 let sortBy = "sortBy_example" // String | Set field to sort by (optional) (default to "total_spend")
 let sortDirection = "sortDirection_example" // String | Set sorting direction (optional) (default to "desc")
 let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
 
 // analytics.customer_report
 AnalyticsAPI.analyticsCustomerReport(dateFrom: dateFrom, dateTo: dateTo, count: count, currencyId: currencyId, storeId: storeId, customerType: customerType, email: email, sortBy: sortBy, sortDirection: sortDirection, pageCursor: pageCursor, responseFields: responseFields) { (response, error) in
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
  **sortBy** | **String** | Set field to sort by | [optional] [default to &quot;total_spend&quot;]
  **sortDirection** | **String** | Set sorting direction | [optional] [default to &quot;desc&quot;]
  **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
 
 ### Return type
 
@@ -103,7 +103,7 @@ let categoriesIds = "categoriesIds_example" // String | Defines product add that
 let sortBy = "sortBy_example" // String | Set field to sort by (optional) (default to "items_sold")
 let sortDirection = "sortDirection_example" // String | Set sorting direction (optional) (default to "desc")
 let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
 
 // analytics.product_report
 AnalyticsAPI.analyticsProductReport(dateFrom: dateFrom, dateTo: dateTo, count: count, productIds: productIds, currencyId: currencyId, storeId: storeId, categoriesIds: categoriesIds, sortBy: sortBy, sortDirection: sortDirection, pageCursor: pageCursor, responseFields: responseFields) { (response, error) in
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
  **sortBy** | **String** | Set field to sort by | [optional] [default to &quot;items_sold&quot;]
  **sortDirection** | **String** | Set sorting direction | [optional] [default to &quot;desc&quot;]
  **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
 
 ### Return type
 
@@ -172,7 +172,7 @@ let currencyId = "currencyId_example" // String | Currency Id (optional)
 let storeId = "storeId_example" // String | Store Id (optional)
 let sortBy = "sortBy_example" // String | Set field to sort by (optional) (default to "date")
 let sortDirection = "sortDirection_example" // String | Set sorting direction (optional) (default to "asc")
-let responseFields = "responseFields_example" // String | Set this parameter in order to choose which entity fields you want to retrieve (optional)
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
 
 // analytics.report
 AnalyticsAPI.analyticsReport(dateFrom: dateFrom, dateTo: dateTo, interval: interval, orderStatus: orderStatus, financialStatus: financialStatus, currencyId: currencyId, storeId: storeId, sortBy: sortBy, sortDirection: sortDirection, responseFields: responseFields) { (response, error) in
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
  **storeId** | **String** | Store Id | [optional] 
  **sortBy** | **String** | Set field to sort by | [optional] [default to &quot;date&quot;]
  **sortDirection** | **String** | Set sorting direction | [optional] [default to &quot;asc&quot;]
- **responseFields** | **String** | Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
 
 ### Return type
 

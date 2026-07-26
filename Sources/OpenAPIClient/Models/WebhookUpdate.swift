@@ -11,13 +11,13 @@ public struct WebhookUpdate: Sendable, Codable, JSONEncodable, Hashable {
 
     /** Webhook id */
     public var id: String
-    /** Callback url that returns shipping rates. It should be able to accept POST requests with json data. */
+    /** Callback where the webhook should send the POST request when the event occurs */
     public var callback: String?
     /** The name you give to the webhook */
     public var label: String?
     /** Fields the webhook should send */
     public var fields: String?
-    /** Set this parameter in order to choose which entity fields you want to retrieve */
+    /** Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. */
     public var responseFields: String?
     /** Webhook status */
     public var active: Bool?

@@ -31,20 +31,52 @@ public struct OrderShipmentAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var sendNotifications: Bool? = false
     /** This parameter is used for adjust stock. */
     public var adjustStock: Bool? = false
-    /** If the value is 'true' and order exist in our cache, we will use order.info from cache to prepare shipment items. */
-    public var enableCache: Bool? = false
     /** Disable or enable check process status. Please note that the response will be slower due to additional requests to the store. */
     public var checkProcessStatus: Bool? = false
     /** Defines name of the company which provides shipment tracking */
     public var trackingProvider: String?
-    /** Use the latest platform API version */
-    public var useLatestApiVersion: Bool? = false
     /** Specifies admin's order comment */
     public var adminComment: String?
+    /** Mail class for the shipment (e.g., priority, express). */
+    public var mailClass: String?
+    /** Ship date. */
+    public var shipDate: String?
+    /** Weight */
+    public var weight: Double?
+    /** Weight Unit */
+    public var weightUnit: String?
+    /** Defines product's length */
+    public var length: Double?
+    /** Defines product's width */
+    public var width: Double?
+    /** Defines product's height */
+    public var height: Double?
+    /** Weight Unit */
+    public var dimensionsUnit: String?
+    /** Cost of the shipping label. */
+    public var shippingLabelCost: Double?
+    /** Currency code for the shipping label cost (3-letter ISO code). */
+    public var shippingLabelCurrency: String?
+    /** Revenue eligibility flag. */
+    public var revenueEligibility: Bool?
+    /** Country code the shipment is sent from (2-letter ISO code). */
+    public var shipFromCountry: String?
+    /** Country code the shipment is sent to (2-letter ISO code). */
+    public var shipToCountry: String?
+    /** International commercial term for the shipment (e.g., DAP, DDP). */
+    public var incoterm: String?
+    /** Duty amount for international shipment. */
+    public var dutyAmount: Double?
+    /** Currency code for the duty amount (3-letter ISO code). */
+    public var dutyCurrency: String?
+    /** If the value is 'true' and order exist in our cache, we will use order.info from cache to prepare shipment items. */
+    public var enableCache: Bool? = false
+    /** Use the latest platform API version */
+    public var useLatestApiVersion: Bool? = false
     /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
     public var idempotencyKey: String?
 
-    public init(orderId: String? = nil, warehouseId: String? = nil, storeId: String? = nil, shipmentProvider: String? = nil, shippingMethod: String? = nil, items: [OrderShipmentAddItemsInner]? = nil, trackingNumbers: [OrderShipmentAddTrackingNumbersInner]? = nil, trackingLink: String? = nil, isShipped: Bool? = true, sendNotifications: Bool? = false, adjustStock: Bool? = false, enableCache: Bool? = false, checkProcessStatus: Bool? = false, trackingProvider: String? = nil, useLatestApiVersion: Bool? = false, adminComment: String? = nil, idempotencyKey: String? = nil) {
+    public init(orderId: String? = nil, warehouseId: String? = nil, storeId: String? = nil, shipmentProvider: String? = nil, shippingMethod: String? = nil, items: [OrderShipmentAddItemsInner]? = nil, trackingNumbers: [OrderShipmentAddTrackingNumbersInner]? = nil, trackingLink: String? = nil, isShipped: Bool? = true, sendNotifications: Bool? = false, adjustStock: Bool? = false, checkProcessStatus: Bool? = false, trackingProvider: String? = nil, adminComment: String? = nil, mailClass: String? = nil, shipDate: String? = nil, weight: Double? = nil, weightUnit: String? = nil, length: Double? = nil, width: Double? = nil, height: Double? = nil, dimensionsUnit: String? = nil, shippingLabelCost: Double? = nil, shippingLabelCurrency: String? = nil, revenueEligibility: Bool? = nil, shipFromCountry: String? = nil, shipToCountry: String? = nil, incoterm: String? = nil, dutyAmount: Double? = nil, dutyCurrency: String? = nil, enableCache: Bool? = false, useLatestApiVersion: Bool? = false, idempotencyKey: String? = nil) {
         self.orderId = orderId
         self.warehouseId = warehouseId
         self.storeId = storeId
@@ -56,11 +88,27 @@ public struct OrderShipmentAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.isShipped = isShipped
         self.sendNotifications = sendNotifications
         self.adjustStock = adjustStock
-        self.enableCache = enableCache
         self.checkProcessStatus = checkProcessStatus
         self.trackingProvider = trackingProvider
-        self.useLatestApiVersion = useLatestApiVersion
         self.adminComment = adminComment
+        self.mailClass = mailClass
+        self.shipDate = shipDate
+        self.weight = weight
+        self.weightUnit = weightUnit
+        self.length = length
+        self.width = width
+        self.height = height
+        self.dimensionsUnit = dimensionsUnit
+        self.shippingLabelCost = shippingLabelCost
+        self.shippingLabelCurrency = shippingLabelCurrency
+        self.revenueEligibility = revenueEligibility
+        self.shipFromCountry = shipFromCountry
+        self.shipToCountry = shipToCountry
+        self.incoterm = incoterm
+        self.dutyAmount = dutyAmount
+        self.dutyCurrency = dutyCurrency
+        self.enableCache = enableCache
+        self.useLatestApiVersion = useLatestApiVersion
         self.idempotencyKey = idempotencyKey
     }
 
@@ -76,11 +124,27 @@ public struct OrderShipmentAdd: Sendable, Codable, JSONEncodable, Hashable {
         case isShipped = "is_shipped"
         case sendNotifications = "send_notifications"
         case adjustStock = "adjust_stock"
-        case enableCache = "enable_cache"
         case checkProcessStatus = "check_process_status"
         case trackingProvider = "tracking_provider"
-        case useLatestApiVersion = "use_latest_api_version"
         case adminComment = "admin_comment"
+        case mailClass = "mail_class"
+        case shipDate = "ship_date"
+        case weight
+        case weightUnit = "weight_unit"
+        case length
+        case width
+        case height
+        case dimensionsUnit = "dimensions_unit"
+        case shippingLabelCost = "shipping_label_cost"
+        case shippingLabelCurrency = "shipping_label_currency"
+        case revenueEligibility = "revenue_eligibility"
+        case shipFromCountry = "ship_from_country"
+        case shipToCountry = "ship_to_country"
+        case incoterm
+        case dutyAmount = "duty_amount"
+        case dutyCurrency = "duty_currency"
+        case enableCache = "enable_cache"
+        case useLatestApiVersion = "use_latest_api_version"
         case idempotencyKey = "idempotency_key"
     }
 
@@ -99,11 +163,27 @@ public struct OrderShipmentAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(isShipped, forKey: .isShipped)
         try container.encodeIfPresent(sendNotifications, forKey: .sendNotifications)
         try container.encodeIfPresent(adjustStock, forKey: .adjustStock)
-        try container.encodeIfPresent(enableCache, forKey: .enableCache)
         try container.encodeIfPresent(checkProcessStatus, forKey: .checkProcessStatus)
         try container.encodeIfPresent(trackingProvider, forKey: .trackingProvider)
-        try container.encodeIfPresent(useLatestApiVersion, forKey: .useLatestApiVersion)
         try container.encodeIfPresent(adminComment, forKey: .adminComment)
+        try container.encodeIfPresent(mailClass, forKey: .mailClass)
+        try container.encodeIfPresent(shipDate, forKey: .shipDate)
+        try container.encodeIfPresent(weight, forKey: .weight)
+        try container.encodeIfPresent(weightUnit, forKey: .weightUnit)
+        try container.encodeIfPresent(length, forKey: .length)
+        try container.encodeIfPresent(width, forKey: .width)
+        try container.encodeIfPresent(height, forKey: .height)
+        try container.encodeIfPresent(dimensionsUnit, forKey: .dimensionsUnit)
+        try container.encodeIfPresent(shippingLabelCost, forKey: .shippingLabelCost)
+        try container.encodeIfPresent(shippingLabelCurrency, forKey: .shippingLabelCurrency)
+        try container.encodeIfPresent(revenueEligibility, forKey: .revenueEligibility)
+        try container.encodeIfPresent(shipFromCountry, forKey: .shipFromCountry)
+        try container.encodeIfPresent(shipToCountry, forKey: .shipToCountry)
+        try container.encodeIfPresent(incoterm, forKey: .incoterm)
+        try container.encodeIfPresent(dutyAmount, forKey: .dutyAmount)
+        try container.encodeIfPresent(dutyCurrency, forKey: .dutyCurrency)
+        try container.encodeIfPresent(enableCache, forKey: .enableCache)
+        try container.encodeIfPresent(useLatestApiVersion, forKey: .useLatestApiVersion)
         try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
     }
 }
