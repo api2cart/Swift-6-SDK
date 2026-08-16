@@ -80,7 +80,7 @@ Create webhook on the store and subscribe to it.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let webhookCreate = WebhookCreate(entity: "entity_example", action: "action_example", callback: "callback_example", label: "label_example", fields: "fields_example", responseFields: "responseFields_example", active: true, langId: "langId_example", storeId: "storeId_example", filteringConditions: ParamDefinition_FilteringConditions_FilterCondition(and: [123], or: [123], not: 123, field: "field_example", _operator: "_operator_example", value: ParamDefinition_FilteringConditions_FilterRule_value()), idempotencyKey: "idempotencyKey_example") // WebhookCreate | 
+let webhookCreate = WebhookCreate(entity: "entity_example", action: "action_example", callback: "callback_example", label: "label_example", fields: "fields_example", responseFields: "responseFields_example", active: true, langId: "langId_example", storeId: "storeId_example", filteringConditions: ParamDefinition_FilteringConditions_FilterCondition(and: [123], or: [123], not: 123, field: "field_example", _operator: "_operator_example", value: ParamDefinition_FilteringConditions_FilterRule_value(), matchItems: "matchItems_example"), idempotencyKey: "idempotencyKey_example") // WebhookCreate | 
 
 // webhook.create
 WebhookAPI.webhookCreate(webhookCreate: webhookCreate) { (response, error) in
@@ -288,7 +288,7 @@ Update Webhooks parameters.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let webhookUpdate = WebhookUpdate(id: "id_example", callback: "callback_example", label: "label_example", fields: "fields_example", responseFields: "responseFields_example", active: true, langId: "langId_example", filteringConditions: ParamDefinition_FilteringConditions_FilterCondition(and: [123], or: [123], not: 123, field: "field_example", _operator: "_operator_example", value: ParamDefinition_FilteringConditions_FilterRule_value()), idempotencyKey: "idempotencyKey_example") // WebhookUpdate | 
+let webhookUpdate = WebhookUpdate(id: "id_example", callback: "callback_example", label: "label_example", fields: "fields_example", responseFields: "responseFields_example", active: true, langId: "langId_example", filteringConditions: ParamDefinition_FilteringConditions_FilterCondition(and: [123], or: [123], not: 123, field: "field_example", _operator: "_operator_example", value: ParamDefinition_FilteringConditions_FilterRule_value(), matchItems: "matchItems_example"), idempotencyKey: "idempotencyKey_example") // WebhookUpdate | 
 
 // webhook.update
 WebhookAPI.webhookUpdate(webhookUpdate: webhookUpdate) { (response, error) in

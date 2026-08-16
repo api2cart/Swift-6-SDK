@@ -12,17 +12,20 @@ public struct ParamDefinitionFilteringConditionsFilterRule: Sendable, Codable, J
     public var field: String?
     public var _operator: String?
     public var value: ParamDefinitionFilteringConditionsFilterRuleValue?
+    public var matchItems: String?
 
-    public init(field: String? = nil, _operator: String? = nil, value: ParamDefinitionFilteringConditionsFilterRuleValue? = nil) {
+    public init(field: String? = nil, _operator: String? = nil, value: ParamDefinitionFilteringConditionsFilterRuleValue? = nil, matchItems: String? = nil) {
         self.field = field
         self._operator = _operator
         self.value = value
+        self.matchItems = matchItems
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case field
         case _operator = "operator"
         case value
+        case matchItems = "match_items"
     }
 
     // Encodable protocol methods
@@ -32,6 +35,7 @@ public struct ParamDefinitionFilteringConditionsFilterRule: Sendable, Codable, J
         try container.encodeIfPresent(field, forKey: .field)
         try container.encodeIfPresent(_operator, forKey: ._operator)
         try container.encodeIfPresent(value, forKey: .value)
+        try container.encodeIfPresent(matchItems, forKey: .matchItems)
     }
 }
 
