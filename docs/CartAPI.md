@@ -733,7 +733,7 @@ Name | Type | Description  | Notes
 
 # **cartInfo**
 ```swift
-    open class func cartInfo(responseFields: String? = nil, params: String? = nil, exclude: String? = nil, completion: @escaping (_ data: CartInfo200Response?, _ error: Error?) -> Void)
+    open class func cartInfo(responseFields: String? = nil, params: String? = nil, exclude: String? = nil, useLatestApiVersion: Bool? = nil, completion: @escaping (_ data: CartInfo200Response?, _ error: Error?) -> Void)
 ```
 
 cart.info
@@ -748,9 +748,10 @@ import OpenAPIClient
 let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
 let params = "params_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional) (default to "store_name,store_url,db_prefix")
 let exclude = "exclude_example" // String | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+let useLatestApiVersion = true // Bool | Use the latest platform API version (optional) (default to false)
 
 // cart.info
-CartAPI.cartInfo(responseFields: responseFields, params: params, exclude: exclude) { (response, error) in
+CartAPI.cartInfo(responseFields: responseFields, params: params, exclude: exclude, useLatestApiVersion: useLatestApiVersion) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -769,6 +770,7 @@ Name | Type | Description  | Notes
  **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] 
  **params** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &quot;store_name,store_url,db_prefix&quot;]
  **exclude** | **String** | Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **useLatestApiVersion** | **Bool** | Use the latest platform API version | [optional] [default to false]
 
 ### Return type
 

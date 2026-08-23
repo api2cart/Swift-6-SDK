@@ -760,12 +760,13 @@ open class CartAPI {
      - parameter responseFields: (query) Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
      - parameter params: (query) Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "store_name,store_url,db_prefix")
      - parameter exclude: (query) Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+     - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CartInfo200Response
      */
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open class func cartInfo(responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartInfo200Response {
-        return try await cartInfoWithRequestBuilder(responseFields: responseFields, params: params, exclude: exclude, apiConfiguration: apiConfiguration).execute().body
+    open class func cartInfo(responseFields: String? = nil, params: String? = nil, exclude: String? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CartInfo200Response {
+        return try await cartInfoWithRequestBuilder(responseFields: responseFields, params: params, exclude: exclude, useLatestApiVersion: useLatestApiVersion, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -781,10 +782,11 @@ open class CartAPI {
      - parameter responseFields: (query) Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional)
      - parameter params: (query) Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to retrieve (optional, default to "store_name,store_url,db_prefix")
      - parameter exclude: (query) Important! Parameter deprecated, use response_fields instead. Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+     - parameter useLatestApiVersion: (query) Use the latest platform API version (optional, default to false)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CartInfo200Response> 
      */
-    open class func cartInfoWithRequestBuilder(responseFields: String? = nil, params: String? = nil, exclude: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartInfo200Response> {
+    open class func cartInfoWithRequestBuilder(responseFields: String? = nil, params: String? = nil, exclude: String? = nil, useLatestApiVersion: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CartInfo200Response> {
         let localVariablePath = "/cart.info.json"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -794,6 +796,7 @@ open class CartAPI {
             "response_fields": (wrappedValue: responseFields?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "params": (wrappedValue: params?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "exclude": (wrappedValue: exclude?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "use_latest_api_version": (wrappedValue: useLatestApiVersion?.encodeToJSON(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
