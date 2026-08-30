@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 # **bridgeDelete**
 ```swift
-    open class func bridgeDelete(completion: @escaping (_ data: AttributeValueDelete200Response?, _ error: Error?) -> Void)
+    open class func bridgeDelete(idempotencyKey: String? = nil, completion: @escaping (_ data: AttributeValueDelete200Response?, _ error: Error?) -> Void)
 ```
 
 bridge.delete
@@ -23,9 +23,10 @@ Delete bridge from the store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // bridge.delete
-BridgeAPI.bridgeDelete() { (response, error) in
+BridgeAPI.bridgeDelete(idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -38,7 +39,10 @@ BridgeAPI.bridgeDelete() { (response, error) in
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
@@ -107,7 +111,7 @@ Name | Type | Description  | Notes
 
 # **bridgeUpdate**
 ```swift
-    open class func bridgeUpdate(completion: @escaping (_ data: AttributeUpdate200Response?, _ error: Error?) -> Void)
+    open class func bridgeUpdate(idempotencyKey: String? = nil, completion: @escaping (_ data: AttributeUpdate200Response?, _ error: Error?) -> Void)
 ```
 
 bridge.update
@@ -119,9 +123,10 @@ Update bridge in the store.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
+let idempotencyKey = "idempotencyKey_example" // String | A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
 
 // bridge.update
-BridgeAPI.bridgeUpdate() { (response, error) in
+BridgeAPI.bridgeUpdate(idempotencyKey: idempotencyKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -134,7 +139,10 @@ BridgeAPI.bridgeUpdate() { (response, error) in
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 
 ### Return type
 
