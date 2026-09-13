@@ -154,11 +154,17 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
     public var origin: String?
     /** Specifies refund's fee price */
     public var feePrice: Double?
+    /** Specifies short national address code of a shipping address */
+    public var shippNationalAddress: String?
+    /** Specifies building number of a shipping address */
+    public var shippBuildingNumber: String?
+    /** Specifies additional number of a shipping address */
+    public var shippAdditionalNumber: String?
     /** A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> */
     public var idempotencyKey: String?
     public var orderItem: [OrderAddOrderItemInner]
 
-    public init(id: String? = nil, orderId: String? = nil, storeId: String? = nil, channelId: String? = nil, orderStatus: String, fulfillmentStatus: String? = nil, financialStatus: String? = nil, customerEmail: String, customerFirstName: String? = nil, customerLastName: String? = nil, customerPhone: String? = nil, customerCountry: String? = nil, customerBirthday: String? = nil, customerFax: String? = nil, isGuest: Bool? = false, orderPaymentMethod: String? = nil, transactionId: String? = nil, currency: String? = nil, date: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, billFirstName: String, billLastName: String, billAddress1: String, billAddress2: String? = nil, billCity: String, billPostcode: String, billState: String, billCountry: String, billCompany: String? = nil, billPhone: String? = nil, billFax: String? = nil, shippFirstName: String? = nil, shippLastName: String? = nil, shippAddress1: String? = nil, shippAddress2: String? = nil, shippCity: String? = nil, shippPostcode: String? = nil, shippState: String? = nil, shippCountry: String? = nil, shippCompany: String? = nil, shippPhone: String? = nil, shippFax: String? = nil, subtotalPrice: Double? = nil, taxPrice: Double? = 0, totalPrice: Double? = nil, totalPaid: Double? = nil, totalWeight: Int? = nil, pricesIncTax: Bool? = false, shippingPrice: Double? = 0, shippingTax: Double? = nil, discount: Double? = nil, couponDiscount: Double? = nil, giftCertificateDiscount: Double? = nil, orderShippingMethod: String? = nil, carrierId: String? = nil, warehouseId: String? = nil, coupons: [String]? = nil, tags: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, sendNotifications: Bool? = false, sendAdminNotifications: Bool? = false, externalSource: String? = nil, inventoryBehaviour: String? = "bypass", createInvoice: Bool? = false, invoiceAdminComment: String? = nil, noteAttributes: [OrderAddNoteAttributesInner]? = nil, clearCache: Bool? = true, origin: String? = nil, feePrice: Double? = nil, idempotencyKey: String? = nil, orderItem: [OrderAddOrderItemInner]) {
+    public init(id: String? = nil, orderId: String? = nil, storeId: String? = nil, channelId: String? = nil, orderStatus: String, fulfillmentStatus: String? = nil, financialStatus: String? = nil, customerEmail: String, customerFirstName: String? = nil, customerLastName: String? = nil, customerPhone: String? = nil, customerCountry: String? = nil, customerBirthday: String? = nil, customerFax: String? = nil, isGuest: Bool? = false, orderPaymentMethod: String? = nil, transactionId: String? = nil, currency: String? = nil, date: String? = nil, dateModified: String? = nil, dateFinished: String? = nil, billFirstName: String, billLastName: String, billAddress1: String, billAddress2: String? = nil, billCity: String, billPostcode: String, billState: String, billCountry: String, billCompany: String? = nil, billPhone: String? = nil, billFax: String? = nil, shippFirstName: String? = nil, shippLastName: String? = nil, shippAddress1: String? = nil, shippAddress2: String? = nil, shippCity: String? = nil, shippPostcode: String? = nil, shippState: String? = nil, shippCountry: String? = nil, shippCompany: String? = nil, shippPhone: String? = nil, shippFax: String? = nil, subtotalPrice: Double? = nil, taxPrice: Double? = 0, totalPrice: Double? = nil, totalPaid: Double? = nil, totalWeight: Int? = nil, pricesIncTax: Bool? = false, shippingPrice: Double? = 0, shippingTax: Double? = nil, discount: Double? = nil, couponDiscount: Double? = nil, giftCertificateDiscount: Double? = nil, orderShippingMethod: String? = nil, carrierId: String? = nil, warehouseId: String? = nil, coupons: [String]? = nil, tags: String? = nil, comment: String? = nil, adminComment: String? = nil, adminPrivateComment: String? = nil, sendNotifications: Bool? = false, sendAdminNotifications: Bool? = false, externalSource: String? = nil, inventoryBehaviour: String? = "bypass", createInvoice: Bool? = false, invoiceAdminComment: String? = nil, noteAttributes: [OrderAddNoteAttributesInner]? = nil, clearCache: Bool? = true, origin: String? = nil, feePrice: Double? = nil, shippNationalAddress: String? = nil, shippBuildingNumber: String? = nil, shippAdditionalNumber: String? = nil, idempotencyKey: String? = nil, orderItem: [OrderAddOrderItemInner]) {
         self.id = id
         self.orderId = orderId
         self.storeId = storeId
@@ -231,6 +237,9 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
         self.clearCache = clearCache
         self.origin = origin
         self.feePrice = feePrice
+        self.shippNationalAddress = shippNationalAddress
+        self.shippBuildingNumber = shippBuildingNumber
+        self.shippAdditionalNumber = shippAdditionalNumber
         self.idempotencyKey = idempotencyKey
         self.orderItem = orderItem
     }
@@ -308,6 +317,9 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
         case clearCache = "clear_cache"
         case origin
         case feePrice = "fee_price"
+        case shippNationalAddress = "shipp_national_address"
+        case shippBuildingNumber = "shipp_building_number"
+        case shippAdditionalNumber = "shipp_additional_number"
         case idempotencyKey = "idempotency_key"
         case orderItem = "order_item"
     }
@@ -388,6 +400,9 @@ public struct OrderAdd: Sendable, Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(clearCache, forKey: .clearCache)
         try container.encodeIfPresent(origin, forKey: .origin)
         try container.encodeIfPresent(feePrice, forKey: .feePrice)
+        try container.encodeIfPresent(shippNationalAddress, forKey: .shippNationalAddress)
+        try container.encodeIfPresent(shippBuildingNumber, forKey: .shippBuildingNumber)
+        try container.encodeIfPresent(shippAdditionalNumber, forKey: .shippAdditionalNumber)
         try container.encodeIfPresent(idempotencyKey, forKey: .idempotencyKey)
         try container.encode(orderItem, forKey: .orderItem)
     }

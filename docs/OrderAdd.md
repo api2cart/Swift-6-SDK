@@ -75,6 +75,9 @@ Name | Type | Description | Notes
 **clearCache** | **Bool** | Is cache clear required | [optional] [default to true]
 **origin** | **String** | The source of the order | [optional] 
 **feePrice** | **Double** | Specifies refund&#39;s fee price | [optional] 
+**shippNationalAddress** | **String** | Specifies short national address code of a shipping address | [optional] 
+**shippBuildingNumber** | **String** | Specifies building number of a shipping address | [optional] 
+**shippAdditionalNumber** | **String** | Specifies additional number of a shipping address | [optional] 
 **idempotencyKey** | **String** | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | [optional] 
 **orderItem** | [OrderAddOrderItemInner] |  | 
 
