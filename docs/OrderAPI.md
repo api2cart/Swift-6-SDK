@@ -1494,7 +1494,7 @@ let adminPrivateComment = "adminPrivateComment_example" // String | Specifies pr
 let invoiceAdminComment = "invoiceAdminComment_example" // String | Specifies admin's order invoice comment (optional)
 let dateModified = "dateModified_example" // String | Specifies order's  modification date (optional)
 let dateFinished = "dateFinished_example" // String | Specifies order's  finished date (optional)
-let sendNotifications = true // Bool | Send notifications to customer after order was created (optional) (default to false)
+let sendNotifications = true // Bool | Send notifications to customer after order status was changed (optional) (default to false)
 let createInvoice = true // Bool | Determines whether an invoice should be created if it has not already been created (optional)
 let origin = "origin_example" // String | The source of the order (optional)
 let tags = "tags_example" // String | Order tags (optional)
@@ -1530,7 +1530,7 @@ Name | Type | Description  | Notes
  **invoiceAdminComment** | **String** | Specifies admin&#39;s order invoice comment | [optional] 
  **dateModified** | **String** | Specifies order&#39;s  modification date | [optional] 
  **dateFinished** | **String** | Specifies order&#39;s  finished date | [optional] 
- **sendNotifications** | **Bool** | Send notifications to customer after order was created | [optional] [default to false]
+ **sendNotifications** | **Bool** | Send notifications to customer after order status was changed | [optional] [default to false]
  **createInvoice** | **Bool** | Determines whether an invoice should be created if it has not already been created | [optional] 
  **origin** | **String** | The source of the order | [optional] 
  **tags** | **String** | Order tags | [optional] 
