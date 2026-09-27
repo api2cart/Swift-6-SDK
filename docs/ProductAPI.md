@@ -683,7 +683,7 @@ let storeId = "storeId_example" // String | Counts products specified by store i
 let vendorId = "vendorId_example" // String | Counts products specified by vendor id (optional)
 let langId = "langId_example" // String | Counts products specified by language id (optional)
 let availView = true // Bool | Specifies the set of visible/invisible products (optional)
-let availSale = false // Bool | Specifies the set of available/not available products for sale (optional)
+let availSale = false // Bool | Specifies the set of available/not available products for sale.<br/>On BigCommerce the count checks only whether the product is set as purchasable and ignores stock (pre-order products are counted neither as true nor as false), so it can differ from product.list with the same value, which also checks stock at all inventory locations (optional)
 let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
 let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
 let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
@@ -727,7 +727,7 @@ Name | Type | Description  | Notes
  **vendorId** | **String** | Counts products specified by vendor id | [optional] 
  **langId** | **String** | Counts products specified by language id | [optional] 
  **availView** | **Bool** | Specifies the set of visible/invisible products | [optional] 
- **availSale** | **Bool** | Specifies the set of available/not available products for sale | [optional] 
+ **availSale** | **Bool** | Specifies the set of available/not available products for sale.&lt;br/&gt;On BigCommerce the count checks only whether the product is set as purchasable and ignores stock (pre-order products are counted neither as true nor as false), so it can differ from product.list with the same value, which also checks stock at all inventory locations | [optional] 
  **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
  **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
  **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
