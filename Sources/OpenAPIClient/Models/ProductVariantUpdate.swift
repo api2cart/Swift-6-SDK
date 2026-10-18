@@ -63,7 +63,7 @@ public struct ProductVariantUpdate: Sendable, Codable, JSONEncodable, Hashable {
     public var quantity: Double?
     /** Defines the incremental changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. */
     public var increaseQuantity: Double? = 0
-    /** Defines the decrement changes in product quantity. Effective only when manage_stock is true — otherwise the value is ignored. */
+    /** Defines the decrement changes in product quantity. Effective only when manage_stock is true. */
     public var reduceQuantity: Double? = 0
     /** Indicates whether prices include tax. */
     public var pricesIncTax: Bool? = false
