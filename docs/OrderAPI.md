@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**orderFinancialStatusList**](OrderAPI.md#orderfinancialstatuslist) | **GET** /order.financial_status.list.json | order.financial_status.list
 [**orderFulfillmentStatusList**](OrderAPI.md#orderfulfillmentstatuslist) | **GET** /order.fulfillment_status.list.json | order.fulfillment_status.list
 [**orderInfo**](OrderAPI.md#orderinfo) | **GET** /order.info.json | order.info
+[**orderInvoiceAdd**](OrderAPI.md#orderinvoiceadd) | **POST** /order.invoice.add.json | order.invoice.add
 [**orderList**](OrderAPI.md#orderlist) | **GET** /order.list.json | order.list
 [**orderPreestimateShippingList**](OrderAPI.md#orderpreestimateshippinglist) | **POST** /order.preestimate_shipping.list.json | order.preestimate_shipping.list
 [**orderRefundAdd**](OrderAPI.md#orderrefundadd) | **POST** /order.refund.add.json | order.refund.add
@@ -461,6 +462,56 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orderInvoiceAdd**
+```swift
+    open class func orderInvoiceAdd(orderInvoiceAdd: OrderInvoiceAdd, completion: @escaping (_ data: AttributeAdd200Response?, _ error: Error?) -> Void)
+```
+
+order.invoice.add
+
+Upload a PDF invoice or credit note of the order to the store. The store checks the document after the upload, so a successful response means it was received, not accepted. Use the returned id to find the result of the check in the store.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let orderInvoiceAdd = OrderInvoiceAdd(orderId: "orderId_example", shipmentId: "shipmentId_example", storeId: "storeId_example", number: "number_example", documentType: "documentType_example", transactionId: "transactionId_example", totalPrice: 123, taxPrice: 123, url: "url_example", content: "content_example", idempotencyKey: "idempotencyKey_example") // OrderInvoiceAdd | 
+
+// order.invoice.add
+OrderAPI.orderInvoiceAdd(orderInvoiceAdd: orderInvoiceAdd) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderInvoiceAdd** | [**OrderInvoiceAdd**](OrderInvoiceAdd.md) |  | 
+
+### Return type
+
+[**AttributeAdd200Response**](AttributeAdd200Response.md)
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
