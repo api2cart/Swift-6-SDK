@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**orderFulfillmentStatusList**](OrderAPI.md#orderfulfillmentstatuslist) | **GET** /order.fulfillment_status.list.json | order.fulfillment_status.list
 [**orderInfo**](OrderAPI.md#orderinfo) | **GET** /order.info.json | order.info
 [**orderInvoiceAdd**](OrderAPI.md#orderinvoiceadd) | **POST** /order.invoice.add.json | order.invoice.add
+[**orderInvoiceList**](OrderAPI.md#orderinvoicelist) | **GET** /order.invoice.list.json | order.invoice.list
 [**orderList**](OrderAPI.md#orderlist) | **GET** /order.list.json | order.list
 [**orderPreestimateShippingList**](OrderAPI.md#orderpreestimateshippinglist) | **POST** /order.preestimate_shipping.list.json | order.preestimate_shipping.list
 [**orderRefundAdd**](OrderAPI.md#orderrefundadd) | **POST** /order.refund.add.json | order.refund.add
@@ -512,6 +513,74 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orderInvoiceList**
+```swift
+    open class func orderInvoiceList(count: Int? = nil, pageCursor: String? = nil, orderIds: String? = nil, ids: String? = nil, storeId: String? = nil, createdFrom: String? = nil, createdTo: String? = nil, modifiedFrom: String? = nil, modifiedTo: String? = nil, responseFields: String? = nil, completion: @escaping (_ data: ModelResponseOrderInvoiceList?, _ error: Error?) -> Void)
+```
+
+order.invoice.list
+
+Get list of invoices the store issued for orders. Only the invoices of one store are returned, also when filtered by order_ids or ids: the store given in store_id, or the default store when store_id is not given.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let count = 987 // Int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional) (default to 10)
+let pageCursor = "" // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter) (optional)
+let orderIds = "orderIds_example" // String | Retrieves invoices of the orders specified by order ids (optional)
+let ids = "ids_example" // String | Retrieves invoices specified by ids (optional)
+let storeId = "storeId_example" // String | Retrieves invoices of the store specified by store id. The default store is taken when not specified (optional)
+let createdFrom = "createdFrom_example" // String | Retrieve entities from their creation date (optional)
+let createdTo = "createdTo_example" // String | Retrieve entities to their creation date (optional)
+let modifiedFrom = "modifiedFrom_example" // String | Retrieve entities from their modification date (optional)
+let modifiedTo = "modifiedTo_example" // String | Retrieve entities to their modification date (optional)
+let responseFields = "responseFields_example" // String | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. (optional) (default to "{return_code,return_message,pagination,result}")
+
+// order.invoice.list
+OrderAPI.orderInvoiceList(count: count, pageCursor: pageCursor, orderIds: orderIds, ids: ids, storeId: storeId, createdFrom: createdFrom, createdTo: createdTo, modifiedFrom: modifiedFrom, modifiedTo: modifiedTo, responseFields: responseFields) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **count** | **Int** | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String** | Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
+ **orderIds** | **String** | Retrieves invoices of the orders specified by order ids | [optional] 
+ **ids** | **String** | Retrieves invoices specified by ids | [optional] 
+ **storeId** | **String** | Retrieves invoices of the store specified by store id. The default store is taken when not specified | [optional] 
+ **createdFrom** | **String** | Retrieve entities from their creation date | [optional] 
+ **createdTo** | **String** | Retrieve entities to their creation date | [optional] 
+ **modifiedFrom** | **String** | Retrieve entities from their modification date | [optional] 
+ **modifiedTo** | **String** | Retrieve entities to their modification date | [optional] 
+ **responseFields** | **String** | Set this parameter to choose which entity fields to retrieve. Use comma-separated field names in curly braces, nested to match the response structure, e.g. {result{product{id,name}}}. The wildcard * returns every field at a level: {*} gives the whole response, {result{product{*}}} all product fields. | [optional] [default to &quot;{return_code,return_message,pagination,result}&quot;]
+
+### Return type
+
+[**ModelResponseOrderInvoiceList**](ModelResponseOrderInvoiceList.md)
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -198,6 +198,7 @@ Sources/OpenAPIClient/Models/ModelResponseOrderAbandonedList.swift
 Sources/OpenAPIClient/Models/ModelResponseOrderCount.swift
 Sources/OpenAPIClient/Models/ModelResponseOrderFinancialStatusList.swift
 Sources/OpenAPIClient/Models/ModelResponseOrderFulfillmentStatusList.swift
+Sources/OpenAPIClient/Models/ModelResponseOrderInvoiceList.swift
 Sources/OpenAPIClient/Models/ModelResponseOrderList.swift
 Sources/OpenAPIClient/Models/ModelResponseOrderPreestimateShippingList.swift
 Sources/OpenAPIClient/Models/ModelResponseOrderShipmentEventList.swift
@@ -244,7 +245,11 @@ Sources/OpenAPIClient/Models/OrderCalculateShippingRate.swift
 Sources/OpenAPIClient/Models/OrderCalculateSubtotal.swift
 Sources/OpenAPIClient/Models/OrderCalculateTax.swift
 Sources/OpenAPIClient/Models/OrderInfo200Response.swift
+Sources/OpenAPIClient/Models/OrderInvoice.swift
 Sources/OpenAPIClient/Models/OrderInvoiceAdd.swift
+Sources/OpenAPIClient/Models/OrderInvoiceComment.swift
+Sources/OpenAPIClient/Models/OrderInvoiceItem.swift
+Sources/OpenAPIClient/Models/OrderInvoiceTotals.swift
 Sources/OpenAPIClient/Models/OrderItem.swift
 Sources/OpenAPIClient/Models/OrderItemOption.swift
 Sources/OpenAPIClient/Models/OrderPaymentMethod.swift
@@ -432,6 +437,7 @@ Sources/OpenAPIClient/Models/ResponseOrderAbandonedListResult.swift
 Sources/OpenAPIClient/Models/ResponseOrderCountResult.swift
 Sources/OpenAPIClient/Models/ResponseOrderFinancialStatusListResult.swift
 Sources/OpenAPIClient/Models/ResponseOrderFulfillmentStatusListResult.swift
+Sources/OpenAPIClient/Models/ResponseOrderInvoiceListResult.swift
 Sources/OpenAPIClient/Models/ResponseOrderListResult.swift
 Sources/OpenAPIClient/Models/ResponseOrderPreestimateShippingListResult.swift
 Sources/OpenAPIClient/Models/ResponseOrderShipmentEventListResult.swift
@@ -663,6 +669,7 @@ docs/ModelResponseOrderAbandonedList.md
 docs/ModelResponseOrderCount.md
 docs/ModelResponseOrderFinancialStatusList.md
 docs/ModelResponseOrderFulfillmentStatusList.md
+docs/ModelResponseOrderInvoiceList.md
 docs/ModelResponseOrderList.md
 docs/ModelResponseOrderPreestimateShippingList.md
 docs/ModelResponseOrderShipmentEventList.md
@@ -710,7 +717,11 @@ docs/OrderCalculateShippingRate.md
 docs/OrderCalculateSubtotal.md
 docs/OrderCalculateTax.md
 docs/OrderInfo200Response.md
+docs/OrderInvoice.md
 docs/OrderInvoiceAdd.md
+docs/OrderInvoiceComment.md
+docs/OrderInvoiceItem.md
+docs/OrderInvoiceTotals.md
 docs/OrderItem.md
 docs/OrderItemOption.md
 docs/OrderPaymentMethod.md
@@ -899,6 +910,7 @@ docs/ResponseOrderAbandonedListResult.md
 docs/ResponseOrderCountResult.md
 docs/ResponseOrderFinancialStatusListResult.md
 docs/ResponseOrderFulfillmentStatusListResult.md
+docs/ResponseOrderInvoiceListResult.md
 docs/ResponseOrderListResult.md
 docs/ResponseOrderPreestimateShippingListResult.md
 docs/ResponseOrderShipmentEventListResult.md
